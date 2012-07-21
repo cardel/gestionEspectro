@@ -18,18 +18,16 @@
 	global $user;
 	$status = "";
 
-	$file;
-
 	$prefijo = substr(md5(uniqid(rand())),0,6);
-	$ordefinedinput = $_POST["oredefinedinput"];
 	
-	if(!is_dir("/var/www/html/site/gestionEspectro/entradas/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/entradas/".$user->ui, 0755);
+	if(!is_dir("/var/www/html/site/gestionEspectro/entradas/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/entradas/".$user->uid, 0755);
 	if(!is_dir("/var/www/html/site/gestionEspectro/salidas/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/salidas/".$user->uid, 0755);
 	if(!is_dir("/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid, 0755);
-	
+		
+	$file = $_POST["oredefinedinput"];
 	
 
-	if ($_POST["action"] == "upload" && oredefinedinput!="null") {
+	if ($_POST["action"] == "upload" && $file=="null") {
 	
 		// obtenemos los datos del archivo 
 		$tamano = $_FILES["archivo"]['size'];
@@ -49,11 +47,8 @@
 			$status = "Error al subir archivo";
 		}
 	}
-	else
-	{
-			$file = $oredefinedinput; 
-	}
 
+	echo $status;
 	//Variables para todas las iteracciones
 	$motor = $_POST["motor"];
 	$estrategia = $_POST["estrategia"];
@@ -119,52 +114,53 @@
 	if ($noSepit6!=1) $noSepit6=0;
 	if ($noconsidTopeit6!=1) $noconsidTopeit6=0;
 	if ($noMantenerSepit6!=1) $noMantenerSepit6=0;
-
+	
+	$outputit1="/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it1.xml";
+	$outputit2="/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it2.xml";
+	$outputit3="/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it3.xml";
+	$outputit4="/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it4.xml";
+	$outputit5="/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it5.xml";
+	$outputit6="/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it6.xml";
+	
 	if($_POST["op"] == "Ejecutar")
-	{
+	{		
 		//Cambiar variables de entorno
 		$saved = getenv("PATH");
 		$newld = "/home/avispa/mozart-1.4.0/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin";
 		if ($saved) { $newld .= ":$saved"; }
 		putenv("PATH=$newld");
 		
-		$outputit1="/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it1.xml";
-		$outputit2="/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it2.xml";
-		$outputit3="/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it3.xml";
-		$outputit4="/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it4.xml";
-		$outputit5="/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it5.xml";
-		$outputit6="/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it6.xml";
-
 		switch($numeroIteracciones)
 		{
 				case 1:
-					exec("./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit1 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit1 --nsep=$noSepit1 --ntope=$noconsidTopeit1 --nopc=$numerOpeCanalit1");
-				break;
+					 
+					 exec("./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit1 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit1 --nsep=$noSepit1 --ntope=$noconsidTopeit1 --nopc=$numerOpeCanalit1");
+					break;
 				case 2:
 					exec("./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit1 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit1 --nsep=$noSepit1 --ntope=$noconsidTopeit1 --nopc=$numerOpeCanalit1 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit2 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit2 --nsep=$noSepit2 --ntope=$noconsidTopeit2 --nopc=$numerOpeCanalit2");
-				break;
+					break;
 				case 3:
 					exec("./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit1 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit1 --nsep=$noSepit1 --ntope=$noconsidTopeit1 --nopc=$numerOpeCanalit1 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit2 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit2 --nsep=$noSepit2 --ntope=$noconsidTopeit2 --nopc=$numerOpeCanalit2 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit3 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit3 --nsep=$noSepit3 --ntope=$noconsidTopeit3 --nopc=$numerOpeCanalit3");
-				break;
+					break;
 				case 4:
 					exec("./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit1 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit1 --nsep=$noSepit1 --ntope=$noconsidTopeit1 --nopc=$numerOpeCanalit1 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit2 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit2 --nsep=$noSepit2 --ntope=$noconsidTopeit2 --nopc=$numerOpeCanalit2 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit3 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit3 --nsep=$noSepit3 --ntope=$noconsidTopeit3 --nopc=$numerOpeCanalit3 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit4 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit4 --nsep=$noSepit4 --ntope=$noconsidTopeit4 --nopc=$numerOpeCanalit4");
-				break;
+					break;
 				case 5:
 					exec("./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit1 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit1 --nsep=$noSepit1 --ntope=$noconsidTopeit1 --nopc=$numerOpeCanalit1 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit2 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit2 --nsep=$noSepit2 --ntope=$noconsidTopeit2 --nopc=$numerOpeCanalit2 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit3 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit3 --nsep=$noSepit3 --ntope=$noconsidTopeit3 --nopc=$numerOpeCanalit3 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit4 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit4 --nsep=$noSepit4 --ntope=$noconsidTopeit4 --nopc=$numerOpeCanalit4 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit5 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit5 --nsep=$noSepit5 --ntope=$noconsidTopeit5 --nopc=$numerOpeCanalit5");
 				case 6:
 					exec("./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit1 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit1 --nsep=$noSepit1 --ntope=$noconsidTopeit1 --nopc=$numerOpeCanalit1 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit2 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit2 --nsep=$noSepit2 --ntope=$noconsidTopeit2 --nopc=$numerOpeCanalit2 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit3 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit3 --nsep=$noSepit3 --ntope=$noconsidTopeit3 --nopc=$numerOpeCanalit3 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit4 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit4 --nsep=$noSepit4 --ntope=$noconsidTopeit4 --nopc=$numerOpeCanalit4 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit5 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit5 --nsep=$noSepit5 --ntope=$noconsidTopeit5 --nopc=$numerOpeCanalit5 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit6 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit6 --nsep=$noSepit6 --ntope=$noconsidTopeit6 --nopc=$numerOpeCanalit6");
-				break;
+					break;
 				default:
-				break;	
+					break;	
 		}
-		
+	
 		putenv("PATH=$saved");
-		mostrarResultados($numeroIteracciones);
+		mostrarResultados($numeroIteracciones,$outputit1,$outputit2,$outputit3,$outputit4,$outputit5,$outputit6);
 	}
 
-	function mostrarResultados($numIt)
+	function mostrarResultados($numIt, $out1, $out2, $out3, $out4, $out5, $out6)
 	{
-		
+
 		echo '<div id="tabs" class="tabs" style="width:100%;">';
 		
 		echo '<ul>';
@@ -180,7 +176,8 @@
 		if($numIt>0)
 		{
 			echo '<div id="tabs-1">';
-			$solucion = simplexml_load_file($outputit1);
+			echo $file;
+			$solucion = simplexml_load_file($out1);
 			 
 			$head = $solucion->head; 
 			$numeroDeSolucionesEncontradas = $head->numSolutions;
@@ -257,7 +254,7 @@
 		{
 			echo '<div id="tabs-2">';
 			echo "<p class='estilo'>Information</p>\n";
-			$solucion = simplexml_load_file($outputit2);
+			$solucion = simplexml_load_file($out2);
 			 
 			$head = $solucion->head; 
 			$numeroDeSolucionesEncontradas = $head->numSolutions;
@@ -333,7 +330,7 @@
 		{
 			echo '<div id="tabs-3">';
 			echo "<p class='estilo'>Information</p>\n";
-			$solucion = simplexml_load_file('$outputit3');
+			$solucion = simplexml_load_file($out3);
 			$head = $solucion->head; 
 			$numeroDeSolucionesEncontradas = $head->numSolutions;
 			
@@ -407,7 +404,7 @@
 		{
 			echo '<div id="tabs-4">';
 			echo "<p class='estilo'>Information</p>\n";
-			$solucionit4 = simplexml_load_file('$outputit4');
+			$solucionit4 = simplexml_load_file($out4);
 			echo "<p class='estilo'>Salida en formato XML</p>\n";
 			echo "Usted puede descargar los archivos de entrada y salida en formato XML:<br/><br/>\n";
 			echo "<a href='file2.xml' target='_blank'> Descargar entrada </a><br/>";
@@ -430,7 +427,7 @@
 		{
 			echo '<div id="tabs-5">';
 			echo "<p class='estilo'>Information</p>\n";
-			$solucionit5 = simplexml_load_file('$outputit5');
+			$solucionit5 = simplexml_load_file($out5);
 			echo "<p class='estilo'>Salida en formato XML</p>\n";
 			echo "Usted puede descargar los archivos de entrada y salida en formato XML:<br/><br/>\n";
 			echo "<a href='file2.xml' target='_blank'> Descargar entrada </a><br/>";
@@ -453,7 +450,7 @@
 		{
 			echo '<div id="tabs-6">';
 			echo "<p class='estilo'>Information</p>\n";
-			$solucionit6 = simplexml_load_file('$outputit6');
+			$solucionit6 = simplexml_load_file($out6);
 			echo "<p class='estilo'>Salida en formato XML</p>\n";
 			echo "Usted puede descargar los archivos de entrada y salida en formato XML:<br/><br/>\n";
 			echo "<a href='file2.xml' target='_blank'> Descargar entrada </a><br/>";
@@ -497,7 +494,7 @@
 					}		
 					while ($archivo = readdir($directorio))
 					{
-						if(is_file("/var/www/html/site/gestionEspectro/entradas/".$user->uid."/".$archivo)) echo "<option value=\"$archivo\">$archivo</option>"; 
+						if(is_file("/var/www/html/site/gestionEspectro/entradas/".$user->uid."/".$archivo)) echo "<option value=\"/var/www/html/site/gestionEspectro/entradas/".$user->uid."/".$archivo."\">$archivo</option>"; 
 					}	
 					closedir($directorio); 
 					
