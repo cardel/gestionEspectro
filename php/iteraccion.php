@@ -5,8 +5,6 @@
 	foreach($solucionIt1->solution as $sol)
 	{
 		$id= (int) $sol->attributes()->id;	
-		echo "ID: ".$id."<br/>";
-		echo "seleccion: ".$seleccion."<br/>";
 			
 		if($seleccion==$id)
 		{	
@@ -90,4 +88,3 @@
 	}
 
 ?>
-
