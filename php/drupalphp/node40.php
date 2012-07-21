@@ -18,21 +18,28 @@
 	global $user;
 	$status = "";
 
-	$prefijo = substr(md5(uniqid(rand())),0,6);
-	$ordefinedinput= (int)$_POST["oredefinedinput"];
+	$file;
 
-	if ($_POST["action"] == "upload" && oredefinedinput!=0) {
-		echo "entro";
-		if(!is_dir("/var/www/html/site/sites/default/".$user->uid)) mkdir("/var/www/html/site/sites/default/".$user->uid, 0755);
+	$prefijo = date(DATE_RFC822);
+	$ordefinedinput = $_POST["oredefinedinput"];
+	
+	if(!is_dir("/var/www/html/site/gestionEspectro/entradas/".$user->uid)) mkdir(("/var/www/html/site/gestionEspectro/entradas/".$user->ui, 0755);
+	if(!is_dir("/var/www/html/site/gestionEspectro/salidas/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/salidas/".$user->uid, 0755);
+	if(!is_dir("/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid, 0755);
+	
+	
+
+	if ($_POST["action"] == "upload" && oredefinedinput!="null") {
+	
 		// obtenemos los datos del archivo 
 		$tamano = $_FILES["archivo"]['size'];
 		$tipo = $_FILES["archivo"]['type'];
 		$archivo = $_FILES["archivo"]['name'];
 		
-		
 		if ($archivo != "") {
 			// guardamos el archivo a la carpeta files
-			$destino =  "/var/www/html/site/sites/default/".$user->uid."/".$prefijo."_".$archivo;
+			$destino =  "/var/www/html/site/sites/default/".$user->uid."/".$archivo;
+			$file = $destino;
 			if (copy($_FILES['archivo']['tmp_name'],$destino)) {
 				$status = "Archivo subido: <b>".$archivo."</b>";
 			} else {
@@ -42,9 +49,10 @@
 			$status = "Error al subir archivo";
 		}
 	}
-	echo $status;
-
-
+	else
+	{
+			$file = $oredefinedinput; 
+	}
 
 	//Variables para todas las iteracciones
 	$motor = $_POST["motor"];
@@ -120,8 +128,7 @@
 		if ($saved) { $newld .= ":$saved"; }
 		putenv("PATH=$newld");
 		
-		$file = './gestionEspectro/TGAplicacion/Entradas/entrada1.xml';
-		$outputit1;
+		$outputit1="/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid;
 		$outputit2;
 		$outputit3;
 		$outputit4;
@@ -376,7 +383,7 @@
 		<div class="form-item" id="edit-oredefinedinput-wrapper">
 			<label for="edit-oredefinedinput">Selección entrada definida: </label>
 			<select name="oredefinedinput" class="form-select" id="edit-oredefinedinput">
-				<option value="0" selected="selected">Ninguna</option>
+				<option value="null" selected="selected">Ninguna</option>
 				<?php
 					$directorio=@opendir("/var/www/html/site/sites/default/".$user->uid); 
 					
