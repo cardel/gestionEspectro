@@ -18,7 +18,8 @@
 	global $user;
 	$status = "";
 
-	$ordefinedinput= $_POST["oredefinedinput"];
+	$prefijo = substr(md5(uniqid(rand())),0,6);
+	$ordefinedinput= (int)$_POST["oredefinedinput"];
 
 	if ($_POST["action"] == "upload" && oredefinedinput!=0) {
 		echo "entro";
@@ -27,7 +28,7 @@
 		$tamano = $_FILES["archivo"]['size'];
 		$tipo = $_FILES["archivo"]['type'];
 		$archivo = $_FILES["archivo"]['name'];
-		$prefijo = substr(md5(uniqid(rand())),0,6);
+		
 		
 		if ($archivo != "") {
 			// guardamos el archivo a la carpeta files
