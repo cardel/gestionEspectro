@@ -20,10 +20,10 @@
 
 	$file;
 
-	$prefijo = date(DATE_RFC822);
+	$prefijo = substr(md5(uniqid(rand())),0,6);
 	$ordefinedinput = $_POST["oredefinedinput"];
 	
-	if(!is_dir("/var/www/html/site/gestionEspectro/entradas/".$user->uid)) mkdir(("/var/www/html/site/gestionEspectro/entradas/".$user->ui, 0755);
+	if(!is_dir("/var/www/html/site/gestionEspectro/entradas/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/entradas/".$user->ui, 0755);
 	if(!is_dir("/var/www/html/site/gestionEspectro/salidas/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/salidas/".$user->uid, 0755);
 	if(!is_dir("/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid, 0755);
 	
@@ -38,7 +38,7 @@
 		
 		if ($archivo != "") {
 			// guardamos el archivo a la carpeta files
-			$destino =  "/var/www/html/site/sites/default/".$user->uid."/".$archivo;
+			$destino =  "/var/www/html/site/gestionEspectro/entradas/".$user->uid."/".$archivo;
 			$file = $destino;
 			if (copy($_FILES['archivo']['tmp_name'],$destino)) {
 				$status = "Archivo subido: <b>".$archivo."</b>";
@@ -128,31 +128,31 @@
 		if ($saved) { $newld .= ":$saved"; }
 		putenv("PATH=$newld");
 		
-		$outputit1="/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid;
-		$outputit2;
-		$outputit3;
-		$outputit4;
-		$outputit5;
-		$outputit6;
+		$outputit1="/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it1.xml";
+		$outputit2="/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it2.xml";
+		$outputit3="/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it3.xml";
+		$outputit4="/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it4.xml";
+		$outputit5="/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it5.xml";
+		$outputit6="/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it6.xml";
 
 		switch($numeroIteracciones)
 		{
 				case 1:
-					exec("./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=file2it1.xml --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit1 --nsep=$noSepit1 --ntope=$noconsidTopeit1 --nopc=$numerOpeCanalit1");
+					exec("./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit1 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit1 --nsep=$noSepit1 --ntope=$noconsidTopeit1 --nopc=$numerOpeCanalit1");
 				break;
 				case 2:
-					exec("./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=file2it1.xml --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit1 --nsep=$noSepit1 --ntope=$noconsidTopeit1 --nopc=$numerOpeCanalit1 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=file2it2.xml --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit2 --nsep=$noSepit2 --ntope=$noconsidTopeit2 --nopc=$numerOpeCanalit2");
+					exec("./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit1 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit1 --nsep=$noSepit1 --ntope=$noconsidTopeit1 --nopc=$numerOpeCanalit1 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit2 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit2 --nsep=$noSepit2 --ntope=$noconsidTopeit2 --nopc=$numerOpeCanalit2");
 				break;
 				case 3:
-					exec("./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=file2it1.xml --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit1 --nsep=$noSepit1 --ntope=$noconsidTopeit1 --nopc=$numerOpeCanalit1 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=file2it2.xml --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit2 --nsep=$noSepit2 --ntope=$noconsidTopeit2 --nopc=$numerOpeCanalit2 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=file2it3.xml --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit3 --nsep=$noSepit3 --ntope=$noconsidTopeit3 --nopc=$numerOpeCanalit3");
+					exec("./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit1 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit1 --nsep=$noSepit1 --ntope=$noconsidTopeit1 --nopc=$numerOpeCanalit1 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit2 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit2 --nsep=$noSepit2 --ntope=$noconsidTopeit2 --nopc=$numerOpeCanalit2 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit3 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit3 --nsep=$noSepit3 --ntope=$noconsidTopeit3 --nopc=$numerOpeCanalit3");
 				break;
 				case 4:
-					exec("./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=file2it1.xml --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit1 --nsep=$noSepit1 --ntope=$noconsidTopeit1 --nopc=$numerOpeCanalit1 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=file2it2.xml --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit2 --nsep=$noSepit2 --ntope=$noconsidTopeit2 --nopc=$numerOpeCanalit2 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=file2it3.xml --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit3 --nsep=$noSepit3 --ntope=$noconsidTopeit3 --nopc=$numerOpeCanalit3 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=file2it4.xml --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit4 --nsep=$noSepit4 --ntope=$noconsidTopeit4 --nopc=$numerOpeCanalit4");
+					exec("./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit1 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit1 --nsep=$noSepit1 --ntope=$noconsidTopeit1 --nopc=$numerOpeCanalit1 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit2 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit2 --nsep=$noSepit2 --ntope=$noconsidTopeit2 --nopc=$numerOpeCanalit2 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit3 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit3 --nsep=$noSepit3 --ntope=$noconsidTopeit3 --nopc=$numerOpeCanalit3 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit4 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit4 --nsep=$noSepit4 --ntope=$noconsidTopeit4 --nopc=$numerOpeCanalit4");
 				break;
 				case 5:
-					exec("./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=file2it1.xml --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit1 --nsep=$noSepit1 --ntope=$noconsidTopeit1 --nopc=$numerOpeCanalit1 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=file2it2.xml --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit2 --nsep=$noSepit2 --ntope=$noconsidTopeit2 --nopc=$numerOpeCanalit2 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=file2it3.xml --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit3 --nsep=$noSepit3 --ntope=$noconsidTopeit3 --nopc=$numerOpeCanalit3 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=file2it4.xml --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit4 --nsep=$noSepit4 --ntope=$noconsidTopeit4 --nopc=$numerOpeCanalit4 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=file2it5.xml --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit5 --nsep=$noSepit5 --ntope=$noconsidTopeit5 --nopc=$numerOpeCanalit5");
+					exec("./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit1 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit1 --nsep=$noSepit1 --ntope=$noconsidTopeit1 --nopc=$numerOpeCanalit1 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit2 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit2 --nsep=$noSepit2 --ntope=$noconsidTopeit2 --nopc=$numerOpeCanalit2 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit3 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit3 --nsep=$noSepit3 --ntope=$noconsidTopeit3 --nopc=$numerOpeCanalit3 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit4 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit4 --nsep=$noSepit4 --ntope=$noconsidTopeit4 --nopc=$numerOpeCanalit4 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit5 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit5 --nsep=$noSepit5 --ntope=$noconsidTopeit5 --nopc=$numerOpeCanalit5");
 				case 6:
-					exec("./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=file2it1.xml --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit1 --nsep=$noSepit1 --ntope=$noconsidTopeit1 --nopc=$numerOpeCanalit1 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=file2it2.xml --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit2 --nsep=$noSepit2 --ntope=$noconsidTopeit2 --nopc=$numerOpeCanalit2 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=file2it3.xml --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit3 --nsep=$noSepit3 --ntope=$noconsidTopeit3 --nopc=$numerOpeCanalit3 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=file2it4.xml --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit4 --nsep=$noSepit4 --ntope=$noconsidTopeit4 --nopc=$numerOpeCanalit4 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=file2it5.xml --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit5 --nsep=$noSepit5 --ntope=$noconsidTopeit5 --nopc=$numerOpeCanalit5 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=file2it6.xml --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit6 --nsep=$noSepit6 --ntope=$noconsidTopeit6 --nopc=$numerOpeCanalit6");
+					exec("./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit1 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit1 --nsep=$noSepit1 --ntope=$noconsidTopeit1 --nopc=$numerOpeCanalit1 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit2 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit2 --nsep=$noSepit2 --ntope=$noconsidTopeit2 --nopc=$numerOpeCanalit2 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit3 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit3 --nsep=$noSepit3 --ntope=$noconsidTopeit3 --nopc=$numerOpeCanalit3 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit4 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit4 --nsep=$noSepit4 --ntope=$noconsidTopeit4 --nopc=$numerOpeCanalit4 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit5 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit5 --nsep=$noSepit5 --ntope=$noconsidTopeit5 --nopc=$numerOpeCanalit5 & ./gestionEspectro/TGAplicacion/AplicacionAsignacionDelEspectro.exe --motor=$motor --f=$file --pnb=$pesoNumeroBloques  --psm=$pesoCanalesLibres --pnc=$pesoCanalesInutiles --es=$estrategia --tm=$executionTime --o=$outputit6 --rc=$recomputationLevel --ns=$numeroDeSoluciones --nmas=$noMantenerSepit6 --nsep=$noSepit6 --ntope=$noconsidTopeit6 --nopc=$numerOpeCanalit6");
 				break;
 				default:
 				break;	
@@ -180,7 +180,7 @@
 		if($numIt>0)
 		{
 			echo '<div id="tabs-1">';
-			$solucion = simplexml_load_file("file2it1.xml");
+			$solucion = simplexml_load_file($outputit1);
 			 
 			$head = $solucion->head; 
 			$numeroDeSolucionesEncontradas = $head->numSolutions;
@@ -245,7 +245,7 @@
 			}
 			</script>			
 
-			<div id="mostrarSolIt1">Mi texto sin recargar</div>
+			<div id="mostrarSolIt1"></div>
 
 			<?php
 			echo "</p>\n";
@@ -257,54 +257,157 @@
 		{
 			echo '<div id="tabs-2">';
 			echo "<p class='estilo'>Information</p>\n";
-			$solucionit2 = simplexml_load_file('file2it2.xml');
-			echo "<p class='estilo'>Salida en formato XML</p>\n";
-			echo "Usted puede descargar los archivos de entrada y salida en formato XML:<br/><br/>\n";
-			echo "<a href='file2.xml' target='_blank'> Descargar entrada </a><br/>";
-			echo "<a href='file2.xml' target='_blank' > Descargar salida </a><br/><br/>";
-			echo "A continuación se muestra la salida en formato XML:<br/>\n";
-			echo  '<div style="height:300px; overflow: scroll;">';
-			echo "<pre class='brush: xml'>\n";
-			$salidaTextoXML = $solucionit2->asXML();
-			$salidaTextoXML = str_replace("<","&lt;",$salidaTextoXML);
-			$salidaTextoXML = str_replace(">","&gt;",$salidaTextoXML);
-			echo $salidaTextoXML;
-			echo "</pre>\n";
+			$solucion = simplexml_load_file($outputit2);
+			 
+			$head = $solucion->head; 
+			$numeroDeSolucionesEncontradas = $head->numSolutions;
+			
+			$numeroDeOperadores = $head->operatorsNumber;
+			$numeroDeCanales = $head->channelsNumber;
+			echo "Ver PDF \t Guardar XML en Sistema \t Descargar XML";
+			echo "<p class='estilo'>Información</p>\n";
+			echo "<table width='100%' class='tabla' border='1'>\n";
+			
+			echo "<thead>\n";
+			echo "<tr>\n";
+			echo "<th class='estilo'>Concepto</th>\n";
+			echo "<th class='estilo'>Valor</th>\n";
+			echo "</tr>\n";
+
+			echo "</thead>\n";
+			echo "<tbody>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Datos de la banda y localidad</td>\n";
+			echo "<td class='estilo'>Localidad/Datos de la banda/Numero de canales --> faltan</td>\n";
+			echo "</tr>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Número de soluciones</td>\n";
+			echo "<td class='estilo'>$head->numSolutions</td>\n";
+			echo "</tr>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Espacios de computación creados</td>\n";
+			echo "<td class='estilo'>$head->spacesCreated</td>\n";
+			echo "</tr>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Número de variables de dominios finitos</td>\n";
+			echo "<td class='estilo'>$head->FDVariables</td>\n";
+			echo "</tr>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Número de propagadores</td>\n";
+			echo "<td class='estilo'>$head->propagators</td>\n";
+			echo "</tr>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Uso de memoria (Bytes)</td>\n";
+			echo "<td class='estilo'>$head->memoryUsage</td>\n";
+			echo "</tr>\n";
+			echo "</tbody>\n";			
+			echo "</table>\n";
+			
+			echo "<p class='estilo'>Soluciones</p>\n";
+			echo "<select id=\"selectit2\">";
+			for($i=0; $i<$numeroDeSolucionesEncontradas; $i++)
+			{
+					echo "<option value=\"".$i."\">Solución #".$i."</option>";
+			}
+			echo "</select>";
+			?>
+			<a href="#" onclick="javascript:recargarit2();"> Mostrar solución </a>
+			
+			<script language="javascript">
+			function recargarit2(){    
+				var selector = $('#selectit2').val();
+				$.post("gestionEspectro/php/iteraccion.php", { opcSelec: selector }, function(data){
+					$("#mostrarSolIt2").html(data);
+				});         
+			}
+			</script>			
+
+			<div id="mostrarSolIt2"></div>
+
+			<?php
+			echo "</p>\n";
 			echo "</div>\n";
-			echo '<script type="text/javascript">  SyntaxHighlighter.all() </script>';
-			echo "<br/>\n";
-			exec("rm file2it2.xml");		
-			echo "</div>\n";		
 		}
 		
 		if($numIt>2)
 		{
 			echo '<div id="tabs-3">';
 			echo "<p class='estilo'>Information</p>\n";
-			$solucionit3 = simplexml_load_file('file2it3.xml');
-			echo "<p class='estilo'>Salida en formato XML</p>\n";
-			echo "Usted puede descargar los archivos de entrada y salida en formato XML:<br/><br/>\n";
-			echo "<a href='file2.xml' target='_blank'> Descargar entrada </a><br/>";
-			echo "<a href='file2.xml' target='_blank' > Descargar salida </a><br/><br/>";
-			echo "A continuación se muestra la salida en formato XML:<br/>\n";
-			echo  '<div style="height:300px; overflow: scroll;">';
-			echo "<pre class='brush: xml'>\n";
-			$salidaTextoXML = $solucionit3->asXML();
-			$salidaTextoXML = str_replace("<","&lt;",$salidaTextoXML);
-			$salidaTextoXML = str_replace(">","&gt;",$salidaTextoXML);
-			echo $salidaTextoXML;
-			echo "</pre>\n";
+			$solucion = simplexml_load_file('$outputit3');
+			$head = $solucion->head; 
+			$numeroDeSolucionesEncontradas = $head->numSolutions;
+			
+			$numeroDeOperadores = $head->operatorsNumber;
+			$numeroDeCanales = $head->channelsNumber;
+			echo "Ver PDF \t Guardar XML en Sistema \t Descargar XML";
+			echo "<p class='estilo'>Información</p>\n";
+			echo "<table width='100%' class='tabla' border='1'>\n";
+			
+			echo "<thead>\n";
+			echo "<tr>\n";
+			echo "<th class='estilo'>Concepto</th>\n";
+			echo "<th class='estilo'>Valor</th>\n";
+			echo "</tr>\n";
+
+			echo "</thead>\n";
+			echo "<tbody>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Datos de la banda y localidad</td>\n";
+			echo "<td class='estilo'>Localidad/Datos de la banda/Numero de canales --> faltan</td>\n";
+			echo "</tr>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Número de soluciones</td>\n";
+			echo "<td class='estilo'>$head->numSolutions</td>\n";
+			echo "</tr>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Espacios de computación creados</td>\n";
+			echo "<td class='estilo'>$head->spacesCreated</td>\n";
+			echo "</tr>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Número de variables de dominios finitos</td>\n";
+			echo "<td class='estilo'>$head->FDVariables</td>\n";
+			echo "</tr>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Número de propagadores</td>\n";
+			echo "<td class='estilo'>$head->propagators</td>\n";
+			echo "</tr>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Uso de memoria (Bytes)</td>\n";
+			echo "<td class='estilo'>$head->memoryUsage</td>\n";
+			echo "</tr>\n";
+			echo "</tbody>\n";			
+			echo "</table>\n";
+			
+			echo "<p class='estilo'>Soluciones</p>\n";
+			echo "<select id=\"selectit3\">";
+			for($i=0; $i<$numeroDeSolucionesEncontradas; $i++)
+			{
+					echo "<option value=\"".$i."\">Solución #".$i."</option>";
+			}
+			echo "</select>";
+			?>
+			<a href="#" onclick="javascript:recargarit3();"> Mostrar solución </a>
+			
+			<script language="javascript">
+			function recargarit3(){    
+				var selector = $('#selectit3').val();
+				$.post("gestionEspectro/php/iteraccion.php", { opcSelec: selector }, function(data){
+					$("#mostrarSolIt3").html(data);
+				});         
+			}
+			</script>			
+
+			<div id="mostrarSolIt3"></div>
+
+			<?php
+			echo "</p>\n";
 			echo "</div>\n";
-			echo '<script type="text/javascript">  SyntaxHighlighter.all() </script>';
-			echo "<br/>\n";
-			exec("rm file2it3.xml");		
-			echo "</div>\n";		
 		}
 		if($numIt>3)
 		{
 			echo '<div id="tabs-4">';
 			echo "<p class='estilo'>Information</p>\n";
-			$solucionit4 = simplexml_load_file('file2it4.xml');
+			$solucionit4 = simplexml_load_file('$outputit4');
 			echo "<p class='estilo'>Salida en formato XML</p>\n";
 			echo "Usted puede descargar los archivos de entrada y salida en formato XML:<br/><br/>\n";
 			echo "<a href='file2.xml' target='_blank'> Descargar entrada </a><br/>";
@@ -320,14 +423,14 @@
 			echo "</div>\n";
 			echo '<script type="text/javascript">  SyntaxHighlighter.all() </script>';
 			echo "<br/>\n";
-			exec("rm file2it4.xml");		
+			exec("rm $outputit4");		
 			echo "</div>\n";		
 		}
 		if($numIt>4)
 		{
 			echo '<div id="tabs-5">';
 			echo "<p class='estilo'>Information</p>\n";
-			$solucionit5 = simplexml_load_file('file2it5.xml');
+			$solucionit5 = simplexml_load_file('$outputit5');
 			echo "<p class='estilo'>Salida en formato XML</p>\n";
 			echo "Usted puede descargar los archivos de entrada y salida en formato XML:<br/><br/>\n";
 			echo "<a href='file2.xml' target='_blank'> Descargar entrada </a><br/>";
@@ -350,7 +453,7 @@
 		{
 			echo '<div id="tabs-6">';
 			echo "<p class='estilo'>Information</p>\n";
-			$solucionit6 = simplexml_load_file('file2it6.xml');
+			$solucionit6 = simplexml_load_file('$outputit6');
 			echo "<p class='estilo'>Salida en formato XML</p>\n";
 			echo "Usted puede descargar los archivos de entrada y salida en formato XML:<br/><br/>\n";
 			echo "<a href='file2.xml' target='_blank'> Descargar entrada </a><br/>";
@@ -366,7 +469,7 @@
 			echo "</div>\n";
 			echo '<script type="text/javascript">  SyntaxHighlighter.all() </script>';
 			echo "<br/>\n";
-			exec("rm file2it6.xml");	
+			exec("rm $outputit6");	
 			echo "</div>\n";		
 		}
 		
@@ -385,17 +488,16 @@
 			<select name="oredefinedinput" class="form-select" id="edit-oredefinedinput">
 				<option value="null" selected="selected">Ninguna</option>
 				<?php
-					$directorio=@opendir("/var/www/html/site/sites/default/".$user->uid); 
-					
+					$directorio=@opendir("/var/www/html/site/gestionEspectro/entradas/".$user->uid); 
 					if($directorio==false)
 					{
-						mkdir("/var/www/html/site/sites/default/".$user->uid, 0755);
-						$directorio=@opendir("/var/www/html/site/sites/default/".$user->uid); 
+						mkdir("/var/www/html/site/gestionEspectro/entradas/".$user->uid, 0755);
+						$directorio=@opendir("/var/www/html/site/gestionEspectro/entradas/".$user->uid); 
 
 					}		
 					while ($archivo = readdir($directorio))
 					{
-						if(is_file("/var/www/html/site/sites/default/".$user->uid."/".$archivo)) echo "<option value=\"$archivo\">$archivo</option>"; 
+						if(is_file("/var/www/html/site/gestionEspectro/entradas/".$user->uid."/".$archivo)) echo "<option value=\"$archivo\">$archivo</option>"; 
 					}	
 					closedir($directorio); 
 					
