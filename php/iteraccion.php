@@ -8,6 +8,9 @@
 			
 		if($seleccion==$id)
 		{	
+			$numeroDeSolucionesEncontradas = $head->numSolutions;			
+			$numeroDeOperadores = $head->operatorsNumber;
+			$numeroDeCanales = $head->channelsNumber;
 			echo "<p class='estilo'>Solución: ".$id."</p>\n";
 			$costo = $sol->costs;			
 			echo "<p class='estilo'>Costos</p>\n";
