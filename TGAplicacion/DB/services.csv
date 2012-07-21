@@ -1,0 +1,52 @@
+ID_service,services_name,services_description
+1,Servicio de radiocomunicación,"Servicio definido en esta sección que implica la transmisión, la emisión o la recepción de ondas radioeléctricas para fines específicos de telecomunicación."
+2,Servicio Fijo,Servicio de radiocomunicación entre puntos fijosdeterminados.
+3,Servicio Fijo por satélite,"Servicio de radiocomunicación entre estaciones terrenas situadas en emplazamientos dados cuando se utilizan uno o más satélites; el emplazamiento dado puede ser un punto fijo determinado o cualquier punto fijo situado en una zona determinada; en algunos casos, este Servicio incluye enlaces entre satélites que pueden realizarse también dentro del  Servicio entre satélites; el Servicio Fijo por satélite puede también incluir  enlaces de conexión para otros servicios de radiocomunicación espacial."
+4,Servicio entre satélites,Servicio de radiocomunicación que establece enlaces entre satélites artificiales.
+5,Servicio de operaciones espaciales,"Servicio de radiocomunicación que concierne exclusivamente al funcionamiento de los vehículos espaciales, en particular el seguimiento espacial, la telemedida espacial y el telemando espacial."
+6,Servicio Móvil ,Servicio de radiocomunicación entre estaciones móviles y estaciones terrestres o entre estaciones móviles (CV).
+7,Servicio Móvil por satélite ,"Servicio de radiocomunicación:
+– entre estaciones terrenas móviles y una o varias estaciones espaciales o entre estaciones espaciales utilizadas por este Servicio; o
+– entre estaciones terrenas móviles por intermedio de una o varias  estaciones espaciales.
+También pueden considerarse incluidos en este Servicio los enlaces de conexión necesarios para su explotación."
+8,Servicio Móvil terrestre ,Servicio Móvil entre estaciones de base y estaciones móviles terrestres o entre estaciones móviles terrestres.
+9,Servicio Móvil terrestre por satélite ,Servicio Móvil por satélite en el que  las estaciones terrenas móviles están situadas en tierra.
+10,Servicio Móvil Marítimo,"Servicio Móvil entre estaciones costeras y estaciones de barco, entre estaciones de barco, o entre estaciones de comunicaciones a bordo asociadas; también pueden considerarse incluidas en este Servicio las estaciones de embarcación o dispositivo de salvamento y las estaciones de radiobaliza de localización de siniestros."
+11,Servicio Móvil Marítimo por satélite ,Servicio Móvil por satélite en el que  las estaciones terrenas móviles están situadas a bordo de barcos; también pueden considerarse incluidas en este Servicio las estaciones de embarcación o  dispositivo de salvamento y las estaciones de radiobaliza de localización de  siniestros.
+12,Servicio de operaciones portuarias ,"Servicio Móvil Marítimo en un  puerto o en sus cercanías, entre estaciones costeras y estaciones de barco, o  entre estaciones de barco, cuyos mensajes se refieren únicamente a las  operaciones, movimiento y seguridad de los barcos y, en caso de urgencia, a la salvaguardia de las personas.Quedan excluidos de este Servicio los mensajes con carácter de correspondencia pública."
+13,Servicio de movimiento de barcos ,"Servicio de seguridad, dentro del Servicio Móvil Marítimo, distinto del Servicio de operaciones portuarias, entre estaciones costeras y estaciones de barco, o entre estaciones de barco, cuyos
+mensajes se refieren únicamente a los movimientos de los barcos. Quedan excluidos de este Servicio los mensajes con carácter de correspondencia pública."
+14,Servicio Móvil aeronáutico ,"Servicio Móvil entre estaciones aeronáuticas y estaciones de aeronave, o entre estaciones de aeronave, en el que también pueden participar las estaciones de embarcación o dispositivo de salvamento; también pueden considerarse incluidas en este Servicio las estaciones de radiobaliza de localización de siniestros que operen en las frecuencias de socorro y de urgencia designadas."
+15,Servicio Móvil aeronáutico en rutas (R),"Servicio Móvil aeronáutico reservado a  las comunicaciones aeronáuticas relativas a la seguridad y regularidad de los  vuelos, principalmente en las rutas nacionales o internacionales de la aviación civil."
+16,Servicio Móvil aeronáutico fuera de rutas (OR),"Servicio Móvil aeronáutico destinado  a asegurar las comunicaciones, incluyendo las relativas a la coordinación de los  vuelos, principalmente fuera de las rutas nacionales e internacionales de la aviación civil."
+17,Servicio Móvil aeronáutico por satélite,Servicio Móvil por satélite en el  que las estaciones terrenas móviles están situadas a bordo de aeronaves;  también pueden considerarse incluidas en este Servicio las estaciones de  embarcación o dispositivo de salvamento y las estaciones de radiobaliza de   localización de siniestros.
+18,Servicio Móvil aeronáutico en rutas (R) por satélite,"Servicio Móvil aeronáutico por  satélite reservado a las comunicaciones relativas a la seguridad y regularidad de  los vuelos, principalmente en las rutas nacionales o internacionales de la aviación civil."
+19,Servicio Móvil aeronáutico fuera de rutas (OR) por satélite,"Servicio Móvil aeronáutico por  satélite destinado a asegurar las comunicaciones, incluyendo las relativas a la  coordinación de los vuelos, principalmente fuera de las rutas nacionales e  internacionales de la aviación civil."
+20,Servicio de Radiodifusión,"Servicio de radiocomunicación cuyas emisiones se destinan a ser recibidas directamente por el público en general. Dicho Servicio abarca emisiones sonoras, de televisión o de otro género (CS)."
+21,Servicio de Radiodifusión por satélite,Servicio de radiocomunicación en el cual las señales emitidas o retransmitidas por estaciones espaciales están  destinadas a la recepción directa por el público en general.  En el Servicio de Radiodifusión por satélite la expresión «recepción directa» abarca tanto la recepción individual como la recepción comunal.
+22,Servicio de radiodeterminación,Servicio de radiocomunicación para fines de radiodeterminación.
+23,Servicio de radiodeterminación por satélite,"Servicio de radiocomunicación para fines de radiodeterminación, y que implica la  utilización de una o más estaciones espaciales. Este Servicio puede incluir también los enlaces de conexión necesarios para su funcionamiento."
+24,Servicio de radionavegación,Servicio de radiodeterminación para fines de radionavegación.
+25,Servicio de radionavegación por satélite ,Servicio de radiodeterminación por satélite para fines de radionavegación. También pueden considerarse incluidos en este Servicio los enlaces de conexión necesarios para su explotación.
+26,Servicio de radionavegación marítima,Servicio de radionavegación destinado a los barcos y a su explotación en condiciones de seguridad.
+27,Servicio de radionavegación marítima por satélite ,Servicio de radionavegación por satélite en el que las estaciones terrenas están situadas a  bordo de barcos.
+28,Servicio de radionavegación aeronáutica ,Servicio de radionavegación destinado a las aeronaves y a su explotación en condiciones de seguridad.
+29,Servicio de radionavegación aeronáutica por satélite , Servicio deradionavegación por satélite en el que las estaciones terrenas están situadas a bordo de aeronaves.
+30,Servicio de radiolocalización ,Servicio de radiodeterminación para fines de radiolocalización.
+31,Servicio de radiolocalización por satélite,Servicio radiodeterminación por satélite utilizado para la radiolocalización. De Este Servicio puede incluir asimismo los enlaces de conexión necesarios para su explotación.
+32,Servicio de ayudas a la meteorología,"Servicio de radiocomunicación destinado a las observaciones y sondeos utilizados en meteorología, con inclusión de la hidrología."
+33,Servicio de exploración de la Tierra por satélite,"Servicio de radiocomunicación entre estaciones terrenas y una o varias estaciones espaciales que puede incluir enlaces entre estaciones espaciales y en el que:
+ – se obtiene información sobre las características de la Tierra y sus  fenómenos naturales, incluidos datos relativos al estado del medio ambiente, por medio de sensores activos o de sensores pasivos a bordo de satélites de la Tierra;
+– se reúne información análoga por medio de plataformas situadas en el aire o sobre la superficie de la Tierra;
+– dichas informaciones pueden ser distribuidas a estaciones terrenas dentro de un mismo sistema;
+– puede incluirse asimismo la interrogación a las plataformas.Este Servicio puede incluir también los enlaces de conexión necesarios
+para su explotación."
+34,Servicio de meteorología por satélite,Servicio de exploración de la Tierra por satélite con fines meteorológicos.
+35,Servicio de frecuencias patrón y de señales horarias ," Servicio de radiocomunicación para la transmisión de frecuencias especificadas, de señales horarias, o de ambas, de reconocida y elevada precisión, para fines científicos, técnicos y de otras clases, destinadas a la recepción general."
+36,Servicio de frecuencias patrón y de señales horarias por satélite ,Servicio de radiocomunicación que utiliza estaciones espaciales situadas en satélites de la Tierra para los mismos fines que el Servicio de frecuencias patrón y de  señales horarias. Este Servicio puede incluir también los enlaces de conexión necesarios para su explotación.
+37,Servicio de investigación espacial ,Servicio de radiocomunicación que utiliza vehículos espaciales u otros objetos espaciales para fines de investigación científica o tecnológica.
+38,Servicio de aficionados ,"Servicio de radiocomunicación que tiene por objeto la instrucción individual, la intercomunicación y los estudios técnicos, efectuado por aficionados, esto es, por personas debidamente autorizadas que se  interesan en la radiotecnia con carácter exclusivamente personal y sin fines de lucro."
+39,Servicio de aficionados por satélite ,Servicio de radiocomunicación que utiliza estaciones espaciales situadas en satélites de la Tierra para los mismos fines que el Servicio de aficionados.
+40,Servicio de radioastronomía,Servicio que entraña el empleo de la radioastronomía.
+41,Servicio de seguridad,Todo Servicio radioeléctrico que se explote de manera permanente o temporal para garantizar la seguridad de la vida humana y la salvaguardia de los bienes.
+42,Servicio especial ,"ervicio de radiocomunicación no definido en otro lugar de la presente sección, destinado exclusivamente a satisfacer necesidades determinadas de interés general y no abierto a la correspondencia "

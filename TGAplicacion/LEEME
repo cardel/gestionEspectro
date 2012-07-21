@@ -1,0 +1,55 @@
+./AplicacionAsignacionDelEspectro.exe --motor=Default --f=Entradas/entrada2.xml --pnb=33 --psm=34 --pnc=33 --es=10 --tm=1000
+
+es
+1 {AsignarAlInicioDeLaBandaEnOrden Salida}
+2 {AsignarAlFinalDeLaBandaEnOrden Salida}
+3 {AsignarPrimeroAOperadoresConAsignacion Salida inicio}
+4 {AsignarPrimeroAOperadoresConAsignacion Salida final}
+5 {AsignarPrimeroAOperadoresSinAsignacion Salida inicio}
+6 {AsignarPrimeroAOperadoresSinAsignacion Salida final}
+7 {AsignarPrimeroARequerimientosMasGrandes Salida inicio}
+8 {AsignarPrimeroARequerimientosMasGrandes Salida final}
+9 {AsignarPrimeroARequerimientosMasChicos Salida inicio}
+10 {AsignarPrimeroARequerimientosMasChicos Salida final}
+
+motor:
+
+case Motor of "Ninguna" then
+      {Explorer.one GenerarAsignacion}
+   [] "MejorCosto" then
+      {Explorer.best GenerarAsignacion BuscarConMejorCosto}
+   [] "MejorPorBloquesLibres" then
+      {Explorer.best GenerarAsignacion BuscarMejorPorSizeDeBloquesLibres}
+   [] "MejorPorNumeroDeBloques" then
+      {Explorer.best GenerarAsignacion BuscarMejorPorNumeroDeBloques}
+   [] "MejorPorMenorNumeroCanalesInutilizados" then
+      {Explorer.best GenerarAsignacion BuscarMejorPorMenorNumeroCanalesInutilizados }
+
+
+PesoNumeroDeBloques=PNB
+PesoSizeMaxDeCanalesLibre=PSM
+PesoNumeroDeCanalesInutiles=PNC
+
+Considerar restricciones debiles
+
+1. No considerar separacion entre canales
+2. No considerar tope
+
+Otras consideraciones
+Las frecuencias asignadas se pueden mover 
+
+Salida
+
+<solution>
+
+
+
+</solution>
+
+!#/bin/sh
+export PATH=/home/avispa/mozart-1.4.0/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
+
+./AplicacionAsignacionDelEspectro.exe --motor=2 --f=Entradas/entrada2.xml --pnb=33 --psm=34 --pnc=33 --es=10 --tm=2000 --o=file.xml --rc=1 --ns=100 --nmas=0 --nsep=0 --ntope=0 --nopc=1
+
+export PATH=/usr/lib/mozart/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
+

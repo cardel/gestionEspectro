@@ -1,0 +1,9 @@
+frequency_bands_name,frequency_bands_range,frequency_bands_wavelength
+Very Low Frecuency VLF,3 - 30 kHz ,100 - 10 Km.
+Low Frecuency LF,30 - 300 kHz ,10 - 1 Km.
+Médium Frecuency MF,300 - 3000 kHz ,1 - 0.1 Km.
+High Frecuency HF,3 - 30 MHz ,0.1 - 0.01 Km.
+Very High Frecuency VHF,30 - 300 MHz ,0.01 - 0.001 Km.
+Ultra High Frecuency UHF,300 - 3000 MHz ,0.001 - 0.0001 Km.
+Super High Frecuency SHF,3 - 30 GHz ,0.0001 - 0.00001 Km.
+Extremely High Frecuency EHF,30 - 300 GHz ,0.00001 - 0.000001 Km.
