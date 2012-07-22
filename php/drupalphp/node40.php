@@ -236,7 +236,9 @@
 			<script language="javascript">
 			function recargarit1(){    
 				var selector = $('#selectit1').val();
-				$.post("gestionEspectro/php/iteraccion.php", { opcSelec: selector }, function(data){
+				var file = '<?php echo $out1; ?>';
+
+				$.post("gestionEspectro/php/iteraccion.php", { opcSelec: selector, file: file }, function(data){
 					$("#mostrarSolIt1").html(data);
 				});         
 			}
@@ -253,7 +255,6 @@
 		if($numIt>1)
 		{
 			echo '<div id="tabs-2">';
-			echo "<p class='estilo'>Information</p>\n";
 			$solucion = simplexml_load_file($out2);
 			 
 			$head = $solucion->head; 
@@ -313,7 +314,8 @@
 			<script language="javascript">
 			function recargarit2(){    
 				var selector = $('#selectit2').val();
-				$.post("gestionEspectro/php/iteraccion.php", { opcSelec: selector }, function(data){
+				var file = '<?php echo $out2; ?>';
+				$.post("gestionEspectro/php/iteraccion.php", { opcSelec: selector, file: file }, function(data){
 					$("#mostrarSolIt2").html(data);
 				});         
 			}
@@ -329,7 +331,6 @@
 		if($numIt>2)
 		{
 			echo '<div id="tabs-3">';
-			echo "<p class='estilo'>Information</p>\n";
 			$solucion = simplexml_load_file($out3);
 			$head = $solucion->head; 
 			$numeroDeSolucionesEncontradas = $head->numSolutions;
@@ -388,7 +389,9 @@
 			<script language="javascript">
 			function recargarit3(){    
 				var selector = $('#selectit3').val();
-				$.post("gestionEspectro/php/iteraccion.php", { opcSelec: selector }, function(data){
+				var file = '<?php echo $out3; ?>';
+
+				$.post("gestionEspectro/php/iteraccion.php", { opcSelec: selector, file: file }, function(data){
 					$("#mostrarSolIt3").html(data);
 				});         
 			}
@@ -403,71 +406,230 @@
 		if($numIt>3)
 		{
 			echo '<div id="tabs-4">';
-			echo "<p class='estilo'>Information</p>\n";
-			$solucionit4 = simplexml_load_file($out4);
-			echo "<p class='estilo'>Salida en formato XML</p>\n";
-			echo "Usted puede descargar los archivos de entrada y salida en formato XML:<br/><br/>\n";
-			echo "<a href='file2.xml' target='_blank'> Descargar entrada </a><br/>";
-			echo "<a href='file2.xml' target='_blank' > Descargar salida </a><br/><br/>";
-			echo "A continuación se muestra la salida en formato XML:<br/>\n";
-			echo  '<div style="height:300px; overflow: scroll;">';
-			echo "<pre class='brush: xml'>\n";
-			$salidaTextoXML = $solucionit4->asXML();
-			$salidaTextoXML = str_replace("<","&lt;",$salidaTextoXML);
-			$salidaTextoXML = str_replace(">","&gt;",$salidaTextoXML);
-			echo $salidaTextoXML;
-			echo "</pre>\n";
+			$solucion = simplexml_load_file($out4);
+			 
+			$head = $solucion->head; 
+			$numeroDeSolucionesEncontradas = $head->numSolutions;
+			
+			$numeroDeOperadores = $head->operatorsNumber;
+			$numeroDeCanales = $head->channelsNumber;
+			echo "Ver PDF \t Guardar XML en Sistema \t Descargar XML";
+			echo "<p class='estilo'>Información</p>\n";
+			echo "<table width='100%' class='tabla' border='1'>\n";
+			
+			echo "<thead>\n";
+			echo "<tr>\n";
+			echo "<th class='estilo'>Concepto</th>\n";
+			echo "<th class='estilo'>Valor</th>\n";
+			echo "</tr>\n";
+
+			echo "</thead>\n";
+			echo "<tbody>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Datos de la banda y localidad</td>\n";
+			echo "<td class='estilo'>Localidad/Datos de la banda/Numero de canales --> faltan</td>\n";
+			echo "</tr>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Número de soluciones</td>\n";
+			echo "<td class='estilo'>$head->numSolutions</td>\n";
+			echo "</tr>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Espacios de computación creados</td>\n";
+			echo "<td class='estilo'>$head->spacesCreated</td>\n";
+			echo "</tr>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Número de variables de dominios finitos</td>\n";
+			echo "<td class='estilo'>$head->FDVariables</td>\n";
+			echo "</tr>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Número de propagadores</td>\n";
+			echo "<td class='estilo'>$head->propagators</td>\n";
+			echo "</tr>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Uso de memoria (Bytes)</td>\n";
+			echo "<td class='estilo'>$head->memoryUsage</td>\n";
+			echo "</tr>\n";
+			echo "</tbody>\n";			
+			echo "</table>\n";
+			
+			echo "<p class='estilo'>Soluciones</p>\n";
+			echo "<select id=\"selectit2\">";
+			for($i=0; $i<$numeroDeSolucionesEncontradas; $i++)
+			{
+					echo "<option value=\"".$i."\">Solución #".$i."</option>";
+			}
+			echo "</select>";
+			?>
+			<a href="#" onclick="javascript:recargarit4();"> Mostrar solución </a>
+			
+			<script language="javascript">
+			function recargarit4(){    
+				var selector = $('#selectit4').val();
+				var file = '<?php echo $out4; ?>';
+
+				$.post("gestionEspectro/php/iteraccion.php", { opcSelec: selector, file: file }, function(data){
+					$("#mostrarSolIt4").html(data);
+				});         
+			}
+			</script>			
+
+			<div id="mostrarSolIt4"></div>
+
+			<?php
+			echo "</p>\n";
 			echo "</div>\n";
-			echo '<script type="text/javascript">  SyntaxHighlighter.all() </script>';
-			echo "<br/>\n";
-			exec("rm $outputit4");		
-			echo "</div>\n";		
 		}
 		if($numIt>4)
 		{
 			echo '<div id="tabs-5">';
-			echo "<p class='estilo'>Information</p>\n";
-			$solucionit5 = simplexml_load_file($out5);
-			echo "<p class='estilo'>Salida en formato XML</p>\n";
-			echo "Usted puede descargar los archivos de entrada y salida en formato XML:<br/><br/>\n";
-			echo "<a href='file2.xml' target='_blank'> Descargar entrada </a><br/>";
-			echo "<a href='file2.xml' target='_blank' > Descargar salida </a><br/><br/>";
-			echo "A continuación se muestra la salida en formato XML:<br/>\n";
-			echo  '<div style="height:300px; overflow: scroll;">';
-			echo "<pre class='brush: xml'>\n";
-			$salidaTextoXML = $solucionit5->asXML();
-			$salidaTextoXML = str_replace("<","&lt;",$salidaTextoXML);
-			$salidaTextoXML = str_replace(">","&gt;",$salidaTextoXML);
-			echo $salidaTextoXML;
-			echo "</pre>\n";
+			$solucion = simplexml_load_file($out5);
+			 
+			$head = $solucion->head; 
+			$numeroDeSolucionesEncontradas = $head->numSolutions;
+			
+			$numeroDeOperadores = $head->operatorsNumber;
+			$numeroDeCanales = $head->channelsNumber;
+			echo "Ver PDF \t Guardar XML en Sistema \t Descargar XML";
+			echo "<p class='estilo'>Información</p>\n";
+			echo "<table width='100%' class='tabla' border='1'>\n";
+			
+			echo "<thead>\n";
+			echo "<tr>\n";
+			echo "<th class='estilo'>Concepto</th>\n";
+			echo "<th class='estilo'>Valor</th>\n";
+			echo "</tr>\n";
+
+			echo "</thead>\n";
+			echo "<tbody>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Datos de la banda y localidad</td>\n";
+			echo "<td class='estilo'>Localidad/Datos de la banda/Numero de canales --> faltan</td>\n";
+			echo "</tr>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Número de soluciones</td>\n";
+			echo "<td class='estilo'>$head->numSolutions</td>\n";
+			echo "</tr>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Espacios de computación creados</td>\n";
+			echo "<td class='estilo'>$head->spacesCreated</td>\n";
+			echo "</tr>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Número de variables de dominios finitos</td>\n";
+			echo "<td class='estilo'>$head->FDVariables</td>\n";
+			echo "</tr>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Número de propagadores</td>\n";
+			echo "<td class='estilo'>$head->propagators</td>\n";
+			echo "</tr>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Uso de memoria (Bytes)</td>\n";
+			echo "<td class='estilo'>$head->memoryUsage</td>\n";
+			echo "</tr>\n";
+			echo "</tbody>\n";			
+			echo "</table>\n";
+			
+			echo "<p class='estilo'>Soluciones</p>\n";
+			echo "<select id=\"selectit5\">";
+			for($i=0; $i<$numeroDeSolucionesEncontradas; $i++)
+			{
+					echo "<option value=\"".$i."\">Solución #".$i."</option>";
+			}
+			echo "</select>";
+			?>
+			<a href="#" onclick="javascript:recargarit5();"> Mostrar solución </a>
+			
+			<script language="javascript">
+			function recargarit5(){    
+				var selector = $('#selectit5').val();
+				var file = '<?php echo $out5; ?>';
+
+				$.post("gestionEspectro/php/iteraccion.php", { opcSelec: selector, file: file }, function(data){
+					$("#mostrarSolIt5").html(data);
+				});         
+			}
+			</script>			
+
+			<div id="mostrarSolIt5"></div>
+
+			<?php
+			echo "</p>\n";
 			echo "</div>\n";
-			echo '<script type="text/javascript">  SyntaxHighlighter.all() </script>';
-			echo "<br/>\n";
-			exec("rm file2it5.xml");		
-			echo "</div>\n";		
 		}
 		if($numIt>5)
 		{
 			echo '<div id="tabs-6">';
 			echo "<p class='estilo'>Information</p>\n";
-			$solucionit6 = simplexml_load_file($out6);
-			echo "<p class='estilo'>Salida en formato XML</p>\n";
-			echo "Usted puede descargar los archivos de entrada y salida en formato XML:<br/><br/>\n";
-			echo "<a href='file2.xml' target='_blank'> Descargar entrada </a><br/>";
-			echo "<a href='file2.xml' target='_blank' > Descargar salida </a><br/><br/>";
-			echo "A continuación se muestra la salida en formato XML:<br/>\n";
-			echo  '<div style="height:300px; overflow: scroll;">';
-			echo "<pre class='brush: xml'>\n";
-			$salidaTextoXML = $solucionit6->asXML();
-			$salidaTextoXML = str_replace("<","&lt;",$salidaTextoXML);
-			$salidaTextoXML = str_replace(">","&gt;",$salidaTextoXML);
-			echo $salidaTextoXML;
-			echo "</pre>\n";
-			echo "</div>\n";
-			echo '<script type="text/javascript">  SyntaxHighlighter.all() </script>';
-			echo "<br/>\n";
-			exec("rm $outputit6");	
-			echo "</div>\n";		
+		$solucion = simplexml_load_file($out6);
+			 
+			$head = $solucion->head; 
+			$numeroDeSolucionesEncontradas = $head->numSolutions;
+			
+			$numeroDeOperadores = $head->operatorsNumber;
+			$numeroDeCanales = $head->channelsNumber;
+			echo "Ver PDF \t Guardar XML en Sistema \t Descargar XML";
+			echo "<p class='estilo'>Información</p>\n";
+			echo "<table width='100%' class='tabla' border='1'>\n";
+			
+			echo "<thead>\n";
+			echo "<tr>\n";
+			echo "<th class='estilo'>Concepto</th>\n";
+			echo "<th class='estilo'>Valor</th>\n";
+			echo "</tr>\n";
+
+			echo "</thead>\n";
+			echo "<tbody>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Datos de la banda y localidad</td>\n";
+			echo "<td class='estilo'>Localidad/Datos de la banda/Numero de canales --> faltan</td>\n";
+			echo "</tr>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Número de soluciones</td>\n";
+			echo "<td class='estilo'>$head->numSolutions</td>\n";
+			echo "</tr>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Espacios de computación creados</td>\n";
+			echo "<td class='estilo'>$head->spacesCreated</td>\n";
+			echo "</tr>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Número de variables de dominios finitos</td>\n";
+			echo "<td class='estilo'>$head->FDVariables</td>\n";
+			echo "</tr>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Número de propagadores</td>\n";
+			echo "<td class='estilo'>$head->propagators</td>\n";
+			echo "</tr>\n";
+			echo "<tr>\n";
+			echo "<td class='estilo'>Uso de memoria (Bytes)</td>\n";
+			echo "<td class='estilo'>$head->memoryUsage</td>\n";
+			echo "</tr>\n";
+			echo "</tbody>\n";			
+			echo "</table>\n";
+			
+			echo "<p class='estilo'>Soluciones</p>\n";
+			echo "<select id=\"selectit6\">";
+			for($i=0; $i<$numeroDeSolucionesEncontradas; $i++)
+			{
+					echo "<option value=\"".$i."\">Solución #".$i."</option>";
+			}
+			echo "</select>";
+			?>
+			<a href="#" onclick="javascript:recargarit6();"> Mostrar solución </a>
+			
+			<script language="javascript">
+			function recargarit6(){    
+				var selector = $('#selectit6').val();
+				var file = '<?php echo $out6; ?>';
+				$.post("gestionEspectro/php/iteraccion.php", { opcSelec: selector, file: file }, function(data){
+					$("#mostrarSolIt6").html(data);
+				});         
+			}
+			</script>			
+
+			<div id="mostrarSolIt6"></div>
+
+			<?php
+			echo "</p>\n";
+			echo "</div>\n";	
 		}
 		
 	}

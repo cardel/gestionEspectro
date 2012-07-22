@@ -1,6 +1,7 @@
 <?php
 	$seleccion = (int) $_POST['opcSelec'];
-	$solucionIt1 = simplexml_load_file("../../file2it1.xml");
+	$file = $_POST['file'];
+	$solucionIt1 = simplexml_load_file($file);
 	$head = $solucionIt1->head; 
 	
 	foreach($solucionIt1->solution as $sol)
