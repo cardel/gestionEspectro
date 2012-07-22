@@ -60,7 +60,7 @@ define
                G="\t\t<executionTime> "#P#" </executionTime>\n"
 
                if Motor==1 then
-                  Salida="\t<head>\n"#DA#DB#DC#DD#DE#DF#DG#DH#DI#DJ#DK#A#B#C#D#E#F#G#"\t</head>\n"
+                  Salida="\t<head solution=\"noOptima\">\n"#DA#DB#DC#DD#DE#DF#DG#DH#DI#DJ#DK#A#B#C#D#E#F#G#"\t</head>\n"
                else
                   Salida="\t<head solution=\""#TipoSolucion#"\">\n"#DA#DB#DC#DD#DE#DF#DG#DH#DI#DJ#DK#A#B#C#D#E#F#G#"\t</head>\n"
                end

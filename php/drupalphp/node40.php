@@ -17,6 +17,8 @@
 
 	global $user;
 	$status = "";
+	$accion = $_POST["action"];
+	$operacion = $_POST["op"];
 
 	$prefijo = substr(md5(uniqid(rand())),0,6);
 	
@@ -28,10 +30,12 @@
 	
 	if ($file=="null" && $_FILES["archivo"]['name']=="")
 	{
-		echo "<script='javascript'>alert('Debe ingresar un archivo o seleccionar uno de la lista');</script>";
+		echo "<script language='javascript'>alert('Debe ingresar un archivo o seleccionar uno de la lista');</script>";
+		$accion = "none";
+		$operacion = "none";
 	}
-	else{
-	if ($_POST["action"] == "upload" && $file=="null") {
+	
+	if ($accion == "upload" && $file=="null") {
 	
 		// obtenemos los datos del archivo 
 		$tamano = $_FILES["archivo"]['size'];
@@ -126,7 +130,7 @@
 	$outputit5="/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it5.xml";
 	$outputit6="/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it6.xml";
 	
-	if($_POST["op"] == "Ejecutar")
+	if($operacion == "Ejecutar")
 	{		
 		//Cambiar variables de entorno
 		$saved = getenv("PATH");
@@ -190,12 +194,14 @@
 			$numeroDeCanales = $head->channelsNumber;
 			?>
 			<script language="javascript">
+			function headit1(){
 				var file = '<?php echo $out1; ?>';
 				$.post("gestionEspectro/php/encabezado.php", { file: file }, function(data){
 					$("#headit1").html(data);
 				});         
-				}
-			</script>	
+			}
+			headit1();
+			</script>
 			<div id="headit1"></div>
 				
 			<?php
@@ -241,11 +247,13 @@
 			$numeroDeCanales = $head->channelsNumber;
 			?>
 			<script language="javascript">
+			function headit2(){
 				var file = '<?php echo $out2; ?>';
 				$.post("gestionEspectro/php/encabezado.php", { file: file }, function(data){
 					$("#headit2").html(data);
 				});         
-				}
+			}
+			headit2();
 			</script>	
 			<div id="headit2"></div>
 				
@@ -289,11 +297,13 @@
 			$numeroDeCanales = $head->channelsNumber;
 			?>
 			<script language="javascript">
+			function headit3(){
 				var file = '<?php echo $out3; ?>';
 				$.post("gestionEspectro/php/encabezado.php", { file: file }, function(data){
 					$("#headit3").html(data);
 				});         
-				}
+			}
+			headit3();
 			</script>	
 			<div id="headit3"></div>
 				
@@ -338,11 +348,13 @@
 			$numeroDeCanales = $head->channelsNumber;
 			?>
 			<script language="javascript">
+			function headit4(){
 				var file = '<?php echo $out4; ?>';
 				$.post("gestionEspectro/php/encabezado.php", { file: file }, function(data){
 					$("#headit4").html(data);
 				});         
-				}
+			}
+			headit4();
 			</script>	
 			<div id="headit4"></div>
 				
@@ -387,11 +399,13 @@
 			$numeroDeCanales = $head->channelsNumber;
 			?>
 			<script language="javascript">
+			function headit5(){
 				var file = '<?php echo $out5; ?>';
 				$.post("gestionEspectro/php/encabezado.php", { file: file }, function(data){
 					$("#headit5").html(data);
 				});         
-				}
+			}
+			headit5();
 			</script>	
 			<div id="headit5"></div>
 				
@@ -426,7 +440,6 @@
 		if($numIt>5)
 		{
 			echo '<div id="tabs-6">';
-			echo "<p class='estilo'>Information</p>\n";
 			$solucion = simplexml_load_file($out6);
 			 
 			$head = $solucion->head; 
@@ -437,11 +450,13 @@
 
 			?>
 			<script language="javascript">
+			function headit6(){
 				var file = '<?php echo $out6; ?>';
 				$.post("gestionEspectro/php/encabezado.php", { file: file }, function(data){
 					$("#headit6").html(data);
 				});         
-				}
+			}
+			headit6()
 			</script>	
 			<div id="headit6"></div>			
 				
@@ -472,7 +487,6 @@
 			echo "</p>\n";
 			echo "</div>\n";	
 		}
-	}
 	}
 
 	?>

@@ -22,8 +22,7 @@ import
    Property
    Application
    Open
-
-   Explorer
+	
 define
 
    %Entradas
@@ -128,7 +127,6 @@ define
    proc {BuscarMejorSolucionEnTiempoDado Engine Tiempo ?Salida}
       local
          Dead
-         Termino
          proc{BuscarSolucion Contador ?Res}
             if {IsFree Dead} then
                local
@@ -139,7 +137,7 @@ define
                      case Sol of nil then Res=[Contador 'Optima']
                      [] stopped then Res=[Contador 'noOptima']
                      else Res={List.append Sol {BuscarSolucion Contador+1}}
-                                            end
+                     end
                   else
                      Res=[Contador 'noOptima']
                      {Engine stop}
