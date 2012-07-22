@@ -26,7 +26,11 @@
 		
 	$file = $_POST["oredefinedinput"];
 	
-
+	if ($file=="null" && $_FILES["archivo"]['name']=="")
+	{
+		echo "<script='javascript'>alert('Debe ingresar un archivo o seleccionar uno de la lista');</script>";
+	}
+	else{
 	if ($_POST["action"] == "upload" && $file=="null") {
 	
 		// obtenemos los datos del archivo 
@@ -43,7 +47,7 @@
 			} else {
 				$status = "Error al subir el archivo";
 			}
-		} else {
+		} else {			
 			$status = "Error al subir archivo";
 		}
 	}
@@ -184,44 +188,17 @@
 			
 			$numeroDeOperadores = $head->operatorsNumber;
 			$numeroDeCanales = $head->channelsNumber;
-			echo "Ver PDF \t Guardar XML en Sistema \t Descargar XML";
-			echo "<p class='estilo'>Información</p>\n";
-			echo "<table width='100%' class='tabla' border='1'>\n";
-			
-			echo "<thead>\n";
-			echo "<tr>\n";
-			echo "<th class='estilo'>Concepto</th>\n";
-			echo "<th class='estilo'>Valor</th>\n";
-			echo "</tr>\n";
-
-			echo "</thead>\n";
-			echo "<tbody>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Datos de la banda y localidad</td>\n";
-			echo "<td class='estilo'>Localidad/Datos de la banda/Numero de canales --> faltan</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Número de soluciones</td>\n";
-			echo "<td class='estilo'>$head->numSolutions</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Espacios de computación creados</td>\n";
-			echo "<td class='estilo'>$head->spacesCreated</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Número de variables de dominios finitos</td>\n";
-			echo "<td class='estilo'>$head->FDVariables</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Número de propagadores</td>\n";
-			echo "<td class='estilo'>$head->propagators</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Uso de memoria (Bytes)</td>\n";
-			echo "<td class='estilo'>$head->memoryUsage</td>\n";
-			echo "</tr>\n";
-			echo "</tbody>\n";			
-			echo "</table>\n";
+			?>
+			<script language="javascript">
+				var file = '<?php echo $out1; ?>';
+				$.post("gestionEspectro/php/encabezado.php", { file: file }, function(data){
+					$("#headit1").html(data);
+				});         
+				}
+			</script>	
+			<div id="headit1"></div>
+				
+			<?php
 			
 			echo "<p class='estilo'>Soluciones</p>\n";
 			echo "<select id=\"selectit1\">";
@@ -262,44 +239,17 @@
 			
 			$numeroDeOperadores = $head->operatorsNumber;
 			$numeroDeCanales = $head->channelsNumber;
-			echo "Ver PDF \t Guardar XML en Sistema \t Descargar XML";
-			echo "<p class='estilo'>Información</p>\n";
-			echo "<table width='100%' class='tabla' border='1'>\n";
-			
-			echo "<thead>\n";
-			echo "<tr>\n";
-			echo "<th class='estilo'>Concepto</th>\n";
-			echo "<th class='estilo'>Valor</th>\n";
-			echo "</tr>\n";
-
-			echo "</thead>\n";
-			echo "<tbody>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Datos de la banda y localidad</td>\n";
-			echo "<td class='estilo'>Localidad/Datos de la banda/Numero de canales --> faltan</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Número de soluciones</td>\n";
-			echo "<td class='estilo'>$head->numSolutions</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Espacios de computación creados</td>\n";
-			echo "<td class='estilo'>$head->spacesCreated</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Número de variables de dominios finitos</td>\n";
-			echo "<td class='estilo'>$head->FDVariables</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Número de propagadores</td>\n";
-			echo "<td class='estilo'>$head->propagators</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Uso de memoria (Bytes)</td>\n";
-			echo "<td class='estilo'>$head->memoryUsage</td>\n";
-			echo "</tr>\n";
-			echo "</tbody>\n";			
-			echo "</table>\n";
+			?>
+			<script language="javascript">
+				var file = '<?php echo $out2; ?>';
+				$.post("gestionEspectro/php/encabezado.php", { file: file }, function(data){
+					$("#headit2").html(data);
+				});         
+				}
+			</script>	
+			<div id="headit2"></div>
+				
+			<?php
 			
 			echo "<p class='estilo'>Soluciones</p>\n";
 			echo "<select id=\"selectit2\">";
@@ -337,44 +287,17 @@
 			
 			$numeroDeOperadores = $head->operatorsNumber;
 			$numeroDeCanales = $head->channelsNumber;
-			echo "Ver PDF \t Guardar XML en Sistema \t Descargar XML";
-			echo "<p class='estilo'>Información</p>\n";
-			echo "<table width='100%' class='tabla' border='1'>\n";
-			
-			echo "<thead>\n";
-			echo "<tr>\n";
-			echo "<th class='estilo'>Concepto</th>\n";
-			echo "<th class='estilo'>Valor</th>\n";
-			echo "</tr>\n";
-
-			echo "</thead>\n";
-			echo "<tbody>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Datos de la banda y localidad</td>\n";
-			echo "<td class='estilo'>Localidad/Datos de la banda/Numero de canales --> faltan</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Número de soluciones</td>\n";
-			echo "<td class='estilo'>$head->numSolutions</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Espacios de computación creados</td>\n";
-			echo "<td class='estilo'>$head->spacesCreated</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Número de variables de dominios finitos</td>\n";
-			echo "<td class='estilo'>$head->FDVariables</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Número de propagadores</td>\n";
-			echo "<td class='estilo'>$head->propagators</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Uso de memoria (Bytes)</td>\n";
-			echo "<td class='estilo'>$head->memoryUsage</td>\n";
-			echo "</tr>\n";
-			echo "</tbody>\n";			
-			echo "</table>\n";
+			?>
+			<script language="javascript">
+				var file = '<?php echo $out3; ?>';
+				$.post("gestionEspectro/php/encabezado.php", { file: file }, function(data){
+					$("#headit3").html(data);
+				});         
+				}
+			</script>	
+			<div id="headit3"></div>
+				
+			<?php
 			
 			echo "<p class='estilo'>Soluciones</p>\n";
 			echo "<select id=\"selectit3\">";
@@ -413,44 +336,17 @@
 			
 			$numeroDeOperadores = $head->operatorsNumber;
 			$numeroDeCanales = $head->channelsNumber;
-			echo "Ver PDF \t Guardar XML en Sistema \t Descargar XML";
-			echo "<p class='estilo'>Información</p>\n";
-			echo "<table width='100%' class='tabla' border='1'>\n";
-			
-			echo "<thead>\n";
-			echo "<tr>\n";
-			echo "<th class='estilo'>Concepto</th>\n";
-			echo "<th class='estilo'>Valor</th>\n";
-			echo "</tr>\n";
-
-			echo "</thead>\n";
-			echo "<tbody>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Datos de la banda y localidad</td>\n";
-			echo "<td class='estilo'>Localidad/Datos de la banda/Numero de canales --> faltan</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Número de soluciones</td>\n";
-			echo "<td class='estilo'>$head->numSolutions</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Espacios de computación creados</td>\n";
-			echo "<td class='estilo'>$head->spacesCreated</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Número de variables de dominios finitos</td>\n";
-			echo "<td class='estilo'>$head->FDVariables</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Número de propagadores</td>\n";
-			echo "<td class='estilo'>$head->propagators</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Uso de memoria (Bytes)</td>\n";
-			echo "<td class='estilo'>$head->memoryUsage</td>\n";
-			echo "</tr>\n";
-			echo "</tbody>\n";			
-			echo "</table>\n";
+			?>
+			<script language="javascript">
+				var file = '<?php echo $out4; ?>';
+				$.post("gestionEspectro/php/encabezado.php", { file: file }, function(data){
+					$("#headit4").html(data);
+				});         
+				}
+			</script>	
+			<div id="headit4"></div>
+				
+			<?php
 			
 			echo "<p class='estilo'>Soluciones</p>\n";
 			echo "<select id=\"selectit2\">";
@@ -489,45 +385,17 @@
 			
 			$numeroDeOperadores = $head->operatorsNumber;
 			$numeroDeCanales = $head->channelsNumber;
-			echo "Ver PDF \t Guardar XML en Sistema \t Descargar XML";
-			echo "<p class='estilo'>Información</p>\n";
-			echo "<table width='100%' class='tabla' border='1'>\n";
-			
-			echo "<thead>\n";
-			echo "<tr>\n";
-			echo "<th class='estilo'>Concepto</th>\n";
-			echo "<th class='estilo'>Valor</th>\n";
-			echo "</tr>\n";
-
-			echo "</thead>\n";
-			echo "<tbody>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Datos de la banda y localidad</td>\n";
-			echo "<td class='estilo'>Localidad/Datos de la banda/Numero de canales --> faltan</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Número de soluciones</td>\n";
-			echo "<td class='estilo'>$head->numSolutions</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Espacios de computación creados</td>\n";
-			echo "<td class='estilo'>$head->spacesCreated</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Número de variables de dominios finitos</td>\n";
-			echo "<td class='estilo'>$head->FDVariables</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Número de propagadores</td>\n";
-			echo "<td class='estilo'>$head->propagators</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Uso de memoria (Bytes)</td>\n";
-			echo "<td class='estilo'>$head->memoryUsage</td>\n";
-			echo "</tr>\n";
-			echo "</tbody>\n";			
-			echo "</table>\n";
-			
+			?>
+			<script language="javascript">
+				var file = '<?php echo $out5; ?>';
+				$.post("gestionEspectro/php/encabezado.php", { file: file }, function(data){
+					$("#headit5").html(data);
+				});         
+				}
+			</script>	
+			<div id="headit5"></div>
+				
+			<?php
 			echo "<p class='estilo'>Soluciones</p>\n";
 			echo "<select id=\"selectit5\">";
 			for($i=0; $i<$numeroDeSolucionesEncontradas; $i++)
@@ -559,52 +427,25 @@
 		{
 			echo '<div id="tabs-6">';
 			echo "<p class='estilo'>Information</p>\n";
-		$solucion = simplexml_load_file($out6);
+			$solucion = simplexml_load_file($out6);
 			 
 			$head = $solucion->head; 
 			$numeroDeSolucionesEncontradas = $head->numSolutions;
 			
 			$numeroDeOperadores = $head->operatorsNumber;
 			$numeroDeCanales = $head->channelsNumber;
-			echo "Ver PDF \t Guardar XML en Sistema \t Descargar XML";
-			echo "<p class='estilo'>Información</p>\n";
-			echo "<table width='100%' class='tabla' border='1'>\n";
-			
-			echo "<thead>\n";
-			echo "<tr>\n";
-			echo "<th class='estilo'>Concepto</th>\n";
-			echo "<th class='estilo'>Valor</th>\n";
-			echo "</tr>\n";
 
-			echo "</thead>\n";
-			echo "<tbody>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Datos de la banda y localidad</td>\n";
-			echo "<td class='estilo'>Localidad/Datos de la banda/Numero de canales --> faltan</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Número de soluciones</td>\n";
-			echo "<td class='estilo'>$head->numSolutions</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Espacios de computación creados</td>\n";
-			echo "<td class='estilo'>$head->spacesCreated</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Número de variables de dominios finitos</td>\n";
-			echo "<td class='estilo'>$head->FDVariables</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Número de propagadores</td>\n";
-			echo "<td class='estilo'>$head->propagators</td>\n";
-			echo "</tr>\n";
-			echo "<tr>\n";
-			echo "<td class='estilo'>Uso de memoria (Bytes)</td>\n";
-			echo "<td class='estilo'>$head->memoryUsage</td>\n";
-			echo "</tr>\n";
-			echo "</tbody>\n";			
-			echo "</table>\n";
-			
+			?>
+			<script language="javascript">
+				var file = '<?php echo $out6; ?>';
+				$.post("gestionEspectro/php/encabezado.php", { file: file }, function(data){
+					$("#headit6").html(data);
+				});         
+				}
+			</script>	
+			<div id="headit6"></div>			
+				
+			<?php
 			echo "<p class='estilo'>Soluciones</p>\n";
 			echo "<select id=\"selectit6\">";
 			for($i=0; $i<$numeroDeSolucionesEncontradas; $i++)
@@ -631,7 +472,7 @@
 			echo "</p>\n";
 			echo "</div>\n";	
 		}
-		
+	}
 	}
 
 	?>

@@ -1,10 +1,10 @@
 <?php
 	$seleccion = (int) $_POST['opcSelec'];
 	$file = $_POST['file'];
-	$solucionIt1 = simplexml_load_file($file);
-	$head = $solucionIt1->head; 
+	$solucionIt = simplexml_load_file($file);
+	$head = $solucionIt->head; 
 	
-	foreach($solucionIt1->solution as $sol)
+	foreach($solucionIt->solution as $sol)
 	{
 		$id= (int) $sol->attributes()->id;	
 			
