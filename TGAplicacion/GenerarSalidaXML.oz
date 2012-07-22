@@ -7,7 +7,7 @@ export
 define
    
    Servicio = Entradas.servicio
-   proc {GenerarSalida Motor In ?Salida}
+   proc {GenerarSalida Motor In MantenerAsignacionesActuales NoConsiderarTope NoConsiderarSeparacion NumeroOperadorPorCanal ?Salida}
 
       local
          InDatosDesempenio=In.1
@@ -21,6 +21,10 @@ define
          
          Operadores = Entradas.n
          Canales = Entradas.c
+         Separacion = Entradas.sep
+         AsignacionStatic
+         ConSep
+         Tope
 
          proc{CrearHeader Reg TipoSolucion NumSoluciones ?Salida}
             local               
@@ -34,7 +38,7 @@ define
                Departamento=Reg.departamento
                BandaDeFrecuencia=Reg.bandaDeFrecuencia
                BandaEspecifica=Reg.bandaEspecifica               
-               DA DB DC DD DE DF A B C D E F G 
+               DA DB DC DD DE DF DG DH DI DJ DK A B C D E F G 
             in
                DA="\t\t<departament> "#Departamento#" </departament>\n"
                DB="\t\t<city> "#Ciudad#" </city>\n"
@@ -42,6 +46,11 @@ define
                DD="\t\t<especificBand> "#BandaEspecifica#" </especificBand>\n"
                DE="\t\t<channelsNumber> "#Canales#" </channelsNumber>\n"
                DF="\t\t<operatorsNumber> "#Operadores#" </operatorsNumber>\n"
+               DG="\t\t<channelSeparation> "#Separacion#" </channelSeparation>\n"
+               DH="\t\t<numberOperatorPerChannel> "#NumeroOperadorPorCanal#" </numberOperatorPerChannel>\n"
+               DI="\t\t<considerTop> "#Tope#" </considerTop>\n"
+               DJ="\t\t<staticAssignation> "#AsignacionStatic#" </staticAssignation>\n"
+               DK="\t\t<considerSeparation> "#ConSep#" </considerSeparation>\n"
                A="\t\t<numSolutions> "#NumSoluciones#" </numSolutions>\n"
                B="\t\t<spacesCreated> "#EC#" </spacesCreated>\n"
                C="\t\t<spacesSucceeded> "#EE#" </spacesSucceeded>\n"
@@ -51,13 +60,34 @@ define
                G="\t\t<executionTime> "#P#" </executionTime>\n"
 
                if Motor==1 then
-                  Salida="\t<head>\n"#DA#DB#DC#DD#DE#DF#A#B#C#D#E#F#G#"\t</head>\n"
+                  Salida="\t<head>\n"#DA#DB#DC#DD#DE#DF#DG#DH#DI#DJ#DK#A#B#C#D#E#F#G#"\t</head>\n"
                else
-                  Salida="\t<head solution=\""#TipoSolucion#"\">\n"#DA#DB#DC#DD#DE#DF#A#B#C#D#E#F#G#"\t</head>\n"
+                  Salida="\t<head solution=\""#TipoSolucion#"\">\n"#DA#DB#DC#DD#DE#DF#DG#DH#DI#DJ#DK#A#B#C#D#E#F#G#"\t</head>\n"
                end
             end
          end
       in
+		 %%------------------------------------------------------------------------
+		 %% CALCULOS INICIALES
+		 %%------------------------------------------------------------------------
+		  if(MantenerAsignacionesActuales==1) then
+			AsignacionStatic='NO'
+		  else
+			AsignacionStatic='YES'
+		  end
+		  
+		  if(NoConsiderarTope==1) then
+			Tope='NO'
+		  else
+			Tope='YES'
+		  end	
+		  
+		  if(NoConsiderarSeparacion==1) then
+			ConSep='NO'
+		  else
+			ConSep='YES'
+		  end	  
+		 
          %%---------------------------------------------------------------------
          %% INICIO DEL XML
          %%---------------------------------------------------------------------

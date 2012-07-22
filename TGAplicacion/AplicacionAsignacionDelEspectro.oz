@@ -217,7 +217,7 @@ define
    %Invertimos la salida
    
    SalidaInv = {FoldL Salida fun{$ X Y} Y|X end nil}
-   {FileSolution write(vs:{VirtualString.toString {GenerarSalida Motor [Desempenio SalidaInv]}})}  
+   {FileSolution write(vs:{VirtualString.toString {GenerarSalida Motor [Desempenio SalidaInv] NoMantenerAsignacionesActuales NoConsiderarTope NoConsiderarSeparacion NumeroOperadorPorCanal}})}  
    
    {Application.exit 0}
 end
