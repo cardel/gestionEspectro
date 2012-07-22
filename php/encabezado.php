@@ -16,6 +16,14 @@
 	echo "</thead>\n";
 	echo "<tbody>\n";
 	echo "<tr>\n";
+	echo "<td class='estilo'>Tipo de solución</td>\n";
+	$tipo = $head->attributes()->solution;
+	$tipoSolucion;
+	if($tipo == "noOptimal") $tipoSolucion="No óptima";
+	else $tipoSolucion="Óptima";
+	echo "<td class='estilo'>$tipoSolucion</td>\n";
+	echo "</tr>\n";
+	echo "<tr>\n";
 	echo "<td class='estilo'>Lugar de asignación</td>\n";
 	echo "<td class='estilo'>Localidad/Datos de la banda/Numero de canales --> faltan</td>\n";
 	echo "</tr>\n";
