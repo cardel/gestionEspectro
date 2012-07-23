@@ -60,6 +60,9 @@
    border-top-color: #1b435e;
    background: #1b435e;
    }
+
+   
+   
 .botonverde {
    border-top: 1px solid #97d164;
    background: #65a964;
@@ -121,4 +124,36 @@
 .botonamarillo:active {
    border-top-color: #5c531b;
    background: #5c531b;
+   }
+   
+.deshabilitado {
+   border-top: 1px solid #5c5c5c;
+   background: #737475;
+   background: -webkit-gradient(linear, left top, left bottom, from(#666666), to(#737475));
+   background: -webkit-linear-gradient(top, #666666, #737475);
+   background: -moz-linear-gradient(top, #666666, #737475);
+   background: -ms-linear-gradient(top, #666666, #737475);
+   background: -o-linear-gradient(top, #666666, #737475);
+   padding: 5px 10px;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   border-radius: 8px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 14px;
+   font-family: Georgia, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.deshabilitado:hover {
+   border-top-color: #6b6b6b;
+   background: #6b6b6b;
+   color: #ccc;
+   }
+.deshabilitado:active {
+   border-top-color: #707070;
+   background: #707070;
    }
