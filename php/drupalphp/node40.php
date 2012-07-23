@@ -197,7 +197,7 @@
 			<script language="javascript">
 			function headit1(){
 				var file = '<?php echo $out1; ?>';
-				var fileXML = '<?php echo "../../site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it1.xml"; ?>';
+				var fileXML = '<?php echo "site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it1.xml"; ?>';
 				$.post("gestionEspectro/php/encabezado.php", { file: file }, function(data){
 					$("#headit1").html(data);
 				});         
