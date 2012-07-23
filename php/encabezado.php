@@ -1,11 +1,12 @@
 <?php
 
 	$file = $_POST['file'];
+	$fileXML = $_POST['fileXML'];
 	$solucionHead = simplexml_load_file($file);
 	$head = $solucionHead->head; 
 
 	echo "<button class=\"botonazul\">Ver PDF</button>\n";
-	echo "<form method=GET target=\"_blank\" action=\"$file\">\n";
+	echo "<form method=GET target=\"_blank\" action=\"$fileXML\">\n";
 	echo "<button class=\"botonamarillo\">Descargar XML</button>";
 	echo "</form>";
 	echo "<button class=\"botonverde\">Almacenar XML</button>";
