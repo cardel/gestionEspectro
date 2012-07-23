@@ -2,12 +2,13 @@
 
 	$file = $_POST['file'];
 	$fileXML = $_POST['fileXML'];
+	$botonXML  = $_POST['botonXML'];
 	$solucionHead = simplexml_load_file($file);
 	$head = $solucionHead->head; 
 
 	echo "<input type=button class=\"botonazul\" value=\"Ver PDF\" />\n";
 	echo "<input type=button class=\"botonverde\" onClick=\"window.open('".$fileXML."' ,'_blank ','toolbar=1,menubar=1,width=500,height=600');\" value=\"Descargar XML\" />\n";
-	echo "<input type=button class=\"botonamarillo\" value=\"Almacenar XML\" />\n";
+	echo "<input type=button class=\"botonamarillo\" value=\"Almacenar XML\" onClick=\"".$botonXML."();\" id=\"".$botonXML."\"/>\n";
 	echo "<p class='estilo'>Información</p>\n";
 	echo "<table width='100%' class='tabla' border='1'>\n";
 	

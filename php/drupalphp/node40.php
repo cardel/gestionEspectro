@@ -195,10 +195,18 @@
 			$numeroDeCanales = $head->channelsNumber;
 			?>
 			<script language="javascript">
+			function botonGuardarXMLIt1(){
+				var nombreArchivo = prompt("Ingrese el nombre con que se va guardar el archivo","salidaIT1.xml");
+				$.post("gestionEspectro/php/almacenArchivo.php", { nombreArchivo: nombreArchivo }, function(data){
+					$('#botonGuardarXMLIt1').attr("disabled", true);
+				}); 
+			}
+			</script>
+			<script language="javascript">
 			function headit1(){
 				var file = '<?php echo $out1; ?>';
 				var fileXML = '<?php echo "gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it1.xml"; ?>';
-				$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML }, function(data){
+				$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML, botonXML: 'botonGuardarXMLIt1' }, function(data){
 					$("#headit1").html(data);
 				});         
 			}
@@ -249,15 +257,23 @@
 			$numeroDeCanales = $head->channelsNumber;
 			?>
 			<script language="javascript">
+			function botonGuardarXMLIt2(){
+				var nombreArchivo = prompt("Ingrese el nombre con que se va guardar el archivo","salidaIT2.xml");
+				$.post("gestionEspectro/php/almacenArchivo.php", { nombreArchivo: nombreArchivo }, function(data){
+					$('#botonGuardarXMLIt2').attr("disabled", true);
+				}); 
+			}
+			</script>
+			<script language="javascript">
 			function headit2(){
 				var file = '<?php echo $out2; ?>';
 				var fileXML = '<?php echo "gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it2.xml"; ?>';
-				$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML }, function(data){
-					$("#headit2").html(data);
+				$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML, botonXML: 'botonGuardarXMLIt2' }, function(data){
+					$("#headit3").html(data);
 				});         
 			}
 			headit2();
-			</script>	
+			</script>		
 			<div id="headit2"></div>
 				
 			<?php
@@ -300,10 +316,18 @@
 			$numeroDeCanales = $head->channelsNumber;
 			?>
 			<script language="javascript">
+			function botonGuardarXMLIt3(){
+				var nombreArchivo = prompt("Ingrese el nombre con que se va guardar el archivo","salidaIT3.xml");
+				$.post("gestionEspectro/php/almacenArchivo.php", { nombreArchivo: nombreArchivo }, function(data){
+					$('#botonGuardarXMLIt3').attr("disabled", true);
+				}); 
+			}
+			</script>	
+			<script language="javascript">
 			function headit3(){
 				var file = '<?php echo $out3; ?>';
 				var fileXML = '<?php echo "gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it3.xml"; ?>';
-				$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML }, function(data){
+				$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML, botonXML: 'botonGuardarXMLIt3' }, function(data){
 					$("#headit3").html(data);
 				});         
 			}
@@ -352,10 +376,18 @@
 			$numeroDeCanales = $head->channelsNumber;
 			?>
 			<script language="javascript">
+			function botonGuardarXMLIt4(){
+				var nombreArchivo = prompt("Ingrese el nombre con que se va guardar el archivo","salidaIT4.xml");
+				$.post("gestionEspectro/php/almacenArchivo.php", { nombreArchivo: nombreArchivo }, function(data){
+					$('#botonGuardarXMLIt4').attr("disabled", true);
+				}); 
+			}
+			</script>	
+			<script language="javascript">
 			function headit4(){
 				var file = '<?php echo $out4; ?>';
 				var fileXML = '<?php echo "gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it4.xml"; ?>';
-				$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML }, function(data){
+				$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML, botonXML: 'botonGuardarXMLIt4' }, function(data){
 					$("#headit4").html(data);
 				});         
 			}
@@ -403,10 +435,19 @@
 			$numeroDeCanales = $head->channelsNumber;
 			?>
 			<script language="javascript">
+			function botonGuardarXMLIt5(){
+				var nombreArchivo = prompt("Ingrese el nombre con que se va guardar el archivo","salidaIT5.xml");
+				$.post("gestionEspectro/php/almacenArchivo.php", { nombreArchivo: nombreArchivo }, function(data){
+					$('#botonGuardarXMLIt5').attr("disabled", true);
+				}); 
+			}
+			</script>	
+			
+			<script language="javascript">
 			function headit5(){
 				var file = '<?php echo $out5; ?>';
 				var fileXML = '<?php echo "gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it5.xml"; ?>';
-				$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML }, function(data){
+				$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML, botonXML: 'botonGuardarXMLIt5' }, function(data){
 					$("#headit5").html(data);
 				});         
 			}
@@ -455,14 +496,23 @@
 
 			?>
 			<script language="javascript">
+			function botonGuardarXMLIt6(){
+				var nombreArchivo = prompt("Ingrese el nombre con que se va guardar el archivo","salidaIT6.xml");
+				$.post("gestionEspectro/php/almacenArchivo.php", { nombreArchivo: nombreArchivo }, function(data){
+					$('#botonGuardarXMLIt6').attr("disabled", true);
+				}); 
+			}
+			</script>			
+			
+			<script language="javascript">
 			function headit6(){
 				var file = '<?php echo $out6; ?>';
 				var fileXML = '<?php echo "gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it6.xml"; ?>';
-				$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML }, function(data){
+				$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML, botonXML: 'botonGuardarXMLIt6' }, function(data){
 					$("#headit6").html(data);
 				});         
 			}
-			headit6()
+			headit6();
 			</script>	
 			<div id="headit6"></div>			
 				
@@ -493,13 +543,28 @@
 			echo "</p>\n";
 			echo "</div>\n";
 		}
-		echo "<input type=button id=\"accionFormulario\" class=\"botonrojo\" value=\"Mostrar formulario\" />\n";
+		echo "<input type=button id=\"accionFormulario\" class=\"botonrojo\" value=\"Mostrar formulario\" onclick=\"mostrarOcultar();\"/>\n";
 		?>
 		<script language="javascript">
 		function ocultarForm(){
 			document.getElementById("formularioHTML").style.display='none'; 
 		}
 		window.onload = function(){	ocultarForm();}
+		
+		function mostrarOcultar()
+		{
+			if(document.getElementById("formularioHTML").style.display=='block')
+			{
+				document.getElementById("formularioHTML").style.display='none'; 
+				document.getElementById("accionFormulario").value = "Mostrar formulario";
+
+			}
+			else
+			{
+				document.getElementById("accionFormulario").value = "Ocultar formulario";
+				document.getElementById("formularioHTML").style.display='block'; 			
+			}
+		}
 		</script>	
 		<?php	
 
