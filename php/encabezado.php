@@ -5,9 +5,9 @@
 	$solucionHead = simplexml_load_file($file);
 	$head = $solucionHead->head; 
 
-	echo "<button class=\"botonazul\">Ver PDF</button>\n";
-	echo "<input type=button class=\"botonamarillo\" onClick=\"window.open(\"http://www.google.com\" ,\"mywindow\",\"width=300,height=400\");\" value=\"Descargar XML\"/>";
-	echo "<button class=\"botonverde\">Almacenar XML</button>";
+	echo "<input type=button class=\"botonazul\" value=\"Ver PDF\" />\n";
+	echo "<input type=button class=\"botonamarillo\" onClick=\"window.open('http://www.google.com' ,'popup','width=300,height=400');\" value=\"Descargar XML\" />\n";
+	echo "<input type=button class=\"botonazul\" value=\"Almacenar XML\" />\n";
 	echo "<p class='estilo'>Información</p>\n";
 	echo "<table width='100%' class='tabla' border='1'>\n";
 	
