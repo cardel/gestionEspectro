@@ -269,7 +269,7 @@
 				var file = '<?php echo $out2; ?>';
 				var fileXML = '<?php echo "gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it2.xml"; ?>';
 				$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML, botonXML: 'botonGuardarXMLIt2' }, function(data){
-					$("#headit3").html(data);
+					$("#headit2").html(data);
 				});         
 			}
 			headit2();
