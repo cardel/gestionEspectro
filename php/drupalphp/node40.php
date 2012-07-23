@@ -199,7 +199,7 @@
 				var file = '<?php echo $out1; ?>';
 				var nombreArchivo = prompt("Ingrese el nombre con que se va guardar el archivo","salidaIT1.xml");
 				$.post("gestionEspectro/php/almacenarArchivo.php", { file : file, nombreArchivo: nombreArchivo, userID : '<?php echo $user->uid; ?>' }, function(data){
-					$('#botonGuardarXMLIt1').attr("disabled", true);
+					$('#botonGuardarXMLIt1').attr("disabled", "disabled");
 				}); 
 			}
 			</script>
@@ -262,7 +262,7 @@
 				var file = '<?php echo $out2; ?>';
 				var nombreArchivo = prompt("Ingrese el nombre con que se va guardar el archivo","salidaIT2.xml");
 				$.post("gestionEspectro/php/almacenarArchivo.php", { file : file, nombreArchivo: nombreArchivo, userID : '<?php echo $user->uid; ?>' }, function(data){
-					$('#botonGuardarXMLIt2').attr("disabled", true);
+					$('#botonGuardarXMLIt2').attr("disabled", "disabled");
 				}); 
 			}
 			</script>
@@ -322,7 +322,7 @@
 				var file = '<?php echo $out3; ?>';
 				var nombreArchivo = prompt("Ingrese el nombre con que se va guardar el archivo","salidaIT3.xml");
 				$.post("gestionEspectro/php/almacenarArchivo.php", { file : file, nombreArchivo: nombreArchivo, userID : '<?php echo $user->uid; ?>' }, function(data){
-					$('#botonGuardarXMLIt3').attr("disabled", true);
+					$('#botonGuardarXMLIt3').attr("disabled", "disabled");
 				}); 
 			}
 			</script>	
@@ -383,7 +383,7 @@
 				var file = '<?php echo $out4; ?>';
 				var nombreArchivo = prompt("Ingrese el nombre con que se va guardar el archivo","salidaIT4.xml");
 				$.post("gestionEspectro/php/almacenarArchivo.php", { file : file, nombreArchivo: nombreArchivo, userID : '<?php echo $user->uid; ?>' }, function(data){
-					$('#botonGuardarXMLIt4').attr("disabled", true);
+					$('#botonGuardarXMLIt4').attr("disabled", "disabled");
 				}); 
 			}
 			</script>	
@@ -443,7 +443,7 @@
 				var file = '<?php echo $out5; ?>';
 				var nombreArchivo = prompt("Ingrese el nombre con que se va guardar el archivo","salidaIT5.xml");
 				$.post("gestionEspectro/php/almacenarArchivo.php", { file : file, nombreArchivo: nombreArchivo, userID : '<?php echo $user->uid; ?>' }, function(data){
-					$('#botonGuardarXMLIt5').attr("disabled", true);
+					$('#botonGuardarXMLIt5').attr("disabled", "disabled");
 				}); 
 			}
 			</script>	
@@ -505,7 +505,7 @@
 				var file = '<?php echo $out6; ?>';
 				var nombreArchivo = prompt("Ingrese el nombre con que se va guardar el archivo","salidaIT6.xml");
 				$.post("gestionEspectro/php/almacenarArchivo.php", { file : file, nombreArchivo: nombreArchivo, userID : '<?php echo $user->uid; ?>' }, function(data){
-					$('#botonGuardarXMLIt6').attr("disabled", true);
+					$('#botonGuardarXMLIt6').attr("disabled", "disabled");
 				}); 
 			}
 			</script>			
