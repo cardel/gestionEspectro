@@ -491,8 +491,18 @@
 
 			<?php
 			echo "</p>\n";
-			echo "</div>\n";	
+			echo "</div>\n";
 		}
+		echo "<input type=button id=\"accionFormulario\" class=\"botonrojo\" value=\"Mostrar formulario\" />\n";
+		?>
+		<script language="javascript">
+		function ocultarForm(){
+			document.getElementById("formularioHTML").style.display='none'; 
+		}
+		window.onload = function(){	ocultarForm();}
+		</script>	
+		<?php	
+
 	}
 ?>
 <div id="formularioHTML">

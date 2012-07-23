@@ -47,5 +47,11 @@ $(document).ready(function(){
 					$('#it6').fadeIn('slow');
 				break;
 		}
-	}) 
+	})
+	
+	$("#accionFormulario").click(function(){
+		$("#formularioHTML").toogle("slow");
+		if($("#formularioHTML").text()=="Mostrar formulario") $("#formularioHTML").text("Ocultar formulario");
+		else $("#formularioHTML").text("Mostrar formulario 2");
+		});
 });
