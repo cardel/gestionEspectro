@@ -3,7 +3,9 @@
 	$file = $_POST['file'];
 	$solucionHead = simplexml_load_file($file);
 	$head = $solucionHead->head; 
-	echo "Ver PDF \t Guardar XML en Sistema \t Descargar XML";
+	echo "<button class=\"botonazul\">Ver PDF</button>";
+	echo "<button class=\"botonamarillo\">Descargar XML</button>";
+	echo "<button class=\"botonverde\">Almacenar XML</button>";
 	echo "<p class='estilo'>Información</p>\n";
 	echo "<table width='100%' class='tabla' border='1'>\n";
 	
