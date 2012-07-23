@@ -197,8 +197,8 @@
 			<script language="javascript">
 			function headit1(){
 				var file = '<?php echo $out1; ?>';
-				var fileXML = '<?php echo "site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it1.xml"; ?>';
-				$.post("gestionEspectro/php/encabezado.php", { file: file }, function(data){
+				var fileXML = '<?php echo "gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it1.xml"; ?>';
+				$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML }, function(data){
 					$("#headit1").html(data);
 				});         
 			}
@@ -251,8 +251,8 @@
 			<script language="javascript">
 			function headit2(){
 				var file = '<?php echo $out2; ?>';
-				var fileXML = '<?php echo "site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it2.xml"; ?>';
-				$.post("gestionEspectro/php/encabezado.php", { file: file }, function(data){
+				var fileXML = '<?php echo "gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it2.xml"; ?>';
+				$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML }, function(data){
 					$("#headit2").html(data);
 				});         
 			}
@@ -302,8 +302,8 @@
 			<script language="javascript">
 			function headit3(){
 				var file = '<?php echo $out3; ?>';
-				var fileXML = '<?php echo "site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it3.xml"; ?>';
-				$.post("gestionEspectro/php/encabezado.php", { file: file }, function(data){
+				var fileXML = '<?php echo "gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it3.xml"; ?>';
+				$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML }, function(data){
 					$("#headit3").html(data);
 				});         
 			}
@@ -354,8 +354,8 @@
 			<script language="javascript">
 			function headit4(){
 				var file = '<?php echo $out4; ?>';
-				var fileXML = '<?php echo "site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it4.xml"; ?>';
-				$.post("gestionEspectro/php/encabezado.php", { file: file }, function(data){
+				var fileXML = '<?php echo "gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it4.xml"; ?>';
+				$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML }, function(data){
 					$("#headit4").html(data);
 				});         
 			}
@@ -405,8 +405,8 @@
 			<script language="javascript">
 			function headit5(){
 				var file = '<?php echo $out5; ?>';
-				var fileXML = '<?php echo "site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it5.xml"; ?>';
-				$.post("gestionEspectro/php/encabezado.php", { file: file }, function(data){
+				var fileXML = '<?php echo "gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it5.xml"; ?>';
+				$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML }, function(data){
 					$("#headit5").html(data);
 				});         
 			}
@@ -457,8 +457,8 @@
 			<script language="javascript">
 			function headit6(){
 				var file = '<?php echo $out6; ?>';
-				var fileXML = '<?php echo "site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it6.xml"; ?>';
-				$.post("gestionEspectro/php/encabezado.php", { file: file }, function(data){
+				var fileXML = '<?php echo "gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it6.xml"; ?>';
+				$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML }, function(data){
 					$("#headit6").html(data);
 				});         
 			}

@@ -6,7 +6,7 @@
 	$head = $solucionHead->head; 
 
 	echo "<input type=button class=\"botonazul\" value=\"Ver PDF\" />\n";
-	echo "<input type=button class=\"botonverde\" onClick=\"window.open('".$fileXML."' ,'popup','width=400,height=600');\" value=\"Descargar XML\" />\n";
+	echo "<input type=button class=\"botonverde\" onClick=\"window.open('".$fileXML."' ,'popup','toolbar=1,menubar=1,width=400,height=600');\" value=\"Descargar XML\" />\n";
 	echo "<input type=button class=\"botonamarillo\" value=\"Almacenar XML\" />\n";
 	echo "<p class='estilo'>Información</p>\n";
 	echo "<table width='100%' class='tabla' border='1'>\n";
