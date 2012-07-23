@@ -1,9 +1,9 @@
-	<?php
+<?php
 	jquery_ui_add('ui.tabs');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'dataTables/media/js/jquery.dataTables.js');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/jtables.js');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/tabsAppSum.js');
-	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/appEspectro.js');
+	drupal_add_js(drupal_get_path('module', 'mymodule') . 'gestionEspectro/php/drupaljs/appEspectro.js');
 	drupal_set_html_head('<script type="text/javascript" src="https://www.google.com/jsapi"></script>');
 	drupal_add_css($path = 'css/datatable.css', $type = 'module', $media = 'all', $preprocess = TRUE);
 	drupal_add_css($path = 'gestionEspectro/php/drupalcss/botonesEspectro.css', $type = 'module', $media = 'all', $preprocess = TRUE);
@@ -489,9 +489,8 @@
 			echo "</div>\n";	
 		}
 	}
-
-	?>
-
+?>
+<div id="formularioHTML">
 	<form action="/site/?q=node/40" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">
 		<div class="form-item" id="edit-file-upload-wrapper">
 			<label for="edit-file-upload">Seleccione archivo de entrada: </label>
@@ -757,3 +756,4 @@
 		</table>
 		<input type="submit" name="op" id="edit-submit" value="Ejecutar" class="form-submit"/>
 	</form>
+</div>
