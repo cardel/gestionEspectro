@@ -83,9 +83,9 @@ define
 		  end	
 		  
 		  if(NoConsiderarSeparacion==1) then
-			ConSep='true'
-		  else
 			ConSep='false'
+		  else
+			ConSep='true'
 		  end	  
 		 
          %%---------------------------------------------------------------------
