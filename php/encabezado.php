@@ -6,7 +6,6 @@
 	$solucionHead = simplexml_load_file($file);
 	$head = $solucionHead->head; 
 
-	echo "<input type=button class=\"botonazul\" value=\"Ver PDF\" />\n";
 	echo "<input type=button class=\"botonverde\" onClick=\"window.open('".$fileXML."' ,'_blank ','toolbar=1,menubar=1,width=500,height=600');\" value=\"Descargar XML\" />\n";
 	echo "<input type=button class=\"botonamarillo\" value=\"Almacenar XML\" onClick=\"".$botonXML."();\" id=\"".$botonXML."\"/>\n";
 	echo "<p class='estilo'>Información</p>\n";
@@ -24,7 +23,7 @@
 	echo "<td class='estilo'>Tipo de solución</td>\n";
 	$tipo = $head->attributes()->solution;
 	$tipoSolucion;
-	if($tipo == "noOptimal") $tipoSolucion="No óptima";
+	if($tipo == "noOptima") $tipoSolucion="No óptima";
 	else $tipoSolucion="Óptima";
 	echo "<td class='estilo'>$tipoSolucion</td>\n";
 	echo "</tr>\n";
@@ -74,15 +73,21 @@
 	echo "</tr>\n";
 	echo "<tr>\n";
 	echo "<td class='estilo'>Considerar tope de la banda</td>\n";
-	echo "<td class='estilo'>$head->considerTop</td>\n";
+	$considerTop = $head->considerTop;
+	if($head->considerTop=="YES") $considerTop="Sí"
+	echo "<td class='estilo'>$considerTop</td>\n";
 	echo "</tr>\n";
 	echo "<tr>\n";
 	echo "<td class='estilo'>Se conserva la asignación de los operadores que requieren asignación</td>\n";
-	echo "<td class='estilo'>$head->staticAssignation</td>\n";
+	$staticAssignation = $head->staticAssignation;
+	if($head->staticAssignation=="YES") $staticAssignation="Sí"
+	echo "<td class='estilo'>$staticAssignation</td>\n";
 	echo "</tr>\n";
 	echo "<tr>\n";
 	echo "<td class='estilo'>Se considera la separación</td>\n";
-	echo "<td class='estilo'>$head->considerSeparation</td>\n";
+	$considerSeparation = $head->considerSeparation;
+	if($head->considerSeparation=="YES") $considerSeparation="Sí"
+	echo "<td class='estilo'>$h</td>\n";
 	echo "</tr>\n";			
 	echo "</tbody>\n";			
 	echo "</table>\n";
