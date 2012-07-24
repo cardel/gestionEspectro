@@ -74,14 +74,14 @@
 	echo "<tr>\n";
 	echo "<td class='estilo'>Considerar tope de la banda</td>\n";
 	$considerTop = $head->considerTop;
-	if(!strcmp($considerTop, true)) $considerTop="Sí";
+	if(!strcmp($considerTop, 'true')) $considerTop="Sí";
 	else  $considerTop="No";
 	echo "<td class='estilo'>$considerTop</td>\n";
 	echo "</tr>\n";
 	echo "<tr>\n";
 	echo "<td class='estilo'>Se conserva la asignación de los operadores que requieren asignación</td>\n";
 	$staticAssignation = $head->staticAssignation;
-	if(!strcmp($staticAssignation, true)) $staticAssignation="Sí";
+	if(!strcmp($staticAssignation, "true")) $staticAssignation="Sí";
 	else  $staticAssignation="No";
 	echo "<td class='estilo'>$staticAssignation</td>\n";
 	echo "</tr>\n";
