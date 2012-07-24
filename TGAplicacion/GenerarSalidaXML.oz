@@ -7,7 +7,7 @@ export
 define
    
    Servicio = Entradas.servicio
-   proc {GenerarSalida Motor In MantenerAsignacionesActuales NoConsiderarTope NoConsiderarSeparacion NumeroOperadorPorCanal ?Salida}
+   proc {GenerarSalida Motor In NoMantenerAsignacionesActuales NoConsiderarTope NoConsiderarSeparacion NumeroOperadorPorCanal ?Salida}
 
       local
          InDatosDesempenio=In.1
@@ -70,7 +70,7 @@ define
 		 %%------------------------------------------------------------------------
 		 %% CALCULOS INICIALES
 		 %%------------------------------------------------------------------------
-		  if(MantenerAsignacionesActuales==1) then
+		  if(NoMantenerAsignacionesActuales==1) then
 			AsignacionStatic='false'
 		  else
 			AsignacionStatic='true'
