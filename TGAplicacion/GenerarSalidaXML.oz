@@ -48,9 +48,9 @@ define
                DF="\t\t<operatorsNumber> "#Operadores#" </operatorsNumber>\n"
                DG="\t\t<channelSeparation> "#Separacion#" </channelSeparation>\n"
                DH="\t\t<numberOperatorPerChannel> "#NumeroOperadorPorCanal#" </numberOperatorPerChannel>\n"
-               DI="\t\t<considerTop> \""#Tope#"\" </considerTop>\n"
-               DJ="\t\t<staticAssignation> \""#AsignacionStatic#"\" </staticAssignation>\n"
-               DK="\t\t<considerSeparation> \""#ConSep#"\" </considerSeparation>\n"
+               DI="\t\t<considerTop> "#Tope#" </considerTop>\n"
+               DJ="\t\t<staticAssignation> "#AsignacionStatic#" </staticAssignation>\n"
+               DK="\t\t<considerSeparation> "#ConSep#" </considerSeparation>\n"
                A="\t\t<numSolutions> "#NumSoluciones#" </numSolutions>\n"
                B="\t\t<spacesCreated> "#EC#" </spacesCreated>\n"
                C="\t\t<spacesSucceeded> "#EE#" </spacesSucceeded>\n"
@@ -71,21 +71,21 @@ define
 		 %% CALCULOS INICIALES
 		 %%------------------------------------------------------------------------
 		  if(MantenerAsignacionesActuales==1) then
-			AsignacionStatic='NO'
+			AsignacionStatic=false
 		  else
-			AsignacionStatic='YES'
+			AsignacionStatic=true
 		  end
 		  
 		  if(NoConsiderarTope==1) then
-			Tope='NO'
+			Tope=false
 		  else
-			Tope='YES'
+			Tope=true
 		  end	
 		  
 		  if(NoConsiderarSeparacion==1) then
-			ConSep='NO'
+			ConSep=true
 		  else
-			ConSep='YES'
+			ConSep=false
 		  end	  
 		 
          %%---------------------------------------------------------------------
