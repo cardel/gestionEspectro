@@ -71,9 +71,9 @@ define
 		 %% CALCULOS INICIALES
 		 %%------------------------------------------------------------------------
 		  if(MantenerAsignacionesActuales==1) then
-			AsignacionStatic='true'
-		  else
 			AsignacionStatic='false'
+		  else
+			AsignacionStatic='true'
 		  end
 		  
 		  if(NoConsiderarTope==1) then
