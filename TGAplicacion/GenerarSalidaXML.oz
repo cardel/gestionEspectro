@@ -71,21 +71,21 @@ define
 		 %% CALCULOS INICIALES
 		 %%------------------------------------------------------------------------
 		  if(MantenerAsignacionesActuales==1) then
-			AsignacionStatic=false
+			AsignacionStatic='false'
 		  else
-			AsignacionStatic=true
+			AsignacionStatic='true'
 		  end
 		  
 		  if(NoConsiderarTope==1) then
-			Tope=false
+			Tope='false'
 		  else
-			Tope=true
+			Tope='true'
 		  end	
 		  
 		  if(NoConsiderarSeparacion==1) then
-			ConSep=true
+			ConSep='true'
 		  else
-			ConSep=false
+			ConSep='false'
 		  end	  
 		 
          %%---------------------------------------------------------------------
