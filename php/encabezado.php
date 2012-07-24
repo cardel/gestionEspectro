@@ -79,13 +79,13 @@
 	echo "</tr>\n";
 	echo "<tr>\n";
 	echo "<td class='estilo'>Se conserva la asignación de los operadores que requieren asignación</td>\n";
-	$staticAssignation = rim($head->staticAssignation);
+	$staticAssignation = trim($head->staticAssignation);
 	if($staticAssignation == "true") $staticAssignation="Sí";
 	echo "<td class='estilo'>$staticAssignation</td>\n";
 	echo "</tr>\n";
 	echo "<tr>\n";
 	echo "<td class='estilo'>Se considera la separación</td>\n";
-	$considerSeparation = rim($head->considerSeparation);
+	$considerSeparation = trim($head->considerSeparation);
 	if($considerSeparation=="true") $considerSeparation="Sí";
 	echo "<td class='estilo'>$considerSeparation</td>\n";
 	echo "</tr>\n";			
