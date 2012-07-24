@@ -81,7 +81,7 @@
 	echo "<tr>\n";
 	echo "<td class='estilo'>Se conserva la asignación de los operadores que requieren asignación</td>\n";
 	$staticAssignation = $head->staticAssignation;
-	if(!strcmp($staticAssignation, ""\"YES\"")) $staticAssignation="Sí";
+	if(!strcmp($staticAssignation, "\"YES\"")) $staticAssignation="Sí";
 	else  $staticAssignation="No";
 	echo "<td class='estilo'>$staticAssignation</td>\n";
 	echo "</tr>\n";
