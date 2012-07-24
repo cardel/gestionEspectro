@@ -88,7 +88,6 @@
 	$considerSeparation = $head->considerSeparation;
 	if($considerSeparation=='YES') $considerSeparation="Sí";
 	echo "<td class='estilo'>$considerSeparation</td>\n";
-	echo "<td class='estilo'>$h</td>\n";
 	echo "</tr>\n";			
 	echo "</tbody>\n";			
 	echo "</table>\n";
