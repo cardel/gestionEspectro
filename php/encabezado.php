@@ -74,19 +74,19 @@
 	echo "<tr>\n";
 	echo "<td class='estilo'>Considerar tope de la banda</td>\n";
 	$considerTop = $head->considerTop;
-	if($head->considerTop=="YES") $considerTop="Sí"
+	if($head->considerTop=="YES") $considerTop="Sí";
 	echo "<td class='estilo'>$considerTop</td>\n";
 	echo "</tr>\n";
 	echo "<tr>\n";
 	echo "<td class='estilo'>Se conserva la asignación de los operadores que requieren asignación</td>\n";
 	$staticAssignation = $head->staticAssignation;
-	if($head->staticAssignation=="YES") $staticAssignation="Sí"
+	if($head->staticAssignation=="YES") $staticAssignation="Sí";
 	echo "<td class='estilo'>$staticAssignation</td>\n";
 	echo "</tr>\n";
 	echo "<tr>\n";
 	echo "<td class='estilo'>Se considera la separación</td>\n";
 	$considerSeparation = $head->considerSeparation;
-	if($head->considerSeparation=="YES") $considerSeparation="Sí"
+	if($head->considerSeparation=="YES") $considerSeparation="Sí";
 	echo "<td class='estilo'>$h</td>\n";
 	echo "</tr>\n";			
 	echo "</tbody>\n";			
