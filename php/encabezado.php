@@ -73,9 +73,8 @@
 	echo "</tr>\n";
 	echo "<tr>\n";
 	echo "<td class='estilo'>Considerar tope de la banda</td>\n";
-	$tipoA = $head->considerTop;
 	$considerTop;
-	if($tipoA == 'true') $considerTop="Sí";
+	if(!strcmp("\"".$head->considerTop."\"" == "true")) $considerTop="Sí";
 	else  $considerTop="No";
 	echo "<td class='estilo'>$considerTop</td>\n";
 	echo "</tr>\n";
