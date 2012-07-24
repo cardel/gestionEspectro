@@ -74,7 +74,7 @@
 	echo "<tr>\n";
 	echo "<td class='estilo'>Considerar tope de la banda</td>\n";
 	$considerTop = $head->considerTop;
-	if($considerTop \= "YES") $considerTop="Sí";
+	if($considerTop == "YES") $considerTop="Sí";
 	echo "<td class='estilo'>$considerTop</td>\n";
 	echo "</tr>\n";
 	echo "<tr>\n";
@@ -86,7 +86,7 @@
 	echo "<tr>\n";
 	echo "<td class='estilo'>Se considera la separación</td>\n";
 	$considerSeparation = $head->considerSeparation;
-	if($considerSeparation =="YES") $considerSeparation="Sí";
+	if($considerSeparation == "YES") $considerSeparation="Sí";
 	echo "<td class='estilo'>$considerSeparation</td>\n";
 	echo "</tr>\n";			
 	echo "</tbody>\n";			
