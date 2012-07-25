@@ -8,7 +8,7 @@
 8,18823-19798 kHz,4,Transmisión para explotación dúplex en banda lateral única (canales de dos frecuencias) Banda de 18/19 MHz,10,15,18823000,19798000
 9,22000-22853 kHz,4,Transmisión para explotación dúplex en banda lateral única (canales de dos frecuencias) Banda de 22 MHz,10,53,22000000,22853000
 10,25070-26173 kHz,4,Transmisión para explotación dúplex en banda lateral única (canales de dos frecuencias) Banda de 25/26 MHz,5,10,22570000,26173000
-11,"26,960 - 27,410 MHz",4,"RADIOCOMUNICACIÓN DE BANDA CIUDADANA, Reservados Canales 7,8,9 y 10 atención de desastres",10,40,26960000,2741000
+11,"26,960 - 27,410 MHz",4,"RADIOCOMUNICACIÓN DE BANDA CIUDADANA Reservados Canales 7,8,9 y 10 atención de desastres",10,40,2696000,2741000
 12,54-700 MHz,5,SERVICIO DE RADIODIFUSIÓN TELEVISIÓN,10,50,54000000,70000000
 13,156-162 MHz,5,SERVICIO MÓVIL MARÍTIMO,10,88,156000000,162000000
 14,"227,5-246,9 MHz",5,BANDA DE 200 MHz SERVICIO DE RADIODIFUSIÓN SONORA ,10,60,227500000,246900000
