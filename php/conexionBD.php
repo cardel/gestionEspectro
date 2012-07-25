@@ -22,10 +22,10 @@ class conexionBD {
 
     function __construct() {
 		//Datos conexión
-		$servidor = 'localhost';
-		$base = 'dbtgespectro';
-		$usuario = 'drupal';
-		$contrasena = 'EKLm0p43';
+		$this->servidor = "localhost";
+		$this->base = "dbtgespectro";
+		$this->usuario = "drupal";
+		$this->contrasena = "EKLm0p43";
     }
 
     function __destruct() {
