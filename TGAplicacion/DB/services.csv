@@ -1,4 +1,3 @@
-ID_service,services_name,services_description
 1,Servicio de radiocomunicación,"Servicio definido en esta sección que implica la transmisión, la emisión o la recepción de ondas radioeléctricas para fines específicos de telecomunicación."
 2,Servicio Fijo,Servicio de radiocomunicación entre puntos fijosdeterminados.
 3,Servicio Fijo por satélite,"Servicio de radiocomunicación entre estaciones terrenas situadas en emplazamientos dados cuando se utilizan uno o más satélites; el emplazamiento dado puede ser un punto fijo determinado o cualquier punto fijo situado en una zona determinada; en algunos casos, este Servicio incluye enlaces entre satélites que pueden realizarse también dentro del  Servicio entre satélites; el Servicio Fijo por satélite puede también incluir  enlaces de conexión para otros servicios de radiocomunicación espacial."
