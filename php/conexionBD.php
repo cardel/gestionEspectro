@@ -23,7 +23,7 @@ class conexionBD {
     function __construct() {
 		//Datos conexión
 		$servidor = 'localhost';
-		$base = "dbtgespectro";
+		$base = 'dbtgespectro';
 		$usuario = 'drupal';
 		$contrasena = 'EKLm0p43';
     }
