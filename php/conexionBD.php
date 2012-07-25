@@ -12,7 +12,7 @@
  * 4. Cerrar conexión
  */
 
-class Fachada {
+class conexionBD {
 
     private $servidor;
     private $base;
