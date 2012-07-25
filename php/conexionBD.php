@@ -33,10 +33,10 @@ class conexionBD {
     }
 
     function abrirConexion() {
-        $this->conexion = pg_connect($this->servidor, $this->usuario, $this->contrasena);
+        $this->conexion = pg_connect("host=$this->servidor dbname=$this->base user=$this->usuario password=$this->contrasena");
         if ($this->conexion == false)
             return false;            
-        return pg_select($this->base, $this->conexion);
+        return true;
     }
 
     function cerrarConexion() {
