@@ -4,7 +4,7 @@
    $objconexionBD = new conexionBD();
    $objconexionBD->abrirConexion();
 
-   echo "<select id=\"selectTerritorialdivision\" onclick=\"consultarDepartamentos()\">";
+   echo "<select id=\"selectTerritorialdivision\" onchange=\"consultarDepartamentos()\">";
    $query="select \"ID_Territorial_Division\", initcap(\"Territorial_Division_Name\") as Territorial_Division_Name from  territorial_divisions order by \"ID_Territorial_Division\" desc;";
    
    $result= $objconexionBD->enviarConsulta($query);

@@ -7,7 +7,7 @@
 
 	if($idConsulta=='departamentos')
 	{
-	   echo "<select id=\"selectDepartaments\" onclick=\"consultarMunicipios();\">";
+	   echo "<select id=\"selectDepartaments\" onchange=\"consultarMunicipios();\">";
 	   $query="select * from departaments where \"ID_Territorial_Division\"=".$idConsulta.";";
 	   
 	   $result= $objconexionBD->enviarConsulta($query);
