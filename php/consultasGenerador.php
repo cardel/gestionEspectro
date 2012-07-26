@@ -1,7 +1,7 @@
 <?php
 	require ("/var/www/html/site/gestionEspectro/php/conexionBD.php");
-	$tipoConsulta = $POST_["consulta"];
-	$idConsulta = $POST_["idConsulta"];
+	$tipoConsulta = $_POST["consulta"];
+	$idConsulta = $_POST["idConsulta"];
     $objconexionBD = new conexionBD();
     $objconexionBD->abrirConexion();
 
