@@ -16,7 +16,8 @@
 		  print ("<option value=$row[ID_departament]>");
 		  print ("$row[departament_name]");
 		  print ("</option>\n");		
-		}			
+		}
+		pg_free_result($result);			
 	}
 	else
 	{
@@ -31,10 +32,11 @@
 			  print ("<option value=$row[ID_cities]>");
 			  print ("$row[city_name]");
 			  print ("</option>\n");		
-			}				
+			}
+			pg_free_result($result);				
 		}
 		
 	}
-   pg_free_result($result);
+   
    $objconexionBD->cerrarConexion();		
 ?>
