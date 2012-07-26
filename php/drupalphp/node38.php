@@ -8,6 +8,16 @@ Usted puede seleccionar en que lugar se va realizar el proceso de asignación de
 	<li>A nivel local seleccione el municipio dentro del departamento especifíco</li>
 </ul>	
 
+<script language="javascript">
+function borrarDepartamentos(){
+	$("#departamentos").html(" ");      
+	$("#municipios").html(" ");       
+}
+function borrarMunicipios(){
+	$("#municipios").html(" ");       
+}
+</script>
+
 <a href="#" onclick="javascript:consultarDivisionTerritorial();"> Seleccionar división territorial </a>
 
 <script language="javascript">
