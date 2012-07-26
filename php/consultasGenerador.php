@@ -25,7 +25,6 @@
 		if($tipoConsulta=='departamentos')
 		{
 		   echo "<select id=\"selectDepartaments\">";
-		   echo "<select id=\"selectDepartaments\">";
 		   $query="select * from departaments where \"ID_Territorial_Division\"=".$idConsulta.";";
 		   
 		   $result= $objconexionBD->enviarConsulta($query);

@@ -12,8 +12,7 @@ Usted puede seleccionar en que lugar se va realizar el proceso de asignación de
 
 <script language="javascript">
 function consultarDivisionTerritorial(){ 
-	var selector = $('#selectTerritorialdivision').val();
-	$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'divisionTerritorial', idConsulta: selector }, function(data){
+	$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'divisionTerritorial', idConsulta: 0 }, function(data){
 		$("#territorialDivision").html(data);
 		$("#departamentos").html("");
 		$("#municipios").html("");
@@ -26,7 +25,7 @@ function consultarDivisionTerritorial(){
 
 <script language="javascript">
 function consultarDepartamentos(){ 
-	var selector = $('#selectTerritorialdivision').val();
+	var selector = $('#selectTerritorialDivision').val();
 	$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'departamentos', idConsulta: selector }, function(data){
 		$("#departamentos").html(data);
 		$("#municipios").html("");
@@ -34,17 +33,17 @@ function consultarDepartamentos(){
  
 }
 </script>
-	
-	<div id="departamentos"></div>
 
-	<script language="javascript">
-	function consultarMunicipios(){    
-		var selector = $('#selectDepartaments').val();
-		$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'municipios', idConsulta: selector }, function(data){
-			$("#municipios").html(data);
-		});         
-	}
-	</script>
-	
-	<div id="municipios"></div>	
+<div id="departamentos"></div>
+
+<script language="javascript">
+function consultarMunicipios(){    
+	var selector = $('#selectDepartaments').val();
+	$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'municipios', idConsulta: selector }, function(data){
+		$("#municipios").html(data);
+	});         
+}
+</script>
+
+<div id="municipios"></div>	
 	
