@@ -4,7 +4,7 @@
    $objconexionBD = new conexionBD();
    $objconexionBD->abrirConexion();
 
-   echo "<select id=\"selectTerritorialdivision\" onchange=\"consultarDepartamentos()\">";
+   echo "<select id=\"selectTerritorialdivision\" onchange=\"javascript:consultarDepartamentos();\">";
    $query="select \"ID_Territorial_Division\", initcap(\"Territorial_Division_Name\") as Territorial_Division_Name from  territorial_divisions order by \"ID_Territorial_Division\" desc;";
    
    $result= $objconexionBD->enviarConsulta($query);
@@ -19,7 +19,7 @@
    $objconexionBD->cerrarConexion();
  ?>  
 	<script language="javascript">
-	function consultarDepartamentos(){    
+	function consultarDepartamentos(){ 
 		var selector = $('#selectTerritorialdivision').val();
 		$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'departamentos', idConsulta: selector }, function(data){
 			$("#mostrarDepartamentos").html(data);
