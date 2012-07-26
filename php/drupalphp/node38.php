@@ -23,8 +23,9 @@
 		var selector = $('#selectTerritorialdivision').val();
 		$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'departamentos', idConsulta: selector }, function(data){
 			$("#mostrarDepartamentos").html(data);
-			$("#mostrarMunicipios").html(" ");
-		});         
+			$("#mostrarMunicipios").html("");
+		}); 
+     
 	}
 	</script>
 	

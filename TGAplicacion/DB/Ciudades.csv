@@ -1,1132 +1,1098 @@
-1,Departamento Antioquia,2
-2,Medellín,2
-3,Abejorral,2
-4,Abriaquí,2
-5,Alejandría,2
-6,Amaga,2
-7,Amalfi,2
-8,Andes,2
-9,Angelópolis,2
-10,Angostura,2
-11,Anorí,2
-12,Antioquia,2
-13,Anza,2
-14,Apartado,2
-15,Arboletes,2
-16,Argelia,2
-17,Armenia,2
-18,Barbosa,2
-19,Belmira,2
-20,Bello,2
-21,Betania,2
-22,Betulia,2
-23,Bolívar,2
-24,Briceño,2
-25,Buriticá,2
-26,Cáceres,2
-27,Caicedo,2
-28,Caldas,2
-29,Campamento,2
-30,Cañasgordas,2
-31,Caracolí,2
-32,Caramanta,2
-33,Carepa,2
-34,Carmen De Viboral,2
-35,Carolina,2
-36,Caucasia,2
-37,Chigorodó,2
-38,Cisneros,2
-39,Cocorná,2
-40,Concepción,2
-41,Concordia,2
-42,Copacabana,2
-43,Dabeiba,2
-44,Don Matías,2
-45,Ebéjico,2
-46,El Bagre,2
-47,Entrerrios,2
-48,Envigado,2
-49,Fredonia,2
-50,Frontino,2
-51,Giraldo,2
-52,Girardota,2
-53,Gómez Plata,2
-54,Granada,2
-55,Guadalupe,2
-56,Guarne,2
-57,Guatapé,2
-58,Heliconia,2
-59,Hispania,2
-60,Itagüí,2
-61,Ituango,2
-62,Jardín,2
-63,Jericó,2
-64,La Ceja,2
-65,La Estrella,2
-66,La Pintada,2
-67,La Unión,2
-68,Liborina,2
-69,Maceo,2
-70,Marinilla,2
-71,Montebello,2
-72,Murindó,2
-73,Mutatá,2
-74,Nariño,2
-75,Necoclí,2
-76,Nechí,2
-77,Olaya,2
-78,Peñol,2
-79,Peque,2
-80,Pueblorrico,2
-81,Puerto Berrío,2
-82,Puerto Nare,2
-83,Puerto Triunfo,2
-84,Remedios,2
-85,Retiro,2
-86,Rionegro,2
-87,Sabanalarga,2
-88,Sabaneta,2
-89,Salgar,2
-90,San Andrés,2
-91,San Carlos,2
-92,San Francisco,2
-93,San Jerónimo,2
-94,San José De La Montaña,2
-95,San Juan De Urabá,2
-96,San Luis,2
-97,San Pedro,2
-98,San Pedro De Urabá,2
-99,San Rafael,2
-100,San Roque,2
-101,San Vicente,2
-102,Santa Barbara,2
-103,Santa Rosa De Osos,2
-104,Santo Domingo,2
-105,Santuario,2
-106,Segovia,2
-107,Sonsón,2
-108,Sopetrán,2
-109,Támesis,2
-110,Taraza,2
-111,Tarso,2
-112,Titiribí,2
-113,Toledo,2
-114,Turbo,2
-115,Uramita,2
-116,Urrao,2
-117,Valdivia,2
-118,Valparaíso,2
-119,Vegachí,2
-120,Venecia,2
-121,Vigiá Del Fuerte,2
-122,Yalí,2
-123,Yarumal,2
-124,Yolombó,2
-125,Yondó,2
-126,Zaragoza,2
-127,Departamento Atlántico,4
-128,Barranquilla,4
-129,Baranoa,4
-130,Campo De La Cruz,4
-131,Candelaria,4
-132,Galapa,4
-133,Juan De Acosta,4
-134,Luruaco,4
-135,Malambo,4
-136,Manatí,4
-137,Palmar De Varela,4
-138,Piojo,4
-139,Polo Nuevo,4
-140,Ponedera,4
-141,Puerto Colombia,4
-142,Repelón,4
-143,Sabanagrande,4
-144,Sabanalarga,4
-145,Santa Lucia,4
-146,Santo Tomas,4
-147,Soledad,4
-148,Suán,4
-149,Tubará,4
-150,Usiacurí,4
-151,Bogotá D.C.,5
-152,Departamento Bolívar,6
-153,Cartagena,6
-154,Achí,6
-155,Altos Del Rosario,6
-156,Arenal,6
-157,Arjona,6
-158,Arroyohondo,6
-159,Barranco De Loba,6
-160,Calamar,6
-161,Cantagallo,6
-162,Cicuco,6
-163,Córdoba,6
-164,Clemencia,6
-165,El Carmen De Bolívar,6
-166,El Guamo,6
-167,El Peñón,6
-168,Hatillo De Loba,6
-169,Magangué,6
-170,Mahates,6
-171,Margarita,6
-172,María La Baja,6
-173,Montecristo,6
-174,Mompos,6
-175,Morales,6
-176,Pinillos,6
-177,Regidor,6
-178,Rio Viejo,6
-179,San Cristóbal,6
-180,San Estanislao,6
-181,San Fernando,6
-182,San Jacinto,6
-183,San Jacinto Del Cauca,6
-184,San Juan De Nepomuceno,6
-185,San Martín De Loba,6
-186,San Pablo,6
-187,Santa Catalina,6
-188,Santa Rosa,6
-189,Santa Rosa Del Sur,6
-190,Simití,6
-191,Soplaviento,6
-192,Talaigua Nuevo,6
-193,Tiquisio,6
-194,Turbaco,6
-195,Turbaná,6
-196,Villanueva,6
-197,Zambrano,6
-198,Departamento Boyacá,7
-199,Tunja,7
-200,Almeida,7
-201,Aquitania,7
-202,Arcabuco,7
-203,Belén,7
-204,Berbeo,7
-205,Betéitiva,7
-206,Boavita,7
-207,Boyacá,7
-208,Briceño,7
-209,Buenavista,7
-210,Busbanzá,7
-211,Caldas,7
-212,Campohermoso,7
-213,Cerinza,7
-214,Chinavita,7
-215,Chiquinquirá,7
-216,Chiscas,7
-217,Chita,7
-218,Chitaraque,7
-219,Chivata,7
-220,Ciénega,7
-221,Cómbita,7
-222,Coper,7
-223,Corrales,7
-224,Covarachía,7
-225,Cubará,7
-226,Cucaita,7
-227,Cuitiva,7
-228,Chíquiza,7
-229,Chivor,7
-230,Duitama,7
-231,El Cocuy,7
-232,El Espino,7
-233,Firavitoba,7
-234,Floresta,7
-235,Gachantivá,7
-236,Gámeza,7
-237,Garagoa,7
-238,Guacamayas,7
-239,Guateque,7
-240,Guayatá,7
-241,Güicán,7
-242,Iza,7
-243,Jenesano,7
-244,Jericó,7
-245,Labranzagrande,7
-246,La Capilla,7
-247,La Victoria,7
-248,La Uvita,7
-249,Villa De Leyva,7
-250,Macanal,7
-251,Maripí,7
-252,Miraflores,7
-253,Mongua,7
-254,Monguí,7
-255,Moniquirá,7
-256,Motavita,7
-257,Muzo,7
-258,Nobsa,7
-259,Nuevo Colon,7
-260,Oicatá,7
-261,Otanche,7
-262,Pachavita,7
-263,Páez,7
-264,Paipa,7
-265,Pajarito,7
-266,Panqueba,7
-267,Pauna,7
-268,Paya,7
-269,Paz Del Rio,7
-270,Pesca,7
-271,Pisba,7
-272,Puerto Boyacá,7
-273,Quípama,7
-274,Ramiriquí,7
-275,Ráquira,7
-276,Rondón,7
-277,Saboyá,7
-278,Sáchica,7
-279,Samacá,7
-280,San Eduardo,7
-281,San José De Pare,7
-282,San Luis De Gaceno,7
-283,San Mateo,7
-284,San Miguel De Sema,7
-285,San Pablo De Borbur,7
-286,Santana,7
-287,Santa María,7
-288,Santa Rosa De Viterbo,7
-289,Santa Sofía,7
-290,Sativanorte,7
-291,Sativasur,7
-292,Siachoque,7
-293,Soatá,7
-294,Socotá,7
-295,Socha,7
-296,Sogamoso,7
-297,Somondoco,7
-298,Sora,7
-299,Sotaquirá,7
-300,Soracá,7
-301,Susacón,7
-302,Sutamarchán,7
-303,Sutatenza,7
-304,Tasco,7
-305,Tenza,7
-306,Tibaná,7
-307,Tibasosa,7
-308,Tinjacá,7
-309,Tipacoque,7
-310,Toca,7
-311,Togüí,7
-312,Tópaga,7
-313,Tota,7
-314,Tununguá,7
-315,Turmequé,7
-316,Tuta,7
-317,Tutasa,7
-318,Umbita,7
-319,Ventaquemada,7
-320,Viracachá,7
-321,Zetaquira,7
-322,Departamento Caldas,8
-323,Manizales,8
-324,Aguadas,8
-325,Anserma,8
-326,Aranzazu,8
-327,Belalcázar,8
-328,Chinchiná,8
-329,Filadelfia,8
-330,La Dorada,8
-331,La Merced,8
-332,Manzanares,8
-333,Marmato,8
-334,Marquetalia,8
-335,Marulanda,8
-336,Neira,8
-337,Norcasia,8
-338,Pácora,8
-339,Palestina,8
-340,Pensilvania,8
-341,Riosucio,8
-342,Risaralda,8
-343,Salamina,8
-344,Samaná,8
-345,San José,8
-346,Supía,8
-347,Victoria,8
-348,Villamaría,8
-349,Viterbo,8
-350,Departamento Caquetá,9
-351,Florencia,9
-352,Albania,9
-353,Belén Andaquies,9
-354,Cartagena Del Chaira,9
-355,Curillo,9
-356,El Doncello,9
-357,El Paujil,9
-358,La Montañita,9
-359,Rilan,9
-360,Morelia,9
-361,Puerto Rico,9
-362,San José De Fragua,9
-363,San  Vicente Del Caguán,9
-364,Solano,9
-365,Solita,9
-366,Valparaíso,9
-367,Departamento Cauca,11
-368,Popayán,11
-369,Almaguer,11
-370,Argelia,11
-371,Balboa,11
-372,Bolívar,11
-373,Buenos Aires,11
-374,Cajibío,11
-375,Caldono,11
-376,Caloto,11
-377,Corinto,11
-378,El Tambo,11
-379,Florencia,11
-380,Guapi,11
-381,Inzá,11
-382,Jambaló,11
-383,La Sierra,11
-384,La Vega,11
-385,López,11
-386,Mercaderes,11
-387,Miranda,11
-388,Morales,11
-389,Padilla,11
-390,Páez,11
-391,Patía (EL Bordo),11
-392,Piamonte,11
-393,Piendamó,11
-394,Puerto Tejada,11
-395,Puracé,11
-396,Rosas,11
-397,San Sebastián,11
-398,Santander De Quilichao,11
-399,Santa Rosa,11
-400,Silvia,11
-401,Sotara,11
-402,Suárez,11
-403,Sucre,11
-404,Timbío,11
-405,Timbiquí,11
-406,Toribio,11
-407,Totoró,11
-408,Villa Rica,11
-409,Departamento Cesar,12
-410,Valledupar,12
-411,Aguachica,12
-412,Agustín Codazzi,12
-413,Astrea,12
-414,Becerril,12
-415,Bosconia,12
-416,Chimichagua,12
-417,Chiriguaná,12
-418,Curumaní,12
-419,El Copey,12
-420,El Paso,12
-421,Gamarra,12
-422,González,12
-423,La Gloria,12
-424,La Jagua De Ibirico,12
-425,Manaure,12
-426,Pailitas,12
-427,Pelaya,12
-428,Pueblo Bello,12
-429,Rio De Oro,12
-430,Robles (LA Paz),12
-431,San Alberto,12
-432,San Diego,12
-433,San Martín,12
-434,Tamalameque,12
-435,Departamento Córdoba,14
-436,Montería,14
-437,Ayapel,14
-438,Buenavista,14
-439,Canalete,14
-440,Cereté,14
-441,Chima,14
-442,Chinú,14
-443,Ciénaga De Oro,14
-444,Cotorra,14
-445,La Apartada,14
-446,Lorica,14
-447,Los Córdobas,14
-448,Momil,14
-449,Montelíbano,14
-450,Moñitos,14
-451,Planeta Rica,14
-452,Pueblo Nuevo,14
-453,Puerto Escondido,14
-454,Puerto Libertador,14
-455,Purísima,14
-456,Sahagún,14
-457,San Andrés Sotavento,14
-458,San Antero,14
-459,San Bernardo Viento,14
-460,San Carlos,14
-461,San Pelayo,14
-462,Tierralta,14
-463,Valencia,14
-464,Departamento Cundinamarca,15
-465,Agua De Dios,15
-466,Albán,15
-467,Anapoima,15
-468,Anolaima,15
-469,Arbeláez,15
-470,Beltrán,15
-471,Bituima,15
-472,Bojacá,15
-473,Cabrera,15
-474,Cachipay,15
-475,Cajicá,15
-476,Caparrapí,15
-477,Caqueza,15
-478,Carmen De Carupa,15
-479,Chaguaní,15
-480,Chía,15
-481,Chipaque,15
-482,Choachí,15
-483,Chocontá,15
-484,Cogua,15
-485,Cota,15
-486,Cucunubá,15
-487,El Colegio,15
-488,El Peñón,15
-489,El Rosal,15
-490,Facatativá,15
-491,Fómeque,15
-492,Fosca,15
-493,Funza,15
-494,Fúquene,15
-495,Fusagasugá,15
-496,Gachalá,15
-497,Gachancipá,15
-498,Gacheta,15
-499,Gama,15
-500,Girardot,15
-501,Granada,15
-502,Guachetá,15
-503,Guaduas,15
-504,Guasca,15
-505,Guataquí,15
-506,Guatavita,15
-507,Guayabal De Siquima,15
-508,Guayabetal,15
-509,Gutiérrez,15
-510,Jerusalén,15
-511,Junín,15
-512,La Calera,15
-513,La Mesa,15
-514,La Palma,15
-515,La Peña,15
-516,La Vega,15
-517,Lenguazaque,15
-518,Macheta,15
-519,Madrid,15
-520,Manta,15
-521,Medina,15
-522,Mosquera,15
-523,Nariño,15
-524,Nemocón,15
-525,Nilo,15
-526,Nimaima,15
-527,Nocaima,15
-528,Venecia (OSPINA Pérez),15
-529,Pacho,15
-530,Paime,15
-531,Pandi,15
-532,Paratebueno,15
-533,Pasca,15
-534,Puerto Salgar,15
-535,Pulí,15
-536,Quebradanegra,15
-537,Quetame,15
-538,Quipile,15
-539,Rafael Reyes,15
-540,Ricaurte,15
-541,San  Antonio Del  Tequendama,15
-542,San Bernardo,15
-543,San Cayetano,15
-544,San Francisco,15
-545,San Juan De Rioseco,15
-546,Sasaima,15
-547,Sesquilé,15
-548,Sibaté,15
-549,Silvania,15
-550,Simijaca,15
-551,Soacha,15
-552,Sopo,15
-553,Subachoque,15
-554,Suesca,15
-555,Supatá,15
-556,Susa,15
-557,Sutatausa,15
-558,Tabio,15
-559,Tausa,15
-560,Tena,15
-561,Tenjo,15
-562,Tibacuy,15
-563,Tibirita,15
-564,Tocaima,15
-565,Tocancipá,15
-566,Topaipí,15
-567,Ubalá,15
-568,Ubaque,15
-569,Ubaté,15
-570,Une,15
-571,Útica,15
-572,Vergara,15
-573,Vianí,15
-574,Villagómez,15
-575,Villapinzón,15
-576,Villeta,15
-577,Viotá,15
-578,Yacopí,15
-579,Zipacón,15
-580,Zipaquirá,15
-581,Departamento Chocó,13
-582,Quibdó,13
-583,Acandí,13
-584,Alto Baudó (PIE De Pato),13
-585,Atrato,13
-586,Bagado,13
-587,Bahía Solano (MUTIS),13
-588,Bajo Baudó (PIZARRO),13
-589,Bojaya (BELLAVISTA),13
-590,Cantón De San Pablo,13
-591,Carmen Del Darien,13
-592,Cértegui,13
-593,Condoto,13
-594,El Carmen,13
-595,Litoral Del San Juan,13
-596,Istmina,13
-597,Jurado,13
-598,Lloro,13
-599,Medio Atrato,13
-600,Medio Baudó,13
-601,Medio San Juan,13
-602,Nóvita,13
-603,Nuquí,13
-604,Rio Iro,13
-605,Rio Quito,13
-606,Riosucio,13
-607,San José Del Palmar,13
-608,Sipí,13
-609,Tadó,13
-610,Unguía,13
-611,Unión Panamericana,13
-612,Departamento Huila,18
-613,Neiva,18
-614,Acevedo,18
-615,Agrado,18
-616,Aipe,18
-617,Algeciras,18
-618,Altamira,18
-619,Baraya,18
-620,Campoalegre,18
-621,Colombia,18
-622,Elías,18
-623,Garzón,18
-624,Gigante,18
-625,Guadalupe,18
-626,Hobo,18
-627,Iquira,18
-628,Isnos,18
-629,La Argentina,18
-630,La Plata,18
-631,Nátaga,18
-632,Oporapa,18
-633,Paicol,18
-634,Palermo,18
-635,Palestina,18
-636,Pital,18
-637,Pitalito,18
-638,Rivera,18
-639,Saladoblanco,18
-640,San Agustín,18
-641,Santa María,18
-642,Suaza,18
-643,Tarqui,18
-644,Tesalia,18
-645,Tello,18
-646,Teruel,18
-647,Timaná,18
-648,Villavieja,18
-649,Yaguará,18
-650,Departamento Guajira,19
-651,Riohacha,19
-652,Albania,19
-653,Barrancas,19
-654,Dibulla,19
-655,Distracción,19
-656,El Molino,19
-657,Fonseca,19
-658,Hatonuevo,19
-659,La Jagua Del Pilar,19
-660,Maicao,19
-661,Manaure,19
-662,San Juan Del Cesar,19
-663,Uribia,19
-664,Urumita,19
-665,Villanueva,19
-666,Departamento Magdalena,20
-667,Santa Marta,20
-668,Algarrobo,20
-669,Aracataca,20
-670,Ariguaní,20
-671,Cerro San Antonio,20
-672,Chivolo,20
-673,Ciénaga,20
-674,Concordia,20
-675,El Banco,20
-676,El Piñon,20
-677,El Reten,20
-678,Fundación,20
-679,Guamal,20
-680,Nueva Granada,20
-681,Pedraza,20
-682,Pijiño Del Carmen,20
-683,Pivijay,20
-684,Plato,20
-685,Puebloviejo,20
-686,Remolino,20
-687,Sabanas De San Angel,20
-688,Salamina,20
-689,San Sebastián De Buenavista,20
-690,San Zenón,20
-691,Santa Ana,20
-692,Santa Barbara De Pinto,20
-693,Sitionuevo,20
-694,Tenerife,20
-695,Zapayán,20
-696,Zona Bananera,20
-697,Departamento Meta,21
-698,Villavicencio,21
-699,Acacias,21
-700,Barranca De Upía,21
-701,Cabuyaro,21
-702,Castilla La Nueva,21
-703,Cubarral,21
-704,Cumaral,21
-705,El Calvario,21
-706,El Castillo,21
-707,El Dorado,21
-708,Fuente De Oro,21
-709,Granada,21
-710,Guamal,21
-711,Mapiripán,21
-712,Mesetas,21
-713,La Macarena,21
-714,La Uribe,21
-715,Lejanías,21
-716,Puerto Concordia,21
-717,Puerto Gaitán,21
-718,Puerto López,21
-719,Puerto Lleras,21
-720,Puerto Rico,21
-721,Restrepo,21
-722,San Carlos De Guaroa,21
-723,San Juan De Arama,21
-724,San Juanito,21
-725,San Martín,21
-726,Vista Hermosa,21
-727,Departamento Nariño,22
-728,Pasto,22
-729,Albán,22
-730,Aldana,22
-731,Ancuyá,22
-732,Arboleda,22
-733,Barbacoas,22
-734,Belén,22
-735,Buesaco,22
-736,Colon-Génova,22
-737,Consaca,22
-738,Contadero,22
-739,Córdoba,22
-740,Cuaspud-Carlosama,22
-741,Cumbal,22
-742,Cumbitara,22
-743,Chachagüí,22
-744,El Charco,22
-745,El Peñol,22
-746,El Rosario,22
-747,El Tablón,22
-748,El Tambo,22
-749,Funes,22
-750,Guachucal,22
-751,Guaitarilla,22
-752,Gualmatán,22
-753,Iles,22
-754,Imués,22
-755,Ipiales,22
-756,La Cruz,22
-757,La Florida,22
-758,La Llanada,22
-759,La Tola,22
-760,La Unión,22
-761,Leiva,22
-762,Linares,22
-763,Los Andes,22
-764,Magüi-Payan,22
-765,Mallama,22
-766,Mosquera,22
-767,Nariño,22
-768,Olaya Herrera,22
-769,Ospina,22
-770,Francisco Pizarro,22
-771,Policarpa,22
-772,Potosí,22
-773,Providencia,22
-774,Puerres,22
-775,Pupiales,22
-776,Ricaurte,22
-777,Roberto Payan,22
-778,Samaniego,22
-779,Sandoná,22
-780,San Bernardo,22
-781,San Lorenzo,22
-782,San Pablo,22
-783,San Pedro De Cartago,22
-784,Santa Barbara,22
-785,Santacruz,22
-786,Sapuyes,22
-787,Taminango,22
-788,Tangua,22
-789,Tumaco,22
-790,Túquerres,22
-791,Yacuanquer,22
-792,Departamento Norte de Santander,23
-793,Cúcuta,23
-794,Abrego,23
-795,Arboledas,23
-796,Bochalema,23
-797,Bucarasica,23
-798,Cácota,23
-799,Cachirá,23
-800,Chinácota,23
-801,Chitagá,23
-802,Convención,23
-803,Cucutilla,23
-804,Duranía,23
-805,El Carmen,23
-806,El Tarra,23
-807,El Zulia,23
-808,Gramalote,23
-809,Hacarí,23
-810,Herrán,23
-811,Labateca,23
-812,La Esperanza,23
-813,La Playa,23
-814,Los Patios,23
-815,Lourdes,23
-816,Mutiscua,23
-817,Ocaña,23
-818,Pamplona,23
-819,Pamplonita,23
-820,Puerto Santander,23
-821,Ragonvalia,23
-822,Salazar,23
-823,San Calixto,23
-824,San Cayetano,23
-825,Santiago,23
-826,Sardinata,23
-827,Silos,23
-828,Teorama,23
-829,Tibú,23
-830,Toledo,23
-831,Villacaro,23
-832,Villa Del Rosario,23
-833,Departamento Quindío,25
-834,Armenia,25
-835,Buenavista,25
-836,Calarcá,25
-837,Circasia,25
-838,Córdoba,25
-839,Filandia,25
-840,Génova,25
-841,La Tebaida,25
-842,Montenegro,25
-843,Pijao,25
-844,Quimbaya,25
-845,Salento,25
-846,Departamento Risaralda,26
-847,Pereira,26
-848,Apía,26
-849,Balboa,26
-850,Belén De Umbría,26
-851,Dosquebradas,26
-852,Guática,26
-853,La Celia,26
-854,La Virginia,26
-855,Marsella,26
-856,Mistrató,26
-857,Pueblo Rico,26
-858,Quinchía,26
-859,Santa Rosa De Cabal,26
-860,Santuario,26
-861,Departamento Santander,28
-862,Bucaramanga,28
-863,Aguada,28
-864,Albania,28
-865,Aratoca,28
-866,Barbosa,28
-867,Barichara,28
-868,Barrancabermeja,28
-869,Betulia,28
-870,Bolívar,28
-871,Cabrera,28
-872,California,28
-873,Capitanejo,28
-874,Carcasí,28
-875,Cepita,28
-876,Cerrito,28
-877,Charalá,28
-878,Charta,28
-879,Chima,28
-880,Chipatá,28
-881,Cimitarra,28
-882,Concepción,28
-883,Confines,28
-884,Contratación,28
-885,Coromoro,28
-886,Curití,28
-887,El Carmen,28
-888,El Guacamayo,28
-889,El Peñon,28
-890,El Playón,28
-891,Encino,28
-892,Enciso,28
-893,Florián,28
-894,Floridablanca,28
-895,Galan,28
-896,Gambita,28
-897,Girón,28
-898,Guaca,28
-899,Guadalupe,28
-900,Guapota,28
-901,Guavatá,28
-902,Güepsa,28
-903,Hato,28
-904,Jesús María,28
-905,Jordán,28
-906,La Belleza,28
-907,Landázuri,28
-908,La Paz,28
-909,Lebrija,28
-910,Los Santos,28
-911,Macaravita,28
-912,Málaga,28
-913,Matanza,28
-914,Mogotes,28
-915,Molagavita,28
-916,Ocamonte,28
-917,Oiba,28
-918,Onzaga,28
-919,Palmar,28
-920,Palmas Del Socorro,28
-921,Páramo,28
-922,Piedecuesta,28
-923,Pinchote,28
-924,Puente Nacional,28
-925,Puerto Parra,28
-926,Puerto Wilches,28
-927,Rionegro,28
-928,Sabana De Torres,28
-929,San Andrés,28
-930,San Benito,28
-931,San Gil,28
-932,San Joaquín,28
-933,San José De Miranda,28
-934,San Miguel,28
-935,San Vicente De Chucurí,28
-936,Santa Barbara,28
-937,Santa Helena,28
-938,Simacota,28
-939,Socorro,28
-940,Suaita,28
-941,Sucre,28
-942,Suratá,28
-943,Tona,28
-944,Valle San José,28
-945,Vélez,28
-946,Vetas,28
-947,Villanueva,28
-948,Zapatoca,28
-949,Departamento Sucre,29
-950,Sincelejo,29
-951,Buenavista,29
-952,Caimito,29
-953,Coloso,29
-954,Corozal,29
-955,Coveñas,29
-956,Chalan,29
-957,El Roble,29
-958,Galeras,29
-959,Guaranda,29
-960,La Unión,29
-961,Los Palmitos,29
-962,Majagual,29
-963,Morroa,29
-964,Ovejas,29
-965,Palmito,29
-966,Sampués,29
-967,San Benito Abad,29
-968,San Juan De Betulia,29
-969,San Marcos,29
-970,San Onofre,29
-971,San Pedro,29
-972,Sincé,29
-973,Sucre,29
-974,Tolú,29
-975,Toluviejo,29
-976,Departamento Tolima,30
-977,Ibagué,30
-978,Alpujarra,30
-979,Alvarado,30
-980,Ambalema,30
-981,Anzoátegui,30
-982,Armero (GUAYABAL),30
-983,Ataco,30
-984,Cajamarca,30
-985,Carmen De Apicalá,30
-986,Casabianca,30
-987,Chaparral,30
-988,Coello,30
-989,Coyaima,30
-990,Cunday,30
-991,Dolores,30
-992,Espinal,30
-993,Falan,30
-994,Flandes,30
-995,Fresno,30
-996,Guamo,30
-997,Herveo,30
-998,Honda,30
-999,Icononzo,30
-1000,Lérida,30
-1001,Líbano,30
-1002,Mariquita,30
-1003,Melgar,30
-1004,Murillo,30
-1005,Natagaima,30
-1006,Ortega,30
-1007,Palocabildo,30
-1008,Piedras,30
-1009,Planadas,30
-1010,Prado,30
-1011,Purificación,30
-1012,Rioblanco,30
-1013,Roncesvalles,30
-1014,Rovira,30
-1015,Saldaña,30
-1016,San Antonio,30
-1017,San Luis,30
-1018,Santa Isabel,30
-1019,Suárez,30
-1020,Valle De S Juan,30
-1021,Venadillo,30
-1022,Villahermosa,30
-1023,Villarrica,30
-1024,Departamento Valle del Cauca,31
-1025,Cali,31
-1026,Alcalá,31
-1027,Andalucía,31
-1028,Ansermanuevo,31
-1029,Argelia,31
-1030,Bolívar,31
-1031,Buenaventura,31
-1032,Buga,31
-1033,Bugalagrande,31
-1034,Caicedonia,31
-1035,Calima-Darien,31
-1036,Candelaria,31
-1037,Cartago,31
-1038,Dagua,31
-1039,El Águila,31
-1040,El Cairo,31
-1041,El Cerrito,31
-1042,El Dovio,31
-1043,Florida,31
-1044,Ginebra,31
-1045,Guacarí,31
-1046,Jamundí,31
-1047,La Cumbre,31
-1048,La Unión,31
-1049,La Victoria,31
-1050,Obando,31
-1051,Palmira,31
-1052,Pradera,31
-1053,Restrepo,31
-1054,Riofrío,31
-1055,Roldanillo,31
-1056,San Pedro,31
-1057,Sevilla,31
-1058,Toro,31
-1059,Trujillo,31
-1060,Tuluá,31
-1061,Ulloa,31
-1062,Versalles,31
-1063,Vijes,31
-1064,Yotoco,31
-1065,Yumbo,31
-1066,Zarzal,31
-1067,Departamento Arauca,3
-1068,Arauca,3
-1069,Arauquita,3
-1070,Cravo Norte,3
-1071,Fortul,3
-1072,Puerto Rondón,3
-1073,Saravena,3
-1074,Tame,3
-1075,Departamento Casanare,10
-1076,Yopal,10
-1077,Aguazul,10
-1078,Chameza,10
-1079,Hato Corozal,10
-1080,La Salina,10
-1081,Maní,10
-1082,Monterrey,10
-1083,Nunchía,10
-1084,Orocué,10
-1085,Paz De Ariporo,10
-1086,Pore,10
-1087,Recetor,10
-1088,Sabanalarga,10
-1089,Sácama,10
-1090,San Luis De Palenque,10
-1091,Támara,10
-1092,Tauramena,10
-1093,Trinidad,10
-1094,Villanueva,10
-1095,Departamento Putumayo,24
-1096,Mocoa,24
-1097,Colon,24
-1098,Orito,24
-1099,Puerto Asís,24
-1100,Puerto Caycedo,24
-1101,Puerto Guzmán,24
-1102,Puerto Leguízamo,24
-1103,Sibundoy,24
-1104,San Francisco,24
-1105,San Miguel,24
-1106,Santiago,24
-1107,Valle Del Guamuez,24
-1108,Villagarzon,24
-1109,Departamento San Andrés,27
-1110,San Andrés,27
-1111,Providencia,27
-1112,Departamento Amazonas,1
-1113,Leticia,1
-1114,Puerto Nariño,1
-1115,Departamento Guainía,16
-1116,Puerto Inírida,16
-1117,Departamento Guaviare,17
-1118,San José Del Guaviare,17
-1119,Calamar,17
-1120,El Retorno,17
-1121,Miraflores,17
-1122,Departamento Vaupés,32
-1123,Mitú,32
-1124,Caruru,32
-1125,Taraira,32
-1126,Departamento Vichada,33
-1127,Puerto Carreño,33
-1128,La Primavera,33
-1129,Santa Rosalía,33
-1130,Cumaribo,33
-1131,Nacional,34
-1132,Regional,35
+1,Medellín,2
+2,Abejorral,2
+3,Abriaquí,2
+4,Alejandría,2
+5,Amaga,2
+6,Amalfi,2
+7,Andes,2
+8,Angelópolis,2
+9,Angostura,2
+10,Anorí,2
+11,Antioquia,2
+12,Anza,2
+13,Apartado,2
+14,Arboletes,2
+15,Argelia,2
+16,Armenia,2
+17,Barbosa,2
+18,Belmira,2
+19,Bello,2
+20,Betania,2
+21,Betulia,2
+22,Bolívar,2
+23,Briceño,2
+24,Buriticá,2
+25,Cáceres,2
+26,Caicedo,2
+27,Caldas,2
+28,Campamento,2
+29,Cañasgordas,2
+30,Caracolí,2
+31,Caramanta,2
+32,Carepa,2
+33,Carmen De Viboral,2
+34,Carolina,2
+35,Caucasia,2
+36,Chigorodó,2
+37,Cisneros,2
+38,Cocorná,2
+39,Concepción,2
+40,Concordia,2
+41,Copacabana,2
+42,Dabeiba,2
+43,Don Matías,2
+44,Ebéjico,2
+45,El Bagre,2
+46,Entrerrios,2
+47,Envigado,2
+48,Fredonia,2
+49,Frontino,2
+50,Giraldo,2
+51,Girardota,2
+52,Gómez Plata,2
+53,Granada,2
+54,Guadalupe,2
+55,Guarne,2
+56,Guatapé,2
+57,Heliconia,2
+58,Hispania,2
+59,Itagüí,2
+60,Ituango,2
+61,Jardín,2
+62,Jericó,2
+63,La Ceja,2
+64,La Estrella,2
+65,La Pintada,2
+66,La Unión,2
+67,Liborina,2
+68,Maceo,2
+69,Marinilla,2
+70,Montebello,2
+71,Murindó,2
+72,Mutatá,2
+73,Nariño,2
+74,Necoclí,2
+75,Nechí,2
+76,Olaya,2
+77,Peñol,2
+78,Peque,2
+79,Pueblorrico,2
+80,Puerto Berrío,2
+81,Puerto Nare,2
+82,Puerto Triunfo,2
+83,Remedios,2
+84,Retiro,2
+85,Rionegro,2
+86,Sabanalarga,2
+87,Sabaneta,2
+88,Salgar,2
+89,San Andrés,2
+90,San Carlos,2
+91,San Francisco,2
+92,San Jerónimo,2
+93,San José De La Montaña,2
+94,San Juan De Urabá,2
+95,San Luis,2
+96,San Pedro,2
+97,San Pedro De Urabá,2
+98,San Rafael,2
+99,San Roque,2
+100,San Vicente,2
+101,Santa Barbara,2
+102,Santa Rosa De Osos,2
+103,Santo Domingo,2
+104,Santuario,2
+105,Segovia,2
+106,Sonsón,2
+107,Sopetrán,2
+108,Támesis,2
+109,Taraza,2
+110,Tarso,2
+111,Titiribí,2
+112,Toledo,2
+113,Turbo,2
+114,Uramita,2
+115,Urrao,2
+116,Valdivia,2
+117,Valparaíso,2
+118,Vegachí,2
+119,Venecia,2
+120,Vigiá Del Fuerte,2
+121,Yalí,2
+122,Yarumal,2
+123,Yolombó,2
+124,Yondó,2
+125,Zaragoza,2
+126,Barranquilla,4
+127,Baranoa,4
+128,Campo De La Cruz,4
+129,Candelaria,4
+130,Galapa,4
+131,Juan De Acosta,4
+132,Luruaco,4
+133,Malambo,4
+134,Manatí,4
+135,Palmar De Varela,4
+136,Piojo,4
+137,Polo Nuevo,4
+138,Ponedera,4
+139,Puerto Colombia,4
+140,Repelón,4
+141,Sabanagrande,4
+142,Sabanalarga,4
+143,Santa Lucia,4
+144,Santo Tomas,4
+145,Soledad,4
+146,Suán,4
+147,Tubará,4
+148,Usiacurí,4
+149,Bogotá D.C.,5
+150,Cartagena,6
+151,Achí,6
+152,Altos Del Rosario,6
+153,Arenal,6
+154,Arjona,6
+155,Arroyohondo,6
+156,Barranco De Loba,6
+157,Calamar,6
+158,Cantagallo,6
+159,Cicuco,6
+160,Córdoba,6
+161,Clemencia,6
+162,El Carmen De Bolívar,6
+163,El Guamo,6
+164,El Peñón,6
+165,Hatillo De Loba,6
+166,Magangué,6
+167,Mahates,6
+168,Margarita,6
+169,María La Baja,6
+170,Montecristo,6
+171,Mompos,6
+172,Morales,6
+173,Pinillos,6
+174,Regidor,6
+175,Rio Viejo,6
+176,San Cristóbal,6
+177,San Estanislao,6
+178,San Fernando,6
+179,San Jacinto,6
+180,San Jacinto Del Cauca,6
+181,San Juan De Nepomuceno,6
+182,San Martín De Loba,6
+183,San Pablo,6
+184,Santa Catalina,6
+185,Santa Rosa,6
+186,Santa Rosa Del Sur,6
+187,Simití,6
+188,Soplaviento,6
+189,Talaigua Nuevo,6
+190,Tiquisio,6
+191,Turbaco,6
+192,Turbaná,6
+193,Villanueva,6
+194,Zambrano,6
+195,Tunja,7
+196,Almeida,7
+197,Aquitania,7
+198,Arcabuco,7
+199,Belén,7
+200,Berbeo,7
+201,Betéitiva,7
+202,Boavita,7
+203,Boyacá,7
+204,Briceño,7
+205,Buenavista,7
+206,Busbanzá,7
+207,Caldas,7
+208,Campohermoso,7
+209,Cerinza,7
+210,Chinavita,7
+211,Chiquinquirá,7
+212,Chiscas,7
+213,Chita,7
+214,Chitaraque,7
+215,Chivata,7
+216,Ciénega,7
+217,Cómbita,7
+218,Coper,7
+219,Corrales,7
+220,Covarachía,7
+221,Cubará,7
+222,Cucaita,7
+223,Cuitiva,7
+224,Chíquiza,7
+225,Chivor,7
+226,Duitama,7
+227,El Cocuy,7
+228,El Espino,7
+229,Firavitoba,7
+230,Floresta,7
+231,Gachantivá,7
+232,Gámeza,7
+233,Garagoa,7
+234,Guacamayas,7
+235,Guateque,7
+236,Guayatá,7
+237,Güicán,7
+238,Iza,7
+239,Jenesano,7
+240,Jericó,7
+241,Labranzagrande,7
+242,La Capilla,7
+243,La Victoria,7
+244,La Uvita,7
+245,Villa De Leyva,7
+246,Macanal,7
+247,Maripí,7
+248,Miraflores,7
+249,Mongua,7
+250,Monguí,7
+251,Moniquirá,7
+252,Motavita,7
+253,Muzo,7
+254,Nobsa,7
+255,Nuevo Colon,7
+256,Oicatá,7
+257,Otanche,7
+258,Pachavita,7
+259,Páez,7
+260,Paipa,7
+261,Pajarito,7
+262,Panqueba,7
+263,Pauna,7
+264,Paya,7
+265,Paz Del Rio,7
+266,Pesca,7
+267,Pisba,7
+268,Puerto Boyacá,7
+269,Quípama,7
+270,Ramiriquí,7
+271,Ráquira,7
+272,Rondón,7
+273,Saboyá,7
+274,Sáchica,7
+275,Samacá,7
+276,San Eduardo,7
+277,San José De Pare,7
+278,San Luis De Gaceno,7
+279,San Mateo,7
+280,San Miguel De Sema,7
+281,San Pablo De Borbur,7
+282,Santana,7
+283,Santa María,7
+284,Santa Rosa De Viterbo,7
+285,Santa Sofía,7
+286,Sativanorte,7
+287,Sativasur,7
+288,Siachoque,7
+289,Soatá,7
+290,Socotá,7
+291,Socha,7
+292,Sogamoso,7
+293,Somondoco,7
+294,Sora,7
+295,Sotaquirá,7
+296,Soracá,7
+297,Susacón,7
+298,Sutamarchán,7
+299,Sutatenza,7
+300,Tasco,7
+301,Tenza,7
+302,Tibaná,7
+303,Tibasosa,7
+304,Tinjacá,7
+305,Tipacoque,7
+306,Toca,7
+307,Togüí,7
+308,Tópaga,7
+309,Tota,7
+310,Tununguá,7
+311,Turmequé,7
+312,Tuta,7
+313,Tutasa,7
+314,Umbita,7
+315,Ventaquemada,7
+316,Viracachá,7
+317,Zetaquira,7
+318,Manizales,8
+319,Aguadas,8
+320,Anserma,8
+321,Aranzazu,8
+322,Belalcázar,8
+323,Chinchiná,8
+324,Filadelfia,8
+325,La Dorada,8
+326,La Merced,8
+327,Manzanares,8
+328,Marmato,8
+329,Marquetalia,8
+330,Marulanda,8
+331,Neira,8
+332,Norcasia,8
+333,Pácora,8
+334,Palestina,8
+335,Pensilvania,8
+336,Riosucio,8
+337,Risaralda,8
+338,Salamina,8
+339,Samaná,8
+340,San José,8
+341,Supía,8
+342,Victoria,8
+343,Villamaría,8
+344,Viterbo,8
+345,Florencia,9
+346,Albania,9
+347,Belén Andaquies,9
+348,Cartagena Del Chaira,9
+349,Curillo,9
+350,El Doncello,9
+351,El Paujil,9
+352,La Montañita,9
+353,Rilan,9
+354,Morelia,9
+355,Puerto Rico,9
+356,San José De Fragua,9
+357,San  Vicente Del Caguán,9
+358,Solano,9
+359,Solita,9
+360,Valparaíso,9
+361,Popayán,11
+362,Almaguer,11
+363,Argelia,11
+364,Balboa,11
+365,Bolívar,11
+366,Buenos Aires,11
+367,Cajibío,11
+368,Caldono,11
+369,Caloto,11
+370,Corinto,11
+371,El Tambo,11
+372,Florencia,11
+373,Guapi,11
+374,Inzá,11
+375,Jambaló,11
+376,La Sierra,11
+377,La Vega,11
+378,López,11
+379,Mercaderes,11
+380,Miranda,11
+381,Morales,11
+382,Padilla,11
+383,Páez,11
+384,Patía (EL Bordo),11
+385,Piamonte,11
+386,Piendamó,11
+387,Puerto Tejada,11
+388,Puracé,11
+389,Rosas,11
+390,San Sebastián,11
+391,Santander De Quilichao,11
+392,Santa Rosa,11
+393,Silvia,11
+394,Sotara,11
+395,Suárez,11
+396,Sucre,11
+397,Timbío,11
+398,Timbiquí,11
+399,Toribio,11
+400,Totoró,11
+401,Villa Rica,11
+402,Valledupar,12
+403,Aguachica,12
+404,Agustín Codazzi,12
+405,Astrea,12
+406,Becerril,12
+407,Bosconia,12
+408,Chimichagua,12
+409,Chiriguaná,12
+410,Curumaní,12
+411,El Copey,12
+412,El Paso,12
+413,Gamarra,12
+414,González,12
+415,La Gloria,12
+416,La Jagua De Ibirico,12
+417,Manaure,12
+418,Pailitas,12
+419,Pelaya,12
+420,Pueblo Bello,12
+421,Rio De Oro,12
+422,Robles (LA Paz),12
+423,San Alberto,12
+424,San Diego,12
+425,San Martín,12
+426,Tamalameque,12
+427,Montería,14
+428,Ayapel,14
+429,Buenavista,14
+430,Canalete,14
+431,Cereté,14
+432,Chima,14
+433,Chinú,14
+434,Ciénaga De Oro,14
+435,Cotorra,14
+436,La Apartada,14
+437,Lorica,14
+438,Los Córdobas,14
+439,Momil,14
+440,Montelíbano,14
+441,Moñitos,14
+442,Planeta Rica,14
+443,Pueblo Nuevo,14
+444,Puerto Escondido,14
+445,Puerto Libertador,14
+446,Purísima,14
+447,Sahagún,14
+448,San Andrés Sotavento,14
+449,San Antero,14
+450,San Bernardo Viento,14
+451,San Carlos,14
+452,San Pelayo,14
+453,Tierralta,14
+454,Valencia,14
+455,Agua De Dios,15
+456,Albán,15
+457,Anapoima,15
+458,Anolaima,15
+459,Arbeláez,15
+460,Beltrán,15
+461,Bituima,15
+462,Bojacá,15
+463,Cabrera,15
+464,Cachipay,15
+465,Cajicá,15
+466,Caparrapí,15
+467,Caqueza,15
+468,Carmen De Carupa,15
+469,Chaguaní,15
+470,Chía,15
+471,Chipaque,15
+472,Choachí,15
+473,Chocontá,15
+474,Cogua,15
+475,Cota,15
+476,Cucunubá,15
+477,El Colegio,15
+478,El Peñón,15
+479,El Rosal,15
+480,Facatativá,15
+481,Fómeque,15
+482,Fosca,15
+483,Funza,15
+484,Fúquene,15
+485,Fusagasugá,15
+486,Gachalá,15
+487,Gachancipá,15
+488,Gacheta,15
+489,Gama,15
+490,Girardot,15
+491,Granada,15
+492,Guachetá,15
+493,Guaduas,15
+494,Guasca,15
+495,Guataquí,15
+496,Guatavita,15
+497,Guayabal De Siquima,15
+498,Guayabetal,15
+499,Gutiérrez,15
+500,Jerusalén,15
+501,Junín,15
+502,La Calera,15
+503,La Mesa,15
+504,La Palma,15
+505,La Peña,15
+506,La Vega,15
+507,Lenguazaque,15
+508,Macheta,15
+509,Madrid,15
+510,Manta,15
+511,Medina,15
+512,Mosquera,15
+513,Nariño,15
+514,Nemocón,15
+515,Nilo,15
+516,Nimaima,15
+517,Nocaima,15
+518,Venecia (OSPINA Pérez),15
+519,Pacho,15
+520,Paime,15
+521,Pandi,15
+522,Paratebueno,15
+523,Pasca,15
+524,Puerto Salgar,15
+525,Pulí,15
+526,Quebradanegra,15
+527,Quetame,15
+528,Quipile,15
+529,Rafael Reyes,15
+530,Ricaurte,15
+531,San  Antonio Del  Tequendama,15
+532,San Bernardo,15
+533,San Cayetano,15
+534,San Francisco,15
+535,San Juan De Rioseco,15
+536,Sasaima,15
+537,Sesquilé,15
+538,Sibaté,15
+539,Silvania,15
+540,Simijaca,15
+541,Soacha,15
+542,Sopo,15
+543,Subachoque,15
+544,Suesca,15
+545,Supatá,15
+546,Susa,15
+547,Sutatausa,15
+548,Tabio,15
+549,Tausa,15
+550,Tena,15
+551,Tenjo,15
+552,Tibacuy,15
+553,Tibirita,15
+554,Tocaima,15
+555,Tocancipá,15
+556,Topaipí,15
+557,Ubalá,15
+558,Ubaque,15
+559,Ubaté,15
+560,Une,15
+561,Útica,15
+562,Vergara,15
+563,Vianí,15
+564,Villagómez,15
+565,Villapinzón,15
+566,Villeta,15
+567,Viotá,15
+568,Yacopí,15
+569,Zipacón,15
+570,Zipaquirá,15
+571,Quibdó,13
+572,Acandí,13
+573,Alto Baudó (PIE De Pato),13
+574,Atrato,13
+575,Bagado,13
+576,Bahía Solano (MUTIS),13
+577,Bajo Baudó (PIZARRO),13
+578,Bojaya (BELLAVISTA),13
+579,Cantón De San Pablo,13
+580,Carmen Del Darien,13
+581,Cértegui,13
+582,Condoto,13
+583,El Carmen,13
+584,Litoral Del San Juan,13
+585,Istmina,13
+586,Jurado,13
+587,Lloro,13
+588,Medio Atrato,13
+589,Medio Baudó,13
+590,Medio San Juan,13
+591,Nóvita,13
+592,Nuquí,13
+593,Rio Iro,13
+594,Rio Quito,13
+595,Riosucio,13
+596,San José Del Palmar,13
+597,Sipí,13
+598,Tadó,13
+599,Unguía,13
+600,Unión Panamericana,13
+601,Neiva,18
+602,Acevedo,18
+603,Agrado,18
+604,Aipe,18
+605,Algeciras,18
+606,Altamira,18
+607,Baraya,18
+608,Campoalegre,18
+609,Colombia,18
+610,Elías,18
+611,Garzón,18
+612,Gigante,18
+613,Guadalupe,18
+614,Hobo,18
+615,Iquira,18
+616,Isnos,18
+617,La Argentina,18
+618,La Plata,18
+619,Nátaga,18
+620,Oporapa,18
+621,Paicol,18
+622,Palermo,18
+623,Palestina,18
+624,Pital,18
+625,Pitalito,18
+626,Rivera,18
+627,Saladoblanco,18
+628,San Agustín,18
+629,Santa María,18
+630,Suaza,18
+631,Tarqui,18
+632,Tesalia,18
+633,Tello,18
+634,Teruel,18
+635,Timaná,18
+636,Villavieja,18
+637,Yaguará,18
+638,Riohacha,19
+639,Albania,19
+640,Barrancas,19
+641,Dibulla,19
+642,Distracción,19
+643,El Molino,19
+644,Fonseca,19
+645,Hatonuevo,19
+646,La Jagua Del Pilar,19
+647,Maicao,19
+648,Manaure,19
+649,San Juan Del Cesar,19
+650,Uribia,19
+651,Urumita,19
+652,Villanueva,19
+653,Santa Marta,20
+654,Algarrobo,20
+655,Aracataca,20
+656,Ariguaní,20
+657,Cerro San Antonio,20
+658,Chivolo,20
+659,Ciénaga,20
+660,Concordia,20
+661,El Banco,20
+662,El Piñon,20
+663,El Reten,20
+664,Fundación,20
+665,Guamal,20
+666,Nueva Granada,20
+667,Pedraza,20
+668,Pijiño Del Carmen,20
+669,Pivijay,20
+670,Plato,20
+671,Puebloviejo,20
+672,Remolino,20
+673,Sabanas De San Angel,20
+674,Salamina,20
+675,San Sebastián De Buenavista,20
+676,San Zenón,20
+677,Santa Ana,20
+678,Santa Barbara De Pinto,20
+679,Sitionuevo,20
+680,Tenerife,20
+681,Zapayán,20
+682,Zona Bananera,20
+683,Villavicencio,21
+684,Acacias,21
+685,Barranca De Upía,21
+686,Cabuyaro,21
+687,Castilla La Nueva,21
+688,Cubarral,21
+689,Cumaral,21
+690,El Calvario,21
+691,El Castillo,21
+692,El Dorado,21
+693,Fuente De Oro,21
+694,Granada,21
+695,Guamal,21
+696,Mapiripán,21
+697,Mesetas,21
+698,La Macarena,21
+699,La Uribe,21
+700,Lejanías,21
+701,Puerto Concordia,21
+702,Puerto Gaitán,21
+703,Puerto López,21
+704,Puerto Lleras,21
+705,Puerto Rico,21
+706,Restrepo,21
+707,San Carlos De Guaroa,21
+708,San Juan De Arama,21
+709,San Juanito,21
+710,San Martín,21
+711,Vista Hermosa,21
+712,Pasto,22
+713,Albán,22
+714,Aldana,22
+715,Ancuyá,22
+716,Arboleda,22
+717,Barbacoas,22
+718,Belén,22
+719,Buesaco,22
+720,Colon-Génova,22
+721,Consaca,22
+722,Contadero,22
+723,Córdoba,22
+724,Cuaspud-Carlosama,22
+725,Cumbal,22
+726,Cumbitara,22
+727,Chachagüí,22
+728,El Charco,22
+729,El Peñol,22
+730,El Rosario,22
+731,El Tablón,22
+732,El Tambo,22
+733,Funes,22
+734,Guachucal,22
+735,Guaitarilla,22
+736,Gualmatán,22
+737,Iles,22
+738,Imués,22
+739,Ipiales,22
+740,La Cruz,22
+741,La Florida,22
+742,La Llanada,22
+743,La Tola,22
+744,La Unión,22
+745,Leiva,22
+746,Linares,22
+747,Los Andes,22
+748,Magüi-Payan,22
+749,Mallama,22
+750,Mosquera,22
+751,Nariño,22
+752,Olaya Herrera,22
+753,Ospina,22
+754,Francisco Pizarro,22
+755,Policarpa,22
+756,Potosí,22
+757,Providencia,22
+758,Puerres,22
+759,Pupiales,22
+760,Ricaurte,22
+761,Roberto Payan,22
+762,Samaniego,22
+763,Sandoná,22
+764,San Bernardo,22
+765,San Lorenzo,22
+766,San Pablo,22
+767,San Pedro De Cartago,22
+768,Santa Barbara,22
+769,Santacruz,22
+770,Sapuyes,22
+771,Taminango,22
+772,Tangua,22
+773,Tumaco,22
+774,Túquerres,22
+775,Yacuanquer,22
+776,Cúcuta,23
+777,Abrego,23
+778,Arboledas,23
+779,Bochalema,23
+780,Bucarasica,23
+781,Cácota,23
+782,Cachirá,23
+783,Chinácota,23
+784,Chitagá,23
+785,Convención,23
+786,Cucutilla,23
+787,Duranía,23
+788,El Carmen,23
+789,El Tarra,23
+790,El Zulia,23
+791,Gramalote,23
+792,Hacarí,23
+793,Herrán,23
+794,Labateca,23
+795,La Esperanza,23
+796,La Playa,23
+797,Los Patios,23
+798,Lourdes,23
+799,Mutiscua,23
+800,Ocaña,23
+801,Pamplona,23
+802,Pamplonita,23
+803,Puerto Santander,23
+804,Ragonvalia,23
+805,Salazar,23
+806,San Calixto,23
+807,San Cayetano,23
+808,Santiago,23
+809,Sardinata,23
+810,Silos,23
+811,Teorama,23
+812,Tibú,23
+813,Toledo,23
+814,Villacaro,23
+815,Villa Del Rosario,23
+816,Armenia,25
+817,Buenavista,25
+818,Calarcá,25
+819,Circasia,25
+820,Córdoba,25
+821,Filandia,25
+822,Génova,25
+823,La Tebaida,25
+824,Montenegro,25
+825,Pijao,25
+826,Quimbaya,25
+827,Salento,25
+828,Pereira,26
+829,Apía,26
+830,Balboa,26
+831,Belén De Umbría,26
+832,Dosquebradas,26
+833,Guática,26
+834,La Celia,26
+835,La Virginia,26
+836,Marsella,26
+837,Mistrató,26
+838,Pueblo Rico,26
+839,Quinchía,26
+840,Santa Rosa De Cabal,26
+841,Santuario,26
+842,Bucaramanga,28
+843,Aguada,28
+844,Albania,28
+845,Aratoca,28
+846,Barbosa,28
+847,Barichara,28
+848,Barrancabermeja,28
+849,Betulia,28
+850,Bolívar,28
+851,Cabrera,28
+852,California,28
+853,Capitanejo,28
+854,Carcasí,28
+855,Cepita,28
+856,Cerrito,28
+857,Charalá,28
+858,Charta,28
+859,Chima,28
+860,Chipatá,28
+861,Cimitarra,28
+862,Concepción,28
+863,Confines,28
+864,Contratación,28
+865,Coromoro,28
+866,Curití,28
+867,El Carmen,28
+868,El Guacamayo,28
+869,El Peñon,28
+870,El Playón,28
+871,Encino,28
+872,Enciso,28
+873,Florián,28
+874,Floridablanca,28
+875,Galan,28
+876,Gambita,28
+877,Girón,28
+878,Guaca,28
+879,Guadalupe,28
+880,Guapota,28
+881,Guavatá,28
+882,Güepsa,28
+883,Hato,28
+884,Jesús María,28
+885,Jordán,28
+886,La Belleza,28
+887,Landázuri,28
+888,La Paz,28
+889,Lebrija,28
+890,Los Santos,28
+891,Macaravita,28
+892,Málaga,28
+893,Matanza,28
+894,Mogotes,28
+895,Molagavita,28
+896,Ocamonte,28
+897,Oiba,28
+898,Onzaga,28
+899,Palmar,28
+900,Palmas Del Socorro,28
+901,Páramo,28
+902,Piedecuesta,28
+903,Pinchote,28
+904,Puente Nacional,28
+905,Puerto Parra,28
+906,Puerto Wilches,28
+907,Rionegro,28
+908,Sabana De Torres,28
+909,San Andrés,28
+910,San Benito,28
+911,San Gil,28
+912,San Joaquín,28
+913,San José De Miranda,28
+914,San Miguel,28
+915,San Vicente De Chucurí,28
+916,Santa Barbara,28
+917,Santa Helena,28
+918,Simacota,28
+919,Socorro,28
+920,Suaita,28
+921,Sucre,28
+922,Suratá,28
+923,Tona,28
+924,Valle San José,28
+925,Vélez,28
+926,Vetas,28
+927,Villanueva,28
+928,Zapatoca,28
+929,Sincelejo,29
+930,Buenavista,29
+931,Caimito,29
+932,Coloso,29
+933,Corozal,29
+934,Coveñas,29
+935,Chalan,29
+936,El Roble,29
+937,Galeras,29
+938,Guaranda,29
+939,La Unión,29
+940,Los Palmitos,29
+941,Majagual,29
+942,Morroa,29
+943,Ovejas,29
+944,Palmito,29
+945,Sampués,29
+946,San Benito Abad,29
+947,San Juan De Betulia,29
+948,San Marcos,29
+949,San Onofre,29
+950,San Pedro,29
+951,Sincé,29
+952,Sucre,29
+953,Tolú,29
+954,Toluviejo,29
+955,Ibagué,30
+956,Alpujarra,30
+957,Alvarado,30
+958,Ambalema,30
+959,Anzoátegui,30
+960,Armero (GUAYABAL),30
+961,Ataco,30
+962,Cajamarca,30
+963,Carmen De Apicalá,30
+964,Casabianca,30
+965,Chaparral,30
+966,Coello,30
+967,Coyaima,30
+968,Cunday,30
+969,Dolores,30
+970,Espinal,30
+971,Falan,30
+972,Flandes,30
+973,Fresno,30
+974,Guamo,30
+975,Herveo,30
+976,Honda,30
+977,Icononzo,30
+978,Lérida,30
+979,Líbano,30
+980,Mariquita,30
+981,Melgar,30
+982,Murillo,30
+983,Natagaima,30
+984,Ortega,30
+985,Palocabildo,30
+986,Piedras,30
+987,Planadas,30
+988,Prado,30
+989,Purificación,30
+990,Rioblanco,30
+991,Roncesvalles,30
+992,Rovira,30
+993,Saldaña,30
+994,San Antonio,30
+995,San Luis,30
+996,Santa Isabel,30
+997,Suárez,30
+998,Valle De S Juan,30
+999,Venadillo,30
+1000,Villahermosa,30
+1001,Villarrica,30
+1002,Cali,31
+1003,Alcalá,31
+1004,Andalucía,31
+1005,Ansermanuevo,31
+1006,Argelia,31
+1007,Bolívar,31
+1008,Buenaventura,31
+1009,Buga,31
+1010,Bugalagrande,31
+1011,Caicedonia,31
+1012,Calima-Darien,31
+1013,Candelaria,31
+1014,Cartago,31
+1015,Dagua,31
+1016,El Águila,31
+1017,El Cairo,31
+1018,El Cerrito,31
+1019,El Dovio,31
+1020,Florida,31
+1021,Ginebra,31
+1022,Guacarí,31
+1023,Jamundí,31
+1024,La Cumbre,31
+1025,La Unión,31
+1026,La Victoria,31
+1027,Obando,31
+1028,Palmira,31
+1029,Pradera,31
+1030,Restrepo,31
+1031,Riofrío,31
+1032,Roldanillo,31
+1033,San Pedro,31
+1034,Sevilla,31
+1035,Toro,31
+1036,Trujillo,31
+1037,Tuluá,31
+1038,Ulloa,31
+1039,Versalles,31
+1040,Vijes,31
+1041,Yotoco,31
+1042,Yumbo,31
+1043,Zarzal,31
+1044,Arauca,3
+1045,Arauquita,3
+1046,Cravo Norte,3
+1047,Fortul,3
+1048,Puerto Rondón,3
+1049,Saravena,3
+1050,Tame,3
+1051,Yopal,10
+1052,Aguazul,10
+1053,Chameza,10
+1054,Hato Corozal,10
+1055,La Salina,10
+1056,Maní,10
+1057,Monterrey,10
+1058,Nunchía,10
+1059,Orocué,10
+1060,Paz De Ariporo,10
+1061,Pore,10
+1062,Recetor,10
+1063,Sabanalarga,10
+1064,Sácama,10
+1065,San Luis De Palenque,10
+1066,Támara,10
+1067,Tauramena,10
+1068,Trinidad,10
+1069,Villanueva,10
+1070,Mocoa,24
+1071,Colon,24
+1072,Orito,24
+1073,Puerto Asís,24
+1074,Puerto Caycedo,24
+1075,Puerto Guzmán,24
+1076,Puerto Leguízamo,24
+1077,Sibundoy,24
+1078,San Francisco,24
+1079,San Miguel,24
+1080,Santiago,24
+1081,Valle Del Guamuez,24
+1082,Villagarzon,24
+1083,San Andrés,27
+1084,Providencia,27
+1085,Leticia,1
+1086,Puerto Nariño,1
+1087,Puerto Inírida,16
+1088,San José Del Guaviare,17
+1089,Calamar,17
+1090,El Retorno,17
+1091,Miraflores,17
+1092,Mitú,32
+1093,Caruru,32
+1094,Taraira,32
+1095,Puerto Carreño,33
+1096,La Primavera,33
+1097,Santa Rosalía,33
+1098,Cumaribo,33
