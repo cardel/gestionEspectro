@@ -14,6 +14,7 @@
       print ("$row[territorial_division_name]");
       print ("</option>\n");		
     }
+    echo "</select>";
    pg_free_result($result);
    $objconexionBD->cerrarConexion();
  ?>  

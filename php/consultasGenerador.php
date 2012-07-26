@@ -17,6 +17,7 @@
 		  print ("$row[departament_name]");
 		  print ("</option>\n");		
 		}
+		echo "</select>";
 		pg_free_result($result);			
 	}
 	else
@@ -33,9 +34,10 @@
 			  print ("$row[city_name]");
 			  print ("</option>\n");		
 			}
+			echo "</select>";	
 			pg_free_result($result);				
 		}
-		
+	
 	}
    
    $objconexionBD->cerrarConexion();		
