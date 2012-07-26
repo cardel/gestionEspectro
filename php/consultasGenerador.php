@@ -14,7 +14,7 @@
 	   while ($row =  pg_fetch_array ($result))
 	   {
 		  print ("<option value=$row[ID_Territorial_Division]>");
-		  print ("$row[Territorial_Division_Name]");
+		  print ("$row[territorial_division_name]");
 		  print ("</option>\n");		
 		}
 		echo "</select>";
