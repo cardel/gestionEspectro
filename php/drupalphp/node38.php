@@ -1,44 +1,50 @@
-<?php
-   require ("/var/www/html/site/gestionEspectro/php/conexionBD.php");
-   #Conectamos con PostgreSQL
-   $objconexionBD = new conexionBD();
-   $objconexionBD->abrirConexion();
 
-   echo "<select id=\"selectTerritorialdivision\" onchange=\"javascript:consultarDepartamentos();\">";
-   $query="select \"ID_Territorial_Division\", initcap(\"Territorial_Division_Name\") as Territorial_Division_Name from  territorial_divisions order by \"ID_Territorial_Division\" desc;";
-   
-   $result= $objconexionBD->enviarConsulta($query);
-   while ($row =  pg_fetch_array ($result))
-   {
-      print ("<option value=$row[ID_Territorial_Division]>");
-      print ("$row[territorial_division_name]");
-      print ("</option>\n");		
-    }
-    echo "</select>";
-   pg_free_result($result);
-   $objconexionBD->cerrarConexion();
- ?>  
-	<script language="javascript">
-	function consultarDepartamentos(){ 
-		var selector = $('#selectTerritorialdivision').val();
-		$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'departamentos', idConsulta: selector }, function(data){
-			$("#mostrarDepartamentos").html(data);
-			$("#mostrarMunicipios").html("");
-		}); 
-     
-	}
-	</script>
+Usted puede seleccionar en que lugar se va realizar el proceso de asignación del espectro:
+
+<ul>
+	<li>Para nivel nacional no debe realizar ninguna selección geográfica</li>
+	<li>A nivel regional seleccione la región especifica</li>
+	<li>A nivel departamental seleccione el departamento dentro de la región especifíca</li>
+	<li>A nivel local seleccione el municipio dentro del departamento especifíco</li>
+</ul>	
+
+<a href="#" onclick="javascript:consultarDivisionTerritorial();"> Seleccionar división territorial </a>
+
+<script language="javascript">
+function consultarDivisionTerritorial(){ 
+	var selector = $('#selectTerritorialdivision').val();
+	$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'divisionTerritorial', idConsulta: selector }, function(data){
+		$("#territorialDivision").html(data);
+		$("#departamentos").html("");
+		$("#municipios").html("");
+	}); 	
+ 
+}
+</script>	
+
+<div id="territorialDivision"></div>
+
+<script language="javascript">
+function consultarDepartamentos(){ 
+	var selector = $('#selectTerritorialdivision').val();
+	$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'departamentos', idConsulta: selector }, function(data){
+		$("#departamentos").html(data);
+		$("#municipios").html("");
+	}); 	
+ 
+}
+</script>
 	
-	<div id="mostrarDepartamentos"></div>
+	<div id="departamentos"></div>
 
 	<script language="javascript">
 	function consultarMunicipios(){    
 		var selector = $('#selectDepartaments').val();
 		$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'municipios', idConsulta: selector }, function(data){
-			$("#mostrarMunicipios").html(data);
+			$("#municipios").html(data);
 		});         
 	}
 	</script>
 	
-	<div id="mostrarMunicipios"></div>	
+	<div id="municipios"></div>	
 	
