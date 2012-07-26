@@ -5,6 +5,8 @@
     $objconexionBD = new conexionBD();
     $objconexionBD->abrirConexion();
 
+	echo "entro";
+
 	if($idConsulta=='departamentos')
 	{
 	   echo "<select id=\"selectDepartaments\" onchange=\"javascript:consultarMunicipios();\">";

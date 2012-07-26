@@ -1,5 +1,5 @@
 <?php
-	require ("/var/www/html/site/gestionEspectro/php/conexionBD.php");
+   require ("/var/www/html/site/gestionEspectro/php/conexionBD.php");
    #Conectamos con PostgreSQL
    $objconexionBD = new conexionBD();
    $objconexionBD->abrirConexion();
