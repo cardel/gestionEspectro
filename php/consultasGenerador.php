@@ -5,9 +5,8 @@
     $objconexionBD = new conexionBD();
     $objconexionBD->abrirConexion();
 
-	echo "entro";
 
-	if($idConsulta=='departamentos')
+	if($tipoConsulta=='departamentos')
 	{
 	   echo "<select id=\"selectDepartaments\" onchange=\"javascript:consultarMunicipios();\">";
 	   $query="select * from departaments where \"ID_Territorial_Division\"=".$idConsulta.";";
@@ -24,7 +23,7 @@
 	}
 	else
 	{
-		if($idConsulta=='municipios')
+		if($tipoConsulta=='municipios')
 		{	
 		   echo "<select id=\"selectCities\">";
 		   $query="select * from cities where \"ID_departament\"=".$idConsulta.";";
