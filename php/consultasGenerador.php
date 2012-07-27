@@ -95,7 +95,7 @@
 					}
 					else
 					{
-							echo " ";
+							if($idConsulta<=0) echo " ";
 					}					
 				}				
 				

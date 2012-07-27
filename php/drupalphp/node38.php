@@ -93,7 +93,6 @@ function consultarBandas(){
 		$("#rangos").html(data);
 	});         
 }
-();
 </script>
 
 <div id="rangos"></div>	
