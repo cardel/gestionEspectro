@@ -35,7 +35,7 @@
 			  print ("</option>\n");		
 			}
 			echo "</select>";
-		echo "<a href=\"#\" onclick=\"javascript:consultarMunicipios();\"> Seleccionar municipio </a>";
+			echo "<a href=\"#\" onclick=\"javascript:consultarMunicipios();\"> Seleccionar municipio </a>";
 			pg_free_result($result);			
 		}
 		else
@@ -54,6 +54,51 @@
 				}
 				echo "</select>";	
 				pg_free_result($result);				
+			}
+			else
+			{
+				if($tipoConsulta=='bandas')
+				{	
+				   echo "<select id=\"selectBands\">";
+				   $query="select * from frequency_bands where \"ID_frequency_bands\" >= 4";
+				   
+				   print ("<option value=-1>");
+				   print ("Seleccionar");
+				   print ("</option>\n");					   
+				   
+				   $result= $objconexionBD->enviarConsulta($query);
+				   while ($row =  pg_fetch_array ($result))
+				   {
+					  print ("<option value=$row[ID_frequency_bands]>");
+					  print ("$row[frequency_bands_name]");
+					  print ("</option>\n");		
+					}
+					echo "</select>";	
+					pg_free_result($result);				
+				}
+				else
+				{
+					if($tipoConsulta=='rangos' && $idConsulta>=0)
+					{	
+					   echo "<select id=\"selectRanks\" onchange=\"javascript:consultarRangos();\">";
+					   $query="select * from frequency_ranks where \"ID_frequency_bands\"=".$idConsulta.";";
+					   
+					   $result= $objconexionBD->enviarConsulta($query);
+					   while ($row =  pg_fetch_array ($result))
+					   {
+						  print ("<option value=$row[ID_frequency_bands]>");
+						  print ("$row[frequency_ranks_name]");
+						  print ("</option>\n");		
+						}
+						echo "</select>";	
+						pg_free_result($result);				
+					}
+					else
+					{
+							echo " ";
+					}					
+				}				
+				
 			}
 		
 		}		
