@@ -95,7 +95,7 @@
 					}
 					else
 					{
-							if($idConsulta<=0) echo " ";
+							if($idConsulta<=0) echo " xd ";
 					}					
 				}				
 				
