@@ -41,8 +41,7 @@ function consultarDivisionTerritorial(){
 		$("#territorialDivision").html(data);
 		$("#departamentos").html("");
 		$("#municipios").html("");
-	}); 	
- 
+	});  
 }
 </script>	
 
@@ -54,8 +53,7 @@ function consultarDepartamentos(){
 	$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'departamentos', idConsulta: selector }, function(data){
 		$("#departamentos").html(data);
 		$("#municipios").html("");
-	}); 	
- 
+	});  
 }
 </script>
 
@@ -87,8 +85,9 @@ consultarBandas();
 <div id="bandas"></div>	
 
 <script language="javascript">
-function consultarBandas(){    
+function consultarRangos(){    
 	var selector = $('#selectBands').val();
+	alert(selector);
 	$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'rangos', idConsulta: selector }, function(data){
 		$("#rangos").html(data);
 	});         
