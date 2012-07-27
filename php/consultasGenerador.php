@@ -59,7 +59,7 @@
 			{
 				if($tipoConsulta=='bandas')
 				{	
-				   echo "<select id=\"selectBands\">";
+				   echo "<select id=\"selectBands\" onchange=\"javascript:consultarRangos();\">";
 				   $query="select * from frequency_bands where \"ID_frequency_bands\" >= 4";
 				   
 				   print ("<option value=-1>");
@@ -80,7 +80,7 @@
 				{
 					if($tipoConsulta=='rangos' && $idConsulta>=0)
 					{	
-					   echo "<select id=\"selectRanks\" onchange=\"javascript:consultarRangos();\">";
+					   echo "<select id=\"selectRanks\">";
 					   $query="select * from frequency_ranks where \"ID_frequency_bands\"=".$idConsulta.";";
 					   
 					   $result= $objconexionBD->enviarConsulta($query);
@@ -95,7 +95,7 @@
 					}
 					else
 					{
-							if($idConsulta<=0) echo " xd ";
+							if($idConsulta<=0) echo " ";
 					}					
 				}				
 				
