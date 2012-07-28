@@ -119,7 +119,7 @@
 							   while ($row =  pg_fetch_array ($result))
 							   {
 								  print ("<li>");
-								  print ("$row[frequency_ranks_name]");
+								  print ("$row[services_name]");
 								  print ("</li>\n");		
 								}
 								echo "</ul>";	

@@ -109,11 +109,11 @@ function mostrarParametros(){
 }
 </script>
 
-<table>
+<table border="0">
 <tr>
 <td>Número de canales en la banda:</td><td id="numCanales"></td>
 </tr>
 <tr>
-Servicios en la banda:<td id="serviciosBanda"></td>
+<td>Servicios en la banda:</td><td id="serviciosBanda"></td>
 </tr>
 </table>
