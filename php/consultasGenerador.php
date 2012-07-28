@@ -89,7 +89,7 @@
 					   $result= $objconexionBD->enviarConsulta($query);
 					   while ($row =  pg_fetch_array ($result))
 					   {
-						  print ("<option value=$row[ID_frequency_bands]>");
+						  print ("<option value=$row[ID_frequency_ranks]>");
 						  print ("$row[frequency_ranks_name]");
 						  print ("</option>\n");		
 						}
