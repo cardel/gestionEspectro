@@ -80,9 +80,12 @@
 				{
 					if($tipoConsulta=='rangos' && $idConsulta>=0)
 					{	
-					   echo "<select id=\"selectRanks\">";
+					   echo "<select id=\"selectRanks\" onchange=\"javascript:mostrarParametros();\">";
 					   $query="select * from frequency_ranks where \"ID_frequency_bands\"=".$idConsulta.";";
-					   
+					   print ("<option value=-1>");
+					   print ("Seleccionar");
+					   print ("</option>\n");	
+					   				   
 					   $result= $objconexionBD->enviarConsulta($query);
 					   while ($row =  pg_fetch_array ($result))
 					   {
@@ -96,6 +99,32 @@
 					else
 					{
 							if($idConsulta<=0) echo " ";
+							
+							if($tipoConsulta=='numCanalesEnBanda' && $idConsulta>=0)
+							{
+								$query="select channels_number from frequency_ranks where \"ID_frequency_ranks\" =".$idConsulta.";";
+								$result= $objconexionBD->enviarConsulta($query);
+							    while ($row =  pg_fetch_array ($result))
+							    {
+								  print ("$row[channels_number]");
+								}
+							}
+							
+							if($tipoConsulta=='serviciosEnBanda' && $idConsulta>=0)
+							{
+							   echo "<ul>";
+							   $query="select services_name from services_by_frequency_ranks natural join services where \"ID_frequency_ranks\"=".$idConsulta.";";
+											   
+							   $result= $objconexionBD->enviarConsulta($query);
+							   while ($row =  pg_fetch_array ($result))
+							   {
+								  print ("<li>");
+								  print ("$row[frequency_ranks_name]");
+								  print ("</li>\n");		
+								}
+								echo "</ul>";	
+								pg_free_result($result);									
+							}					
 					}					
 				}				
 				

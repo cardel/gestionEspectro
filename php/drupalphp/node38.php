@@ -85,9 +85,8 @@ consultarBandas();
 <div id="bandas"></div>	
 
 <script language="javascript">
-function consultarRangos(){    
+function consultarRangos(){  
 	var selector = $('#selectBands').val();
-	alert(selector);
 	$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'rangos', idConsulta: selector }, function(data){
 		$("#rangos").html(data);
 	});         
@@ -97,3 +96,24 @@ function consultarRangos(){
 <div id="rangos"></div>	
 
 <p class='estilo'>Creación requerimientos</p>
+
+<script language="javascript">
+function mostrarParametros(){  
+	var selector = $('#selectRanks').val();
+	$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'numCanalesEnBanda', idConsulta: selector }, function(data){
+		$("#numCanales").html(data);
+	});	
+	$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'serviciosEnBanda', idConsulta: selector }, function(data){
+		$("#serviciosBanda").html(data);
+	});            
+}
+</script>
+
+<table>
+<tr>
+<td>Número de canales en la banda:</td><td id="numCanales"></td>
+</tr>
+<tr>
+Servicios en la banda:<td id="serviciosBanda"></td>
+</tr>
+</table>
