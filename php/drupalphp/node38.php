@@ -125,14 +125,14 @@
 
 	<p class='estilo'>Creación requerimientos</p>
 
-<script type="text/javascript">
+	<script type="text/javascript">
 	
-function crearRequerimiento()
-{
-	alert('okas');
-}
+	function crearRequerimiento()
+	{
+		alert('okas');
+	}
 	
-function agregarFila(obj){
+	function agregarFila(obj){
 
         var numeroCanales = $("#numeroCanales").val();
 		var operador = $("#selOperador").val();
@@ -182,50 +182,50 @@ function agregarFila(obj){
 		alert('Aqui debes implementar el guardado de datos!');
 		return false;
 	}
-</script>
-<div id="cont" class="container">
-    <input type="hidden" id="cant_campos" name="cant_campos" value="0" />
-    <input type="hidden" id="enviar" name="enviar" value="1" />
-<fieldset class="estiloFormFieldset">
-	<legend class="estiloFormLeyenda">Gestión de requerimiento</legend>
-	<div class="top">
-	<label class="estiloFormLabel" for="numeroCanales">Seleccione operador:</label>
-        <div class="div_texbox">
-            <select id="selOperador" name="selOperador" class="textbox txtFec">
-                <option value="-1">Seleccione</option>
-                <option value="1">Movistar</option>
-                <option value="2">Tigo</option>
-                <option value="3">Une</option>
-            </select>
-        </div>
-	<label class="estiloFormLabel" for="numeroCanales">Número de canales requeridos:</label>
-     <div class="div_texbox"><input type="text" id="numeroCanales" name="numeroCanales" value=0 class="textbox" /></div>
+	</script>
+	<div id="cont" class="container">
+		<input type="hidden" id="cant_campos" name="cant_campos" value="0" />
+		<input type="hidden" id="enviar" name="enviar" value="1" />
+	<fieldset class="estiloFormFieldset">
+		<legend class="estiloFormLeyenda">Gestión de requerimiento</legend>
+		<div class="top">
+		<label class="estiloFormLabel" for="numeroCanales">Seleccione operador:</label>
+			<div class="div_texbox">
+				<select id="selOperador" name="selOperador" class="textbox txtFec">
+					<option value="-1">Seleccione</option>
+					<option value="1">Movistar</option>
+					<option value="2">Tigo</option>
+					<option value="3">Une</option>
+				</select>
+			</div>
+		<label class="estiloFormLabel" for="numeroCanales">Número de canales requeridos:</label>
+		 <div class="div_texbox"><input type="text" id="numeroCanales" name="numeroCanales" value=0 class="textbox" /></div>
+		</div>
+	</fieldset>
+	<div class="button_div">    
+		<input type="button" id="btnAgregar" name="btnAgregar" value="Agregar" class="buttons_aplicar" onclick="agregarFila(document.getElementById('cant_campos'));" />
+		<input type="submit" id="btnAgregar" name="btnAgregar" value="Guardar" class="buttons_OK" />
 	</div>
-</fieldset>
-<div class="button_div">    
-    <input type="button" id="btnAgregar" name="btnAgregar" value="Agregar" class="buttons_aplicar" onclick="agregarFila(document.getElementById('cant_campos'));" />
-    <input type="submit" id="btnAgregar" name="btnAgregar" value="Guardar" class="buttons_OK" />
-</div>
-<fieldset class="estiloFormFieldset">
-    <legend class="estiloFormLeyenda">
-        Detalle de Requerimientos
-    </legend>
-    <div class="clear"></div>
-    <div id="form3" class="form-horiz">
-	<table width="100%" id="tblDetalle" class="listado">
-		<thead>
-			<tr>
-				<th>Operador</th>
-				<th>Número de canales requeridos</th>
-				<th>Eliminar</th>
-			</tr>
-		</thead>
-		<tbody id="tbDetalle">
-		</tbody>
-	</table>
-    </div>    
-</fieldset>
-</div>
+	<fieldset class="estiloFormFieldset">
+		<legend class="estiloFormLeyenda">
+			Detalle de Requerimientos
+		</legend>
+		<div class="clear"></div>
+		<div id="form3" class="form-horiz">
+		<table width="100%" id="tblDetalle" class="listado">
+			<thead>
+				<tr>
+					<th>Operador</th>
+					<th>Número de canales requeridos</th>
+					<th>Eliminar</th>
+				</tr>
+			</thead>
+			<tbody id="tbDetalle">
+			</tbody>
+		</table>
+		</div>    
+	</fieldset>
+	</div>
 
 <?php
 	if( $_POST["enviar"]==1)

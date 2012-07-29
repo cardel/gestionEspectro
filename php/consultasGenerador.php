@@ -93,8 +93,8 @@
 						  print ("$row[frequency_ranks_name]");
 						  print ("</option>\n");		
 						}
-						echo "</select>";	
-						echo "<input type=button class=\"botonrojo\" value=\"Crear requerimiento\" onClick=\"javascript:crearRequerimiento();\" id=\"crearRequerimiento\"/>\n";
+						echo "</select><br/>";	
+						echo "<input type=button class=\"botonrojo\" value=\"Crear requerimientos\" onClick=\"crearRequerimiento();\" id=\"crearRequerimiento\"/>\n";
 						pg_free_result($result);				
 					}
 					else
