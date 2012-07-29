@@ -140,7 +140,7 @@ function agregarFila(obj){
 			
 			var strHtml1 = "<td>" + textoOperador + '<input type="hidden" id="operador_' + oId + '" name="operador_' + oId + '" value="' + operador + '"/></td>';
 			var strHtml2 = "<td>" + numeroCanales + '<input type="hidden" id="numRequerido_' + oId + '" name="numRequerido_' + oId + '" value="' + numeroCanales + '"/></td>' ;
-			var strHtml3 = '<td><img src="images/delete.png" width="16" height="16" alt="Eliminar" onclick="if(confirm(\'Realmente desea eliminar este requerimiento?\')){eliminarFila(' + oId + ');}"/>';
+			var strHtml3 = '<td><img src="gestionEspectro/php/drupalimages/delete.png" width="16" height="16" alt="Eliminar" onclick="if(confirm(\'Realmente desea eliminar este requerimiento?\')){eliminarFila(' + oId + ');}"/>';
 			strHtml3 += '<input type="hidden" id="hdnIdCampos_' + oId +'" name="hdnIdCampos[]" value="' + oId + '" /></td>';
 			var strHtmlTr = "<tr id='rowDetalle_" + oId + "'></tr>";
 			var strHtmlFinal = strHtml1 + strHtml2 + strHtml3;
