@@ -112,6 +112,7 @@
 			$("#serviciosBanda").html(data);
 		});            
 	}
+	
 	</script>
 
 	<table border="0">
@@ -122,16 +123,17 @@
 	<td>Servicios en la banda:</td><td id="serviciosBanda"></td>
 	</tr>
 	</table>
-
-	<p class='estilo'>Creación requerimientos</p>
-
 	<script type="text/javascript">
-	
 	function crearRequerimiento()
 	{
-		alert('okas');
+		alert("okas");
 	}
-	
+	</script>
+	<input type="button" class="botonrojo" value="Crear requerimientos" onClick="javascript:crearRequerimiento();" id="req"/>
+
+	<p class='estilo'>Creación requerimientos</p>
+	<script type="text/javascript">
+
 	function agregarFila(obj){
 
         var numeroCanales = $("#numeroCanales").val();
