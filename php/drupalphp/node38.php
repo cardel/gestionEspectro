@@ -1,18 +1,22 @@
-	<?php
-		drupal_add_css($path = 'css/datatable.css', $type = 'module', $media = 'all', $preprocess = TRUE);
-		drupal_add_css($path = 'gestionEspectro/php/drupalcss/estilosFormGestion.css', $type = 'module', $media = 'all', $preprocess = TRUE);
-		drupal_set_html_head('<script type="text/javascript" src="https://www.google.com/jsapi"></script>');
-		drupal_add_css($path = 'sites/all/libraries/jquery.ui/themes/default/ui.all.css', $type = 'module', $media = 'all', $preprocess = TRUE);
-		drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/syntaxhighlighter/scripts/shCore.js');
-		drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/syntaxhighlighter/scripts/shBrushXml.js');
-		drupal_add_css($path = 'js/syntaxhighlighter/styles/shCore.css', $type = 'module', $media = 'all', $preprocess = TRUE);
-		drupal_add_css($path = 'js/syntaxhighlighter/styles/shThemeDefault.css', $type = 'module', $media = 'all', $preprocess = TRUE);
-		drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/colorBoxU.js');
-		echo "<p class='estiloTitulo'>Generador de entradas XML</p>\n";
-		echo '<p style="text-align:left";><a class="iframe" href="http://avispa.univalle.edu.co/~cardel/proyInv/ayudaSecuenciamientoAviones/ayuda.php"><img border="0" src="files/HelpIcon.gif" width="50" height="50"><br/>Ayuda</a></p>';
-
-	?>
-
+<?php
+	drupal_add_css($path = 'css/datatable.css', $type = 'module', $media = 'all', $preprocess = TRUE);
+	drupal_add_css($path = 'gestionEspectro/php/drupalcss/estilosFormGestion.css', $type = 'module', $media = 'all', $preprocess = TRUE);
+	drupal_set_html_head('<script type="text/javascript" src="https://www.google.com/jsapi"></script>');
+	drupal_add_css($path = 'sites/all/libraries/jquery.ui/themes/default/ui.all.css', $type = 'module', $media = 'all', $preprocess = TRUE);
+	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/syntaxhighlighter/scripts/shCore.js');
+	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/syntaxhighlighter/scripts/shBrushXml.js');
+	drupal_add_css($path = 'js/syntaxhighlighter/styles/shCore.css', $type = 'module', $media = 'all', $preprocess = TRUE);
+	drupal_add_css($path = 'js/syntaxhighlighter/styles/shThemeDefault.css', $type = 'module', $media = 'all', $preprocess = TRUE);
+	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/colorBoxU.js');
+	echo "<p class='estiloTitulo'>Generador de entradas XML</p>\n";
+	echo '<p style="text-align:left";><a class="iframe" href="http://avispa.univalle.edu.co/~cardel/proyInv/ayudaSecuenciamientoAviones/ayuda.php"><img border="0" src="files/HelpIcon.gif" width="50" height="50"><br/>Ayuda</a></p>';
+	drupal_add_css($path = 'gestionEspectro/php/drupalcss/botonesEspectro.css', $type = 'module', $media = 'all', $preprocess = TRUE);
+	
+	if(!is_dir("/var/www/html/site/gestionEspectro/entradas/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/entradas/".$user->uid, 0755);
+	if(!is_dir("/var/www/html/site/gestionEspectro/salidas/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/salidas/".$user->uid, 0755);
+	if(!is_dir("/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid, 0755);
+?>
+<form action="/site/?q=node/38" method="post">
 	<p class='estilo'>Selección geográfica</p>
 
 	Usted puede seleccionar en que lugar se va realizar el proceso de asignación del espectro:
@@ -122,6 +126,12 @@
 	<p class='estilo'>Creación requerimientos</p>
 
 <script type="text/javascript">
+	
+function crearRequerimiento()
+{
+	alert('okas');
+}
+	
 function agregarFila(obj){
 
         var numeroCanales = $("#numeroCanales").val();
@@ -131,8 +141,8 @@ function agregarFila(obj){
 		if(operador>=1 && !esNumero && numeroCanales>0)
 		{
 			var textoOperador = $("#selOperador option:selected").text();
-			$("#cant_campos").val(parseInt($("#cant_campos").val()) + 1);
 			var oId = $("#cant_campos").val();
+			$("#cant_campos").val(parseInt($("#cant_campos").val()) + 1);
 
 			$("#selOperador").find("option:selected").attr('disabled', true);
 			$("#selOperador").find("option:selected").attr('selected', false);
@@ -174,9 +184,8 @@ function agregarFila(obj){
 	}
 </script>
 <div id="cont" class="container">
-<form name="proyecto" id="proyecto" action="" method="post">
-    <input type="hidden" id="num_campos" name="num_campos" value="0" />
     <input type="hidden" id="cant_campos" name="cant_campos" value="0" />
+    <input type="hidden" id="enviar" name="enviar" value="1" />
 <fieldset class="estiloFormFieldset">
 	<legend class="estiloFormLeyenda">Gestión de requerimiento</legend>
 	<div class="top">
@@ -207,7 +216,7 @@ function agregarFila(obj){
 		<thead>
 			<tr>
 				<th>Operador</th>
-				<th>Numero de canales requeridos</th>
+				<th>Número de canales requeridos</th>
 				<th>Eliminar</th>
 			</tr>
 		</thead>
@@ -218,4 +227,28 @@ function agregarFila(obj){
 </fieldset>
 </div>
 
-<div id="requerimientos"></div>	
+<?php
+	if( $_POST["enviar"]==1)
+	{
+		$numeroCampos = $_POST["cant_campos"];
+		$operadores = array();
+		$requerimientos = array();
+		
+		for($i=0; $i<$numeroCampos; $i++)
+		{
+			$auxOp = $_POST["operador_".$i];
+			$operadores[$i]=$auxOp;
+			
+			$auxReq = $_POST["numRequerido_".$i];
+			$requerimientos[$i]=$auxReq;
+		}
+		echo "<br/>numeroCampos<br/>";
+		echo $numeroCampos;
+		echo "Operadores<br/>";
+		print_r($operadores);
+		echo "Requerimientos<br/>";
+		print_r($requerimientos);		
+		
+	}
+
+?>

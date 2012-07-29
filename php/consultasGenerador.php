@@ -24,7 +24,7 @@
 	else{
 		if($tipoConsulta=='departamentos')
 		{
-		   echo "<select id=\"selectDepartaments\" onchange=\"javascript:borrarMunicipios();\">";
+		   echo "<select id=\"selectDepartaments\" name=\"selectDepartaments\" onchange=\"javascript:borrarMunicipios();\">";
 		   $query="select * from departaments where \"ID_Territorial_Division\"=".$idConsulta.";";
 		   
 		   $result= $objconexionBD->enviarConsulta($query);
@@ -42,7 +42,7 @@
 		{
 			if($tipoConsulta=='municipios')
 			{	
-			   echo "<select id=\"selectCities\">";
+			   echo "<select id=\"selectCities\" name=\"selectCities\">";
 			   $query="select * from cities where \"ID_departament\"=".$idConsulta.";";
 			   
 			   $result= $objconexionBD->enviarConsulta($query);
@@ -59,7 +59,7 @@
 			{
 				if($tipoConsulta=='bandas')
 				{	
-				   echo "<select id=\"selectBands\" onchange=\"javascript:consultarRangos();\">";
+				   echo "<select id=\"selectBands\" name=\"selectBands\" onchange=\"javascript:consultarRangos();\">";
 				   $query="select * from frequency_bands where \"ID_frequency_bands\" >= 4";
 				   
 				   print ("<option value=-1>");
@@ -80,7 +80,7 @@
 				{
 					if($tipoConsulta=='rangos' && $idConsulta>=0)
 					{	
-					   echo "<select id=\"selectRanks\" onchange=\"javascript:mostrarParametros();\">";
+					   echo "<select id=\"selectRanks\" name=\"selectRanks\" onchange=\"javascript:mostrarParametros();\">";
 					   $query="select * from frequency_ranks where \"ID_frequency_bands\"=".$idConsulta.";";
 					   print ("<option value=-1>");
 					   print ("Seleccionar");
@@ -94,6 +94,7 @@
 						  print ("</option>\n");		
 						}
 						echo "</select>";	
+						echo "<input type=button class=\"botonrojo\" value=\"Crear requerimiento\" onClick=\"javascript:crearRequerimiento();\" id=\"crearRequerimiento\"/>\n";
 						pg_free_result($result);				
 					}
 					else

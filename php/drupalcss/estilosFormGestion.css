@@ -81,7 +81,6 @@
 }
 
 .textbox {
-	background-image: url(../images/16t.png);
 	background-repeat: no-repeat;
 	background-position:left;
 	width:250px;
@@ -90,7 +89,6 @@
 	padding:3px 5px 3px 19px;
 }
 .textbox_FEC {
-	background-image:url(../images/date.png);
 	background-repeat: no-repeat;
 	background-position:left;
 	width:250px;
@@ -103,7 +101,6 @@
 }
 
 .username {
-    	background-image: url(images/16m.png);
     	background-repeat: no-repeat;
     	background-position:left;
 	width:285px;
@@ -116,7 +113,6 @@
 }
    
 .password {
-    	background-image: url(images/16s.png);
     	background-repeat: no-repeat;
 		background-position:left;
 		width:285px;
@@ -156,7 +152,6 @@
 
 .buttons_OK {
 	background: #e3e3db;
-	background-image:url(../images/save.png);
     background-repeat: no-repeat;
    	background-position:left;
 	font-size:12px; 
@@ -190,7 +185,6 @@
 }
 .buttons_EXC {
 	background: #e3e3db;
-	background-image:url(../images/page_excel.png);
     background-repeat: no-repeat;
    	background-position:left;
 	font-size:12px; 
@@ -207,7 +201,6 @@
 }
 .buttons_FEC {
 	background: #e3e3db;
-	background-image:url(../images/date.png);
     background-repeat: no-repeat;
    	background-position:left;
 	font-size:12px; 
@@ -224,7 +217,6 @@
 }
 .buttons_aplicar {
 	background: #e3e3db;
-	background-image:url(../images/action_check.png);
     background-repeat: no-repeat;
    	background-position:left;
 	font-size:12px; 
@@ -242,7 +234,6 @@
 
 .buttons_CANCEL {
 	background: #e3e3db;
-	background-image:url(../images/action_remove.png);
     background-repeat: no-repeat;
    	background-position:left;
 	font-size:12px; 
