@@ -146,7 +146,7 @@
 							if($tipoConsulta=='serviciosPorOperador')
 							{	
 							   echo "<select id=\"selOperador\" name=\"selOperador\" class=\"textbox txtFec\">";
-							   $query="select * from operators natural join services_by_operator where \"ID_service\" in (select \"ID_service\" from services_by_frequency_ranks where \"ID_frequency_ranks\"=".$idConsulta.";";
+							   $query="select * from operators natural join services_by_operator where \"ID_service\" in (select \"ID_service\" from services_by_frequency_ranks where \"ID_frequency_ranks\"=".$idConsulta.");";
 							   print ("<option value=-1>");
 							   print ("Seleccionar");
 							   print ("</option>\n");	
