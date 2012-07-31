@@ -37,8 +37,9 @@
 		$("#municipios").html(" ");       
 	}
 	</script>
-
+	<div id="enlaceDivisionTerritorial">
 	<a href="#" id="consultarDivisionTerritorial" onclick="javascript:consultarDivisionTerritorial();"> Seleccionar división territorial </a>
+	</div>
 
 	<script language="javascript">
 	function consultarDivisionTerritorial(){ 
@@ -142,9 +143,10 @@
 		$('#selectTerritorialDivision').attr('disabled','disabled');
 		$('#selectDepartaments').attr('disabled','disabled');
 		$('#selectCities').attr('disabled','disabled');
-		//$('#consultarDivisionTerritorial').click(new function("alert('Opción deshabilitada');"));
-		//$('#consultarDepartamentos').click(new function("alert('Opción deshabilitada');"));
-		//$('#consultarMunicipios').click(new function("alert('Opción deshabilitada');"));
+		
+		$("#enlaceDivisionTerritorial").css("display", "none");
+		$("#enlaceDepartamentos").css("display", "none");
+		$("#enlaceMunicipios").css("display", "none");
 	}
 	</script>
 	<div id="botonRequerimientos">

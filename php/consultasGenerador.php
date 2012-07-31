@@ -18,7 +18,9 @@
 		  print ("</option>\n");		
 		}
 		echo "</select>";
+		echo "<div id=\"enlaceDepartamentos\">";
 		echo "<a href=\"#\" id=\"consultarDepartamentos\" onclick=\"javascript:consultarDepartamentos();\"> Seleccionar departamento </a>";
+		echo "</div>";
 		pg_free_result($result);			
 	}
 	else{
@@ -35,7 +37,9 @@
 			  print ("</option>\n");		
 			}
 			echo "</select>";
-			echo "<a href=\"#\" id=\"consultarMunicipios\"onclick=\"javascript:consultarMunicipios();\"> Seleccionar municipio </a>";
+			echo "<div id=\"enlaceMunicipios\">";
+			echo "<a href=\"#\" id=\"consultarMunicipios\" onclick=\"javascript:consultarMunicipios();\"> Seleccionar municipio </a>";
+			echo "</div>";
 			pg_free_result($result);			
 		}
 		else
