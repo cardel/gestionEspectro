@@ -158,7 +158,7 @@
 							   while ($row =  pg_fetch_array ($result))
 							   {
 								  print ("<option value=$row[ID_Operator]>");
-								  print ("$row[operators_name]");
+								  print ("$row[ID_Operator]");
 								  print ("</option>\n");		
 								}
 								echo "</select>";	
