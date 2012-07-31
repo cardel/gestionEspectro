@@ -7,7 +7,7 @@
 
 	if($tipoConsulta=='divisionTerritorial')
 	{
-	   echo "<select id=\"selectTerritorialDivision\" onchange=\"javascript:borrarDepartamentos();\">";
+	   echo "<select name=\"selectTerritorialDivision\"  id=\"selectTerritorialDivision\" onchange=\"javascript:borrarDepartamentos();\">";
 	   $query="select \"ID_Territorial_Division\", initcap(\"Territorial_Division_Name\") as Territorial_Division_Name from territorial_divisions";
 	   
 	   $result= $objconexionBD->enviarConsulta($query);

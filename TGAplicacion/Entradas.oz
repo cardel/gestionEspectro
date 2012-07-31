@@ -25,8 +25,8 @@ export
    asignarPesos:AsignarPesos
    estrategia:Estrategia
    ingresarEstrategia:IngresarEstrategia
-   departamento:Departamento
-   ciudad:Ciudad
+   geograficAssignationType:GeograficAssignationType
+   geograficAssignationID:GeograficAssignationID
    bandaDeFrecuencia:BandaDeFrecuencia
    bandaEspecifica:BandaEspecifica
    servicio:Servicio
@@ -57,11 +57,12 @@ define
       end
    end
 
-   %ID Departamento
-   Departamento
+   %Tipo de asignacion
+   %0 Nacional, 1 Terrotorial, 2 departamental, 3 municipal
+   GeograficAssignationType
 
-   %ID ciudad
-   Ciudad
+   %ID de la asignación, en el caso nacional no importa éste parámetro
+   GeograficAssignationID
    
    %ID de banda de frecuencia
    BandaDeFrecuencia
@@ -236,10 +237,10 @@ define
          [] 'MaximumOperatorChannels' then
             Tope={String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
 
-         [] 'Departament' then
-            Departamento={String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
-         [] 'City' then
-            Ciudad={String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
+         [] 'GeograficAssignationType' then
+            GeograficAssignationType={String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
+         [] 'GeograficAssignationID' then
+            GeograficAssignationID={String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
          [] 'FrecuencyBand' then
             BandaDeFrecuencia={String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
          [] 'EspecificBand' then

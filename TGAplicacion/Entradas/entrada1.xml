@@ -4,8 +4,8 @@
 Representacion entrada de problema gestion espectro radioelectrico
 </presentation>
 <dict>
-<entry key="Departament"> <i> 13 </i> </entry>
-<entry key="City"> <i> 13 </i> </entry>
+<entry key="GeograficAssignationType"> <i> 2 </i> </entry>
+<entry key="GeograficAssignationID"> <i> 13 </i> </entry>
 <entry key="FrecuencyBand"> <i> 2 </i> </entry>
 <entry key="EspecificBand"> <i> 3 </i> </entry>
 <entry key="NumberChannels"> <i> 10 </i> </entry>

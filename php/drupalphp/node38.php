@@ -147,10 +147,12 @@
 		$("#enlaceDivisionTerritorial").css("display", "none");
 		$("#enlaceDepartamentos").css("display", "none");
 		$("#enlaceMunicipios").css("display", "none");
+		
+		$("#botonReq").attr('disabled','disabled');
 	}
 	</script>
 	<div id="botonRequerimientos">
-	<input type="button" class="botonrojo" value="Crear requerimientos" onClick="javascript:crearRequerimiento();"/>
+	<input type="button" id="botonReq" class="botonrojo" value="Crear requerimientos" onClick="javascript:crearRequerimiento();"/>
 	</div>
 
 	<script type="text/javascript">
@@ -270,6 +272,10 @@
 		print_r($operadores);
 		echo "Requerimientos<br/>";
 		print_r($requerimientos);		
+		
+		$divisionTerritorial = $_POST["selectTerritorialDivision"];
+		$departamento = $_POST["selectDepartaments"];
+		$municipio = $_POST["selectCities"];
 		
 	}
 

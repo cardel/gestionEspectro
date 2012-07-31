@@ -29,8 +29,8 @@ define
    LeerEntradaXML = Entradas.leerEntradaXML
    AsignarPesos = Entradas.asignarPesos
    IngresarEstrategia=Entradas.ingresarEstrategia
-   Departamento=Entradas.departamento
-   Ciudad=Entradas.ciudad
+   GeograficAssignationType=Entradas.geograficAssignationType
+   GeograficAssignationID=Entradas.geograficAssignationID
    BandaDeFrecuencia=Entradas.bandaDeFrecuencia
    BandaEspecifica=Entradas.bandaEspecifica
    %%Restricciones
@@ -178,7 +178,7 @@ define
       PC={Property.get 'fd.propagators'}
       MU={Property.get 'memory.code'}
       P={Property.get 'time.total'}
-      R=r(ef:EF ec:EC ee:EE vc:VC pc:PC mu:MU p:P departamento:Departamento ciudad:Ciudad bandaDeFrecuencia:BandaDeFrecuencia bandaEspecifica:BandaEspecifica)
+      R=r(ef:EF ec:EC ee:EE vc:VC pc:PC mu:MU p:P geograficAssignationType:GeograficAssignationType geograficAssignationID:GeograficAssignationID bandaDeFrecuencia:BandaDeFrecuencia bandaEspecifica:BandaEspecifica)
       R
    end
    %%------------------------------------------------------------------

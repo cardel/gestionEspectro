@@ -34,14 +34,14 @@ define
                PC=Reg.pc
                MU=Reg.mu
                P=Reg.p
-               Ciudad=Reg.ciudad
-               Departamento=Reg.departamento
+               GeograficAssignationID=Reg.geograficAssignationID
+               GeograficAssignationType=Reg.geograficAssignationType
                BandaDeFrecuencia=Reg.bandaDeFrecuencia
                BandaEspecifica=Reg.bandaEspecifica               
                DA DB DC DD DE DF DG DH DI DJ DK A B C D E F G 
             in
-               DA="\t\t<departament> "#Departamento#" </departament>\n"
-               DB="\t\t<city> "#Ciudad#" </city>\n"
+               DA="\t\t<geograficAssignationType> "#GeograficAssignationType#" </geograficAssignationType>\n"
+               DB="\t\t<geograficAssignationID> "#GeograficAssignationID#" </geograficAssignationID>\n"
                DC="\t\t<frequencyBand> "#BandaDeFrecuencia#" </frequencyBand>\n"
                DD="\t\t<especificBand> "#BandaEspecifica#" </especificBand>\n"
                DE="\t\t<channelsNumber> "#Canales#" </channelsNumber>\n"
