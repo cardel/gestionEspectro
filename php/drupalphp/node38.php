@@ -148,7 +148,7 @@
 	}
 	</script>
 	<div id="botonRequerimientos">
-	<input type="button" class="botonrojo" style="block:none;" value="Crear requerimientos" onClick="javascript:crearRequerimiento();" id="req"/>
+	<input type="button" class="botonrojo" value="Crear requerimientos" onClick="javascript:crearRequerimiento();"/>
 	</div>
 
 	<script type="text/javascript">

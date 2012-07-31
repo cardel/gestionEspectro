@@ -19,6 +19,7 @@
    font-family: Georgia, serif;
    text-decoration: none;
    vertical-align: middle;
+   block:'none';
    }
 .botonrojo:hover {
    border-top-color: #612828;
