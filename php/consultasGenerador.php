@@ -94,9 +94,7 @@
 						  print ("</option>\n");		
 						}
 						echo "</select>";	
-						echo "<div id=\"botonRequerimientos\">";	
-						echo "<input type=\"button\" class=\"botonrojo\" value=\"Crear requerimientos\" onClick=\"javascript:crearRequerimiento();\"/>";	
-						echo "</div>";	
+
 
 						pg_free_result($result);				
 					}

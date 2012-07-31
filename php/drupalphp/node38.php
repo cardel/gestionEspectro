@@ -95,7 +95,8 @@
 			$("#rangos").html(data);
 		});   
 		$("#serviciosBanda").html(" "); 
-		$("#numCanales").html(" ");       
+		$("#numCanales").html(" ");  
+		$("#botonRequerimientos").css("display", "none");     
 	}
 	</script>
 
@@ -113,7 +114,9 @@
 		});  
 		$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'topeOperadorBanda', idConsulta: selector }, function(data){
 			$("#topeOperadorBanda").html(data);
-		});     
+		});    
+		
+		$("#botonRequerimientos").css("display", "block");
 	}
 	
 	</script>
@@ -144,6 +147,9 @@
 		$('#consultarMunicipios').click(new function("alert('Opción deshabilitada');"));
 	}
 	</script>
+	<div id="botonRequerimientos">
+	<input type="button" class="botonrojo" style="block:none;" value="Crear requerimientos" onClick="javascript:crearRequerimiento();" id="req"/>
+	</div>
 
 	<script type="text/javascript">
 
