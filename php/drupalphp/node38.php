@@ -38,7 +38,7 @@
 	}
 	</script>
 
-	<a href="#" onclick="javascript:consultarDivisionTerritorial();"> Seleccionar división territorial </a>
+	<a href="#" id="consultarDivisionTerritorial" onclick="javascript:consultarDivisionTerritorial();"> Seleccionar división territorial </a>
 
 	<script language="javascript">
 	function consultarDivisionTerritorial(){ 
@@ -110,7 +110,10 @@
 		});	
 		$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'serviciosEnBanda', idConsulta: selector }, function(data){
 			$("#serviciosBanda").html(data);
-		});            
+		});  
+		$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'topeOperadorBanda', idConsulta: selector }, function(data){
+			$("#topeOperadorBanda").html(data);
+		});     
 	}
 	
 	</script>
@@ -122,16 +125,26 @@
 	<tr>
 	<td>Servicios en la banda:</td><td id="serviciosBanda"></td>
 	</tr>
+	<tr>
+	<td>Tope por operador en la banda:</td><td id="topeOperadorBanda"></td>
+	</tr>
 	</table>
+	
 	<script type="text/javascript">
 	function crearRequerimiento()
 	{
-		alert("okas");
+		$("#formulario").css("display", "block");
+		$('#selectBands').attr('disabled','disabled');
+		$('#selectRanks').attr('disabled','disabled');
+		$('#selectTerritorialDivision').attr('disabled','disabled');
+		$('#selectDepartaments').attr('disabled','disabled');
+		$('#selectCities').attr('disabled','disabled');
+		$('#consultarDivisionTerritorial').click(new function("alert('Opción deshabilitada');"));
+		$('#consultarDepartamentos').click(new function("alert('Opción deshabilitada');"));
+		$('#consultarMunicipios').click(new function("alert('Opción deshabilitada');"));
 	}
 	</script>
-	<input type="button" class="botonrojo" value="Crear requerimientos" onClick="javascript:crearRequerimiento();" id="req"/>
 
-	<p class='estilo'>Creación requerimientos</p>
 	<script type="text/javascript">
 
 	function agregarFila(obj){
@@ -178,14 +191,9 @@
 		return false;
 	}
 
-
-	function guardar()
-	{
-		alert('Aqui debes implementar el guardado de datos!');
-		return false;
-	}
 	</script>
-	<div id="cont" class="container">
+	<div id="formulario" style="display:none;">
+		<p class='estilo'>Creación requerimientos</p>
 		<input type="hidden" id="cant_campos" name="cant_campos" value="0" />
 		<input type="hidden" id="enviar" name="enviar" value="1" />
 	<fieldset class="estiloFormFieldset">
@@ -239,10 +247,14 @@
 		for($i=0; $i<$numeroCampos; $i++)
 		{
 			$auxOp = $_POST["operador_".$i];
-			$operadores[$i]=$auxOp;
 			
-			$auxReq = $_POST["numRequerido_".$i];
-			$requerimientos[$i]=$auxReq;
+			if($auxOP != null)
+			{
+				$operadores[$i]=$auxOp;			
+				$auxReq = $_POST["numRequerido_".$i];
+				$requerimientos[$i]=$auxReq;			
+			}
+
 		}
 		echo "<br/>numeroCampos<br/>";
 		echo $numeroCampos;

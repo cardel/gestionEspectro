@@ -18,7 +18,7 @@
 		  print ("</option>\n");		
 		}
 		echo "</select>";
-		echo "<a href=\"#\" onclick=\"javascript:consultarDepartamentos();\"> Seleccionar departamento </a>";
+		echo "<a href=\"#\" id=\"consultarDepartamentos\" onclick=\"javascript:consultarDepartamentos();\"> Seleccionar departamento </a>";
 		pg_free_result($result);			
 	}
 	else{
@@ -35,7 +35,7 @@
 			  print ("</option>\n");		
 			}
 			echo "</select>";
-			echo "<a href=\"#\" onclick=\"javascript:consultarMunicipios();\"> Seleccionar municipio </a>";
+			echo "<a href=\"#\" id=\"consultarMunicipios\"onclick=\"javascript:consultarMunicipios();\"> Seleccionar municipio </a>";
 			pg_free_result($result);			
 		}
 		else
@@ -94,6 +94,10 @@
 						  print ("</option>\n");		
 						}
 						echo "</select>";	
+						echo "<div id=\"botonRequerimientos\">";	
+						echo "<input type=\"button\" class=\"botonrojo\" value=\"Crear requerimientos\" onClick=\"javascript:crearRequerimiento();\"/>";	
+						echo "</div>";	
+
 						pg_free_result($result);				
 					}
 					else
@@ -124,6 +128,16 @@
 								}
 								echo "</ul>";	
 								pg_free_result($result);									
+							}
+
+							if($tipoConsulta=='topeOperadorBanda' && $idConsulta>=0)
+							{
+								$query="select max_channels_per_operator from frequency_ranks where \"ID_frequency_ranks\" =".$idConsulta.";";
+								$result= $objconexionBD->enviarConsulta($query);
+							    while ($row =  pg_fetch_array ($result))
+							    {
+								  print ("$row[max_channels_per_operator]");
+								}
 							}					
 					}					
 				}				
