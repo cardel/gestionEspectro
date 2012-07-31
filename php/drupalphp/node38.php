@@ -142,9 +142,9 @@
 		$('#selectTerritorialDivision').attr('disabled','disabled');
 		$('#selectDepartaments').attr('disabled','disabled');
 		$('#selectCities').attr('disabled','disabled');
-		$('#consultarDivisionTerritorial').click(new function("alert('Opción deshabilitada');"));
-		$('#consultarDepartamentos').click(new function("alert('Opción deshabilitada');"));
-		$('#consultarMunicipios').click(new function("alert('Opción deshabilitada');"));
+		//$('#consultarDivisionTerritorial').click(new function("alert('Opción deshabilitada');"));
+		//$('#consultarDepartamentos').click(new function("alert('Opción deshabilitada');"));
+		//$('#consultarMunicipios').click(new function("alert('Opción deshabilitada');"));
 	}
 	</script>
 	<div id="botonRequerimientos">
