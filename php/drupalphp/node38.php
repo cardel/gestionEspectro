@@ -149,9 +149,14 @@
 		$("#enlaceMunicipios").css("display", "none");
 		
 		$("#botonReq").attr('disabled','disabled');
+		var selector = $('#selectRanks').val();
+		$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'serviciosPorOperador', idConsulta: selector }, function(data){
+			$("#selectorOperator").html(data);
+		});    		
+		
 	}
 	</script>
-	<div id="botonRequerimientos">
+	<div id="botonRequerimientos" style="display:none;">
 	<input type="button" id="botonReq" class="botonrojo" value="Crear requerimientos" onClick="javascript:crearRequerimiento();"/>
 	</div>
 
@@ -210,14 +215,7 @@
 		<legend class="estiloFormLeyenda">Gestión de requerimiento</legend>
 		<div class="top">
 		<label class="estiloFormLabel" for="numeroCanales">Seleccione operador:</label>
-			<div class="div_texbox">
-				<select id="selOperador" name="selOperador" class="textbox txtFec">
-					<option value="-1">Seleccione</option>
-					<option value="1">Movistar</option>
-					<option value="2">Tigo</option>
-					<option value="3">Une</option>
-				</select>
-			</div>
+			<div id="selectorOperator" class="div_texbox"></div>
 		<label class="estiloFormLabel" for="numeroCanales">Número de canales requeridos:</label>
 		 <div class="div_texbox"><input type="text" id="numeroCanales" name="numeroCanales" value=0 class="textbox" /></div>
 		</div>
