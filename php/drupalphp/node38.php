@@ -149,29 +149,60 @@
 	<script type="text/javascript">
 	function crearRequerimiento()
 	{
+
 		$("#formulario").css("display", "block");
-		//$('#selectBands').attr('disabled','disabled');
-		//$('#selectRanks').attr('disabled','disabled');
-		//$('#selectTerritorialDivision').attr('disabled','disabled');
-		//$('#selectDepartaments').attr('disabled','disabled');
-		//$('#selectCities').attr('disabled','disabled');
+		$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'serviciosPorOperador', idConsulta: selector }, function(data){
+			$("#selectorOperator").html(data);
+
+		}); 
+				
+		var selectBand = $('#selectBands').value();
+		$('#selectBands').attr('disabled','disabled');
 		
-		//$("#enlaceDivisionTerritorial").css("display", "none");
-		//$("#enlaceDepartamentos").css("display", "none");
-		//$("#enlaceMunicipios").css("display", "none");
+		var selectRanks = $('#selectRanks').value();
+		$('#selectRanks').attr('disabled','disabled');
+		
+		var selectTerritorialDivision = -1;
+		if($('#selectTerritorialDivision').length)
+		{
+			selectTerritorialDivision = $('#selectTerritorialDivision').value();
+		}
+		$('#selectTerritorialDivision').attr('disabled','disabled');
+		
+		var selectDepartaments=-1;
+		if($('#selectDepartaments').length)
+		{
+			selectDepartaments = $('#selectDepartaments').value();	
+		}
+
+		$('#selectDepartaments').attr('disabled','disabled');
+		
+		var selectCities = -1;
+		if($('#selectDepartaments').length)
+		{
+			selectCities = $('#selectCities').value();
+		}
+		$('#selectCities').attr('disabled','disabled');
+		
+		$("#enlaceDivisionTerritorial").css("display", "none");
+		$("#enlaceDepartamentos").css("display", "none");
+		$("#enlaceMunicipios").css("display", "none");
 		
 		$("#botonReq").attr('disabled','disabled');
 		var selector = $('#selectRanks').val();
-		$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'serviciosPorOperador', idConsulta: selector }, function(data){
-			$("#selectorOperator").html(data);
+		$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'crearPostParaListas', selectBand:selectBand, selectRanks:selectRanks, selectTerritorialDivision:selectTerritorialDivision,selectDepartaments:selectDepartaments, selectCities:selectCities}, function(data){
+			$("#crearPostParaListas").html(data);
+
 		});    		
+
+   	
 		
 	}
 	</script>
 	<div id="botonRequerimientos" style="display:none;">
 	<input type="button" id="botonReq" class="botonrojo" value="Crear requerimientos" onClick="javascript:crearRequerimiento();"/>
 	</div>
-
+	<div id="crearPostParaListas"></div>
 	<script type="text/javascript">
 
 	function agregarFila(obj){
@@ -281,30 +312,30 @@
 		
 		if(!(empty($requerimientos) || empty($operadores)))
 		{
-			$divisionTerritorial = $_POST["selectTerritorialDivision"];
-			$departamento = $_POST["selectDepartaments"];
-			$municipio = $_POST["selectCities"];
+			$divisionTerritorial = $_POST["selectTerritorialDivisionForm"];
+			$departamento = $_POST["selectDepartamentsForm"];
+			$municipio = $_POST["selectCitiesForm"];
 			$rangoSeleccionado = $_POST["selectRanksForm"];
-			$bandaSeleccionada = $_POST["selectBandsForm"];
+			$bandaSeleccionada = $_POST["selectBandForm"];
 			$numeroCanales = $_POST["numeroCanalesFormulario"];
 			$tipoAsignacion;
 			$idAsignacion;
 			
-			if(empty($divisionTerritorial))
+			if($divisionTerritorial == -1)
 			{
 					$tipoAsignacion=0;
 					$idAsignacion=0;
 			}
 			else
 			{
-					if(empty($departamento))
+					if($departamento == -1)
 					{
 						$tipoAsignacion=1;
 						$idAsignacion=$divisionTerritorial;						
 					}
 					else
 					{
-							if(empty($municipio))
+							if($municipio == -1)
 							{
 								$tipoAsignacion=2;
 								$idAsignacion=$departamento;									
