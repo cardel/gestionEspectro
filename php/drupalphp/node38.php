@@ -117,7 +117,7 @@
 			$("#numCanales").html(data);
 		});	
 		$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'numCanalesEnBandaForm', idConsulta: selector }, function(data){
-			$("#numeroCanales").html(data);
+			$("#numeroCanalesForm").html(data);
 		});		
 		
 		$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'serviciosEnBanda', idConsulta: selector }, function(data){
@@ -132,7 +132,7 @@
 	}
 
 	</script>
-	<div id="numeroCanales"></div>
+	<div id="numeroCanalesForm"></div>
 	<div id="parametrosRango" style="display:none;">
 		<table border="0">
 		<tr>
@@ -284,8 +284,8 @@
 			$divisionTerritorial = $_POST["selectTerritorialDivision"];
 			$departamento = $_POST["selectDepartaments"];
 			$municipio = $_POST["selectCities"];
-			$rangoSeleccionado = $_POST["selectRanks"];
-			$bandaSeleccionada = $_POST["selectBands"];
+			$rangoSeleccionado = $_POST["selectRanksForm"];
+			$bandaSeleccionada = $_POST["selectBandsForm"];
 			$numeroCanales = $_POST["numeroCanales"];
 			$tipoAsignacion;
 			$idAsignacion;

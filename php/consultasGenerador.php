@@ -63,7 +63,7 @@
 			{
 				if($tipoConsulta=='bandas')
 				{	
-				   echo "<select id=\"selectBands\" name=\"selectBands\" onchange=\"javascript:consultarRangos();\">";
+				   echo "<select id=\"selectBands\" name=\"selectBandsForm\" onchange=\"javascript:consultarRangos();\">";
 				   $query="select * from frequency_bands where \"ID_frequency_bands\" >= 4";
 				   
 				   print ("<option value=-1>");
@@ -84,7 +84,7 @@
 				{
 					if($tipoConsulta=='rangos' && $idConsulta>=0)
 					{	
-					   echo "<select id=\"selectRanks\" name=\"selectRanks\" onchange=\"javascript:mostrarParametros();\">";
+					   echo "<select id=\"selectRanks\" name=\"selectRanksForm\" onchange=\"javascript:mostrarParametros();\">";
 					   $query="select * from frequency_ranks where \"ID_frequency_bands\"=".$idConsulta.";";
 					   print ("<option value=-1>");
 					   print ("Seleccionar");
