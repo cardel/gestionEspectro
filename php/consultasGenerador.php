@@ -122,10 +122,21 @@
 							    while ($row =  pg_fetch_array ($result))
 							    {
 								  echo "<input type=\"hidden\" name=\"numeroCanalesFormulario\" value=".$row[channels_number]."/>";
+  								  echo "<input type=\"hidden\" name=\"channel_separationFormulario\" value=".$row[channel_separation]."/>";
+
 								}
 							}
 								
-
+							if($tipoConsulta=='channelSeparation' && $idConsulta>=0)
+							{
+								$query="select channel_separation from frequency_ranks where \"ID_frequency_ranks\" =".$idConsulta.";";
+								$result= $objconexionBD->enviarConsulta($query);
+							    while ($row =  pg_fetch_array ($result))
+							    {
+								  print ("$row[channel_separation]");
+								}
+							}
+							
 							if($tipoConsulta=='serviciosEnBanda' && $idConsulta>=0)
 							{
 							   echo "<ul>";
