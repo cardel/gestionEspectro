@@ -286,7 +286,7 @@
 			$municipio = $_POST["selectCities"];
 			$rangoSeleccionado = $_POST["selectRanksForm"];
 			$bandaSeleccionada = $_POST["selectBandsForm"];
-			$numeroCanales = $_POST["numeroCanales"];
+			$numeroCanales = $_POST["numeroCanalesFormulario"];
 			$tipoAsignacion;
 			$idAsignacion;
 			
@@ -353,10 +353,15 @@
 			
 			$et26 = "\t\t\t<entry key=\"ChannelSeparation\">\n";
 			$et27 = "\t\t\t\t<i>".$bandaSeleccionada."</i>\n";
-			$et28 = "\t\t\t</entry>\n";		
+			$et28 = "\t\t\t</entry>\n";	
 			
-			echo "<pre name=\"code\" class=\"xml:nogutter:nocontrols\">";
-			echo $et01.$et02.$et03.$et04.$et05.$et06.$et07.$et08.$et09.$et10.$et11.$et12.$et13.$et14.$et15.$et16.$et17.$et18.$et19.$et20.$et21.$et22.$et23.$et24.$et25.$et26.$et27.$et28;	
+			$fin1 = "</dict>";
+			$fin2 = "</instance>\n";			
+            echo "<pre class='brush: xml'>\n";
+			$total= $et01.$et02.$et03.$et04.$et05.$et06.$et07.$et08.$et09.$et10.$et11.$et12.$et13.$et14.$et15.$et16.$et17.$et18.$et19.$et20.$et21.$et22.$et23.$et24.$et25.$et26.$et27.$et28.$fin1.$fin2;	
+            $total = str_replace("<","&lt;",$total);
+            $total = str_replace(">","&gt;",$total);	
+            echo $total;		
 			echo "</pre>";	
 		}
 		else
