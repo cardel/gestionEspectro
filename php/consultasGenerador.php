@@ -115,7 +115,17 @@
 								  print ("$row[channels_number]");
 								}
 							}
-							
+							if($tipoConsulta=='numCanalesEnBandaForm' && $idConsulta>=0)
+							{
+								$query="select channels_number from frequency_ranks where \"ID_frequency_ranks\" =".$idConsulta.";";
+								$result= $objconexionBD->enviarConsulta($query);
+							    while ($row =  pg_fetch_array ($result))
+							    {
+								  echo "<input type=\"hidden\" name=\"numeroCanales\" value=".$row[channels_number]."/>";
+								}
+							}
+								
+
 							if($tipoConsulta=='serviciosEnBanda' && $idConsulta>=0)
 							{
 							   echo "<ul>";
@@ -148,8 +158,6 @@
 							   echo "<select id=\"selOperador\" name=\"selOperador\" class=\"textbox txtFec\">";
 							   $query="select * from operators where \"ID_Operator\" in ( select DISTINCT (\"ID_Operator\") from operators natural join services_by_operator where \"ID_service\" in (select \"ID_service\" from services_by_frequency_ranks where \"ID_frequency_ranks\"=".$idConsulta."));";	
 							   
-								
-
 							   print ("<option value=-1>");
 							   print ("Seleccionar");
 							   print ("</option>\n");	

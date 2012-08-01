@@ -16,281 +16,6 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: channel_Assignations_National; Type: TABLE; Schema: public; Owner: drupal; Tablespace: 
---
-
-CREATE TABLE "channel_Assignations_National" (
-    "ID_Channels_Assignations" integer NOT NULL,
-    "ID_channel_assignation_national" integer NOT NULL
-);
-
-
-ALTER TABLE public."channel_Assignations_National" OWNER TO drupal;
-
---
--- Name: Channel_Assignations_National_ID_Channels_Assignations_seq; Type: SEQUENCE; Schema: public; Owner: drupal
---
-
-CREATE SEQUENCE "Channel_Assignations_National_ID_Channels_Assignations_seq"
-    START WITH 1
-    INCREMENT BY 1
-    NO MAXVALUE
-    NO MINVALUE
-    CACHE 1;
-
-
-ALTER TABLE public."Channel_Assignations_National_ID_Channels_Assignations_seq" OWNER TO drupal;
-
---
--- Name: Channel_Assignations_National_ID_Channels_Assignations_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
---
-
-ALTER SEQUENCE "Channel_Assignations_National_ID_Channels_Assignations_seq" OWNED BY "channel_Assignations_National"."ID_Channels_Assignations";
-
-
---
--- Name: Channel_Assignations_National_ID_Channels_Assignations_seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
---
-
-SELECT pg_catalog.setval('"Channel_Assignations_National_ID_Channels_Assignations_seq"', 1, false);
-
-
---
--- Name: channel_Assignations_by_City; Type: TABLE; Schema: public; Owner: drupal; Tablespace: 
---
-
-CREATE TABLE "channel_Assignations_by_City" (
-    "ID_Channels_Assignations" integer NOT NULL,
-    "ID_Cities" integer NOT NULL,
-    "ID_Channels_Assignations_by_city" integer NOT NULL
-);
-
-
-ALTER TABLE public."channel_Assignations_by_City" OWNER TO drupal;
-
---
--- Name: Channel_Assignations_by_City_ID_Channels_Assignations_seq; Type: SEQUENCE; Schema: public; Owner: drupal
---
-
-CREATE SEQUENCE "Channel_Assignations_by_City_ID_Channels_Assignations_seq"
-    START WITH 1
-    INCREMENT BY 1
-    NO MAXVALUE
-    NO MINVALUE
-    CACHE 1;
-
-
-ALTER TABLE public."Channel_Assignations_by_City_ID_Channels_Assignations_seq" OWNER TO drupal;
-
---
--- Name: Channel_Assignations_by_City_ID_Channels_Assignations_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
---
-
-ALTER SEQUENCE "Channel_Assignations_by_City_ID_Channels_Assignations_seq" OWNED BY "channel_Assignations_by_City"."ID_Channels_Assignations";
-
-
---
--- Name: Channel_Assignations_by_City_ID_Channels_Assignations_seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
---
-
-SELECT pg_catalog.setval('"Channel_Assignations_by_City_ID_Channels_Assignations_seq"', 1, false);
-
-
---
--- Name: Channel_Assignations_by_City_ID_Cities_seq; Type: SEQUENCE; Schema: public; Owner: drupal
---
-
-CREATE SEQUENCE "Channel_Assignations_by_City_ID_Cities_seq"
-    START WITH 1
-    INCREMENT BY 1
-    NO MAXVALUE
-    NO MINVALUE
-    CACHE 1;
-
-
-ALTER TABLE public."Channel_Assignations_by_City_ID_Cities_seq" OWNER TO drupal;
-
---
--- Name: Channel_Assignations_by_City_ID_Cities_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
---
-
-ALTER SEQUENCE "Channel_Assignations_by_City_ID_Cities_seq" OWNED BY "channel_Assignations_by_City"."ID_Cities";
-
-
---
--- Name: Channel_Assignations_by_City_ID_Cities_seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
---
-
-SELECT pg_catalog.setval('"Channel_Assignations_by_City_ID_Cities_seq"', 1, false);
-
-
---
--- Name: channel_Assignations_by_Departament; Type: TABLE; Schema: public; Owner: drupal; Tablespace: 
---
-
-CREATE TABLE "channel_Assignations_by_Departament" (
-    "ID_Channels_Assignations" integer NOT NULL,
-    "ID_Departament" integer NOT NULL,
-    "ID_Channels_Assignations_by_Departament" integer NOT NULL
-);
-
-
-ALTER TABLE public."channel_Assignations_by_Departament" OWNER TO drupal;
-
---
--- Name: Channel_Assignations_by_Departamen_ID_Channels_Assignations_seq; Type: SEQUENCE; Schema: public; Owner: drupal
---
-
-CREATE SEQUENCE "Channel_Assignations_by_Departamen_ID_Channels_Assignations_seq"
-    START WITH 1
-    INCREMENT BY 1
-    NO MAXVALUE
-    NO MINVALUE
-    CACHE 1;
-
-
-ALTER TABLE public."Channel_Assignations_by_Departamen_ID_Channels_Assignations_seq" OWNER TO drupal;
-
---
--- Name: Channel_Assignations_by_Departamen_ID_Channels_Assignations_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
---
-
-ALTER SEQUENCE "Channel_Assignations_by_Departamen_ID_Channels_Assignations_seq" OWNED BY "channel_Assignations_by_Departament"."ID_Channels_Assignations";
-
-
---
--- Name: Channel_Assignations_by_Departamen_ID_Channels_Assignations_seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
---
-
-SELECT pg_catalog.setval('"Channel_Assignations_by_Departamen_ID_Channels_Assignations_seq"', 1, false);
-
-
---
--- Name: Channel_Assignations_by_Departament_ID_Departament_seq; Type: SEQUENCE; Schema: public; Owner: drupal
---
-
-CREATE SEQUENCE "Channel_Assignations_by_Departament_ID_Departament_seq"
-    START WITH 1
-    INCREMENT BY 1
-    NO MAXVALUE
-    NO MINVALUE
-    CACHE 1;
-
-
-ALTER TABLE public."Channel_Assignations_by_Departament_ID_Departament_seq" OWNER TO drupal;
-
---
--- Name: Channel_Assignations_by_Departament_ID_Departament_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
---
-
-ALTER SEQUENCE "Channel_Assignations_by_Departament_ID_Departament_seq" OWNED BY "channel_Assignations_by_Departament"."ID_Departament";
-
-
---
--- Name: Channel_Assignations_by_Departament_ID_Departament_seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
---
-
-SELECT pg_catalog.setval('"Channel_Assignations_by_Departament_ID_Departament_seq"', 1, false);
-
-
---
--- Name: services_by_channel_assignation; Type: TABLE; Schema: public; Owner: drupal; Tablespace: 
---
-
-CREATE TABLE services_by_channel_assignation (
-    "ID_Services_by_channel_assignation" integer NOT NULL,
-    "ID_Channels_assignations" integer NOT NULL,
-    "ID_Services" integer NOT NULL
-);
-
-
-ALTER TABLE public.services_by_channel_assignation OWNER TO drupal;
-
---
--- Name: Services_by_channel_assignati_ID_Services_by_channel_assign_seq; Type: SEQUENCE; Schema: public; Owner: drupal
---
-
-CREATE SEQUENCE "Services_by_channel_assignati_ID_Services_by_channel_assign_seq"
-    START WITH 1
-    INCREMENT BY 1
-    NO MAXVALUE
-    NO MINVALUE
-    CACHE 1;
-
-
-ALTER TABLE public."Services_by_channel_assignati_ID_Services_by_channel_assign_seq" OWNER TO drupal;
-
---
--- Name: Services_by_channel_assignati_ID_Services_by_channel_assign_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
---
-
-ALTER SEQUENCE "Services_by_channel_assignati_ID_Services_by_channel_assign_seq" OWNED BY services_by_channel_assignation."ID_Services_by_channel_assignation";
-
-
---
--- Name: Services_by_channel_assignati_ID_Services_by_channel_assign_seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
---
-
-SELECT pg_catalog.setval('"Services_by_channel_assignati_ID_Services_by_channel_assign_seq"', 1, false);
-
-
---
--- Name: Services_by_channel_assignation_ID_Channels_assignations_seq; Type: SEQUENCE; Schema: public; Owner: drupal
---
-
-CREATE SEQUENCE "Services_by_channel_assignation_ID_Channels_assignations_seq"
-    START WITH 1
-    INCREMENT BY 1
-    NO MAXVALUE
-    NO MINVALUE
-    CACHE 1;
-
-
-ALTER TABLE public."Services_by_channel_assignation_ID_Channels_assignations_seq" OWNER TO drupal;
-
---
--- Name: Services_by_channel_assignation_ID_Channels_assignations_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
---
-
-ALTER SEQUENCE "Services_by_channel_assignation_ID_Channels_assignations_seq" OWNED BY services_by_channel_assignation."ID_Channels_assignations";
-
-
---
--- Name: Services_by_channel_assignation_ID_Channels_assignations_seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
---
-
-SELECT pg_catalog.setval('"Services_by_channel_assignation_ID_Channels_assignations_seq"', 1, false);
-
-
---
--- Name: Services_by_channel_assignation_ID_Services_seq; Type: SEQUENCE; Schema: public; Owner: drupal
---
-
-CREATE SEQUENCE "Services_by_channel_assignation_ID_Services_seq"
-    START WITH 1
-    INCREMENT BY 1
-    NO MAXVALUE
-    NO MINVALUE
-    CACHE 1;
-
-
-ALTER TABLE public."Services_by_channel_assignation_ID_Services_seq" OWNER TO drupal;
-
---
--- Name: Services_by_channel_assignation_ID_Services_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
---
-
-ALTER SEQUENCE "Services_by_channel_assignation_ID_Services_seq" OWNED BY services_by_channel_assignation."ID_Services";
-
-
---
--- Name: Services_by_channel_assignation_ID_Services_seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
---
-
-SELECT pg_catalog.setval('"Services_by_channel_assignation_ID_Services_seq"', 1, false);
-
-
---
 -- Name: territorial_divisions; Type: TABLE; Schema: public; Owner: drupal; Tablespace: 
 --
 
@@ -331,24 +56,91 @@ SELECT pg_catalog.setval('"Territorial_Divisions_ID_Territorial_Division_seq"', 
 
 
 --
--- Name: channel_Assignations; Type: TABLE; Schema: public; Owner: drupal; Tablespace: 
+-- Name: channel_assignations_national; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
-CREATE TABLE "channel_Assignations" (
+CREATE TABLE channel_assignations_national (
+    id_channels_assignations_national integer NOT NULL,
+    id_channels_assignations integer NOT NULL
+);
+
+
+ALTER TABLE public.channel_assignations_national OWNER TO postgres;
+
+--
+-- Name: channel_assignations_national_id_channels_assignations_nati_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE channel_assignations_national_id_channels_assignations_nati_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.channel_assignations_national_id_channels_assignations_nati_seq OWNER TO postgres;
+
+--
+-- Name: channel_assignations_national_id_channels_assignations_nati_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE channel_assignations_national_id_channels_assignations_nati_seq OWNED BY channel_assignations_national.id_channels_assignations_national;
+
+
+--
+-- Name: channel_assignations_national_id_channels_assignations_nati_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('channel_assignations_national_id_channels_assignations_nati_seq', 1, false);
+
+
+--
+-- Name: channel_assignations_national_id_channels_assignations_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE channel_assignations_national_id_channels_assignations_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.channel_assignations_national_id_channels_assignations_seq OWNER TO postgres;
+
+--
+-- Name: channel_assignations_national_id_channels_assignations_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE channel_assignations_national_id_channels_assignations_seq OWNED BY channel_assignations_national.id_channels_assignations;
+
+
+--
+-- Name: channel_assignations_national_id_channels_assignations_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('channel_assignations_national_id_channels_assignations_seq', 1, false);
+
+
+--
+-- Name: channel_assignations_per_city; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE channel_assignations_per_city (
+    id_channels_assignations_per_city integer NOT NULL,
     id_channels_assignations integer NOT NULL,
-    id_operators integer NOT NULL,
-    id_channels integer NOT NULL,
-    id_city integer NOT NULL
+    id_cities integer NOT NULL
 );
 
 
-ALTER TABLE public."channel_Assignations" OWNER TO drupal;
+ALTER TABLE public.channel_assignations_per_city OWNER TO postgres;
 
 --
--- Name: channel_Assignations_National_ID_channel_assignation_nation_seq; Type: SEQUENCE; Schema: public; Owner: drupal
+-- Name: channel_assignations_per_city_id_channels_assignations_per__seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE "channel_Assignations_National_ID_channel_assignation_nation_seq"
+CREATE SEQUENCE channel_assignations_per_city_id_channels_assignations_per__seq
     START WITH 1
     INCREMENT BY 1
     NO MAXVALUE
@@ -356,27 +148,27 @@ CREATE SEQUENCE "channel_Assignations_National_ID_channel_assignation_nation_seq
     CACHE 1;
 
 
-ALTER TABLE public."channel_Assignations_National_ID_channel_assignation_nation_seq" OWNER TO drupal;
+ALTER TABLE public.channel_assignations_per_city_id_channels_assignations_per__seq OWNER TO postgres;
 
 --
--- Name: channel_Assignations_National_ID_channel_assignation_nation_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
+-- Name: channel_assignations_per_city_id_channels_assignations_per__seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE "channel_Assignations_National_ID_channel_assignation_nation_seq" OWNED BY "channel_Assignations_National"."ID_channel_assignation_national";
-
-
---
--- Name: channel_Assignations_National_ID_channel_assignation_nation_seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
---
-
-SELECT pg_catalog.setval('"channel_Assignations_National_ID_channel_assignation_nation_seq"', 1, false);
+ALTER SEQUENCE channel_assignations_per_city_id_channels_assignations_per__seq OWNED BY channel_assignations_per_city.id_channels_assignations_per_city;
 
 
 --
--- Name: channel_Assignations_by_City_ID_Channels_Assignations_by_ci_seq; Type: SEQUENCE; Schema: public; Owner: drupal
+-- Name: channel_assignations_per_city_id_channels_assignations_per__seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE "channel_Assignations_by_City_ID_Channels_Assignations_by_ci_seq"
+SELECT pg_catalog.setval('channel_assignations_per_city_id_channels_assignations_per__seq', 1, false);
+
+
+--
+-- Name: channel_assignations_per_city_id_channels_assignations_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE channel_assignations_per_city_id_channels_assignations_seq
     START WITH 1
     INCREMENT BY 1
     NO MAXVALUE
@@ -384,27 +176,27 @@ CREATE SEQUENCE "channel_Assignations_by_City_ID_Channels_Assignations_by_ci_seq
     CACHE 1;
 
 
-ALTER TABLE public."channel_Assignations_by_City_ID_Channels_Assignations_by_ci_seq" OWNER TO drupal;
+ALTER TABLE public.channel_assignations_per_city_id_channels_assignations_seq OWNER TO postgres;
 
 --
--- Name: channel_Assignations_by_City_ID_Channels_Assignations_by_ci_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
+-- Name: channel_assignations_per_city_id_channels_assignations_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE "channel_Assignations_by_City_ID_Channels_Assignations_by_ci_seq" OWNED BY "channel_Assignations_by_City"."ID_Channels_Assignations_by_city";
-
-
---
--- Name: channel_Assignations_by_City_ID_Channels_Assignations_by_ci_seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
---
-
-SELECT pg_catalog.setval('"channel_Assignations_by_City_ID_Channels_Assignations_by_ci_seq"', 1, false);
+ALTER SEQUENCE channel_assignations_per_city_id_channels_assignations_seq OWNED BY channel_assignations_per_city.id_channels_assignations;
 
 
 --
--- Name: channel_Assignations_by_Depar_ID_Channels_Assignations_by_D_seq; Type: SEQUENCE; Schema: public; Owner: drupal
+-- Name: channel_assignations_per_city_id_channels_assignations_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE "channel_Assignations_by_Depar_ID_Channels_Assignations_by_D_seq"
+SELECT pg_catalog.setval('channel_assignations_per_city_id_channels_assignations_seq', 1, false);
+
+
+--
+-- Name: channel_assignations_per_city_id_cities_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE channel_assignations_per_city_id_cities_seq
     START WITH 1
     INCREMENT BY 1
     NO MAXVALUE
@@ -412,40 +204,40 @@ CREATE SEQUENCE "channel_Assignations_by_Depar_ID_Channels_Assignations_by_D_seq
     CACHE 1;
 
 
-ALTER TABLE public."channel_Assignations_by_Depar_ID_Channels_Assignations_by_D_seq" OWNER TO drupal;
+ALTER TABLE public.channel_assignations_per_city_id_cities_seq OWNER TO postgres;
 
 --
--- Name: channel_Assignations_by_Depar_ID_Channels_Assignations_by_D_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
+-- Name: channel_assignations_per_city_id_cities_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE "channel_Assignations_by_Depar_ID_Channels_Assignations_by_D_seq" OWNED BY "channel_Assignations_by_Departament"."ID_Channels_Assignations_by_Departament";
-
-
---
--- Name: channel_Assignations_by_Depar_ID_Channels_Assignations_by_D_seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
---
-
-SELECT pg_catalog.setval('"channel_Assignations_by_Depar_ID_Channels_Assignations_by_D_seq"', 1, false);
+ALTER SEQUENCE channel_assignations_per_city_id_cities_seq OWNED BY channel_assignations_per_city.id_cities;
 
 
 --
--- Name: channel_Assignations_by_Territorial_Division; Type: TABLE; Schema: public; Owner: drupal; Tablespace: 
+-- Name: channel_assignations_per_city_id_cities_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE TABLE "channel_Assignations_by_Territorial_Division" (
-    "ID_Channels_Assignations" integer NOT NULL,
-    "ID_Territorial_Division" integer NOT NULL,
-    "ID_Channels_Assignations_by_Territorial_Division" integer NOT NULL
+SELECT pg_catalog.setval('channel_assignations_per_city_id_cities_seq', 1, false);
+
+
+--
+-- Name: channel_assignations_per_departament; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE channel_assignations_per_departament (
+    id_channels_assignations_per_departament integer NOT NULL,
+    id_channels_assignations integer NOT NULL,
+    id_departaments integer NOT NULL
 );
 
 
-ALTER TABLE public."channel_Assignations_by_Territorial_Division" OWNER TO drupal;
+ALTER TABLE public.channel_assignations_per_departament OWNER TO postgres;
 
 --
--- Name: channel_assignations_id_channels_assignations_seq; Type: SEQUENCE; Schema: public; Owner: drupal
+-- Name: channel_assignations_per_depa_id_channels_assignations_per__seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE channel_assignations_id_channels_assignations_seq
+CREATE SEQUENCE channel_assignations_per_depa_id_channels_assignations_per__seq
     START WITH 1
     INCREMENT BY 1
     NO MAXVALUE
@@ -453,27 +245,27 @@ CREATE SEQUENCE channel_assignations_id_channels_assignations_seq
     CACHE 1;
 
 
-ALTER TABLE public.channel_assignations_id_channels_assignations_seq OWNER TO drupal;
+ALTER TABLE public.channel_assignations_per_depa_id_channels_assignations_per__seq OWNER TO postgres;
 
 --
--- Name: channel_assignations_id_channels_assignations_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
+-- Name: channel_assignations_per_depa_id_channels_assignations_per__seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE channel_assignations_id_channels_assignations_seq OWNED BY "channel_Assignations".id_channels_assignations;
-
-
---
--- Name: channel_assignations_id_channels_assignations_seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
---
-
-SELECT pg_catalog.setval('channel_assignations_id_channels_assignations_seq', 1, false);
+ALTER SEQUENCE channel_assignations_per_depa_id_channels_assignations_per__seq OWNED BY channel_assignations_per_departament.id_channels_assignations_per_departament;
 
 
 --
--- Name: channel_assignations_id_channels_seq; Type: SEQUENCE; Schema: public; Owner: drupal
+-- Name: channel_assignations_per_depa_id_channels_assignations_per__seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE channel_assignations_id_channels_seq
+SELECT pg_catalog.setval('channel_assignations_per_depa_id_channels_assignations_per__seq', 1, false);
+
+
+--
+-- Name: channel_assignations_per_departame_id_channels_assignations_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE channel_assignations_per_departame_id_channels_assignations_seq
     START WITH 1
     INCREMENT BY 1
     NO MAXVALUE
@@ -481,27 +273,27 @@ CREATE SEQUENCE channel_assignations_id_channels_seq
     CACHE 1;
 
 
-ALTER TABLE public.channel_assignations_id_channels_seq OWNER TO drupal;
+ALTER TABLE public.channel_assignations_per_departame_id_channels_assignations_seq OWNER TO postgres;
 
 --
--- Name: channel_assignations_id_channels_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
+-- Name: channel_assignations_per_departame_id_channels_assignations_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE channel_assignations_id_channels_seq OWNED BY "channel_Assignations".id_channels;
-
-
---
--- Name: channel_assignations_id_channels_seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
---
-
-SELECT pg_catalog.setval('channel_assignations_id_channels_seq', 1, false);
+ALTER SEQUENCE channel_assignations_per_departame_id_channels_assignations_seq OWNED BY channel_assignations_per_departament.id_channels_assignations;
 
 
 --
--- Name: channel_assignations_id_city_seq; Type: SEQUENCE; Schema: public; Owner: drupal
+-- Name: channel_assignations_per_departame_id_channels_assignations_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE channel_assignations_id_city_seq
+SELECT pg_catalog.setval('channel_assignations_per_departame_id_channels_assignations_seq', 1, false);
+
+
+--
+-- Name: channel_assignations_per_departament_id_departaments_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE channel_assignations_per_departament_id_departaments_seq
     START WITH 1
     INCREMENT BY 1
     NO MAXVALUE
@@ -509,27 +301,40 @@ CREATE SEQUENCE channel_assignations_id_city_seq
     CACHE 1;
 
 
-ALTER TABLE public.channel_assignations_id_city_seq OWNER TO drupal;
+ALTER TABLE public.channel_assignations_per_departament_id_departaments_seq OWNER TO postgres;
 
 --
--- Name: channel_assignations_id_city_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
+-- Name: channel_assignations_per_departament_id_departaments_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE channel_assignations_id_city_seq OWNED BY "channel_Assignations".id_city;
-
-
---
--- Name: channel_assignations_id_city_seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
---
-
-SELECT pg_catalog.setval('channel_assignations_id_city_seq', 1, false);
+ALTER SEQUENCE channel_assignations_per_departament_id_departaments_seq OWNED BY channel_assignations_per_departament.id_departaments;
 
 
 --
--- Name: channel_assignations_id_operators_seq; Type: SEQUENCE; Schema: public; Owner: drupal
+-- Name: channel_assignations_per_departament_id_departaments_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE channel_assignations_id_operators_seq
+SELECT pg_catalog.setval('channel_assignations_per_departament_id_departaments_seq', 1, false);
+
+
+--
+-- Name: channel_assignations_per_territorialdivision; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE channel_assignations_per_territorialdivision (
+    id_channels_assignations_per_territorialdivision integer NOT NULL,
+    id_channels_assignations integer NOT NULL,
+    id_territorial_division integer NOT NULL
+);
+
+
+ALTER TABLE public.channel_assignations_per_territorialdivision OWNER TO postgres;
+
+--
+-- Name: channel_assignations_per_terr_id_channels_assignations_per__seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE channel_assignations_per_terr_id_channels_assignations_per__seq
     START WITH 1
     INCREMENT BY 1
     NO MAXVALUE
@@ -537,20 +342,76 @@ CREATE SEQUENCE channel_assignations_id_operators_seq
     CACHE 1;
 
 
-ALTER TABLE public.channel_assignations_id_operators_seq OWNER TO drupal;
+ALTER TABLE public.channel_assignations_per_terr_id_channels_assignations_per__seq OWNER TO postgres;
 
 --
--- Name: channel_assignations_id_operators_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
+-- Name: channel_assignations_per_terr_id_channels_assignations_per__seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE channel_assignations_id_operators_seq OWNED BY "channel_Assignations".id_operators;
+ALTER SEQUENCE channel_assignations_per_terr_id_channels_assignations_per__seq OWNED BY channel_assignations_per_territorialdivision.id_channels_assignations_per_territorialdivision;
 
 
 --
--- Name: channel_assignations_id_operators_seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
+-- Name: channel_assignations_per_terr_id_channels_assignations_per__seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('channel_assignations_id_operators_seq', 1, false);
+SELECT pg_catalog.setval('channel_assignations_per_terr_id_channels_assignations_per__seq', 1, false);
+
+
+--
+-- Name: channel_assignations_per_territori_id_channels_assignations_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE channel_assignations_per_territori_id_channels_assignations_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.channel_assignations_per_territori_id_channels_assignations_seq OWNER TO postgres;
+
+--
+-- Name: channel_assignations_per_territori_id_channels_assignations_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE channel_assignations_per_territori_id_channels_assignations_seq OWNED BY channel_assignations_per_territorialdivision.id_channels_assignations;
+
+
+--
+-- Name: channel_assignations_per_territori_id_channels_assignations_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('channel_assignations_per_territori_id_channels_assignations_seq', 1, false);
+
+
+--
+-- Name: channel_assignations_per_territoria_id_territorial_division_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE channel_assignations_per_territoria_id_territorial_division_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.channel_assignations_per_territoria_id_territorial_division_seq OWNER TO postgres;
+
+--
+-- Name: channel_assignations_per_territoria_id_territorial_division_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE channel_assignations_per_territoria_id_territorial_division_seq OWNED BY channel_assignations_per_territorialdivision.id_territorial_division;
+
+
+--
+-- Name: channel_assignations_per_territoria_id_territorial_division_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('channel_assignations_per_territoria_id_territorial_division_seq', 1, false);
 
 
 --
@@ -569,6 +430,132 @@ CREATE TABLE channels (
 
 
 ALTER TABLE public.channels OWNER TO drupal;
+
+--
+-- Name: channels_assignations; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE channels_assignations (
+    id_channels_assignations integer NOT NULL,
+    id_operators integer NOT NULL,
+    id_channels integer NOT NULL,
+    id_services integer NOT NULL
+);
+
+
+ALTER TABLE public.channels_assignations OWNER TO postgres;
+
+--
+-- Name: channels_assignations_id_channels_assignations_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE channels_assignations_id_channels_assignations_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.channels_assignations_id_channels_assignations_seq OWNER TO postgres;
+
+--
+-- Name: channels_assignations_id_channels_assignations_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE channels_assignations_id_channels_assignations_seq OWNED BY channels_assignations.id_channels_assignations;
+
+
+--
+-- Name: channels_assignations_id_channels_assignations_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('channels_assignations_id_channels_assignations_seq', 1, false);
+
+
+--
+-- Name: channels_assignations_id_channels_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE channels_assignations_id_channels_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.channels_assignations_id_channels_seq OWNER TO postgres;
+
+--
+-- Name: channels_assignations_id_channels_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE channels_assignations_id_channels_seq OWNED BY channels_assignations.id_channels;
+
+
+--
+-- Name: channels_assignations_id_channels_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('channels_assignations_id_channels_seq', 1, false);
+
+
+--
+-- Name: channels_assignations_id_operators_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE channels_assignations_id_operators_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.channels_assignations_id_operators_seq OWNER TO postgres;
+
+--
+-- Name: channels_assignations_id_operators_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE channels_assignations_id_operators_seq OWNED BY channels_assignations.id_operators;
+
+
+--
+-- Name: channels_assignations_id_operators_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('channels_assignations_id_operators_seq', 1, false);
+
+
+--
+-- Name: channels_assignations_id_services_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE channels_assignations_id_services_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.channels_assignations_id_services_seq OWNER TO postgres;
+
+--
+-- Name: channels_assignations_id_services_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE channels_assignations_id_services_seq OWNED BY channels_assignations.id_services;
+
+
+--
+-- Name: channels_assignations_id_services_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('channels_assignations_id_services_seq', 1, false);
+
 
 --
 -- Name: channels_id_channels_seq; Type: SEQUENCE; Schema: public; Owner: drupal
@@ -633,7 +620,7 @@ SELECT pg_catalog.setval('channels_id_frequency_ranks_seq', 1, false);
 CREATE TABLE cities (
     "ID_cities" integer NOT NULL,
     city_name character(128) NOT NULL,
-    "ID_departaments" integer NOT NULL
+    "ID_departament" integer NOT NULL
 );
 
 
@@ -685,7 +672,7 @@ ALTER TABLE public.cities_id_departaments_seq OWNER TO drupal;
 -- Name: cities_id_departaments_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
 --
 
-ALTER SEQUENCE cities_id_departaments_seq OWNED BY cities."ID_departaments";
+ALTER SEQUENCE cities_id_departaments_seq OWNED BY cities."ID_departament";
 
 
 --
@@ -885,7 +872,7 @@ SELECT pg_catalog.setval('frequency_ranks_id_frequency_ranks_seq', 1, false);
 --
 
 CREATE TABLE operators (
-    "ID_operators" integer NOT NULL,
+    "ID_Operator" integer NOT NULL,
     operators_name character(128) NOT NULL
 );
 
@@ -910,7 +897,7 @@ ALTER TABLE public.operators_id_operators_seq OWNER TO drupal;
 -- Name: operators_id_operators_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
 --
 
-ALTER SEQUENCE operators_id_operators_seq OWNED BY operators."ID_operators";
+ALTER SEQUENCE operators_id_operators_seq OWNED BY operators."ID_Operator";
 
 
 --
@@ -939,7 +926,7 @@ ALTER TABLE public.services OWNER TO drupal;
 
 CREATE TABLE services_by_frequency_ranks (
     "ID_Service_by_Frequency_Rank" integer NOT NULL,
-    "ID_Service" integer NOT NULL,
+    "ID_service" integer NOT NULL,
     "ID_frequency_ranks" integer NOT NULL
 );
 
@@ -1020,7 +1007,7 @@ ALTER TABLE public."services_by_frequency_ranks_ID_Service_seq" OWNER TO drupal;
 -- Name: services_by_frequency_ranks_ID_Service_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
 --
 
-ALTER SEQUENCE "services_by_frequency_ranks_ID_Service_seq" OWNED BY services_by_frequency_ranks."ID_Service";
+ALTER SEQUENCE "services_by_frequency_ranks_ID_Service_seq" OWNED BY services_by_frequency_ranks."ID_service";
 
 
 --
@@ -1037,7 +1024,7 @@ SELECT pg_catalog.setval('"services_by_frequency_ranks_ID_Service_seq"', 1, fals
 CREATE TABLE services_by_operator (
     "ID_Services_by_Operator" integer NOT NULL,
     "ID_Operator" integer NOT NULL,
-    "ID_Service" integer NOT NULL
+    "ID_service" integer NOT NULL
 );
 
 
@@ -1117,7 +1104,7 @@ ALTER TABLE public."services_by_operator_ID_Services_seq" OWNER TO drupal;
 -- Name: services_by_operator_ID_Services_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
 --
 
-ALTER SEQUENCE "services_by_operator_ID_Services_seq" OWNED BY services_by_operator."ID_Service";
+ALTER SEQUENCE "services_by_operator_ID_Services_seq" OWNED BY services_by_operator."ID_service";
 
 
 --
@@ -1156,87 +1143,80 @@ SELECT pg_catalog.setval('services_id_service_seq', 42, true);
 
 
 --
--- Name: id_channels_assignations; Type: DEFAULT; Schema: public; Owner: drupal
+-- Name: id_channels_assignations_national; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE "channel_Assignations" ALTER COLUMN id_channels_assignations SET DEFAULT nextval('channel_assignations_id_channels_assignations_seq'::regclass);
-
-
---
--- Name: id_operators; Type: DEFAULT; Schema: public; Owner: drupal
---
-
-ALTER TABLE "channel_Assignations" ALTER COLUMN id_operators SET DEFAULT nextval('channel_assignations_id_operators_seq'::regclass);
+ALTER TABLE channel_assignations_national ALTER COLUMN id_channels_assignations_national SET DEFAULT nextval('channel_assignations_national_id_channels_assignations_nati_seq'::regclass);
 
 
 --
--- Name: id_channels; Type: DEFAULT; Schema: public; Owner: drupal
+-- Name: id_channels_assignations; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE "channel_Assignations" ALTER COLUMN id_channels SET DEFAULT nextval('channel_assignations_id_channels_seq'::regclass);
-
-
---
--- Name: id_city; Type: DEFAULT; Schema: public; Owner: drupal
---
-
-ALTER TABLE "channel_Assignations" ALTER COLUMN id_city SET DEFAULT nextval('channel_assignations_id_city_seq'::regclass);
+ALTER TABLE channel_assignations_national ALTER COLUMN id_channels_assignations SET DEFAULT nextval('channel_assignations_national_id_channels_assignations_seq'::regclass);
 
 
 --
--- Name: ID_Channels_Assignations; Type: DEFAULT; Schema: public; Owner: drupal
+-- Name: id_channels_assignations_per_city; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE "channel_Assignations_National" ALTER COLUMN "ID_Channels_Assignations" SET DEFAULT nextval('"Channel_Assignations_National_ID_Channels_Assignations_seq"'::regclass);
-
-
---
--- Name: ID_channel_assignation_national; Type: DEFAULT; Schema: public; Owner: drupal
---
-
-ALTER TABLE "channel_Assignations_National" ALTER COLUMN "ID_channel_assignation_national" SET DEFAULT nextval('"channel_Assignations_National_ID_channel_assignation_nation_seq"'::regclass);
+ALTER TABLE channel_assignations_per_city ALTER COLUMN id_channels_assignations_per_city SET DEFAULT nextval('channel_assignations_per_city_id_channels_assignations_per__seq'::regclass);
 
 
 --
--- Name: ID_Channels_Assignations; Type: DEFAULT; Schema: public; Owner: drupal
+-- Name: id_channels_assignations; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE "channel_Assignations_by_City" ALTER COLUMN "ID_Channels_Assignations" SET DEFAULT nextval('"Channel_Assignations_by_City_ID_Channels_Assignations_seq"'::regclass);
-
-
---
--- Name: ID_Cities; Type: DEFAULT; Schema: public; Owner: drupal
---
-
-ALTER TABLE "channel_Assignations_by_City" ALTER COLUMN "ID_Cities" SET DEFAULT nextval('"Channel_Assignations_by_City_ID_Cities_seq"'::regclass);
+ALTER TABLE channel_assignations_per_city ALTER COLUMN id_channels_assignations SET DEFAULT nextval('channel_assignations_per_city_id_channels_assignations_seq'::regclass);
 
 
 --
--- Name: ID_Channels_Assignations_by_city; Type: DEFAULT; Schema: public; Owner: drupal
+-- Name: id_cities; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE "channel_Assignations_by_City" ALTER COLUMN "ID_Channels_Assignations_by_city" SET DEFAULT nextval('"channel_Assignations_by_City_ID_Channels_Assignations_by_ci_seq"'::regclass);
-
-
---
--- Name: ID_Channels_Assignations; Type: DEFAULT; Schema: public; Owner: drupal
---
-
-ALTER TABLE "channel_Assignations_by_Departament" ALTER COLUMN "ID_Channels_Assignations" SET DEFAULT nextval('"Channel_Assignations_by_Departamen_ID_Channels_Assignations_seq"'::regclass);
+ALTER TABLE channel_assignations_per_city ALTER COLUMN id_cities SET DEFAULT nextval('channel_assignations_per_city_id_cities_seq'::regclass);
 
 
 --
--- Name: ID_Departament; Type: DEFAULT; Schema: public; Owner: drupal
+-- Name: id_channels_assignations_per_departament; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE "channel_Assignations_by_Departament" ALTER COLUMN "ID_Departament" SET DEFAULT nextval('"Channel_Assignations_by_Departament_ID_Departament_seq"'::regclass);
+ALTER TABLE channel_assignations_per_departament ALTER COLUMN id_channels_assignations_per_departament SET DEFAULT nextval('channel_assignations_per_depa_id_channels_assignations_per__seq'::regclass);
 
 
 --
--- Name: ID_Channels_Assignations_by_Departament; Type: DEFAULT; Schema: public; Owner: drupal
+-- Name: id_channels_assignations; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE "channel_Assignations_by_Departament" ALTER COLUMN "ID_Channels_Assignations_by_Departament" SET DEFAULT nextval('"channel_Assignations_by_Depar_ID_Channels_Assignations_by_D_seq"'::regclass);
+ALTER TABLE channel_assignations_per_departament ALTER COLUMN id_channels_assignations SET DEFAULT nextval('channel_assignations_per_departame_id_channels_assignations_seq'::regclass);
+
+
+--
+-- Name: id_departaments; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE channel_assignations_per_departament ALTER COLUMN id_departaments SET DEFAULT nextval('channel_assignations_per_departament_id_departaments_seq'::regclass);
+
+
+--
+-- Name: id_channels_assignations_per_territorialdivision; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE channel_assignations_per_territorialdivision ALTER COLUMN id_channels_assignations_per_territorialdivision SET DEFAULT nextval('channel_assignations_per_terr_id_channels_assignations_per__seq'::regclass);
+
+
+--
+-- Name: id_channels_assignations; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE channel_assignations_per_territorialdivision ALTER COLUMN id_channels_assignations SET DEFAULT nextval('channel_assignations_per_territori_id_channels_assignations_seq'::regclass);
+
+
+--
+-- Name: id_territorial_division; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE channel_assignations_per_territorialdivision ALTER COLUMN id_territorial_division SET DEFAULT nextval('channel_assignations_per_territoria_id_territorial_division_seq'::regclass);
 
 
 --
@@ -1247,6 +1227,34 @@ ALTER TABLE channels ALTER COLUMN "ID_channels" SET DEFAULT nextval('channels_id
 
 
 --
+-- Name: id_channels_assignations; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE channels_assignations ALTER COLUMN id_channels_assignations SET DEFAULT nextval('channels_assignations_id_channels_assignations_seq'::regclass);
+
+
+--
+-- Name: id_operators; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE channels_assignations ALTER COLUMN id_operators SET DEFAULT nextval('channels_assignations_id_operators_seq'::regclass);
+
+
+--
+-- Name: id_channels; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE channels_assignations ALTER COLUMN id_channels SET DEFAULT nextval('channels_assignations_id_channels_seq'::regclass);
+
+
+--
+-- Name: id_services; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE channels_assignations ALTER COLUMN id_services SET DEFAULT nextval('channels_assignations_id_services_seq'::regclass);
+
+
+--
 -- Name: ID_cities; Type: DEFAULT; Schema: public; Owner: drupal
 --
 
@@ -1254,10 +1262,10 @@ ALTER TABLE cities ALTER COLUMN "ID_cities" SET DEFAULT nextval('cities_id_citie
 
 
 --
--- Name: ID_departaments; Type: DEFAULT; Schema: public; Owner: drupal
+-- Name: ID_departament; Type: DEFAULT; Schema: public; Owner: drupal
 --
 
-ALTER TABLE cities ALTER COLUMN "ID_departaments" SET DEFAULT nextval('cities_id_departaments_seq'::regclass);
+ALTER TABLE cities ALTER COLUMN "ID_departament" SET DEFAULT nextval('cities_id_departaments_seq'::regclass);
 
 
 --
@@ -1296,10 +1304,10 @@ ALTER TABLE frequency_ranks ALTER COLUMN "ID_frequency_bands" SET DEFAULT nextva
 
 
 --
--- Name: ID_operators; Type: DEFAULT; Schema: public; Owner: drupal
+-- Name: ID_Operator; Type: DEFAULT; Schema: public; Owner: drupal
 --
 
-ALTER TABLE operators ALTER COLUMN "ID_operators" SET DEFAULT nextval('operators_id_operators_seq'::regclass);
+ALTER TABLE operators ALTER COLUMN "ID_Operator" SET DEFAULT nextval('operators_id_operators_seq'::regclass);
 
 
 --
@@ -1310,27 +1318,6 @@ ALTER TABLE services ALTER COLUMN "ID_service" SET DEFAULT nextval('services_id_
 
 
 --
--- Name: ID_Services_by_channel_assignation; Type: DEFAULT; Schema: public; Owner: drupal
---
-
-ALTER TABLE services_by_channel_assignation ALTER COLUMN "ID_Services_by_channel_assignation" SET DEFAULT nextval('"Services_by_channel_assignati_ID_Services_by_channel_assign_seq"'::regclass);
-
-
---
--- Name: ID_Channels_assignations; Type: DEFAULT; Schema: public; Owner: drupal
---
-
-ALTER TABLE services_by_channel_assignation ALTER COLUMN "ID_Channels_assignations" SET DEFAULT nextval('"Services_by_channel_assignation_ID_Channels_assignations_seq"'::regclass);
-
-
---
--- Name: ID_Services; Type: DEFAULT; Schema: public; Owner: drupal
---
-
-ALTER TABLE services_by_channel_assignation ALTER COLUMN "ID_Services" SET DEFAULT nextval('"Services_by_channel_assignation_ID_Services_seq"'::regclass);
-
-
---
 -- Name: ID_Service_by_Frequency_Rank; Type: DEFAULT; Schema: public; Owner: drupal
 --
 
@@ -1338,10 +1325,10 @@ ALTER TABLE services_by_frequency_ranks ALTER COLUMN "ID_Service_by_Frequency_Ra
 
 
 --
--- Name: ID_Service; Type: DEFAULT; Schema: public; Owner: drupal
+-- Name: ID_service; Type: DEFAULT; Schema: public; Owner: drupal
 --
 
-ALTER TABLE services_by_frequency_ranks ALTER COLUMN "ID_Service" SET DEFAULT nextval('"services_by_frequency_ranks_ID_Service_seq"'::regclass);
+ALTER TABLE services_by_frequency_ranks ALTER COLUMN "ID_service" SET DEFAULT nextval('"services_by_frequency_ranks_ID_Service_seq"'::regclass);
 
 
 --
@@ -1366,10 +1353,10 @@ ALTER TABLE services_by_operator ALTER COLUMN "ID_Operator" SET DEFAULT nextval(
 
 
 --
--- Name: ID_Service; Type: DEFAULT; Schema: public; Owner: drupal
+-- Name: ID_service; Type: DEFAULT; Schema: public; Owner: drupal
 --
 
-ALTER TABLE services_by_operator ALTER COLUMN "ID_Service" SET DEFAULT nextval('"services_by_operator_ID_Services_seq"'::regclass);
+ALTER TABLE services_by_operator ALTER COLUMN "ID_service" SET DEFAULT nextval('"services_by_operator_ID_Services_seq"'::regclass);
 
 
 --
@@ -1380,42 +1367,34 @@ ALTER TABLE territorial_divisions ALTER COLUMN "ID_Territorial_Division" SET DEF
 
 
 --
--- Data for Name: channel_Assignations; Type: TABLE DATA; Schema: public; Owner: drupal
+-- Data for Name: channel_assignations_national; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY "channel_Assignations" (id_channels_assignations, id_operators, id_channels, id_city) FROM stdin;
+COPY channel_assignations_national (id_channels_assignations_national, id_channels_assignations) FROM stdin;
 \.
 
 
 --
--- Data for Name: channel_Assignations_National; Type: TABLE DATA; Schema: public; Owner: drupal
+-- Data for Name: channel_assignations_per_city; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY "channel_Assignations_National" ("ID_Channels_Assignations", "ID_channel_assignation_national") FROM stdin;
+COPY channel_assignations_per_city (id_channels_assignations_per_city, id_channels_assignations, id_cities) FROM stdin;
 \.
 
 
 --
--- Data for Name: channel_Assignations_by_City; Type: TABLE DATA; Schema: public; Owner: drupal
+-- Data for Name: channel_assignations_per_departament; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY "channel_Assignations_by_City" ("ID_Channels_Assignations", "ID_Cities", "ID_Channels_Assignations_by_city") FROM stdin;
+COPY channel_assignations_per_departament (id_channels_assignations_per_departament, id_channels_assignations, id_departaments) FROM stdin;
 \.
 
 
 --
--- Data for Name: channel_Assignations_by_Departament; Type: TABLE DATA; Schema: public; Owner: drupal
+-- Data for Name: channel_assignations_per_territorialdivision; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY "channel_Assignations_by_Departament" ("ID_Channels_Assignations", "ID_Departament", "ID_Channels_Assignations_by_Departament") FROM stdin;
-\.
-
-
---
--- Data for Name: channel_Assignations_by_Territorial_Division; Type: TABLE DATA; Schema: public; Owner: drupal
---
-
-COPY "channel_Assignations_by_Territorial_Division" ("ID_Channels_Assignations", "ID_Territorial_Division", "ID_Channels_Assignations_by_Territorial_Division") FROM stdin;
+COPY channel_assignations_per_territorialdivision (id_channels_assignations_per_territorialdivision, id_channels_assignations, id_territorial_division) FROM stdin;
 \.
 
 
@@ -1428,135 +1407,143 @@ COPY channels ("ID_channels", "ID_frequency_ranks", channel_description, channes
 
 
 --
+-- Data for Name: channels_assignations; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY channels_assignations (id_channels_assignations, id_operators, id_channels, id_services) FROM stdin;
+\.
+
+
+--
 -- Data for Name: cities; Type: TABLE DATA; Schema: public; Owner: drupal
 --
 
-COPY cities ("ID_cities", city_name, "ID_departaments") FROM stdin;
-1	Medellin                                                                                                                        	3
-2	Abejorral                                                                                                                       	3
-3	Abriaqui                                                                                                                        	3
-4	Alejandria                                                                                                                      	3
-5	Amaga                                                                                                                           	3
-6	Amalfi                                                                                                                          	3
-7	Andes                                                                                                                           	3
-8	Angelopolis                                                                                                                     	3
-9	Angostura                                                                                                                       	3
-10	Anori                                                                                                                           	3
-11	Antioquia                                                                                                                       	3
-12	Anza                                                                                                                            	3
-13	Apartado                                                                                                                        	3
-14	Arboletes                                                                                                                       	3
-15	Argelia                                                                                                                         	3
-16	Armenia                                                                                                                         	3
-17	Barbosa                                                                                                                         	3
-18	Belmira                                                                                                                         	3
-19	Bello                                                                                                                           	3
-20	Betania                                                                                                                         	3
-21	Betulia                                                                                                                         	3
-22	Bolivar                                                                                                                         	3
-23	Briceño                                                                                                                         	3
-24	Buritica                                                                                                                        	3
-25	Caceres                                                                                                                         	3
-26	Caicedo                                                                                                                         	3
-27	Caldas                                                                                                                          	3
-28	Campamento                                                                                                                      	3
-29	Cañasgordas                                                                                                                     	3
-30	Caracoli                                                                                                                        	3
-31	Caramanta                                                                                                                       	3
-32	Carepa                                                                                                                          	3
-33	Carmen De Viboral                                                                                                               	3
-34	Carolina                                                                                                                        	3
-35	Caucasia                                                                                                                        	3
-36	Chigorodo                                                                                                                       	3
-37	Cisneros                                                                                                                        	3
-38	Cocorna                                                                                                                         	3
-39	Concepcion                                                                                                                      	3
-40	Concordia                                                                                                                       	3
-41	Copacabana                                                                                                                      	3
-42	Dabeiba                                                                                                                         	3
-43	Don Matias                                                                                                                      	3
-44	Ebejico                                                                                                                         	3
-45	El Bagre                                                                                                                        	3
-46	Entrerrios                                                                                                                      	3
-47	Envigado                                                                                                                        	3
-48	Fredonia                                                                                                                        	3
-49	Frontino                                                                                                                        	3
-50	Giraldo                                                                                                                         	3
-51	Girardota                                                                                                                       	3
-52	Gomez Plata                                                                                                                     	3
-53	Granada                                                                                                                         	3
-54	Guadalupe                                                                                                                       	3
-55	Guarne                                                                                                                          	3
-56	Guatape                                                                                                                         	3
-57	Heliconia                                                                                                                       	3
-58	Hispania                                                                                                                        	3
-59	Itagui                                                                                                                          	3
-60	Ituango                                                                                                                         	3
-61	Jardin                                                                                                                          	3
-62	Jerico                                                                                                                          	3
-63	La Ceja                                                                                                                         	3
-64	La Estrella                                                                                                                     	3
-65	La Pintada                                                                                                                      	3
-66	La Union                                                                                                                        	3
-67	Liborina                                                                                                                        	3
-68	Maceo                                                                                                                           	3
-69	Marinilla                                                                                                                       	3
-70	Montebello                                                                                                                      	3
-71	Murindo                                                                                                                         	3
-72	Mutata                                                                                                                          	3
-73	Nariño                                                                                                                          	3
-74	Necocli                                                                                                                         	3
-75	Nechi                                                                                                                           	3
-76	Olaya                                                                                                                           	3
-77	Peñol                                                                                                                           	3
-78	Peque                                                                                                                           	3
-79	Pueblorrico                                                                                                                     	3
-80	Puerto Berrio                                                                                                                   	3
-81	Puerto Nare                                                                                                                     	3
-82	Puerto Triunfo                                                                                                                  	3
-83	Remedios                                                                                                                        	3
-84	Retiro                                                                                                                          	3
-85	Rionegro                                                                                                                        	3
-86	Sabanalarga                                                                                                                     	3
-87	Sabaneta                                                                                                                        	3
-88	Salgar                                                                                                                          	3
-89	San Andres                                                                                                                      	3
-90	San Carlos                                                                                                                      	3
-91	San Francisco                                                                                                                   	3
-92	San Jeronimo                                                                                                                    	3
-93	San Jose De La Montaña                                                                                                          	3
-94	San Juan De Uraba                                                                                                               	3
-95	San Luis                                                                                                                        	3
-96	San Pedro                                                                                                                       	3
-97	San Pedro De Uraba                                                                                                              	3
-98	San Rafael                                                                                                                      	3
-99	San Roque                                                                                                                       	3
-100	San Vicente                                                                                                                     	3
-101	Santa Barbara                                                                                                                   	3
-102	Santa Rosa De Osos                                                                                                              	3
-103	Santo Domingo                                                                                                                   	3
-104	Santuario                                                                                                                       	3
-105	Segovia                                                                                                                         	3
-106	Sonson                                                                                                                          	3
-107	Sopetran                                                                                                                        	3
-108	Tamesis                                                                                                                         	3
-109	Taraza                                                                                                                          	3
-110	Tarso                                                                                                                           	3
-111	Titiribi                                                                                                                        	3
-112	Toledo                                                                                                                          	3
-113	Turbo                                                                                                                           	3
-114	Uramita                                                                                                                         	3
-115	Urrao                                                                                                                           	3
-116	Valdivia                                                                                                                        	3
-117	Valparaiso                                                                                                                      	3
-118	Vegachi                                                                                                                         	3
-119	Venecia                                                                                                                         	3
-120	Vigia Del Fuerte                                                                                                                	3
-121	Yali                                                                                                                            	3
-122	Yarumal                                                                                                                         	3
-123	Yolombo                                                                                                                         	3
-124	Yondo                                                                                                                           	3
-125	Zaragoza                                                                                                                        	3
+COPY cities ("ID_cities", city_name, "ID_departament") FROM stdin;
+1	Medellín                                                                                                                        	2
+2	Abejorral                                                                                                                       	2
+3	Abriaquí                                                                                                                        	2
+4	Alejandría                                                                                                                      	2
+5	Amaga                                                                                                                           	2
+6	Amalfi                                                                                                                          	2
+7	Andes                                                                                                                           	2
+8	Angelópolis                                                                                                                     	2
+9	Angostura                                                                                                                       	2
+10	Anorí                                                                                                                           	2
+11	Antioquia                                                                                                                       	2
+12	Anza                                                                                                                            	2
+13	Apartado                                                                                                                        	2
+14	Arboletes                                                                                                                       	2
+15	Argelia                                                                                                                         	2
+16	Armenia                                                                                                                         	2
+17	Barbosa                                                                                                                         	2
+18	Belmira                                                                                                                         	2
+19	Bello                                                                                                                           	2
+20	Betania                                                                                                                         	2
+21	Betulia                                                                                                                         	2
+22	Bolívar                                                                                                                         	2
+23	Briceño                                                                                                                         	2
+24	Buriticá                                                                                                                        	2
+25	Cáceres                                                                                                                         	2
+26	Caicedo                                                                                                                         	2
+27	Caldas                                                                                                                          	2
+28	Campamento                                                                                                                      	2
+29	Cañasgordas                                                                                                                     	2
+30	Caracolí                                                                                                                        	2
+31	Caramanta                                                                                                                       	2
+32	Carepa                                                                                                                          	2
+33	Carmen De Viboral                                                                                                               	2
+34	Carolina                                                                                                                        	2
+35	Caucasia                                                                                                                        	2
+36	Chigorodó                                                                                                                       	2
+37	Cisneros                                                                                                                        	2
+38	Cocorná                                                                                                                         	2
+39	Concepción                                                                                                                      	2
+40	Concordia                                                                                                                       	2
+41	Copacabana                                                                                                                      	2
+42	Dabeiba                                                                                                                         	2
+43	Don Matías                                                                                                                      	2
+44	Ebéjico                                                                                                                         	2
+45	El Bagre                                                                                                                        	2
+46	Entrerrios                                                                                                                      	2
+47	Envigado                                                                                                                        	2
+48	Fredonia                                                                                                                        	2
+49	Frontino                                                                                                                        	2
+50	Giraldo                                                                                                                         	2
+51	Girardota                                                                                                                       	2
+52	Gómez Plata                                                                                                                     	2
+53	Granada                                                                                                                         	2
+54	Guadalupe                                                                                                                       	2
+55	Guarne                                                                                                                          	2
+56	Guatapé                                                                                                                         	2
+57	Heliconia                                                                                                                       	2
+58	Hispania                                                                                                                        	2
+59	Itagüí                                                                                                                          	2
+60	Ituango                                                                                                                         	2
+61	Jardín                                                                                                                          	2
+62	Jericó                                                                                                                          	2
+63	La Ceja                                                                                                                         	2
+64	La Estrella                                                                                                                     	2
+65	La Pintada                                                                                                                      	2
+66	La Unión                                                                                                                        	2
+67	Liborina                                                                                                                        	2
+68	Maceo                                                                                                                           	2
+69	Marinilla                                                                                                                       	2
+70	Montebello                                                                                                                      	2
+71	Murindó                                                                                                                         	2
+72	Mutatá                                                                                                                          	2
+73	Nariño                                                                                                                          	2
+74	Necoclí                                                                                                                         	2
+75	Nechí                                                                                                                           	2
+76	Olaya                                                                                                                           	2
+77	Peñol                                                                                                                           	2
+78	Peque                                                                                                                           	2
+79	Pueblorrico                                                                                                                     	2
+80	Puerto Berrío                                                                                                                   	2
+81	Puerto Nare                                                                                                                     	2
+82	Puerto Triunfo                                                                                                                  	2
+83	Remedios                                                                                                                        	2
+84	Retiro                                                                                                                          	2
+85	Rionegro                                                                                                                        	2
+86	Sabanalarga                                                                                                                     	2
+87	Sabaneta                                                                                                                        	2
+88	Salgar                                                                                                                          	2
+89	San Andrés                                                                                                                      	2
+90	San Carlos                                                                                                                      	2
+91	San Francisco                                                                                                                   	2
+92	San Jerónimo                                                                                                                    	2
+93	San José De La Montaña                                                                                                          	2
+94	San Juan De Urabá                                                                                                               	2
+95	San Luis                                                                                                                        	2
+96	San Pedro                                                                                                                       	2
+97	San Pedro De Urabá                                                                                                              	2
+98	San Rafael                                                                                                                      	2
+99	San Roque                                                                                                                       	2
+100	San Vicente                                                                                                                     	2
+101	Santa Barbara                                                                                                                   	2
+102	Santa Rosa De Osos                                                                                                              	2
+103	Santo Domingo                                                                                                                   	2
+104	Santuario                                                                                                                       	2
+105	Segovia                                                                                                                         	2
+106	Sonsón                                                                                                                          	2
+107	Sopetrán                                                                                                                        	2
+108	Támesis                                                                                                                         	2
+109	Taraza                                                                                                                          	2
+110	Tarso                                                                                                                           	2
+111	Titiribí                                                                                                                        	2
+112	Toledo                                                                                                                          	2
+113	Turbo                                                                                                                           	2
+114	Uramita                                                                                                                         	2
+115	Urrao                                                                                                                           	2
+116	Valdivia                                                                                                                        	2
+117	Valparaíso                                                                                                                      	2
+118	Vegachí                                                                                                                         	2
+119	Venecia                                                                                                                         	2
+120	Vigiá Del Fuerte                                                                                                                	2
+121	Yalí                                                                                                                            	2
+122	Yarumal                                                                                                                         	2
+123	Yolombó                                                                                                                         	2
+124	Yondó                                                                                                                           	2
+125	Zaragoza                                                                                                                        	2
 126	Barranquilla                                                                                                                    	4
 127	Baranoa                                                                                                                         	4
 128	Campo De La Cruz                                                                                                                	4
@@ -1565,24 +1552,24 @@ COPY cities ("ID_cities", city_name, "ID_departaments") FROM stdin;
 131	Juan De Acosta                                                                                                                  	4
 132	Luruaco                                                                                                                         	4
 133	Malambo                                                                                                                         	4
-134	Manati                                                                                                                          	4
+134	Manatí                                                                                                                          	4
 135	Palmar De Varela                                                                                                                	4
 136	Piojo                                                                                                                           	4
 137	Polo Nuevo                                                                                                                      	4
 138	Ponedera                                                                                                                        	4
 139	Puerto Colombia                                                                                                                 	4
-140	Repelon                                                                                                                         	4
+140	Repelón                                                                                                                         	4
 141	Sabanagrande                                                                                                                    	4
 142	Sabanalarga                                                                                                                     	4
 143	Santa Lucia                                                                                                                     	4
 144	Santo Tomas                                                                                                                     	4
 145	Soledad                                                                                                                         	4
-146	Suan                                                                                                                            	4
-147	Tubara                                                                                                                          	4
-148	Usiacuri                                                                                                                        	4
-149	Bogota D.C.                                                                                                                     	5
+146	Suán                                                                                                                            	4
+147	Tubará                                                                                                                          	4
+148	Usiacurí                                                                                                                        	4
+149	Bogotá D.C.                                                                                                                     	5
 150	Cartagena                                                                                                                       	6
-151	Achi                                                                                                                            	6
+151	Achí                                                                                                                            	6
 152	Altos Del Rosario                                                                                                               	6
 153	Arenal                                                                                                                          	6
 154	Arjona                                                                                                                          	6
@@ -1591,106 +1578,106 @@ COPY cities ("ID_cities", city_name, "ID_departaments") FROM stdin;
 157	Calamar                                                                                                                         	6
 158	Cantagallo                                                                                                                      	6
 159	Cicuco                                                                                                                          	6
-160	Cordoba                                                                                                                         	6
+160	Córdoba                                                                                                                         	6
 161	Clemencia                                                                                                                       	6
-162	El Carmen De Bolivar                                                                                                            	6
+162	El Carmen De Bolívar                                                                                                            	6
 163	El Guamo                                                                                                                        	6
-164	El Peñon                                                                                                                        	6
+164	El Peñón                                                                                                                        	6
 165	Hatillo De Loba                                                                                                                 	6
-166	Magangue                                                                                                                        	6
+166	Magangué                                                                                                                        	6
 167	Mahates                                                                                                                         	6
 168	Margarita                                                                                                                       	6
-169	Maria La Baja                                                                                                                   	6
+169	María La Baja                                                                                                                   	6
 170	Montecristo                                                                                                                     	6
 171	Mompos                                                                                                                          	6
 172	Morales                                                                                                                         	6
 173	Pinillos                                                                                                                        	6
 174	Regidor                                                                                                                         	6
 175	Rio Viejo                                                                                                                       	6
-176	San Cristobal                                                                                                                   	6
+176	San Cristóbal                                                                                                                   	6
 177	San Estanislao                                                                                                                  	6
 178	San Fernando                                                                                                                    	6
 179	San Jacinto                                                                                                                     	6
 180	San Jacinto Del Cauca                                                                                                           	6
 181	San Juan De Nepomuceno                                                                                                          	6
-182	San Martin De Loba                                                                                                              	6
+182	San Martín De Loba                                                                                                              	6
 183	San Pablo                                                                                                                       	6
 184	Santa Catalina                                                                                                                  	6
 185	Santa Rosa                                                                                                                      	6
 186	Santa Rosa Del Sur                                                                                                              	6
-187	Simiti                                                                                                                          	6
+187	Simití                                                                                                                          	6
 188	Soplaviento                                                                                                                     	6
 189	Talaigua Nuevo                                                                                                                  	6
 190	Tiquisio                                                                                                                        	6
 191	Turbaco                                                                                                                         	6
-192	Turbana                                                                                                                         	6
+192	Turbaná                                                                                                                         	6
 193	Villanueva                                                                                                                      	6
 194	Zambrano                                                                                                                        	6
 195	Tunja                                                                                                                           	7
 196	Almeida                                                                                                                         	7
 197	Aquitania                                                                                                                       	7
 198	Arcabuco                                                                                                                        	7
-199	Belen                                                                                                                           	7
+199	Belén                                                                                                                           	7
 200	Berbeo                                                                                                                          	7
-201	Beteitiva                                                                                                                       	7
+201	Betéitiva                                                                                                                       	7
 202	Boavita                                                                                                                         	7
-203	Boyaca                                                                                                                          	7
+203	Boyacá                                                                                                                          	7
 204	Briceño                                                                                                                         	7
 205	Buenavista                                                                                                                      	7
-206	Busbanza                                                                                                                        	7
+206	Busbanzá                                                                                                                        	7
 207	Caldas                                                                                                                          	7
 208	Campohermoso                                                                                                                    	7
 209	Cerinza                                                                                                                         	7
 210	Chinavita                                                                                                                       	7
-211	Chiquinquira                                                                                                                    	7
+211	Chiquinquirá                                                                                                                    	7
 212	Chiscas                                                                                                                         	7
 213	Chita                                                                                                                           	7
 214	Chitaraque                                                                                                                      	7
 215	Chivata                                                                                                                         	7
-216	Cienega                                                                                                                         	7
-217	Combita                                                                                                                         	7
+216	Ciénega                                                                                                                         	7
+217	Cómbita                                                                                                                         	7
 218	Coper                                                                                                                           	7
 219	Corrales                                                                                                                        	7
-220	Covarachia                                                                                                                      	7
-221	Cubara                                                                                                                          	7
+220	Covarachía                                                                                                                      	7
+221	Cubará                                                                                                                          	7
 222	Cucaita                                                                                                                         	7
 223	Cuitiva                                                                                                                         	7
-224	Chiquiza                                                                                                                        	7
+224	Chíquiza                                                                                                                        	7
 225	Chivor                                                                                                                          	7
 226	Duitama                                                                                                                         	7
 227	El Cocuy                                                                                                                        	7
 228	El Espino                                                                                                                       	7
 229	Firavitoba                                                                                                                      	7
 230	Floresta                                                                                                                        	7
-231	Gachantiva                                                                                                                      	7
-232	Gameza                                                                                                                          	7
+231	Gachantivá                                                                                                                      	7
+232	Gámeza                                                                                                                          	7
 233	Garagoa                                                                                                                         	7
 234	Guacamayas                                                                                                                      	7
 235	Guateque                                                                                                                        	7
-236	Guayata                                                                                                                         	7
-237	Guican                                                                                                                          	7
+236	Guayatá                                                                                                                         	7
+237	Güicán                                                                                                                          	7
 238	Iza                                                                                                                             	7
 239	Jenesano                                                                                                                        	7
-240	Jerico                                                                                                                          	7
+240	Jericó                                                                                                                          	7
 241	Labranzagrande                                                                                                                  	7
 242	La Capilla                                                                                                                      	7
 243	La Victoria                                                                                                                     	7
 244	La Uvita                                                                                                                        	7
 245	Villa De Leyva                                                                                                                  	7
 246	Macanal                                                                                                                         	7
-247	Maripi                                                                                                                          	7
+247	Maripí                                                                                                                          	7
 248	Miraflores                                                                                                                      	7
 249	Mongua                                                                                                                          	7
-250	Mongui                                                                                                                          	7
-251	Moniquira                                                                                                                       	7
+250	Monguí                                                                                                                          	7
+251	Moniquirá                                                                                                                       	7
 252	Motavita                                                                                                                        	7
 253	Muzo                                                                                                                            	7
 254	Nobsa                                                                                                                           	7
 255	Nuevo Colon                                                                                                                     	7
-256	Oicata                                                                                                                          	7
+256	Oicatá                                                                                                                          	7
 257	Otanche                                                                                                                         	7
 258	Pachavita                                                                                                                       	7
-259	Paez                                                                                                                            	7
+259	Páez                                                                                                                            	7
 260	Paipa                                                                                                                           	7
 261	Pajarito                                                                                                                        	7
 262	Panqueba                                                                                                                        	7
@@ -1699,320 +1686,320 @@ COPY cities ("ID_cities", city_name, "ID_departaments") FROM stdin;
 265	Paz Del Rio                                                                                                                     	7
 266	Pesca                                                                                                                           	7
 267	Pisba                                                                                                                           	7
-268	Puerto Boyaca                                                                                                                   	7
-269	Quipama                                                                                                                         	7
-270	Ramiriqui                                                                                                                       	7
-271	Raquira                                                                                                                         	7
-272	Rondon                                                                                                                          	7
-273	Saboya                                                                                                                          	7
-274	Sachica                                                                                                                         	7
-275	Samaca                                                                                                                          	7
+268	Puerto Boyacá                                                                                                                   	7
+269	Quípama                                                                                                                         	7
+270	Ramiriquí                                                                                                                       	7
+271	Ráquira                                                                                                                         	7
+272	Rondón                                                                                                                          	7
+273	Saboyá                                                                                                                          	7
+274	Sáchica                                                                                                                         	7
+275	Samacá                                                                                                                          	7
 276	San Eduardo                                                                                                                     	7
-277	San Jose De Pare                                                                                                                	7
+277	San José De Pare                                                                                                                	7
 278	San Luis De Gaceno                                                                                                              	7
 279	San Mateo                                                                                                                       	7
 280	San Miguel De Sema                                                                                                              	7
 281	San Pablo De Borbur                                                                                                             	7
 282	Santana                                                                                                                         	7
-283	Santa Maria                                                                                                                     	7
+283	Santa María                                                                                                                     	7
 284	Santa Rosa De Viterbo                                                                                                           	7
-285	Santa Sofia                                                                                                                     	7
+285	Santa Sofía                                                                                                                     	7
 286	Sativanorte                                                                                                                     	7
 287	Sativasur                                                                                                                       	7
 288	Siachoque                                                                                                                       	7
-289	Soata                                                                                                                           	7
-290	Socota                                                                                                                          	7
+289	Soatá                                                                                                                           	7
+290	Socotá                                                                                                                          	7
 291	Socha                                                                                                                           	7
 292	Sogamoso                                                                                                                        	7
 293	Somondoco                                                                                                                       	7
 294	Sora                                                                                                                            	7
-295	Sotaquira                                                                                                                       	7
-296	Soraca                                                                                                                          	7
-297	Susacon                                                                                                                         	7
-298	Sutamarchan                                                                                                                     	7
+295	Sotaquirá                                                                                                                       	7
+296	Soracá                                                                                                                          	7
+297	Susacón                                                                                                                         	7
+298	Sutamarchán                                                                                                                     	7
 299	Sutatenza                                                                                                                       	7
 300	Tasco                                                                                                                           	7
 301	Tenza                                                                                                                           	7
-302	Tibana                                                                                                                          	7
+302	Tibaná                                                                                                                          	7
 303	Tibasosa                                                                                                                        	7
-304	Tinjaca                                                                                                                         	7
+304	Tinjacá                                                                                                                         	7
 305	Tipacoque                                                                                                                       	7
 306	Toca                                                                                                                            	7
-307	Togui                                                                                                                           	7
-308	Topaga                                                                                                                          	7
+307	Togüí                                                                                                                           	7
+308	Tópaga                                                                                                                          	7
 309	Tota                                                                                                                            	7
-310	Tunungua                                                                                                                        	7
-311	Turmeque                                                                                                                        	7
+310	Tununguá                                                                                                                        	7
+311	Turmequé                                                                                                                        	7
 312	Tuta                                                                                                                            	7
 313	Tutasa                                                                                                                          	7
 314	Umbita                                                                                                                          	7
 315	Ventaquemada                                                                                                                    	7
-316	Viracacha                                                                                                                       	7
+316	Viracachá                                                                                                                       	7
 317	Zetaquira                                                                                                                       	7
-318	Manizales                                                                                                                       	9
-319	Aguadas                                                                                                                         	9
-320	Anserma                                                                                                                         	9
-321	Aranzazu                                                                                                                        	9
-322	Belalcazar                                                                                                                      	9
-323	Chinchina                                                                                                                       	9
-324	Filadelfia                                                                                                                      	9
-325	La Dorada                                                                                                                       	9
-326	La Merced                                                                                                                       	9
-327	Manzanares                                                                                                                      	9
-328	Marmato                                                                                                                         	9
-329	Marquetalia                                                                                                                     	9
-330	Marulanda                                                                                                                       	9
-331	Neira                                                                                                                           	9
-332	Norcasia                                                                                                                        	9
-333	Pacora                                                                                                                          	9
-334	Palestina                                                                                                                       	9
-335	Pensilvania                                                                                                                     	9
-336	Riosucio                                                                                                                        	9
-337	Risaralda                                                                                                                       	9
-338	Salamina                                                                                                                        	9
-339	Samana                                                                                                                          	9
-340	San Jose                                                                                                                        	9
-341	Supia                                                                                                                           	9
-342	Victoria                                                                                                                        	9
-343	Villamaria                                                                                                                      	9
-344	Viterbo                                                                                                                         	9
+318	Manizales                                                                                                                       	8
+319	Aguadas                                                                                                                         	8
+320	Anserma                                                                                                                         	8
+321	Aranzazu                                                                                                                        	8
+322	Belalcázar                                                                                                                      	8
+323	Chinchiná                                                                                                                       	8
+324	Filadelfia                                                                                                                      	8
+325	La Dorada                                                                                                                       	8
+326	La Merced                                                                                                                       	8
+327	Manzanares                                                                                                                      	8
+328	Marmato                                                                                                                         	8
+329	Marquetalia                                                                                                                     	8
+330	Marulanda                                                                                                                       	8
+331	Neira                                                                                                                           	8
+332	Norcasia                                                                                                                        	8
+333	Pácora                                                                                                                          	8
+334	Palestina                                                                                                                       	8
+335	Pensilvania                                                                                                                     	8
+336	Riosucio                                                                                                                        	8
+337	Risaralda                                                                                                                       	8
+338	Salamina                                                                                                                        	8
+339	Samaná                                                                                                                          	8
+340	San José                                                                                                                        	8
+341	Supía                                                                                                                           	8
+342	Victoria                                                                                                                        	8
+343	Villamaría                                                                                                                      	8
+344	Viterbo                                                                                                                         	8
 345	Florencia                                                                                                                       	9
 346	Albania                                                                                                                         	9
-347	Belen Andaquies                                                                                                                 	9
+347	Belén Andaquies                                                                                                                 	9
 348	Cartagena Del Chaira                                                                                                            	9
 349	Curillo                                                                                                                         	9
 350	El Doncello                                                                                                                     	9
 351	El Paujil                                                                                                                       	9
 352	La Montañita                                                                                                                    	9
-353	Milan                                                                                                                           	9
+353	Rilan                                                                                                                           	9
 354	Morelia                                                                                                                         	9
 355	Puerto Rico                                                                                                                     	9
-356	San Jose De Fragua                                                                                                              	9
-357	San  Vicente Del Caguan                                                                                                         	9
+356	San José De Fragua                                                                                                              	9
+357	San  Vicente Del Caguán                                                                                                         	9
 358	Solano                                                                                                                          	9
 359	Solita                                                                                                                          	9
-360	Valparaiso                                                                                                                      	9
-361	Popayan                                                                                                                         	12
-362	Almaguer                                                                                                                        	12
-363	Argelia                                                                                                                         	12
-364	Balboa                                                                                                                          	12
-365	Bolivar                                                                                                                         	12
-366	Buenos Aires                                                                                                                    	12
-367	Cajibio                                                                                                                         	12
-368	Caldono                                                                                                                         	12
-369	Caloto                                                                                                                          	12
-370	Corinto                                                                                                                         	12
-371	El Tambo                                                                                                                        	12
-372	Florencia                                                                                                                       	12
-373	Guapi                                                                                                                           	12
-374	Inza                                                                                                                            	12
-375	Jambalo                                                                                                                         	12
-376	La Sierra                                                                                                                       	12
-377	La Vega                                                                                                                         	12
-378	Lopez                                                                                                                           	12
-379	Mercaderes                                                                                                                      	12
-380	Miranda                                                                                                                         	12
-381	Morales                                                                                                                         	12
-382	Padilla                                                                                                                         	12
-383	Paez                                                                                                                            	12
-384	Patia (EL Bordo)                                                                                                                	12
-385	Piamonte                                                                                                                        	12
-386	Piendamo                                                                                                                        	12
-387	Puerto Tejada                                                                                                                   	12
-388	Purace                                                                                                                          	12
-389	Rosas                                                                                                                           	12
-390	San Sebastian                                                                                                                   	12
-391	Santander De Quilichao                                                                                                          	12
-392	Santa Rosa                                                                                                                      	12
-393	Silvia                                                                                                                          	12
-394	Sotara                                                                                                                          	12
-395	Suarez                                                                                                                          	12
-396	Sucre                                                                                                                           	12
-397	Timbio                                                                                                                          	12
-398	Timbiqui                                                                                                                        	12
-399	Toribio                                                                                                                         	12
-400	Totoro                                                                                                                          	12
-401	Villa Rica                                                                                                                      	12
-402	Valledupar                                                                                                                      	13
-403	Aguachica                                                                                                                       	13
-404	Agustin Codazzi                                                                                                                 	13
-405	Astrea                                                                                                                          	13
-406	Becerril                                                                                                                        	13
-407	Bosconia                                                                                                                        	13
-408	Chimichagua                                                                                                                     	13
-409	Chiriguana                                                                                                                      	13
-410	Curumani                                                                                                                        	13
-411	El Copey                                                                                                                        	13
-412	El Paso                                                                                                                         	13
-413	Gamarra                                                                                                                         	13
-414	Gonzalez                                                                                                                        	13
-415	La Gloria                                                                                                                       	13
-416	La Jagua De Ibirico                                                                                                             	13
-417	Manaure                                                                                                                         	13
-418	Pailitas                                                                                                                        	13
-419	Pelaya                                                                                                                          	13
-420	Pueblo Bello                                                                                                                    	13
-421	Rio De Oro                                                                                                                      	13
-422	Robles (LA Paz)                                                                                                                 	13
-423	San Alberto                                                                                                                     	13
-424	San Diego                                                                                                                       	13
-425	San Martin                                                                                                                      	13
-426	Tamalameque                                                                                                                     	13
-427	Monteria                                                                                                                        	14
+360	Valparaíso                                                                                                                      	9
+361	Popayán                                                                                                                         	11
+362	Almaguer                                                                                                                        	11
+363	Argelia                                                                                                                         	11
+364	Balboa                                                                                                                          	11
+365	Bolívar                                                                                                                         	11
+366	Buenos Aires                                                                                                                    	11
+367	Cajibío                                                                                                                         	11
+368	Caldono                                                                                                                         	11
+369	Caloto                                                                                                                          	11
+370	Corinto                                                                                                                         	11
+371	El Tambo                                                                                                                        	11
+372	Florencia                                                                                                                       	11
+373	Guapi                                                                                                                           	11
+374	Inzá                                                                                                                            	11
+375	Jambaló                                                                                                                         	11
+376	La Sierra                                                                                                                       	11
+377	La Vega                                                                                                                         	11
+378	López                                                                                                                           	11
+379	Mercaderes                                                                                                                      	11
+380	Miranda                                                                                                                         	11
+381	Morales                                                                                                                         	11
+382	Padilla                                                                                                                         	11
+383	Páez                                                                                                                            	11
+384	Patía (EL Bordo)                                                                                                                	11
+385	Piamonte                                                                                                                        	11
+386	Piendamó                                                                                                                        	11
+387	Puerto Tejada                                                                                                                   	11
+388	Puracé                                                                                                                          	11
+389	Rosas                                                                                                                           	11
+390	San Sebastián                                                                                                                   	11
+391	Santander De Quilichao                                                                                                          	11
+392	Santa Rosa                                                                                                                      	11
+393	Silvia                                                                                                                          	11
+394	Sotara                                                                                                                          	11
+395	Suárez                                                                                                                          	11
+396	Sucre                                                                                                                           	11
+397	Timbío                                                                                                                          	11
+398	Timbiquí                                                                                                                        	11
+399	Toribio                                                                                                                         	11
+400	Totoró                                                                                                                          	11
+401	Villa Rica                                                                                                                      	11
+402	Valledupar                                                                                                                      	12
+403	Aguachica                                                                                                                       	12
+404	Agustín Codazzi                                                                                                                 	12
+405	Astrea                                                                                                                          	12
+406	Becerril                                                                                                                        	12
+407	Bosconia                                                                                                                        	12
+408	Chimichagua                                                                                                                     	12
+409	Chiriguaná                                                                                                                      	12
+410	Curumaní                                                                                                                        	12
+411	El Copey                                                                                                                        	12
+412	El Paso                                                                                                                         	12
+413	Gamarra                                                                                                                         	12
+414	González                                                                                                                        	12
+415	La Gloria                                                                                                                       	12
+416	La Jagua De Ibirico                                                                                                             	12
+417	Manaure                                                                                                                         	12
+418	Pailitas                                                                                                                        	12
+419	Pelaya                                                                                                                          	12
+420	Pueblo Bello                                                                                                                    	12
+421	Rio De Oro                                                                                                                      	12
+422	Robles (LA Paz)                                                                                                                 	12
+423	San Alberto                                                                                                                     	12
+424	San Diego                                                                                                                       	12
+425	San Martín                                                                                                                      	12
+426	Tamalameque                                                                                                                     	12
+427	Montería                                                                                                                        	14
 428	Ayapel                                                                                                                          	14
 429	Buenavista                                                                                                                      	14
 430	Canalete                                                                                                                        	14
-431	Cerete                                                                                                                          	14
+431	Cereté                                                                                                                          	14
 432	Chima                                                                                                                           	14
-433	Chinu                                                                                                                           	14
-434	Cienaga De Oro                                                                                                                  	14
+433	Chinú                                                                                                                           	14
+434	Ciénaga De Oro                                                                                                                  	14
 435	Cotorra                                                                                                                         	14
 436	La Apartada                                                                                                                     	14
 437	Lorica                                                                                                                          	14
-438	Los Cordobas                                                                                                                    	14
+438	Los Córdobas                                                                                                                    	14
 439	Momil                                                                                                                           	14
-440	Montelibano                                                                                                                     	14
+440	Montelíbano                                                                                                                     	14
 441	Moñitos                                                                                                                         	14
 442	Planeta Rica                                                                                                                    	14
 443	Pueblo Nuevo                                                                                                                    	14
 444	Puerto Escondido                                                                                                                	14
 445	Puerto Libertador                                                                                                               	14
-446	Purisima                                                                                                                        	14
-447	Sahagun                                                                                                                         	14
-448	San Andres Sotavento                                                                                                            	14
+446	Purísima                                                                                                                        	14
+447	Sahagún                                                                                                                         	14
+448	San Andrés Sotavento                                                                                                            	14
 449	San Antero                                                                                                                      	14
 450	San Bernardo Viento                                                                                                             	14
 451	San Carlos                                                                                                                      	14
 452	San Pelayo                                                                                                                      	14
 453	Tierralta                                                                                                                       	14
 454	Valencia                                                                                                                        	14
-455	Agua De Dios                                                                                                                    	16
-456	Alban                                                                                                                           	16
-457	Anapoima                                                                                                                        	16
-458	Anolaima                                                                                                                        	16
-459	Arbelaez                                                                                                                        	16
-460	Beltran                                                                                                                         	16
-461	Bituima                                                                                                                         	16
-462	Bojaca                                                                                                                          	16
-463	Cabrera                                                                                                                         	16
-464	Cachipay                                                                                                                        	16
-465	Cajica                                                                                                                          	16
-466	Caparrapi                                                                                                                       	16
-467	Caqueza                                                                                                                         	16
-468	Carmen De Carupa                                                                                                                	16
-469	Chaguani                                                                                                                        	16
-470	Chia                                                                                                                            	16
-471	Chipaque                                                                                                                        	16
-472	Choachi                                                                                                                         	16
-473	Choconta                                                                                                                        	16
-474	Cogua                                                                                                                           	16
-475	Cota                                                                                                                            	16
-476	Cucunuba                                                                                                                        	16
-477	El Colegio                                                                                                                      	16
-478	El Peñon                                                                                                                        	16
-479	El Rosal                                                                                                                        	16
-480	Facatativa                                                                                                                      	16
-481	Fomeque                                                                                                                         	16
-482	Fosca                                                                                                                           	16
-483	Funza                                                                                                                           	16
-484	Fuquene                                                                                                                         	16
-485	Fusagasuga                                                                                                                      	16
-486	Gachala                                                                                                                         	16
-487	Gachancipa                                                                                                                      	16
-488	Gacheta                                                                                                                         	16
-489	Gama                                                                                                                            	16
-490	Girardot                                                                                                                        	16
-491	Granada                                                                                                                         	16
-492	Guacheta                                                                                                                        	16
-493	Guaduas                                                                                                                         	16
-494	Guasca                                                                                                                          	16
-495	Guataqui                                                                                                                        	16
-496	Guatavita                                                                                                                       	16
-497	Guayabal De Siquima                                                                                                             	16
-498	Guayabetal                                                                                                                      	16
-499	Gutierrez                                                                                                                       	16
-500	Jerusalen                                                                                                                       	16
-501	Junin                                                                                                                           	16
-502	La Calera                                                                                                                       	16
-503	La Mesa                                                                                                                         	16
-504	La Palma                                                                                                                        	16
-505	La Peña                                                                                                                         	16
-506	La Vega                                                                                                                         	16
-507	Lenguazaque                                                                                                                     	16
-508	Macheta                                                                                                                         	16
-509	Madrid                                                                                                                          	16
-510	Manta                                                                                                                           	16
-511	Medina                                                                                                                          	16
-512	Mosquera                                                                                                                        	16
-513	Nariño                                                                                                                          	16
-514	Nemocon                                                                                                                         	16
-515	Nilo                                                                                                                            	16
-516	Nimaima                                                                                                                         	16
-517	Nocaima                                                                                                                         	16
-518	Venecia (OSPINA Perez)                                                                                                          	16
-519	Pacho                                                                                                                           	16
-520	Paime                                                                                                                           	16
-521	Pandi                                                                                                                           	16
-522	Paratebueno                                                                                                                     	16
-523	Pasca                                                                                                                           	16
-524	Puerto Salgar                                                                                                                   	16
-525	Puli                                                                                                                            	16
-526	Quebradanegra                                                                                                                   	16
-527	Quetame                                                                                                                         	16
-528	Quipile                                                                                                                         	16
-529	Rafael Reyes                                                                                                                    	16
-530	Ricaurte                                                                                                                        	16
-531	San  Antonio Del  Tequendama                                                                                                    	16
-532	San Bernardo                                                                                                                    	16
-533	San Cayetano                                                                                                                    	16
-534	San Francisco                                                                                                                   	16
-535	San Juan De Rioseco                                                                                                             	16
-536	Sasaima                                                                                                                         	16
-537	Sesquile                                                                                                                        	16
-538	Sibate                                                                                                                          	16
-539	Silvania                                                                                                                        	16
-540	Simijaca                                                                                                                        	16
-541	Soacha                                                                                                                          	16
-542	Sopo                                                                                                                            	16
-543	Subachoque                                                                                                                      	16
-544	Suesca                                                                                                                          	16
-545	Supata                                                                                                                          	16
-546	Susa                                                                                                                            	16
-547	Sutatausa                                                                                                                       	16
-548	Tabio                                                                                                                           	16
-549	Tausa                                                                                                                           	16
-550	Tena                                                                                                                            	16
-551	Tenjo                                                                                                                           	16
-552	Tibacuy                                                                                                                         	16
-553	Tibirita                                                                                                                        	16
-554	Tocaima                                                                                                                         	16
-555	Tocancipa                                                                                                                       	16
-556	Topaipi                                                                                                                         	16
-557	Ubala                                                                                                                           	16
-558	Ubaque                                                                                                                          	16
-559	Ubate                                                                                                                           	16
-560	Une                                                                                                                             	16
-561	Utica                                                                                                                           	16
-562	Vergara                                                                                                                         	16
-563	Viani                                                                                                                           	16
-564	Villagomez                                                                                                                      	16
-565	Villapinzon                                                                                                                     	16
-566	Villeta                                                                                                                         	16
-567	Viota                                                                                                                           	16
-568	Yacopi                                                                                                                          	16
-569	Zipacon                                                                                                                         	16
-570	Zipaquira                                                                                                                       	16
-571	Quibdo                                                                                                                          	13
-572	Acandi                                                                                                                          	13
-573	Alto Baudo (PIE De Pato)                                                                                                        	13
+455	Agua De Dios                                                                                                                    	15
+456	Albán                                                                                                                           	15
+457	Anapoima                                                                                                                        	15
+458	Anolaima                                                                                                                        	15
+459	Arbeláez                                                                                                                        	15
+460	Beltrán                                                                                                                         	15
+461	Bituima                                                                                                                         	15
+462	Bojacá                                                                                                                          	15
+463	Cabrera                                                                                                                         	15
+464	Cachipay                                                                                                                        	15
+465	Cajicá                                                                                                                          	15
+466	Caparrapí                                                                                                                       	15
+467	Caqueza                                                                                                                         	15
+468	Carmen De Carupa                                                                                                                	15
+469	Chaguaní                                                                                                                        	15
+470	Chía                                                                                                                            	15
+471	Chipaque                                                                                                                        	15
+472	Choachí                                                                                                                         	15
+473	Chocontá                                                                                                                        	15
+474	Cogua                                                                                                                           	15
+475	Cota                                                                                                                            	15
+476	Cucunubá                                                                                                                        	15
+477	El Colegio                                                                                                                      	15
+478	El Peñón                                                                                                                        	15
+479	El Rosal                                                                                                                        	15
+480	Facatativá                                                                                                                      	15
+481	Fómeque                                                                                                                         	15
+482	Fosca                                                                                                                           	15
+483	Funza                                                                                                                           	15
+484	Fúquene                                                                                                                         	15
+485	Fusagasugá                                                                                                                      	15
+486	Gachalá                                                                                                                         	15
+487	Gachancipá                                                                                                                      	15
+488	Gacheta                                                                                                                         	15
+489	Gama                                                                                                                            	15
+490	Girardot                                                                                                                        	15
+491	Granada                                                                                                                         	15
+492	Guachetá                                                                                                                        	15
+493	Guaduas                                                                                                                         	15
+494	Guasca                                                                                                                          	15
+495	Guataquí                                                                                                                        	15
+496	Guatavita                                                                                                                       	15
+497	Guayabal De Siquima                                                                                                             	15
+498	Guayabetal                                                                                                                      	15
+499	Gutiérrez                                                                                                                       	15
+500	Jerusalén                                                                                                                       	15
+501	Junín                                                                                                                           	15
+502	La Calera                                                                                                                       	15
+503	La Mesa                                                                                                                         	15
+504	La Palma                                                                                                                        	15
+505	La Peña                                                                                                                         	15
+506	La Vega                                                                                                                         	15
+507	Lenguazaque                                                                                                                     	15
+508	Macheta                                                                                                                         	15
+509	Madrid                                                                                                                          	15
+510	Manta                                                                                                                           	15
+511	Medina                                                                                                                          	15
+512	Mosquera                                                                                                                        	15
+513	Nariño                                                                                                                          	15
+514	Nemocón                                                                                                                         	15
+515	Nilo                                                                                                                            	15
+516	Nimaima                                                                                                                         	15
+517	Nocaima                                                                                                                         	15
+518	Venecia (OSPINA Pérez)                                                                                                          	15
+519	Pacho                                                                                                                           	15
+520	Paime                                                                                                                           	15
+521	Pandi                                                                                                                           	15
+522	Paratebueno                                                                                                                     	15
+523	Pasca                                                                                                                           	15
+524	Puerto Salgar                                                                                                                   	15
+525	Pulí                                                                                                                            	15
+526	Quebradanegra                                                                                                                   	15
+527	Quetame                                                                                                                         	15
+528	Quipile                                                                                                                         	15
+529	Rafael Reyes                                                                                                                    	15
+530	Ricaurte                                                                                                                        	15
+531	San  Antonio Del  Tequendama                                                                                                    	15
+532	San Bernardo                                                                                                                    	15
+533	San Cayetano                                                                                                                    	15
+534	San Francisco                                                                                                                   	15
+535	San Juan De Rioseco                                                                                                             	15
+536	Sasaima                                                                                                                         	15
+537	Sesquilé                                                                                                                        	15
+538	Sibaté                                                                                                                          	15
+539	Silvania                                                                                                                        	15
+540	Simijaca                                                                                                                        	15
+541	Soacha                                                                                                                          	15
+542	Sopo                                                                                                                            	15
+543	Subachoque                                                                                                                      	15
+544	Suesca                                                                                                                          	15
+545	Supatá                                                                                                                          	15
+546	Susa                                                                                                                            	15
+547	Sutatausa                                                                                                                       	15
+548	Tabio                                                                                                                           	15
+549	Tausa                                                                                                                           	15
+550	Tena                                                                                                                            	15
+551	Tenjo                                                                                                                           	15
+552	Tibacuy                                                                                                                         	15
+553	Tibirita                                                                                                                        	15
+554	Tocaima                                                                                                                         	15
+555	Tocancipá                                                                                                                       	15
+556	Topaipí                                                                                                                         	15
+557	Ubalá                                                                                                                           	15
+558	Ubaque                                                                                                                          	15
+559	Ubaté                                                                                                                           	15
+560	Une                                                                                                                             	15
+561	Útica                                                                                                                           	15
+562	Vergara                                                                                                                         	15
+563	Vianí                                                                                                                           	15
+564	Villagómez                                                                                                                      	15
+565	Villapinzón                                                                                                                     	15
+566	Villeta                                                                                                                         	15
+567	Viotá                                                                                                                           	15
+568	Yacopí                                                                                                                          	15
+569	Zipacón                                                                                                                         	15
+570	Zipaquirá                                                                                                                       	15
+571	Quibdó                                                                                                                          	13
+572	Acandí                                                                                                                          	13
+573	Alto Baudó (PIE De Pato)                                                                                                        	13
 574	Atrato                                                                                                                          	13
 575	Bagado                                                                                                                          	13
-576	Bahia Solano (MUTIS)                                                                                                            	13
-577	Bajo Baudo (PIZARRO)                                                                                                            	13
+576	Bahía Solano (MUTIS)                                                                                                            	13
+577	Bajo Baudó (PIZARRO)                                                                                                            	13
 578	Bojaya (BELLAVISTA)                                                                                                             	13
-579	Canton De San Pablo                                                                                                             	13
+579	Cantón De San Pablo                                                                                                             	13
 580	Carmen Del Darien                                                                                                               	13
-581	Certegui                                                                                                                        	13
+581	Cértegui                                                                                                                        	13
 582	Condoto                                                                                                                         	13
 583	El Carmen                                                                                                                       	13
 584	Litoral Del San Juan                                                                                                            	13
@@ -2020,519 +2007,516 @@ COPY cities ("ID_cities", city_name, "ID_departaments") FROM stdin;
 586	Jurado                                                                                                                          	13
 587	Lloro                                                                                                                           	13
 588	Medio Atrato                                                                                                                    	13
-589	Medio Baudo                                                                                                                     	13
+589	Medio Baudó                                                                                                                     	13
 590	Medio San Juan                                                                                                                  	13
-591	Novita                                                                                                                          	13
-592	Nuqui                                                                                                                           	13
+591	Nóvita                                                                                                                          	13
+592	Nuquí                                                                                                                           	13
 593	Rio Iro                                                                                                                         	13
 594	Rio Quito                                                                                                                       	13
 595	Riosucio                                                                                                                        	13
-596	San Jose Del Palmar                                                                                                             	13
-597	Sipi                                                                                                                            	13
-598	Tado                                                                                                                            	13
-599	Unguia                                                                                                                          	13
-600	Union Panamericana                                                                                                              	13
-601	Neiva                                                                                                                           	19
-602	Acevedo                                                                                                                         	19
-603	Agrado                                                                                                                          	19
-604	Aipe                                                                                                                            	19
-605	Algeciras                                                                                                                       	19
-606	Altamira                                                                                                                        	19
-607	Baraya                                                                                                                          	19
-608	Campoalegre                                                                                                                     	19
-609	Colombia                                                                                                                        	19
-610	Elias                                                                                                                           	19
-611	Garzon                                                                                                                          	19
-612	Gigante                                                                                                                         	19
-613	Guadalupe                                                                                                                       	19
-614	Hobo                                                                                                                            	19
-615	Iquira                                                                                                                          	19
-616	Isnos                                                                                                                           	19
-617	La Argentina                                                                                                                    	19
-618	La Plata                                                                                                                        	19
-619	Nataga                                                                                                                          	19
-620	Oporapa                                                                                                                         	19
-621	Paicol                                                                                                                          	19
-622	Palermo                                                                                                                         	19
-623	Palestina                                                                                                                       	19
-624	Pital                                                                                                                           	19
-625	Pitalito                                                                                                                        	19
-626	Rivera                                                                                                                          	19
-627	Saladoblanco                                                                                                                    	19
-628	San Agustin                                                                                                                     	19
-629	Santa Maria                                                                                                                     	19
-630	Suaza                                                                                                                           	19
-631	Tarqui                                                                                                                          	19
-632	Tesalia                                                                                                                         	19
-633	Tello                                                                                                                           	19
-634	Teruel                                                                                                                          	19
-635	Timana                                                                                                                          	19
-636	Villavieja                                                                                                                      	19
-637	Yaguara                                                                                                                         	19
-638	Riohacha                                                                                                                        	17
-639	Albania                                                                                                                         	17
-640	Barrancas                                                                                                                       	17
-641	Dibulla                                                                                                                         	17
-642	Distraccion                                                                                                                     	17
-643	El Molino                                                                                                                       	17
-644	Fonseca                                                                                                                         	17
-645	Hatonuevo                                                                                                                       	17
-646	La Jagua Del Pilar                                                                                                              	17
-647	Maicao                                                                                                                          	17
-648	Manaure                                                                                                                         	17
-649	San Juan Del Cesar                                                                                                              	17
-650	Uribia                                                                                                                          	17
-651	Urumita                                                                                                                         	17
-652	Villanueva                                                                                                                      	17
-653	Santa Marta                                                                                                                     	28
-654	Algarrobo                                                                                                                       	21
-655	Aracataca                                                                                                                       	21
-656	Ariguani                                                                                                                        	21
-657	Cerro San Antonio                                                                                                               	21
-658	Chivolo                                                                                                                         	21
-659	Cienaga                                                                                                                         	21
-660	Concordia                                                                                                                       	21
-661	El Banco                                                                                                                        	21
-662	El Piñon                                                                                                                        	21
-663	El Reten                                                                                                                        	21
-664	Fundacion                                                                                                                       	21
-665	Guamal                                                                                                                          	21
-666	Nueva Granada                                                                                                                   	21
-667	Pedraza                                                                                                                         	21
-668	Pijiño Del Carmen                                                                                                               	21
-669	Pivijay                                                                                                                         	21
-670	Plato                                                                                                                           	21
-671	Puebloviejo                                                                                                                     	21
-672	Remolino                                                                                                                        	21
-673	Sabanas De San Angel                                                                                                            	21
-674	Salamina                                                                                                                        	21
-675	San Sebastian De Buenavista                                                                                                     	21
-676	San Zenon                                                                                                                       	21
-677	Santa Ana                                                                                                                       	21
-678	Santa Barbara De Pinto                                                                                                          	21
-679	Sitionuevo                                                                                                                      	21
-680	Tenerife                                                                                                                        	21
-681	Zapayan                                                                                                                         	21
-682	Zona Bananera                                                                                                                   	21
-683	Villavicencio                                                                                                                   	22
-684	Acacias                                                                                                                         	22
-685	Barranca De Upia                                                                                                                	22
-686	Cabuyaro                                                                                                                        	22
-687	Castilla La Nueva                                                                                                               	22
-688	Cubarral                                                                                                                        	22
-689	Cumaral                                                                                                                         	22
-690	El Calvario                                                                                                                     	22
-691	El Castillo                                                                                                                     	22
-692	El Dorado                                                                                                                       	22
-693	Fuente De Oro                                                                                                                   	22
-694	Granada                                                                                                                         	22
-695	Guamal                                                                                                                          	22
-696	Mapiripan                                                                                                                       	22
-697	Mesetas                                                                                                                         	22
-698	La Macarena                                                                                                                     	22
-699	La Uribe                                                                                                                        	22
-700	Lejanias                                                                                                                        	22
-701	Puerto Concordia                                                                                                                	22
-702	Puerto Gaitan                                                                                                                   	22
-703	Puerto Lopez                                                                                                                    	22
-704	Puerto Lleras                                                                                                                   	22
-705	Puerto Rico                                                                                                                     	22
-706	Restrepo                                                                                                                        	22
-707	San Carlos De Guaroa                                                                                                            	22
-708	San Juan De Arama                                                                                                               	22
-709	San Juanito                                                                                                                     	22
-710	San Martin                                                                                                                      	22
-711	Vista Hermosa                                                                                                                   	22
-712	Pasto                                                                                                                           	23
-713	Alban                                                                                                                           	23
-714	Aldana                                                                                                                          	23
-715	Ancuya                                                                                                                          	23
-716	Arboleda                                                                                                                        	23
-717	Barbacoas                                                                                                                       	23
-718	Belen                                                                                                                           	23
-719	Buesaco                                                                                                                         	23
-720	Colon-Genova                                                                                                                    	23
-721	Consaca                                                                                                                         	23
-722	Contadero                                                                                                                       	23
-723	Cordoba                                                                                                                         	23
-724	Cuaspud-Carlosama                                                                                                               	23
-725	Cumbal                                                                                                                          	23
-726	Cumbitara                                                                                                                       	23
-727	Chachagui                                                                                                                       	23
-728	El Charco                                                                                                                       	23
-729	El Peñol                                                                                                                        	23
-730	El Rosario                                                                                                                      	23
-731	El Tablon                                                                                                                       	23
-732	El Tambo                                                                                                                        	23
-733	Funes                                                                                                                           	23
-734	Guachucal                                                                                                                       	23
-735	Guaitarilla                                                                                                                     	23
-736	Gualmatan                                                                                                                       	23
-737	Iles                                                                                                                            	23
-738	Imues                                                                                                                           	23
-739	Ipiales                                                                                                                         	23
-740	La Cruz                                                                                                                         	23
-741	La Florida                                                                                                                      	23
-742	La Llanada                                                                                                                      	23
-743	La Tola                                                                                                                         	23
-744	La Union                                                                                                                        	23
-745	Leiva                                                                                                                           	23
-746	Linares                                                                                                                         	23
-747	Los Andes                                                                                                                       	23
-748	Magui-Payan                                                                                                                     	23
-749	Mallama                                                                                                                         	23
-750	Mosquera                                                                                                                        	23
-751	Nariño                                                                                                                          	23
-752	Olaya Herrera                                                                                                                   	23
-753	Ospina                                                                                                                          	23
-754	Francisco Pizarro                                                                                                               	23
-755	Policarpa                                                                                                                       	23
-756	Potosi                                                                                                                          	23
-757	Providencia                                                                                                                     	23
-758	Puerres                                                                                                                         	23
-759	Pupiales                                                                                                                        	23
-760	Ricaurte                                                                                                                        	23
-761	Roberto Payan                                                                                                                   	23
-762	Samaniego                                                                                                                       	23
-763	Sandona                                                                                                                         	23
-764	San Bernardo                                                                                                                    	23
-765	San Lorenzo                                                                                                                     	23
-766	San Pablo                                                                                                                       	23
-767	San Pedro De Cartago                                                                                                            	23
-768	Santa Barbara                                                                                                                   	23
-769	Santacruz                                                                                                                       	23
-770	Sapuyes                                                                                                                         	23
-771	Taminango                                                                                                                       	23
-772	Tangua                                                                                                                          	23
-773	Tumaco                                                                                                                          	23
-774	Tuquerres                                                                                                                       	23
-775	Yacuanquer                                                                                                                      	23
-776	Cucuta                                                                                                                          	24
-777	Abrego                                                                                                                          	24
-778	Arboledas                                                                                                                       	24
-779	Bochalema                                                                                                                       	24
-780	Bucarasica                                                                                                                      	24
-781	Cacota                                                                                                                          	24
-782	Cachira                                                                                                                         	24
-783	Chinacota                                                                                                                       	24
-784	Chitaga                                                                                                                         	24
-785	Convencion                                                                                                                      	24
-786	Cucutilla                                                                                                                       	24
-787	Durania                                                                                                                         	24
-788	El Carmen                                                                                                                       	24
-789	El Tarra                                                                                                                        	24
-790	El Zulia                                                                                                                        	24
-791	Gramalote                                                                                                                       	24
-792	Hacari                                                                                                                          	24
-793	Herran                                                                                                                          	24
-794	Labateca                                                                                                                        	24
-795	La Esperanza                                                                                                                    	24
-796	La Playa                                                                                                                        	24
-797	Los Patios                                                                                                                      	24
-798	Lourdes                                                                                                                         	24
-799	Mutiscua                                                                                                                        	24
-800	Ocaña                                                                                                                           	24
-801	Pamplona                                                                                                                        	24
-802	Pamplonita                                                                                                                      	24
-803	Puerto Santander                                                                                                                	24
-804	Ragonvalia                                                                                                                      	24
-805	Salazar                                                                                                                         	24
-806	San Calixto                                                                                                                     	24
-807	San Cayetano                                                                                                                    	24
-808	Santiago                                                                                                                        	24
-809	Sardinata                                                                                                                       	24
-810	Silos                                                                                                                           	24
-811	Teorama                                                                                                                         	24
-812	Tibu                                                                                                                            	24
-813	Toledo                                                                                                                          	24
-814	Villacaro                                                                                                                       	24
-815	Villa Del Rosario                                                                                                               	24
+596	San José Del Palmar                                                                                                             	13
+597	Sipí                                                                                                                            	13
+598	Tadó                                                                                                                            	13
+599	Unguía                                                                                                                          	13
+600	Unión Panamericana                                                                                                              	13
+601	Neiva                                                                                                                           	18
+602	Acevedo                                                                                                                         	18
+603	Agrado                                                                                                                          	18
+604	Aipe                                                                                                                            	18
+605	Algeciras                                                                                                                       	18
+606	Altamira                                                                                                                        	18
+607	Baraya                                                                                                                          	18
+608	Campoalegre                                                                                                                     	18
+609	Colombia                                                                                                                        	18
+610	Elías                                                                                                                           	18
+611	Garzón                                                                                                                          	18
+612	Gigante                                                                                                                         	18
+613	Guadalupe                                                                                                                       	18
+614	Hobo                                                                                                                            	18
+615	Iquira                                                                                                                          	18
+616	Isnos                                                                                                                           	18
+617	La Argentina                                                                                                                    	18
+618	La Plata                                                                                                                        	18
+619	Nátaga                                                                                                                          	18
+620	Oporapa                                                                                                                         	18
+621	Paicol                                                                                                                          	18
+622	Palermo                                                                                                                         	18
+623	Palestina                                                                                                                       	18
+624	Pital                                                                                                                           	18
+625	Pitalito                                                                                                                        	18
+626	Rivera                                                                                                                          	18
+627	Saladoblanco                                                                                                                    	18
+628	San Agustín                                                                                                                     	18
+629	Santa María                                                                                                                     	18
+630	Suaza                                                                                                                           	18
+631	Tarqui                                                                                                                          	18
+632	Tesalia                                                                                                                         	18
+633	Tello                                                                                                                           	18
+634	Teruel                                                                                                                          	18
+635	Timaná                                                                                                                          	18
+636	Villavieja                                                                                                                      	18
+637	Yaguará                                                                                                                         	18
+638	Riohacha                                                                                                                        	19
+639	Albania                                                                                                                         	19
+640	Barrancas                                                                                                                       	19
+641	Dibulla                                                                                                                         	19
+642	Distracción                                                                                                                     	19
+643	El Molino                                                                                                                       	19
+644	Fonseca                                                                                                                         	19
+645	Hatonuevo                                                                                                                       	19
+646	La Jagua Del Pilar                                                                                                              	19
+647	Maicao                                                                                                                          	19
+648	Manaure                                                                                                                         	19
+649	San Juan Del Cesar                                                                                                              	19
+650	Uribia                                                                                                                          	19
+651	Urumita                                                                                                                         	19
+652	Villanueva                                                                                                                      	19
+653	Santa Marta                                                                                                                     	20
+654	Algarrobo                                                                                                                       	20
+655	Aracataca                                                                                                                       	20
+656	Ariguaní                                                                                                                        	20
+657	Cerro San Antonio                                                                                                               	20
+658	Chivolo                                                                                                                         	20
+659	Ciénaga                                                                                                                         	20
+660	Concordia                                                                                                                       	20
+661	El Banco                                                                                                                        	20
+662	El Piñon                                                                                                                        	20
+663	El Reten                                                                                                                        	20
+664	Fundación                                                                                                                       	20
+665	Guamal                                                                                                                          	20
+666	Nueva Granada                                                                                                                   	20
+667	Pedraza                                                                                                                         	20
+668	Pijiño Del Carmen                                                                                                               	20
+669	Pivijay                                                                                                                         	20
+670	Plato                                                                                                                           	20
+671	Puebloviejo                                                                                                                     	20
+672	Remolino                                                                                                                        	20
+673	Sabanas De San Angel                                                                                                            	20
+674	Salamina                                                                                                                        	20
+675	San Sebastián De Buenavista                                                                                                     	20
+676	San Zenón                                                                                                                       	20
+677	Santa Ana                                                                                                                       	20
+678	Santa Barbara De Pinto                                                                                                          	20
+679	Sitionuevo                                                                                                                      	20
+680	Tenerife                                                                                                                        	20
+681	Zapayán                                                                                                                         	20
+682	Zona Bananera                                                                                                                   	20
+683	Villavicencio                                                                                                                   	21
+684	Acacias                                                                                                                         	21
+685	Barranca De Upía                                                                                                                	21
+686	Cabuyaro                                                                                                                        	21
+687	Castilla La Nueva                                                                                                               	21
+688	Cubarral                                                                                                                        	21
+689	Cumaral                                                                                                                         	21
+690	El Calvario                                                                                                                     	21
+691	El Castillo                                                                                                                     	21
+692	El Dorado                                                                                                                       	21
+693	Fuente De Oro                                                                                                                   	21
+694	Granada                                                                                                                         	21
+695	Guamal                                                                                                                          	21
+696	Mapiripán                                                                                                                       	21
+697	Mesetas                                                                                                                         	21
+698	La Macarena                                                                                                                     	21
+699	La Uribe                                                                                                                        	21
+700	Lejanías                                                                                                                        	21
+701	Puerto Concordia                                                                                                                	21
+702	Puerto Gaitán                                                                                                                   	21
+703	Puerto López                                                                                                                    	21
+704	Puerto Lleras                                                                                                                   	21
+705	Puerto Rico                                                                                                                     	21
+706	Restrepo                                                                                                                        	21
+707	San Carlos De Guaroa                                                                                                            	21
+708	San Juan De Arama                                                                                                               	21
+709	San Juanito                                                                                                                     	21
+710	San Martín                                                                                                                      	21
+711	Vista Hermosa                                                                                                                   	21
+712	Pasto                                                                                                                           	22
+713	Albán                                                                                                                           	22
+714	Aldana                                                                                                                          	22
+715	Ancuyá                                                                                                                          	22
+716	Arboleda                                                                                                                        	22
+717	Barbacoas                                                                                                                       	22
+718	Belén                                                                                                                           	22
+719	Buesaco                                                                                                                         	22
+720	Colon-Génova                                                                                                                    	22
+721	Consaca                                                                                                                         	22
+722	Contadero                                                                                                                       	22
+723	Córdoba                                                                                                                         	22
+724	Cuaspud-Carlosama                                                                                                               	22
+725	Cumbal                                                                                                                          	22
+726	Cumbitara                                                                                                                       	22
+727	Chachagüí                                                                                                                       	22
+728	El Charco                                                                                                                       	22
+729	El Peñol                                                                                                                        	22
+730	El Rosario                                                                                                                      	22
+731	El Tablón                                                                                                                       	22
+732	El Tambo                                                                                                                        	22
+733	Funes                                                                                                                           	22
+734	Guachucal                                                                                                                       	22
+735	Guaitarilla                                                                                                                     	22
+736	Gualmatán                                                                                                                       	22
+737	Iles                                                                                                                            	22
+738	Imués                                                                                                                           	22
+739	Ipiales                                                                                                                         	22
+740	La Cruz                                                                                                                         	22
+741	La Florida                                                                                                                      	22
+742	La Llanada                                                                                                                      	22
+743	La Tola                                                                                                                         	22
+744	La Unión                                                                                                                        	22
+745	Leiva                                                                                                                           	22
+746	Linares                                                                                                                         	22
+747	Los Andes                                                                                                                       	22
+748	Magüi-Payan                                                                                                                     	22
+749	Mallama                                                                                                                         	22
+750	Mosquera                                                                                                                        	22
+751	Nariño                                                                                                                          	22
+752	Olaya Herrera                                                                                                                   	22
+753	Ospina                                                                                                                          	22
+754	Francisco Pizarro                                                                                                               	22
+755	Policarpa                                                                                                                       	22
+756	Potosí                                                                                                                          	22
+757	Providencia                                                                                                                     	22
+758	Puerres                                                                                                                         	22
+759	Pupiales                                                                                                                        	22
+760	Ricaurte                                                                                                                        	22
+761	Roberto Payan                                                                                                                   	22
+762	Samaniego                                                                                                                       	22
+763	Sandoná                                                                                                                         	22
+764	San Bernardo                                                                                                                    	22
+765	San Lorenzo                                                                                                                     	22
+766	San Pablo                                                                                                                       	22
+767	San Pedro De Cartago                                                                                                            	22
+768	Santa Barbara                                                                                                                   	22
+769	Santacruz                                                                                                                       	22
+770	Sapuyes                                                                                                                         	22
+771	Taminango                                                                                                                       	22
+772	Tangua                                                                                                                          	22
+773	Tumaco                                                                                                                          	22
+774	Túquerres                                                                                                                       	22
+775	Yacuanquer                                                                                                                      	22
+776	Cúcuta                                                                                                                          	23
+777	Abrego                                                                                                                          	23
+778	Arboledas                                                                                                                       	23
+779	Bochalema                                                                                                                       	23
+780	Bucarasica                                                                                                                      	23
+781	Cácota                                                                                                                          	23
+782	Cachirá                                                                                                                         	23
+783	Chinácota                                                                                                                       	23
+784	Chitagá                                                                                                                         	23
+785	Convención                                                                                                                      	23
+786	Cucutilla                                                                                                                       	23
+787	Duranía                                                                                                                         	23
+788	El Carmen                                                                                                                       	23
+789	El Tarra                                                                                                                        	23
+790	El Zulia                                                                                                                        	23
+791	Gramalote                                                                                                                       	23
+792	Hacarí                                                                                                                          	23
+793	Herrán                                                                                                                          	23
+794	Labateca                                                                                                                        	23
+795	La Esperanza                                                                                                                    	23
+796	La Playa                                                                                                                        	23
+797	Los Patios                                                                                                                      	23
+798	Lourdes                                                                                                                         	23
+799	Mutiscua                                                                                                                        	23
+800	Ocaña                                                                                                                           	23
+801	Pamplona                                                                                                                        	23
+802	Pamplonita                                                                                                                      	23
+803	Puerto Santander                                                                                                                	23
+804	Ragonvalia                                                                                                                      	23
+805	Salazar                                                                                                                         	23
+806	San Calixto                                                                                                                     	23
+807	San Cayetano                                                                                                                    	23
+808	Santiago                                                                                                                        	23
+809	Sardinata                                                                                                                       	23
+810	Silos                                                                                                                           	23
+811	Teorama                                                                                                                         	23
+812	Tibú                                                                                                                            	23
+813	Toledo                                                                                                                          	23
+814	Villacaro                                                                                                                       	23
+815	Villa Del Rosario                                                                                                               	23
 816	Armenia                                                                                                                         	25
 817	Buenavista                                                                                                                      	25
-818	Calarca                                                                                                                         	25
+818	Calarcá                                                                                                                         	25
 819	Circasia                                                                                                                        	25
-820	Cordoba                                                                                                                         	25
+820	Córdoba                                                                                                                         	25
 821	Filandia                                                                                                                        	25
-822	Genova                                                                                                                          	25
+822	Génova                                                                                                                          	25
 823	La Tebaida                                                                                                                      	25
 824	Montenegro                                                                                                                      	25
 825	Pijao                                                                                                                           	25
 826	Quimbaya                                                                                                                        	25
 827	Salento                                                                                                                         	25
-828	Pereira                                                                                                                         	27
-829	Apia                                                                                                                            	27
-830	Balboa                                                                                                                          	27
-831	Belen De Umbria                                                                                                                 	27
-832	Dosquebradas                                                                                                                    	27
-833	Guatica                                                                                                                         	27
-834	La Celia                                                                                                                        	27
-835	La Virginia                                                                                                                     	27
-836	Marsella                                                                                                                        	27
-837	Mistrato                                                                                                                        	27
-838	Pueblo Rico                                                                                                                     	27
-839	Quinchia                                                                                                                        	27
-840	Santa Rosa De Cabal                                                                                                             	27
-841	Santuario                                                                                                                       	27
-842	Bucaramanga                                                                                                                     	29
-843	Aguada                                                                                                                          	29
-844	Albania                                                                                                                         	29
-845	Aratoca                                                                                                                         	29
-846	Barbosa                                                                                                                         	29
-847	Barichara                                                                                                                       	29
-848	Barrancabermeja                                                                                                                 	29
-849	Betulia                                                                                                                         	29
-850	Bolivar                                                                                                                         	29
-851	Cabrera                                                                                                                         	29
-852	California                                                                                                                      	29
-853	Capitanejo                                                                                                                      	29
-854	Carcasi                                                                                                                         	29
-855	Cepita                                                                                                                          	29
-856	Cerrito                                                                                                                         	29
-857	Charala                                                                                                                         	29
-858	Charta                                                                                                                          	29
-859	Chima                                                                                                                           	29
-860	Chipata                                                                                                                         	29
-861	Cimitarra                                                                                                                       	29
-862	Concepcion                                                                                                                      	29
-863	Confines                                                                                                                        	29
-864	Contratacion                                                                                                                    	29
-865	Coromoro                                                                                                                        	29
-866	Curiti                                                                                                                          	29
-867	El Carmen                                                                                                                       	29
-868	El Guacamayo                                                                                                                    	29
-869	El Peñon                                                                                                                        	29
-870	El Playon                                                                                                                       	29
-871	Encino                                                                                                                          	29
-872	Enciso                                                                                                                          	29
-873	Florian                                                                                                                         	29
-874	Floridablanca                                                                                                                   	29
-875	Galan                                                                                                                           	29
-876	Gambita                                                                                                                         	29
-877	Giron                                                                                                                           	29
-878	Guaca                                                                                                                           	29
-879	Guadalupe                                                                                                                       	29
-880	Guapota                                                                                                                         	29
-881	Guavata                                                                                                                         	29
-882	Guepsa                                                                                                                          	29
-883	Hato                                                                                                                            	29
-884	Jesus Maria                                                                                                                     	29
-885	Jordan                                                                                                                          	29
-886	La Belleza                                                                                                                      	29
-887	Landazuri                                                                                                                       	29
-888	La Paz                                                                                                                          	29
-889	Lebrija                                                                                                                         	29
-890	Los Santos                                                                                                                      	29
-891	Macaravita                                                                                                                      	29
-892	Malaga                                                                                                                          	29
-893	Matanza                                                                                                                         	29
-894	Mogotes                                                                                                                         	29
-895	Molagavita                                                                                                                      	29
-896	Ocamonte                                                                                                                        	29
-897	Oiba                                                                                                                            	29
-898	Onzaga                                                                                                                          	29
-899	Palmar                                                                                                                          	29
-900	Palmas Del Socorro                                                                                                              	29
-901	Paramo                                                                                                                          	29
-902	Piedecuesta                                                                                                                     	29
-903	Pinchote                                                                                                                        	29
-904	Puente Nacional                                                                                                                 	29
-905	Puerto Parra                                                                                                                    	29
-906	Puerto Wilches                                                                                                                  	29
-907	Rionegro                                                                                                                        	29
-908	Sabana De Torres                                                                                                                	29
-909	San Andres                                                                                                                      	29
-910	San Benito                                                                                                                      	29
-911	San Gil                                                                                                                         	29
-912	San Joaquin                                                                                                                     	29
-913	San Jose De Miranda                                                                                                             	29
-914	San Miguel                                                                                                                      	29
-915	San Vicente De Chucuri                                                                                                          	29
-916	Santa Barbara                                                                                                                   	29
-917	Santa Helena                                                                                                                    	29
-918	Simacota                                                                                                                        	29
-919	Socorro                                                                                                                         	29
-920	Suaita                                                                                                                          	29
-921	Sucre                                                                                                                           	29
-922	Surata                                                                                                                          	29
-923	Tona                                                                                                                            	29
-924	Valle San Jose                                                                                                                  	29
-925	Velez                                                                                                                           	29
-926	Vetas                                                                                                                           	29
-927	Villanueva                                                                                                                      	29
-928	Zapatoca                                                                                                                        	29
-929	Sincelejo                                                                                                                       	30
-930	Buenavista                                                                                                                      	30
-931	Caimito                                                                                                                         	30
-932	Coloso                                                                                                                          	30
-933	Corozal                                                                                                                         	30
-934	Coveñas                                                                                                                         	30
-935	Chalan                                                                                                                          	30
-936	El Roble                                                                                                                        	30
-937	Galeras                                                                                                                         	30
-938	Guaranda                                                                                                                        	30
-939	La Union                                                                                                                        	30
-940	Los Palmitos                                                                                                                    	30
-941	Majagual                                                                                                                        	30
-942	Morroa                                                                                                                          	30
-943	Ovejas                                                                                                                          	30
-944	Palmito                                                                                                                         	30
-945	Sampues                                                                                                                         	30
-946	San Benito Abad                                                                                                                 	30
-947	San Juan De Betulia                                                                                                             	30
-948	San Marcos                                                                                                                      	30
-949	San Onofre                                                                                                                      	30
-950	San Pedro                                                                                                                       	30
-951	Since                                                                                                                           	30
-952	Sucre                                                                                                                           	30
-953	Tolu                                                                                                                            	30
-954	Toluviejo                                                                                                                       	30
-955	Ibague                                                                                                                          	31
-956	Alpujarra                                                                                                                       	31
-957	Alvarado                                                                                                                        	31
-958	Ambalema                                                                                                                        	31
-959	Anzoategui                                                                                                                      	31
-960	Armero (GUAYABAL)                                                                                                               	31
-961	Ataco                                                                                                                           	31
-962	Cajamarca                                                                                                                       	31
-963	Carmen De Apicala                                                                                                               	31
-964	Casabianca                                                                                                                      	31
-965	Chaparral                                                                                                                       	31
-966	Coello                                                                                                                          	31
-967	Coyaima                                                                                                                         	31
-968	Cunday                                                                                                                          	31
-969	Dolores                                                                                                                         	31
-970	Espinal                                                                                                                         	31
-971	Falan                                                                                                                           	31
-972	Flandes                                                                                                                         	31
-973	Fresno                                                                                                                          	31
-974	Guamo                                                                                                                           	31
-975	Herveo                                                                                                                          	31
-976	Honda                                                                                                                           	31
-977	Icononzo                                                                                                                        	31
-978	Lerida                                                                                                                          	31
-979	Libano                                                                                                                          	31
-980	Mariquita                                                                                                                       	31
-981	Melgar                                                                                                                          	31
-982	Murillo                                                                                                                         	31
-983	Natagaima                                                                                                                       	31
-984	Ortega                                                                                                                          	31
-985	Palocabildo                                                                                                                     	31
-986	Piedras                                                                                                                         	31
-987	Planadas                                                                                                                        	31
-988	Prado                                                                                                                           	31
-989	Purificacion                                                                                                                    	31
-990	Rioblanco                                                                                                                       	31
-991	Roncesvalles                                                                                                                    	31
-992	Rovira                                                                                                                          	31
-993	Saldaña                                                                                                                         	31
-994	San Antonio                                                                                                                     	31
-995	San Luis                                                                                                                        	31
-996	Santa Isabel                                                                                                                    	31
-997	Suarez                                                                                                                          	31
-998	Valle De S Juan                                                                                                                 	31
-999	Venadillo                                                                                                                       	31
-1000	Villahermosa                                                                                                                    	31
-1001	Villarrica                                                                                                                      	31
-1002	Cali                                                                                                                            	32
-1003	Alcala                                                                                                                          	32
-1004	Andalucia                                                                                                                       	32
-1005	Ansermanuevo                                                                                                                    	32
-1006	Argelia                                                                                                                         	32
-1007	Bolivar                                                                                                                         	32
-1008	Buenaventura                                                                                                                    	32
-1009	Buga                                                                                                                            	32
-1010	Bugalagrande                                                                                                                    	32
-1011	Caicedonia                                                                                                                      	32
-1012	Calima-Darien                                                                                                                   	32
-1013	Candelaria                                                                                                                      	32
-1014	Cartago                                                                                                                         	32
-1015	Dagua                                                                                                                           	32
-1016	El Aguila                                                                                                                       	32
-1017	El Cairo                                                                                                                        	32
-1018	El Cerrito                                                                                                                      	32
-1019	El Dovio                                                                                                                        	32
-1020	Florida                                                                                                                         	32
-1021	Ginebra                                                                                                                         	32
-1022	Guacari                                                                                                                         	32
-1023	Jamundi                                                                                                                         	32
-1024	La Cumbre                                                                                                                       	32
-1025	La Union                                                                                                                        	32
-1026	La Victoria                                                                                                                     	32
-1027	Obando                                                                                                                          	32
-1028	Palmira                                                                                                                         	32
-1029	Pradera                                                                                                                         	32
-1030	Restrepo                                                                                                                        	32
-1031	Riofrio                                                                                                                         	32
-1032	Roldanillo                                                                                                                      	32
-1033	San Pedro                                                                                                                       	32
-1034	Sevilla                                                                                                                         	32
-1035	Toro                                                                                                                            	32
-1036	Trujillo                                                                                                                        	32
-1037	Tulua                                                                                                                           	32
-1038	Ulloa                                                                                                                           	32
-1039	Versalles                                                                                                                       	32
-1040	Vijes                                                                                                                           	32
-1041	Yotoco                                                                                                                          	32
-1042	Yumbo                                                                                                                           	32
-1043	Zarzal                                                                                                                          	32
-1044	Arauca                                                                                                                          	4
-1045	Arauquita                                                                                                                       	4
-1046	Cravo Norte                                                                                                                     	4
-1047	Fortul                                                                                                                          	4
-1048	Puerto Rondon                                                                                                                   	4
-1049	Saravena                                                                                                                        	4
-1050	Tame                                                                                                                            	4
-1051	Yopal                                                                                                                           	11
-1052	Aguazul                                                                                                                         	11
-1053	Chameza                                                                                                                         	11
-1054	Hato Corozal                                                                                                                    	11
-1055	La Salina                                                                                                                       	11
-1056	Mani                                                                                                                            	11
-1057	Monterrey                                                                                                                       	11
-1058	Nunchia                                                                                                                         	11
-1059	Orocue                                                                                                                          	11
-1060	Paz De Ariporo                                                                                                                  	11
-1061	Pore                                                                                                                            	11
-1062	Recetor                                                                                                                         	11
-1063	Sabanalarga                                                                                                                     	11
-1064	Sacama                                                                                                                          	11
-1065	San Luis De Palenque                                                                                                            	11
-1066	Tamara                                                                                                                          	11
-1067	Tauramena                                                                                                                       	11
-1068	Trinidad                                                                                                                        	11
-1069	Villanueva                                                                                                                      	11
-1070	Mocoa                                                                                                                           	25
-1071	Colon                                                                                                                           	25
-1072	Orito                                                                                                                           	25
-1073	Puerto Asis                                                                                                                     	25
-1074	Puerto Caycedo                                                                                                                  	25
-1075	Puerto Guzman                                                                                                                   	25
-1076	Puerto Leguizamo                                                                                                                	25
-1077	Sibundoy                                                                                                                        	25
-1078	San Francisco                                                                                                                   	25
-1079	San Miguel                                                                                                                      	25
-1080	Santiago                                                                                                                        	25
-1081	Valle Del Guamuez                                                                                                               	25
-1082	Villagarzon                                                                                                                     	25
-1083	San Andres                                                                                                                      	27
+828	Pereira                                                                                                                         	26
+829	Apía                                                                                                                            	26
+830	Balboa                                                                                                                          	26
+831	Belén De Umbría                                                                                                                 	26
+832	Dosquebradas                                                                                                                    	26
+833	Guática                                                                                                                         	26
+834	La Celia                                                                                                                        	26
+835	La Virginia                                                                                                                     	26
+836	Marsella                                                                                                                        	26
+837	Mistrató                                                                                                                        	26
+838	Pueblo Rico                                                                                                                     	26
+839	Quinchía                                                                                                                        	26
+840	Santa Rosa De Cabal                                                                                                             	26
+841	Santuario                                                                                                                       	26
+842	Bucaramanga                                                                                                                     	28
+843	Aguada                                                                                                                          	28
+844	Albania                                                                                                                         	28
+845	Aratoca                                                                                                                         	28
+846	Barbosa                                                                                                                         	28
+847	Barichara                                                                                                                       	28
+848	Barrancabermeja                                                                                                                 	28
+849	Betulia                                                                                                                         	28
+850	Bolívar                                                                                                                         	28
+851	Cabrera                                                                                                                         	28
+852	California                                                                                                                      	28
+853	Capitanejo                                                                                                                      	28
+854	Carcasí                                                                                                                         	28
+855	Cepita                                                                                                                          	28
+856	Cerrito                                                                                                                         	28
+857	Charalá                                                                                                                         	28
+858	Charta                                                                                                                          	28
+859	Chima                                                                                                                           	28
+860	Chipatá                                                                                                                         	28
+861	Cimitarra                                                                                                                       	28
+862	Concepción                                                                                                                      	28
+863	Confines                                                                                                                        	28
+864	Contratación                                                                                                                    	28
+865	Coromoro                                                                                                                        	28
+866	Curití                                                                                                                          	28
+867	El Carmen                                                                                                                       	28
+868	El Guacamayo                                                                                                                    	28
+869	El Peñon                                                                                                                        	28
+870	El Playón                                                                                                                       	28
+871	Encino                                                                                                                          	28
+872	Enciso                                                                                                                          	28
+873	Florián                                                                                                                         	28
+874	Floridablanca                                                                                                                   	28
+875	Galan                                                                                                                           	28
+876	Gambita                                                                                                                         	28
+877	Girón                                                                                                                           	28
+878	Guaca                                                                                                                           	28
+879	Guadalupe                                                                                                                       	28
+880	Guapota                                                                                                                         	28
+881	Guavatá                                                                                                                         	28
+882	Güepsa                                                                                                                          	28
+883	Hato                                                                                                                            	28
+884	Jesús María                                                                                                                     	28
+885	Jordán                                                                                                                          	28
+886	La Belleza                                                                                                                      	28
+887	Landázuri                                                                                                                       	28
+888	La Paz                                                                                                                          	28
+889	Lebrija                                                                                                                         	28
+890	Los Santos                                                                                                                      	28
+891	Macaravita                                                                                                                      	28
+892	Málaga                                                                                                                          	28
+893	Matanza                                                                                                                         	28
+894	Mogotes                                                                                                                         	28
+895	Molagavita                                                                                                                      	28
+896	Ocamonte                                                                                                                        	28
+897	Oiba                                                                                                                            	28
+898	Onzaga                                                                                                                          	28
+899	Palmar                                                                                                                          	28
+900	Palmas Del Socorro                                                                                                              	28
+901	Páramo                                                                                                                          	28
+902	Piedecuesta                                                                                                                     	28
+903	Pinchote                                                                                                                        	28
+904	Puente Nacional                                                                                                                 	28
+905	Puerto Parra                                                                                                                    	28
+906	Puerto Wilches                                                                                                                  	28
+907	Rionegro                                                                                                                        	28
+908	Sabana De Torres                                                                                                                	28
+909	San Andrés                                                                                                                      	28
+910	San Benito                                                                                                                      	28
+911	San Gil                                                                                                                         	28
+912	San Joaquín                                                                                                                     	28
+913	San José De Miranda                                                                                                             	28
+914	San Miguel                                                                                                                      	28
+915	San Vicente De Chucurí                                                                                                          	28
+916	Santa Barbara                                                                                                                   	28
+917	Santa Helena                                                                                                                    	28
+918	Simacota                                                                                                                        	28
+919	Socorro                                                                                                                         	28
+920	Suaita                                                                                                                          	28
+921	Sucre                                                                                                                           	28
+922	Suratá                                                                                                                          	28
+923	Tona                                                                                                                            	28
+924	Valle San José                                                                                                                  	28
+925	Vélez                                                                                                                           	28
+926	Vetas                                                                                                                           	28
+927	Villanueva                                                                                                                      	28
+928	Zapatoca                                                                                                                        	28
+929	Sincelejo                                                                                                                       	29
+930	Buenavista                                                                                                                      	29
+931	Caimito                                                                                                                         	29
+932	Coloso                                                                                                                          	29
+933	Corozal                                                                                                                         	29
+934	Coveñas                                                                                                                         	29
+935	Chalan                                                                                                                          	29
+936	El Roble                                                                                                                        	29
+937	Galeras                                                                                                                         	29
+938	Guaranda                                                                                                                        	29
+939	La Unión                                                                                                                        	29
+940	Los Palmitos                                                                                                                    	29
+941	Majagual                                                                                                                        	29
+942	Morroa                                                                                                                          	29
+943	Ovejas                                                                                                                          	29
+944	Palmito                                                                                                                         	29
+945	Sampués                                                                                                                         	29
+946	San Benito Abad                                                                                                                 	29
+947	San Juan De Betulia                                                                                                             	29
+948	San Marcos                                                                                                                      	29
+949	San Onofre                                                                                                                      	29
+950	San Pedro                                                                                                                       	29
+951	Sincé                                                                                                                           	29
+952	Sucre                                                                                                                           	29
+953	Tolú                                                                                                                            	29
+954	Toluviejo                                                                                                                       	29
+955	Ibagué                                                                                                                          	30
+956	Alpujarra                                                                                                                       	30
+957	Alvarado                                                                                                                        	30
+958	Ambalema                                                                                                                        	30
+959	Anzoátegui                                                                                                                      	30
+960	Armero (GUAYABAL)                                                                                                               	30
+961	Ataco                                                                                                                           	30
+962	Cajamarca                                                                                                                       	30
+963	Carmen De Apicalá                                                                                                               	30
+964	Casabianca                                                                                                                      	30
+965	Chaparral                                                                                                                       	30
+966	Coello                                                                                                                          	30
+967	Coyaima                                                                                                                         	30
+968	Cunday                                                                                                                          	30
+969	Dolores                                                                                                                         	30
+970	Espinal                                                                                                                         	30
+971	Falan                                                                                                                           	30
+972	Flandes                                                                                                                         	30
+973	Fresno                                                                                                                          	30
+974	Guamo                                                                                                                           	30
+975	Herveo                                                                                                                          	30
+976	Honda                                                                                                                           	30
+977	Icononzo                                                                                                                        	30
+978	Lérida                                                                                                                          	30
+979	Líbano                                                                                                                          	30
+980	Mariquita                                                                                                                       	30
+981	Melgar                                                                                                                          	30
+982	Murillo                                                                                                                         	30
+983	Natagaima                                                                                                                       	30
+984	Ortega                                                                                                                          	30
+985	Palocabildo                                                                                                                     	30
+986	Piedras                                                                                                                         	30
+987	Planadas                                                                                                                        	30
+988	Prado                                                                                                                           	30
+989	Purificación                                                                                                                    	30
+990	Rioblanco                                                                                                                       	30
+991	Roncesvalles                                                                                                                    	30
+992	Rovira                                                                                                                          	30
+993	Saldaña                                                                                                                         	30
+994	San Antonio                                                                                                                     	30
+995	San Luis                                                                                                                        	30
+996	Santa Isabel                                                                                                                    	30
+997	Suárez                                                                                                                          	30
+998	Valle De S Juan                                                                                                                 	30
+999	Venadillo                                                                                                                       	30
+1000	Villahermosa                                                                                                                    	30
+1001	Villarrica                                                                                                                      	30
+1002	Cali                                                                                                                            	31
+1003	Alcalá                                                                                                                          	31
+1004	Andalucía                                                                                                                       	31
+1005	Ansermanuevo                                                                                                                    	31
+1006	Argelia                                                                                                                         	31
+1007	Bolívar                                                                                                                         	31
+1008	Buenaventura                                                                                                                    	31
+1009	Buga                                                                                                                            	31
+1010	Bugalagrande                                                                                                                    	31
+1011	Caicedonia                                                                                                                      	31
+1012	Calima-Darien                                                                                                                   	31
+1013	Candelaria                                                                                                                      	31
+1014	Cartago                                                                                                                         	31
+1015	Dagua                                                                                                                           	31
+1016	El Águila                                                                                                                       	31
+1017	El Cairo                                                                                                                        	31
+1018	El Cerrito                                                                                                                      	31
+1019	El Dovio                                                                                                                        	31
+1020	Florida                                                                                                                         	31
+1021	Ginebra                                                                                                                         	31
+1022	Guacarí                                                                                                                         	31
+1023	Jamundí                                                                                                                         	31
+1024	La Cumbre                                                                                                                       	31
+1025	La Unión                                                                                                                        	31
+1026	La Victoria                                                                                                                     	31
+1027	Obando                                                                                                                          	31
+1028	Palmira                                                                                                                         	31
+1029	Pradera                                                                                                                         	31
+1030	Restrepo                                                                                                                        	31
+1031	Riofrío                                                                                                                         	31
+1032	Roldanillo                                                                                                                      	31
+1033	San Pedro                                                                                                                       	31
+1034	Sevilla                                                                                                                         	31
+1035	Toro                                                                                                                            	31
+1036	Trujillo                                                                                                                        	31
+1037	Tuluá                                                                                                                           	31
+1038	Ulloa                                                                                                                           	31
+1039	Versalles                                                                                                                       	31
+1040	Vijes                                                                                                                           	31
+1041	Yotoco                                                                                                                          	31
+1042	Yumbo                                                                                                                           	31
+1043	Zarzal                                                                                                                          	31
+1044	Arauca                                                                                                                          	3
+1045	Arauquita                                                                                                                       	3
+1046	Cravo Norte                                                                                                                     	3
+1047	Fortul                                                                                                                          	3
+1048	Puerto Rondón                                                                                                                   	3
+1049	Saravena                                                                                                                        	3
+1050	Tame                                                                                                                            	3
+1051	Yopal                                                                                                                           	10
+1052	Aguazul                                                                                                                         	10
+1053	Chameza                                                                                                                         	10
+1054	Hato Corozal                                                                                                                    	10
+1055	La Salina                                                                                                                       	10
+1056	Maní                                                                                                                            	10
+1057	Monterrey                                                                                                                       	10
+1058	Nunchía                                                                                                                         	10
+1059	Orocué                                                                                                                          	10
+1060	Paz De Ariporo                                                                                                                  	10
+1061	Pore                                                                                                                            	10
+1062	Recetor                                                                                                                         	10
+1063	Sabanalarga                                                                                                                     	10
+1064	Sácama                                                                                                                          	10
+1065	San Luis De Palenque                                                                                                            	10
+1066	Támara                                                                                                                          	10
+1067	Tauramena                                                                                                                       	10
+1068	Trinidad                                                                                                                        	10
+1069	Villanueva                                                                                                                      	10
+1070	Mocoa                                                                                                                           	24
+1071	Colon                                                                                                                           	24
+1072	Orito                                                                                                                           	24
+1073	Puerto Asís                                                                                                                     	24
+1074	Puerto Caycedo                                                                                                                  	24
+1075	Puerto Guzmán                                                                                                                   	24
+1076	Puerto Leguízamo                                                                                                                	24
+1077	Sibundoy                                                                                                                        	24
+1078	San Francisco                                                                                                                   	24
+1079	San Miguel                                                                                                                      	24
+1080	Santiago                                                                                                                        	24
+1081	Valle Del Guamuez                                                                                                               	24
+1082	Villagarzon                                                                                                                     	24
+1083	San Andrés                                                                                                                      	27
 1084	Providencia                                                                                                                     	27
-1085	Leticia                                                                                                                         	2
-1086	Puerto Nariño                                                                                                                   	2
-1087	Puerto Inirida                                                                                                                  	16
-1088	San Jose Del Guaviare                                                                                                           	18
-1089	Calamar                                                                                                                         	18
-1090	El Retorno                                                                                                                      	18
-1091	Miraflores                                                                                                                      	18
-1092	Mitu                                                                                                                            	32
+1085	Leticia                                                                                                                         	1
+1086	Puerto Nariño                                                                                                                   	1
+1087	Puerto Inírida                                                                                                                  	16
+1088	San José Del Guaviare                                                                                                           	17
+1089	Calamar                                                                                                                         	17
+1090	El Retorno                                                                                                                      	17
+1091	Miraflores                                                                                                                      	17
+1092	Mitú                                                                                                                            	32
 1093	Caruru                                                                                                                          	32
 1094	Taraira                                                                                                                         	32
-1095	Puerto Carreño                                                                                                                  	34
-1096	La Primavera                                                                                                                    	34
-1097	Santa Rosalia                                                                                                                   	34
-1098	Cumaribo                                                                                                                        	34
-1099	Nacional                                                                                                                        	34
-1100	Regional                                                                                                                        	35
-1101	Departamental                                                                                                                   	35
+1095	Puerto Carreño                                                                                                                  	33
+1096	La Primavera                                                                                                                    	33
+1097	Santa Rosalía                                                                                                                   	33
+1098	Cumaribo                                                                                                                        	33
 \.
 
 
@@ -2574,8 +2558,6 @@ COPY departaments ("ID_departament", departament_name, "ID_Territorial_Division"
 31	Valle del Cauca                                                                                                                 	5
 32	Vaupés                                                                                                                          	6
 33	Vichada                                                                                                                         	6
-34	Nacional                                                                                                                        	7
-35	Regional                                                                                                                        	7
 \.
 
 
@@ -2715,7 +2697,7 @@ COPY frequency_ranks ("ID_frequency_ranks", frequency_ranks_name, "ID_frequency_
 -- Data for Name: operators; Type: TABLE DATA; Schema: public; Owner: drupal
 --
 
-COPY operators ("ID_operators", operators_name) FROM stdin;
+COPY operators ("ID_Operator", operators_name) FROM stdin;
 1	Emcali                                                                                                                          
 2	Une                                                                                                                             
 3	Tigo                                                                                                                            
@@ -2846,18 +2828,10 @@ COPY services ("ID_service", services_name, services_description) FROM stdin;
 
 
 --
--- Data for Name: services_by_channel_assignation; Type: TABLE DATA; Schema: public; Owner: drupal
---
-
-COPY services_by_channel_assignation ("ID_Services_by_channel_assignation", "ID_Channels_assignations", "ID_Services") FROM stdin;
-\.
-
-
---
 -- Data for Name: services_by_frequency_ranks; Type: TABLE DATA; Schema: public; Owner: drupal
 --
 
-COPY services_by_frequency_ranks ("ID_Service_by_Frequency_Rank", "ID_Service", "ID_frequency_ranks") FROM stdin;
+COPY services_by_frequency_ranks ("ID_Service_by_Frequency_Rank", "ID_service", "ID_frequency_ranks") FROM stdin;
 1107	2	1
 1108	3	1
 1109	10	1
@@ -3971,7 +3945,7 @@ COPY services_by_frequency_ranks ("ID_Service_by_Frequency_Rank", "ID_Service", 
 -- Data for Name: services_by_operator; Type: TABLE DATA; Schema: public; Owner: drupal
 --
 
-COPY services_by_operator ("ID_Services_by_Operator", "ID_Operator", "ID_Service") FROM stdin;
+COPY services_by_operator ("ID_Services_by_Operator", "ID_Operator", "ID_service") FROM stdin;
 1	1	1
 2	1	2
 3	1	3
@@ -4170,42 +4144,7 @@ COPY territorial_divisions ("ID_Territorial_Division", "Territorial_Division_Nam
 4	DIRECCIÓN TERRITORIAL BUCARAMANGA                                                                                               
 5	DIRECCIÓN TERRITORIAL CALI                                                                                                      
 6	DIRECCION GENERAL DE CONTROL Y VIGILANCIA MONITORA EL CERRITO                                                                   
-7	NACIONAL                                                                                                                        
 \.
-
-
---
--- Name: Channel_Assignations_National_pkey; Type: CONSTRAINT; Schema: public; Owner: drupal; Tablespace: 
---
-
-ALTER TABLE ONLY "channel_Assignations_National"
-    ADD CONSTRAINT "Channel_Assignations_National_pkey" PRIMARY KEY ("ID_Channels_Assignations");
-
-
---
--- Name: Channel_Assignations_by_City_pkey; Type: CONSTRAINT; Schema: public; Owner: drupal; Tablespace: 
---
-
-ALTER TABLE ONLY "channel_Assignations_by_City"
-    ADD CONSTRAINT "Channel_Assignations_by_City_pkey" PRIMARY KEY ("ID_Channels_Assignations");
-
-
---
--- Name: Channel_Assignations_by_Departament_pkey; Type: CONSTRAINT; Schema: public; Owner: drupal; Tablespace: 
---
-
-ALTER TABLE ONLY "channel_Assignations_by_Departament"
-    ADD CONSTRAINT "Channel_Assignations_by_Departament_pkey" PRIMARY KEY ("ID_Channels_Assignations");
-
-
---
--- Name: Primary_Key_assignations_channels; Type: CONSTRAINT; Schema: public; Owner: drupal; Tablespace: 
---
-
-ALTER TABLE ONLY "channel_Assignations"
-    ADD CONSTRAINT "Primary_Key_assignations_channels" PRIMARY KEY (id_channels_assignations);
-
-ALTER TABLE "channel_Assignations" CLUSTER ON "Primary_Key_assignations_channels";
 
 
 --
@@ -4214,22 +4153,6 @@ ALTER TABLE "channel_Assignations" CLUSTER ON "Primary_Key_assignations_channels
 
 ALTER TABLE ONLY services_by_operator
     ADD CONSTRAINT "Primary_Key_services_by_operator" PRIMARY KEY ("ID_Services_by_Operator");
-
-
---
--- Name: Services_by_channel_assignation_pkey; Type: CONSTRAINT; Schema: public; Owner: drupal; Tablespace: 
---
-
-ALTER TABLE ONLY services_by_channel_assignation
-    ADD CONSTRAINT "Services_by_channel_assignation_pkey" PRIMARY KEY ("ID_Services_by_channel_assignation");
-
-
---
--- Name: channel_Assignations_by_Territorial_Division_pkey; Type: CONSTRAINT; Schema: public; Owner: drupal; Tablespace: 
---
-
-ALTER TABLE ONLY "channel_Assignations_by_Territorial_Division"
-    ADD CONSTRAINT "channel_Assignations_by_Territorial_Division_pkey" PRIMARY KEY ("ID_Channels_Assignations_by_Territorial_Division");
 
 
 --
@@ -4261,7 +4184,7 @@ ALTER TABLE ONLY frequency_ranks
 --
 
 ALTER TABLE ONLY operators
-    ADD CONSTRAINT primary_ket_operators PRIMARY KEY ("ID_operators");
+    ADD CONSTRAINT primary_ket_operators PRIMARY KEY ("ID_Operator");
 
 
 --
@@ -4270,6 +4193,14 @@ ALTER TABLE ONLY operators
 
 ALTER TABLE ONLY frequency_bands
     ADD CONSTRAINT primary_key_frequency_bands PRIMARY KEY ("ID_frequency_bands");
+
+
+--
+-- Name: primary_keys_channels_assignations; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY channels_assignations
+    ADD CONSTRAINT primary_keys_channels_assignations PRIMARY KEY (id_channels_assignations);
 
 
 --
@@ -4305,10 +4236,31 @@ ALTER TABLE ONLY territorial_divisions
 
 
 --
--- Name: channel_assignations_id_channels_assignations_index; Type: INDEX; Schema: public; Owner: drupal; Tablespace: 
+-- Name: channel_assignations_national_id_channels_assignations_index; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
 --
 
-CREATE INDEX channel_assignations_id_channels_assignations_index ON "channel_Assignations" USING btree (id_channels_assignations);
+CREATE INDEX channel_assignations_national_id_channels_assignations_index ON channel_assignations_national USING btree (id_channels_assignations);
+
+
+--
+-- Name: channel_assignations_per_city_id_channels_assignations_index; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX channel_assignations_per_city_id_channels_assignations_index ON channel_assignations_per_city USING btree (id_channels_assignations);
+
+
+--
+-- Name: channel_assignations_per_departament_id_channels_assignations_i; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX channel_assignations_per_departament_id_channels_assignations_i ON channel_assignations_per_departament USING btree (id_channels_assignations);
+
+
+--
+-- Name: channels_assignations_id_channels_assignations_index; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX channels_assignations_id_channels_assignations_index ON channels_assignations USING btree (id_channels_assignations);
 
 
 --
@@ -4343,7 +4295,7 @@ CREATE INDEX frequency_ranks_id_frequency_ranks_index ON frequency_ranks USING b
 -- Name: operators_id_operators_index; Type: INDEX; Schema: public; Owner: drupal; Tablespace: 
 --
 
-CREATE INDEX operators_id_operators_index ON operators USING btree ("ID_operators");
+CREATE INDEX operators_id_operators_index ON operators USING btree ("ID_Operator");
 
 
 --
@@ -4351,94 +4303,6 @@ CREATE INDEX operators_id_operators_index ON operators USING btree ("ID_operator
 --
 
 CREATE INDEX services_id_service_index ON services USING btree ("ID_service");
-
-
---
--- Name: Channel_Assignations_National_ID_Channels_Assignations_fkey; Type: FK CONSTRAINT; Schema: public; Owner: drupal
---
-
-ALTER TABLE ONLY "channel_Assignations_National"
-    ADD CONSTRAINT "Channel_Assignations_National_ID_Channels_Assignations_fkey" FOREIGN KEY ("ID_Channels_Assignations") REFERENCES "channel_Assignations"(id_channels_assignations);
-
-
---
--- Name: Channel_Assignations_by_City_ID_Channels_Assignations_fkey; Type: FK CONSTRAINT; Schema: public; Owner: drupal
---
-
-ALTER TABLE ONLY "channel_Assignations_by_City"
-    ADD CONSTRAINT "Channel_Assignations_by_City_ID_Channels_Assignations_fkey" FOREIGN KEY ("ID_Channels_Assignations") REFERENCES "channel_Assignations"(id_channels_assignations);
-
-
---
--- Name: Channel_Assignations_by_City_ID_Cities_fkey; Type: FK CONSTRAINT; Schema: public; Owner: drupal
---
-
-ALTER TABLE ONLY "channel_Assignations_by_City"
-    ADD CONSTRAINT "Channel_Assignations_by_City_ID_Cities_fkey" FOREIGN KEY ("ID_Cities") REFERENCES cities("ID_cities");
-
-
---
--- Name: Channel_Assignations_by_Departame_ID_Channels_Assignations_fkey; Type: FK CONSTRAINT; Schema: public; Owner: drupal
---
-
-ALTER TABLE ONLY "channel_Assignations_by_Departament"
-    ADD CONSTRAINT "Channel_Assignations_by_Departame_ID_Channels_Assignations_fkey" FOREIGN KEY ("ID_Channels_Assignations") REFERENCES "channel_Assignations"(id_channels_assignations);
-
-
---
--- Name: Channel_Assignations_by_Departament_ID_Departament_fkey; Type: FK CONSTRAINT; Schema: public; Owner: drupal
---
-
-ALTER TABLE ONLY "channel_Assignations_by_Departament"
-    ADD CONSTRAINT "Channel_Assignations_by_Departament_ID_Departament_fkey" FOREIGN KEY ("ID_Departament") REFERENCES departaments("ID_departament");
-
-
---
--- Name: Services_by_channel_assignation_ID_Channels_assignations_fkey; Type: FK CONSTRAINT; Schema: public; Owner: drupal
---
-
-ALTER TABLE ONLY services_by_channel_assignation
-    ADD CONSTRAINT "Services_by_channel_assignation_ID_Channels_assignations_fkey" FOREIGN KEY ("ID_Channels_assignations") REFERENCES "channel_Assignations"(id_channels_assignations);
-
-
---
--- Name: Services_by_channel_assignation_ID_Services_fkey; Type: FK CONSTRAINT; Schema: public; Owner: drupal
---
-
-ALTER TABLE ONLY services_by_channel_assignation
-    ADD CONSTRAINT "Services_by_channel_assignation_ID_Services_fkey" FOREIGN KEY ("ID_Services") REFERENCES services("ID_service");
-
-
---
--- Name: channel_Assignations_by_Territoria_ID_Territorial_Division_fkey; Type: FK CONSTRAINT; Schema: public; Owner: drupal
---
-
-ALTER TABLE ONLY "channel_Assignations_by_Territorial_Division"
-    ADD CONSTRAINT "channel_Assignations_by_Territoria_ID_Territorial_Division_fkey" FOREIGN KEY ("ID_Territorial_Division") REFERENCES territorial_divisions("ID_Territorial_Division");
-
-
---
--- Name: channel_assignations_id_channels_fkey; Type: FK CONSTRAINT; Schema: public; Owner: drupal
---
-
-ALTER TABLE ONLY "channel_Assignations"
-    ADD CONSTRAINT channel_assignations_id_channels_fkey FOREIGN KEY (id_channels) REFERENCES channels("ID_channels");
-
-
---
--- Name: channel_assignations_id_city_fkey; Type: FK CONSTRAINT; Schema: public; Owner: drupal
---
-
-ALTER TABLE ONLY "channel_Assignations"
-    ADD CONSTRAINT channel_assignations_id_city_fkey FOREIGN KEY (id_city) REFERENCES cities("ID_cities");
-
-
---
--- Name: channels_assigment_by_operator; Type: FK CONSTRAINT; Schema: public; Owner: drupal
---
-
-ALTER TABLE ONLY "channel_Assignations"
-    ADD CONSTRAINT channels_assigment_by_operator FOREIGN KEY (id_operators) REFERENCES operators("ID_operators");
 
 
 --
@@ -4454,7 +4318,7 @@ ALTER TABLE ONLY channels
 --
 
 ALTER TABLE ONLY cities
-    ADD CONSTRAINT cities_by_departament FOREIGN KEY ("ID_departaments") REFERENCES departaments("ID_departament");
+    ADD CONSTRAINT cities_by_departament FOREIGN KEY ("ID_departament") REFERENCES departaments("ID_departament");
 
 
 --
@@ -4486,7 +4350,7 @@ ALTER TABLE ONLY services_by_frequency_ranks
 --
 
 ALTER TABLE ONLY services_by_frequency_ranks
-    ADD CONSTRAINT "services_by_frequency_ranks_ID_Service_fkey" FOREIGN KEY ("ID_Service") REFERENCES services("ID_service");
+    ADD CONSTRAINT "services_by_frequency_ranks_ID_Service_fkey" FOREIGN KEY ("ID_service") REFERENCES services("ID_service");
 
 
 --
@@ -4494,7 +4358,7 @@ ALTER TABLE ONLY services_by_frequency_ranks
 --
 
 ALTER TABLE ONLY services_by_operator
-    ADD CONSTRAINT "services_by_operator_ID_Operator_fkey" FOREIGN KEY ("ID_Operator") REFERENCES operators("ID_operators");
+    ADD CONSTRAINT "services_by_operator_ID_Operator_fkey" FOREIGN KEY ("ID_Operator") REFERENCES operators("ID_Operator");
 
 
 --
@@ -4502,7 +4366,7 @@ ALTER TABLE ONLY services_by_operator
 --
 
 ALTER TABLE ONLY services_by_operator
-    ADD CONSTRAINT "services_by_operator_ID_Services_fkey" FOREIGN KEY ("ID_Service") REFERENCES services("ID_service");
+    ADD CONSTRAINT "services_by_operator_ID_Services_fkey" FOREIGN KEY ("ID_service") REFERENCES services("ID_service");
 
 
 --

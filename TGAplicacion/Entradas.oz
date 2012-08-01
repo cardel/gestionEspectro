@@ -175,7 +175,6 @@ define
          [] 'OperatorsOfInput' then
             O = {String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}      
          [] 'ChannelSeparation' then
-            skip
             Sep = {String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
          [] 'PartialAssignation' then
             local

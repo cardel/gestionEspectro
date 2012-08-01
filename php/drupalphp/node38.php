@@ -18,7 +18,8 @@
 ?>
 <form action="/site/?q=node/38" method="post">
 	<p class='estilo'>Selección geográfica</p>
-
+	<div id="tipoAsignacion" style="font-size:14px; font-weight:bold;">La asignación es a nivel nacional</div>
+	<br/>
 	Usted puede seleccionar en que lugar se va realizar el proceso de asignación del espectro:
 
 	<ul>
@@ -27,7 +28,6 @@
 		<li>A nivel departamental seleccione el departamento dentro de la región especifíca</li>
 		<li>A nivel local seleccione el municipio dentro del departamento especifíco</li>
 	</ul>	
-
 	<script language="javascript">
 	function borrarDepartamentos(){
 		$("#departamentos").html(" ");      
@@ -47,6 +47,7 @@
 			$("#territorialDivision").html(data);
 			$("#departamentos").html("");
 			$("#municipios").html("");
+			$("#tipoAsignacion").html("La asignación es a nivel regional");
 		});  
 	}
 	</script>	
@@ -59,6 +60,8 @@
 		$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'departamentos', idConsulta: selector }, function(data){
 			$("#departamentos").html(data);
 			$("#municipios").html("");
+			$("#tipoAsignacion").html("La asignación es a nivel departamental");
+
 		});  
 	}
 	</script>
@@ -70,6 +73,8 @@
 		var selector = $('#selectDepartaments').val();
 		$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'municipios', idConsulta: selector }, function(data){
 			$("#municipios").html(data);
+			$("#tipoAsignacion").html("La asignación es a nivel municipal");
+
 		});         
 	}
 	</script>
@@ -77,6 +82,7 @@
 	<div id="municipios"></div>	
 		
 	<p class='estilo'>Selección banda</p>
+	Por favor seleccione una banda y posteriormente un rango donde desea generar el requerimiento.
 
 	<script language="javascript">
 	function consultarBandas(){    
@@ -97,10 +103,10 @@
 		});   
 		$("#serviciosBanda").html(" "); 
 		$("#numCanales").html(" ");  
-		$("#botonRequerimientos").css("display", "none");     
+		$("#botonRequerimientos").css("display", "none");  
+		$("#parametrosRango").css("display", "none");   
 	}
 	</script>
-
 	<div id="rangos"></div>	
 
 
@@ -110,6 +116,10 @@
 		$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'numCanalesEnBanda', idConsulta: selector }, function(data){
 			$("#numCanales").html(data);
 		});	
+		$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'numCanalesEnBandaForm', idConsulta: selector }, function(data){
+			$("#numeroCanales").html(data);
+		});		
+		
 		$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'serviciosEnBanda', idConsulta: selector }, function(data){
 			$("#serviciosBanda").html(data);
 		});  
@@ -117,23 +127,25 @@
 			$("#topeOperadorBanda").html(data);
 		});    
 		
+		$("#parametrosRango").css("display", "block");
 		$("#botonRequerimientos").css("display", "block");
 	}
-	
-	</script>
 
-	<table border="0">
-	<tr>
-	<td>Número de canales en la banda:</td><td id="numCanales"></td>
-	</tr>
-	<tr>
-	<td>Servicios en la banda:</td><td id="serviciosBanda"></td>
-	</tr>
-	<tr>
-	<td>Tope por operador en la banda:</td><td id="topeOperadorBanda"></td>
-	</tr>
-	</table>
-	
+	</script>
+	<div id="numeroCanales"></div>
+	<div id="parametrosRango" style="display:none;">
+		<table border="0">
+		<tr>
+		<td>Número de canales en la banda:</td><td id="numCanales"></td>
+		</tr>
+		<tr>
+		<td>Servicios en la banda:</td><td id="serviciosBanda"></td>
+		</tr>
+		<tr>
+		<td>Tope por operador en la banda:</td><td id="topeOperadorBanda"></td>
+		</tr>
+		</table>
+	</div>
 	<script type="text/javascript">
 	function crearRequerimiento()
 	{
@@ -222,7 +234,6 @@
 	</fieldset>
 	<div class="button_div">    
 		<input type="button" id="btnAgregar" name="btnAgregar" value="Agregar" class="buttons_aplicar" onclick="agregarFila(document.getElementById('cant_campos'));" />
-		<input type="submit" id="btnAgregar" name="btnAgregar" value="Guardar" class="buttons_OK" />
 	</div>
 	<fieldset class="estiloFormFieldset">
 		<legend class="estiloFormLeyenda">
@@ -230,17 +241,20 @@
 		</legend>
 		<div class="clear"></div>
 		<div id="form3" class="form-horiz">
-		<table width="100%" id="tblDetalle" class="listado">
-			<thead>
-				<tr>
-					<th>Operador</th>
-					<th>Número de canales requeridos</th>
-					<th>Eliminar</th>
-				</tr>
-			</thead>
-			<tbody id="tbDetalle">
-			</tbody>
-		</table>
+			<table width="100%" id="tblDetalle" class="listado">
+				<thead>
+					<tr>
+						<th>Operador</th>
+						<th>Número de canales requeridos</th>
+						<th>Eliminar</th>
+					</tr>
+				</thead>
+				<tbody id="tbDetalle">
+				</tbody>
+			</table>
+			<div class="button_div">  
+				<input type="submit" id="btnAgregar" name="btnAgregar" value="Enviar" class="buttons_OK" />
+			</div>
 		</div>    
 	</fieldset>
 	</div>
@@ -255,26 +269,100 @@
 		for($i=0; $i<$numeroCampos; $i++)
 		{
 			$auxOp = $_POST["operador_".$i];
+			$auxReq = $_POST["numRequerido_".$i];
 			
-			if($auxOP != null)
+			if(!(empty($auxOp) || empty($auxReq)))
 			{
-				$operadores[$i]=$auxOp;			
-				$auxReq = $_POST["numRequerido_".$i];
+				$operadores[$i]=$auxOp;		
 				$requerimientos[$i]=$auxReq;			
 			}
 
 		}
-		echo "<br/>numeroCampos<br/>";
-		echo $numeroCampos;
-		echo "Operadores<br/>";
-		print_r($operadores);
-		echo "Requerimientos<br/>";
-		print_r($requerimientos);		
 		
-		$divisionTerritorial = $_POST["selectTerritorialDivision"];
-		$departamento = $_POST["selectDepartaments"];
-		$municipio = $_POST["selectCities"];
-		
+		if(!(empty($requerimientos) || empty($operadores)))
+		{
+			$divisionTerritorial = $_POST["selectTerritorialDivision"];
+			$departamento = $_POST["selectDepartaments"];
+			$municipio = $_POST["selectCities"];
+			$rangoSeleccionado = $_POST["selectRanks"];
+			$bandaSeleccionada = $_POST["selectBands"];
+			$numeroCanales = $_POST["numeroCanales"];
+			$tipoAsignacion;
+			$idAsignacion;
+			
+			if(empty($divisionTerritorial))
+			{
+					$tipoAsignacion=0;
+					$idAsignacion=0;
+			}
+			else
+			{
+					if(empty($departamento))
+					{
+						$tipoAsignacion=1;
+						$idAsignacion=$divisionTerritorial;						
+					}
+					else
+					{
+							if(empty($municipio))
+							{
+								$tipoAsignacion=2;
+								$idAsignacion=$departamento;									
+							}
+							else
+							{
+								$tipoAsignacion=3;
+								$idAsignacion=$municipio;									
+							}
+					}
+			}
+			
+			//Crear XML
+			$et01 = "\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+			$et02 = "<instance>\n";
+			$et03 = "\t<presentation nbSolutions=\"?\" format=\"XCSP 2.1\">\n\t\tRepresentacion entrada de problema gestion espectro radioelectrico\n\t</presentation>\n";
+			$et04 = "\t\t<dict>\n";
+			
+			$et05 = "\t\t\t<entry key=\"GeograficAssignationType\">\n";
+			$et06 = "\t\t\t\t<i>".$tipoAsignacion."</i>\n";
+			$et07 = "\t\t\t</entry>\n";
+			
+			$et08 = "\t\t\t<entry key=\"GeograficAssignationID\">\n";
+			$et09 = "\t\t\t\t<i>".$idAsignacion."</i>\n";
+			$et10 = "\t\t\t</entry>\n";			
+
+			$et11 = "\t\t\t<entry key=\"FrecuencyBand\">\n";
+			$et12 = "\t\t\t\t<i>".$rangoSeleccionado."</i>\n";
+			$et13 = "\t\t\t</entry>\n";
+			
+			$et14 = "\t\t\t<entry key=\"EspecificBand\">\n";
+			$et15 = "\t\t\t\t<i>".$bandaSeleccionada."</i>\n";
+			$et16 = "\t\t\t</entry>\n";	
+
+			$et17 = "\t\t\t<entry key=\"NumberChannels\">\n";
+			$et18 = "\t\t\t\t<i>".$numeroCanales."</i>\n";
+			$et19 = "\t\t\t</entry>\n";	
+			
+			$et20 = "\t\t\t<entry key=\"Operators\">\n";
+			$et21 = "\t\t\t\t<i>".sizeof($operadores)."</i>\n";
+			$et22 = "\t\t\t</entry>\n";	
+			
+			$et23 = "\t\t\t<entry key=\"OperatorsOfInput\">\n";
+			$et24 = "\t\t\t\t<i>".sizeof($operadores)."</i>\n";
+			$et25 = "\t\t\t</entry>\n";	
+			
+			$et26 = "\t\t\t<entry key=\"ChannelSeparation\">\n";
+			$et27 = "\t\t\t\t<i>".$bandaSeleccionada."</i>\n";
+			$et28 = "\t\t\t</entry>\n";		
+			
+			echo "<pre name=\"code\" class=\"xml:nogutter:nocontrols\">";
+			echo $et01.$et02.$et03.$et04.$et05.$et06.$et07.$et08.$et09.$et10.$et11.$et12.$et13.$et14.$et15.$et16.$et17.$et18.$et19.$et20.$et21.$et22.$et23.$et24.$et25.$et26.$et27.$et28;	
+			echo "</pre>";	
+		}
+		else
+		{
+				echo "<script language=\"javascript\">alert(\"Los requerimientos están vacios, por favor ingrese por lo menos uno\");</script>";
+		}
 	}
 
 ?>
