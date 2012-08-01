@@ -150,15 +150,15 @@
 	function crearRequerimiento()
 	{
 		$("#formulario").css("display", "block");
-		$('#selectBands').attr('disabled','disabled');
-		$('#selectRanks').attr('disabled','disabled');
-		$('#selectTerritorialDivision').attr('disabled','disabled');
-		$('#selectDepartaments').attr('disabled','disabled');
-		$('#selectCities').attr('disabled','disabled');
+		//$('#selectBands').attr('disabled','disabled');
+		//$('#selectRanks').attr('disabled','disabled');
+		//$('#selectTerritorialDivision').attr('disabled','disabled');
+		//$('#selectDepartaments').attr('disabled','disabled');
+		//$('#selectCities').attr('disabled','disabled');
 		
-		$("#enlaceDivisionTerritorial").css("display", "none");
-		$("#enlaceDepartamentos").css("display", "none");
-		$("#enlaceMunicipios").css("display", "none");
+		//$("#enlaceDivisionTerritorial").css("display", "none");
+		//$("#enlaceDepartamentos").css("display", "none");
+		//$("#enlaceMunicipios").css("display", "none");
 		
 		$("#botonReq").attr('disabled','disabled');
 		var selector = $('#selectRanks').val();
@@ -223,15 +223,15 @@
 		<p class='estilo'>Creación requerimientos</p>
 		<input type="hidden" id="cant_campos" name="cant_campos" value="0" />
 		<input type="hidden" id="enviar" name="enviar" value="1" />
-	<fieldset class="estiloFormFieldset">
-		<legend class="estiloFormLeyenda">Gestión de requerimiento</legend>
-		<div class="top">
-		<label class="estiloFormLabel" for="numeroCanales">Seleccione operador:</label>
-			<div id="selectorOperator" class="div_texbox"></div>
-		<label class="estiloFormLabel" for="numeroCanales">Número de canales requeridos:</label>
-		 <div class="div_texbox"><input type="text" id="numeroCanales" name="numeroCanales" value=0 class="textbox" /></div>
-		</div>
-	</fieldset>
+		<fieldset class="estiloFormFieldset">
+			<legend class="estiloFormLeyenda">Gestión de requerimiento</legend>
+			<div class="top">
+			<label class="estiloFormLabel" for="numeroCanales">Seleccione operador:</label>
+				<div id="selectorOperator" class="div_texbox"></div>
+			<label class="estiloFormLabel" for="numeroCanales">Número de canales requeridos:</label>
+			 <div class="div_texbox"><input type="text" id="numeroCanales" name="numeroCanales" value=0 class="textbox" /></div>
+			</div>
+		</fieldset>
 	<div class="button_div">    
 		<input type="button" id="btnAgregar" name="btnAgregar" value="Agregar" class="buttons_aplicar" onclick="agregarFila(document.getElementById('cant_campos'));" />
 	</div>
@@ -258,7 +258,7 @@
 		</div>    
 	</fieldset>
 	</div>
-
+</form>
 <?php
 	if( $_POST["enviar"]==1)
 	{
