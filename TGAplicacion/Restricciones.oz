@@ -71,13 +71,13 @@ define
    %%---------------------------------------------------------------
 
   fun{GenerarAsignacion MantenerAsignacionesActuales NoConsiderarTope NoConsiderarSeparacion NumeroOperadorPorCanal}
-  
+
       if NoConsiderarSeparacion == 1 then
 			Sep= 0
 	  else
 			Sep = Entradas.sep %Separacion
 	  end
-	  
+  
       proc{$ ?Solucion}
          local
             %%La matriz de entrada esta por filas, para facilitar las operaciones se requiere trasponerla
@@ -86,8 +86,6 @@ define
             R = NumeroOperadorPorCanal %Numero de operadores por canal
             CAC = MantenerAsignacionesActuales %Mantener asignacion actual de canales que solicitan
             ECC = {FD.tuple estadoCanales C 0#1} %Define si un canal esta ocupado o no
-            
-
          in
             %%Definir
 
@@ -102,13 +100,13 @@ define
             Bco = {Tuple.make asignacion N}  
             {For 1 N 1 proc {$ I} Bco.I = {FD.tuple {Label Bci.I} C 0#1} end}
             Solucion.2=Bco
-            
+    
             %%Matriz por columnas
             BcoT = {TrasponerMatrizTuplas Bco}
             %%---------------------------------------------------------------------------
             %% Restricciones
             %%----------------------------------------------------------------------------
-            
+     
             %%Se mantiene asignacion para operadores que solicitan canales si 
             if CAC == 1 then
                {For 1 N 1 
@@ -125,7 +123,7 @@ define
                 end
                }
             end
-           
+ 
             %%Todo operador que no solicita conserva asignación
             {For 1 N 1 
              proc{$ I}
@@ -138,7 +136,7 @@ define
                 end
              end
             }
-           
+ 
             %%Maximo R operadores por canal excepto o1 y o2 que son inutil y reservado
             {For 1 C 1
              proc{$ I}
@@ -197,8 +195,6 @@ define
                 end
                }
             end
-
-            
             %%Topes legales operadores
 
             {ForAll InOP
@@ -206,10 +202,10 @@ define
                 {FD.sum Bco.I '=<:' Tope-Apo.I}
              end
             }
+
             %%------------------------------------------------------------
             %%  ESTRATEGIAS DE BUSQUEDA
             %%-------------------------------------------------------------
-
             case EstrategiaBusqueda
             of 1 then
                {AsignarAlInicioDeLaBandaEnOrden Bco}

@@ -40,6 +40,18 @@ Representacion entrada de problema gestion espectro radioelectrico
         </i>
       </tuple>
     </entry>
+	 <entry key="PartialAssignation">
+		<tuple>
+			<i>
+				<entry key="5">
+					<i>0</i>
+				</entry>
+				<entry key="6">
+					<i>0</i>
+				</entry>
+			</i>	
+		</tuple>
+	</entry>
     <entry key="AssignationChannel">
       <tuple>
         <i>

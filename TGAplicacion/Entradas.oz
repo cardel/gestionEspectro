@@ -232,7 +232,6 @@ define
             end
          [] 'MaximumOperatorChannels' then
             Tope={String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
-
          [] 'GeograficAssignationType' then
             GeograficAssignationType={String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
          [] 'GeograficAssignationID' then
