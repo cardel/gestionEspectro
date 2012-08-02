@@ -29,7 +29,6 @@ export
    geograficAssignationID:GeograficAssignationID
    bandaDeFrecuencia:BandaDeFrecuencia
    bandaEspecifica:BandaEspecifica
-   servicio:Servicio
 define
 
    %%---------------------------------------------------
@@ -70,11 +69,9 @@ define
    %ID de Banda especifica
    BandaEspecifica
 
-   %Tipo de servicio
-   Servicio
-   
    %%Estrategia de busqueda
    Estrategia
+   
    %%Numero de canales
    C
 
@@ -244,31 +241,7 @@ define
             BandaDeFrecuencia={String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
          [] 'EspecificBand' then
             BandaEspecifica={String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
-         [] 'Services' then
-            local
-               ListaEtiquetas
-            in
-
-               ListaEtiquetas = {List.make {Length DefinicionVariable.children.1.children}}
-               {List.forAllInd DefinicionVariable.children.1.children
-                proc{$ I P}
-                   {Nth ListaEtiquetas I} = {String.toInt {AtomToString P.alist.key}}
-                end}
-               Servicio = {Record.make serviciosPorOperador ListaEtiquetas}
-               % %Como el orden es el mismo se puede llenar directamente
-
-               {List.forAllInd DefinicionVariable.children.1.children
-                proc{$ I P}
-                   Servicio.{String.toInt {VirtualString.toString P.alist.key}} = {Tuple.make {VirtualString.toAtom P.alist.key} {Length P.children.1.children.1.children.1.children}}
-                    
-                   {List.forAllInd P.children.1.children.1.children.1.children
-                    proc{$ I T}
-                       Servicio.{String.toInt {VirtualString.toString P.alist.key}}.I =  {String.toInt {List.filter {VirtualString.toString T.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
-                     end
-                   }
-                 end}
-            end
-         else
+                  else
             {System.showInfo "Input read error, "#NombreVariable#" variable not exist!"}
             {Application.exit 0}           
          end   
