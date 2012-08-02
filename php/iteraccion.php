@@ -42,52 +42,7 @@
 			echo "</tr>\n";
 			echo "</tbody>\n";				
 			echo "</table>\n<br/>";	
-			
-			echo '<div style="overflow:auto; width: 1000px; height :300px; align:left;">';
-			echo "<table width='100%' class='tabla' border='1'>\n";
-			
-			echo "<thead>\n";
-			echo "<tr>\n";
-			echo "<th class='estilo'>Operador</th>\n";
-			echo "<th class='estilo'>Servicios</th>\n";
-
-			for($j=0; $j<$numeroDeCanales; $j++)
-			{
-				echo "<th class='estilo'>C".($j+1)."</th>\n";
-
-			}
-			echo "</tr>\n";
-			echo "</thead>\n";
-			echo "<tbody>\n";
-			
-			$report = $sol->report;
 				
-			foreach($report->operator as $operator)
-			{
-				echo "<tr>\n";
-				echo "<td class='estilo'>".$operator->attributes()->name."</td>\n";
-			
-				$services = $operator->services;	
-				
-				echo "<td class='estilo'>Consultar en BD ";
-				foreach($services->service as $service)
-				{
-					echo $service." - ";
-				}
-				echo "</td>\n";
-							
-				$channels = $operator->channels;
-				foreach($channels->channel as $channel) 
-				{
-					if($channel==1) echo "<td class='estilo'>X</td>\n";
-					else echo "<td class='estilo'></td>\n";
-
-				}
-				echo "</tr>\n";
-
-			}
-			echo "</tbody>\n";				
-			echo "</table>\n";				
 		}	
 						
 	}
