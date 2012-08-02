@@ -6,7 +6,6 @@ export
    generarSalida:GenerarSalida
 define
    
-   Servicio = Entradas.servicio
    proc {GenerarSalida Motor In NoMantenerAsignacionesActuales NoConsiderarTope NoConsiderarSeparacion NumeroOperadorPorCanal ?Salida}
 
       local
@@ -165,20 +164,9 @@ define
          if In==nil then Salida=nil
          else
             EtiquetaInicio="\t\t\t<operator name=\""#{Label In.1}#"\">\n"
-            Servicios="\t\t\t\t<services>\n"#{ServiciosToString NumeroOperador}#"\t\t\t\t</services>\n"
             Canales="\t\t\t\t <channels>\n"#{AsignacionesIntToString {Record.toList In.1} 1}#"\t\t\t\t</channels>\n"#"\t\t\t</operator>\n"#{AsignacionesToString In.2 NumeroOperador+1}
             Salida=EtiquetaInicio#Servicios#Canales
          end
-      end
-   end
-   proc{ServiciosToString NumeroOperador ?Salida}
-      Salida = {ServicioToStringDetail {Record.toList Servicio.NumeroOperador}}
-   end
-
-   proc{ServicioToStringDetail In ?Salida}
-      if In==nil then Salida=nil
-      else
-         Salida="\t\t\t\t\t<service> "#In.1#" </service>\n"#{ServicioToStringDetail In.2}
       end
    end
    
