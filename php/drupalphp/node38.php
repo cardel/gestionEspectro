@@ -325,7 +325,8 @@
 				$rangoSeleccionado = $_POST["selectRanksForm"];
 				$bandaSeleccionada = $_POST["selectBandForm"];
 				$numeroCanales = $_POST["numeroCanalesFormulario"];
-				$separacion = $_POST["channel_separation"];
+				$separacion = $_POST["channel_separationFormulario"];
+				$maxChannelPerOperatorFormulario = $_POST["maxChannelPerOperatorFormulario"];
 				$tipoAsignacion;
 				$idAsignacion;
 				
@@ -382,6 +383,7 @@
 				$salida .= "\t\t\t\t<i>".$numeroCanales."</i>\n";
 				$salida .= "\t\t\t</entry>\n";	
 				
+				//Consultar operadores actuales
 				$salida .= "\t\t\t<entry key=\"Operators\">\n";
 				$salida .= "\t\t\t\t<i>".sizeof($operadores)."</i>\n";
 				$salida .= "\t\t\t</entry>\n";	
@@ -394,8 +396,26 @@
 				$salida .= "\t\t\t\t<i>".$separacion."</i>\n";
 				$salida .= "\t\t\t</entry>\n";	
 				
+			
+				//Requerimientos
+				$salida .= "\t\t\t<entry key=\"Requeriments\">\n";
+				$salida .= "\t\t\t\t<i>".$separacion."</i>\n";
+				$salida .= "\t\t\t</entry>\n";	
+				
+				//Asignación actual
+				$salida .= "\t\t\t<entry key=\"AssignationChannel\">\n";
+				$salida .= "\t\t\t\t<i>".$separacion."</i>\n";
+				$salida .= "\t\t\t</entry>\n";
+					
+				//Tope de canales por operador en la banda	
+				$salida .= "\t\t\t<entry key=\"Asignación actual\">\n";
+				$salida .= "\t\t\t\t<i>".$maxChannelPerOperatorFormulario."</i>\n";
+				$salida .= "\t\t\t</entry>\n";	
+															
 				$salida .= "</dict>";
-				$salida .= "</instance>\n";			
+				$salida .= "</instance>\n";				
+				
+						
 				echo "<pre class='brush: xml'>\n";
 				$salida = str_replace("<","&lt;",$salida);
 				$salida = str_replace(">","&gt;",$salida);	

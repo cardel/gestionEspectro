@@ -117,12 +117,13 @@
 							}
 							if($tipoConsulta=='numCanalesEnBandaForm' && $idConsulta>=0)
 							{
-								$query="select channels_number from frequency_ranks where \"ID_frequency_ranks\" =".$idConsulta.";";
+								$query="select channels_number,channel_separation, max_channels_per_operator from frequency_ranks where \"ID_frequency_ranks\" =".$idConsulta.";";
 								$result= $objconexionBD->enviarConsulta($query);
 							    while ($row =  pg_fetch_array ($result))
 							    {
 								  echo "<input type=\"hidden\" name=\"numeroCanalesFormulario\" value=".$row[channels_number]."/>";
   								  echo "<input type=\"hidden\" name=\"channel_separationFormulario\" value=".$row[channel_separation]."/>";
+  								  echo "<input type=\"hidden\" name=\"maxChannelPerOperatorFormulario\" value=".$row[max_channels_per_operator]."/>";
 
 								}
 							}
