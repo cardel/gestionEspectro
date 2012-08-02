@@ -158,14 +158,13 @@ define
    proc{AsignacionesToString In NumeroOperador ?Salida}
       local
          EtiquetaInicio
-         Servicios
          Canales
       in
          if In==nil then Salida=nil
          else
             EtiquetaInicio="\t\t\t<operator name=\""#{Label In.1}#"\">\n"
             Canales="\t\t\t\t <channels>\n"#{AsignacionesIntToString {Record.toList In.1} 1}#"\t\t\t\t</channels>\n"#"\t\t\t</operator>\n"#{AsignacionesToString In.2 NumeroOperador+1}
-            Salida=EtiquetaInicio#Servicios#Canales
+            Salida=EtiquetaInicio#Canales
          end
       end
    end
