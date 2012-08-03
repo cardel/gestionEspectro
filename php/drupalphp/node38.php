@@ -301,7 +301,6 @@
 		if( $_POST["enviar"]==1)
 		{
 			$numeroCampos = $_POST["cant_campos"];
-			$operadores = array();
 			$requerimientos = array();
 			
 			for($i=0; $i<$numeroCampos; $i++)
@@ -311,13 +310,12 @@
 				
 				if(!(empty($auxOp) || empty($auxReq)))
 				{
-					$operadores[$i]=$auxOp;		
-					$requerimientos[$i]=$auxReq;			
+					$requerimientos[$i]=array($auxOp,$auxReq);			
 				}
 
 			}
 			
-			if(!(empty($requerimientos) || empty($operadores)))
+			if(!(empty($requerimientos)))
 			{
 				$divisionTerritorial = $_POST["selectTerritorialDivisionForm"];
 				$departamento = $_POST["selectDepartamentsForm"];
@@ -361,58 +359,68 @@
 				$salida = "\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 				$salida .= "<instance>\n";
 				$salida .= "\t<presentation nbSolutions=\"?\" format=\"XCSP 2.1\">\n\t\tRepresentacion entrada de problema gestion espectro radioelectrico\n\t</presentation>\n";
-				$salida .= "\t\t<dict>\n";
+				$salida .= "\t<dict>\n";
 				
-				$salida .= "\t\t\t<entry key=\"GeograficAssignationType\">\n";
-				$salida .= "\t\t\t\t<i>".$tipoAsignacion."</i>\n";
-				$salida .= "\t\t\t</entry>\n";
+				$salida .= "\t\t<entry key=\"GeograficAssignationType\">\n";
+				$salida .= "\t\t\t<i>".$tipoAsignacion."</i>\n";
+				$salida .= "\t\t</entry>\n";
 				
-				$salida .= "\t\t\t<entry key=\"GeograficAssignationID\">\n";
-				$salida .= "\t\t\t\t<i>".$idAsignacion."</i>\n";
-				$salida .= "\t\t\t</entry>\n";			
+				$salida .= "\t\t<entry key=\"GeograficAssignationID\">\n";
+				$salida .= "\t\t\t<i>".$idAsignacion."</i>\n";
+				$salida .= "\t\t</entry>\n";			
 
-				$salida .= "\t\t\t<entry key=\"FrecuencyBand\">\n";
-				$salida .= "\t\t\t\t<i>".$rangoSeleccionado."</i>\n";
-				$salida .= "\t\t\t</entry>\n";
+				$salida .= "\t\t<entry key=\"FrecuencyBand\">\n";
+				$salida .= "\t\t\t<i>".$rangoSeleccionado."</i>\n";
+				$salida .= "\t\t</entry>\n";
 				
-				$salida .= "\t\t\t<entry key=\"EspecificBand\">\n";
-				$salida .= "\t\t\t\t<i>".$bandaSeleccionada."</i>\n";
-				$salida .= "\t\t\t</entry>\n";	
+				$salida .= "\t\t<entry key=\"EspecificBand\">\n";
+				$salida .= "\t\t\t<i>".$bandaSeleccionada."</i>\n";
+				$salida .= "\t\t</entry>\n";	
 
-				$salida .= "\t\t\t<entry key=\"NumberChannels\">\n";
-				$salida .= "\t\t\t\t<i>".$numeroCanales."</i>\n";
-				$salida .= "\t\t\t</entry>\n";	
+				$salida .= "\t\t<entry key=\"NumberChannels\">\n";
+				$salida .= "\t\t\t<i>".$numeroCanales."</i>\n";
+				$salida .= "\t\t</entry>\n";	
 				
 				//Consultar operadores actuales
-				$salida .= "\t\t\t<entry key=\"Operators\">\n";
-				$salida .= "\t\t\t\t<i>".sizeof($operadores)."</i>\n";
-				$salida .= "\t\t\t</entry>\n";	
+				$salida .= "\t\t<entry key=\"Operators\">\n";
+				$salida .= "\t\t\t<i>".sizeof($operadores)."</i>\n";
+				$salida .= "\t\t</entry>\n";	
 				
-				$salida .= "\t\t\t<entry key=\"OperatorsOfInput\">\n";
-				$salida .= "\t\t\t\t<i>".sizeof($operadores)."</i>\n";
-				$salida .= "\t\t\t</entry>\n";	
+				$salida .= "\t\t<entry key=\"OperatorsOfInput\">\n";
+				$salida .= "\t\t\t<i>".sizeof($operadores)."</i>\n";
+				$salida .= "\t\t</entry>\n";	
 				
-				$salida .= "\t\t\t<entry key=\"ChannelSeparation\">\n";
-				$salida .= "\t\t\t\t<i>".$separacion."</i>\n";
-				$salida .= "\t\t\t</entry>\n";	
+				$salida .= "\t\t<entry key=\"ChannelSeparation\">\n";
+				$salida .= "\t\t\t<i>".$separacion."</i>\n";
+				$salida .= "\t\t</entry>\n";	
 				
 			
 				//Requerimientos
-				$salida .= "\t\t\t<entry key=\"Requeriments\">\n";
-				$salida .= "\t\t\t\t<i>".$separacion."</i>\n";
-				$salida .= "\t\t\t</entry>\n";	
-				
+				$salida .= "\t\t<entry key=\"Requeriments\">\n";
+				$salida .= "\t\t\t<tuple>\n";
+				$salida .= "\t\t\t\t<i>\n";
+				foreach($requerimientos as $op)
+				{
+					$salida .= "\t\t\t\t\t<entry key=\"".$op[0]."\">\n";
+					$salida .= "\t\t\t\t\t\t<i>".$op[1]."</i>\n";
+					$salida .= "\t\t\t\t\t</entry>\n";
+				}
+			
+				$salida .= "\t\t\t\t</i>\n";
+				$salida .= "\t\t\t</tuple>\n";	
+				$salida .= "\t\t</entry>\n";	
+	
 				//Asignación actual
-				$salida .= "\t\t\t<entry key=\"AssignationChannel\">\n";
-				$salida .= "\t\t\t\t<i>".$separacion."</i>\n";
-				$salida .= "\t\t\t</entry>\n";
+				$salida .= "\t\t<entry key=\"PartialAssignation\">\n";
+				$salida .= "\t\t\t<i>".$separacion."</i>\n";
+				$salida .= "\t\t</entry>\n";
 					
 				//Tope de canales por operador en la banda	
-				$salida .= "\t\t\t<entry key=\"Asignación actual\">\n";
-				$salida .= "\t\t\t\t<i>".$maxChannelPerOperatorFormulario."</i>\n";
-				$salida .= "\t\t\t</entry>\n";	
+				$salida .= "\t\t<entry key=\"AssignationChannel\">\n";
+				$salida .= "\t\t\t<i>".$maxChannelPerOperatorFormulario."</i>\n";
+				$salida .= "\t\t</entry>\n";	
 															
-				$salida .= "</dict>";
+				$salida .= "\t</dict>\n";
 				$salida .= "</instance>\n";				
 				
 						
