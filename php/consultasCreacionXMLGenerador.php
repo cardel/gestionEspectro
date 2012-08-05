@@ -28,8 +28,7 @@ function obtenerInutilizableYReservado($id_frequency_rank )
 	  $inut = 0;
 	  $reser = 0;
 	  
-	  $salida.=$row["disabled"];
-	  if($row["disabled"]!='f') $inut=1;
+	  if($row["disabled"]=='f') $inut=1;
 	  if($row["reserved"]!='f') $reser=1;
 	  
  	  $inutilizado .= "\t\t\t\t\t\t\t\t\t<i>".$inut."</i>\n";	    
