@@ -87,55 +87,135 @@ function obtenerInutilizableYReservado($id_frequency_rank )
  * Por ejemplo
  * Para el caso nacional, toma las divisiones territoriales, departamentales y municipales, las suma y obtiene el total
  */ 
-function obtenerMaximoParcial($operador, $tipoAsignacion, $id_frequency_rank )
+function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $id_frequency_rank )
 {
 	
 	//!!ESTO DEBE CORREGIRSE
     $objconexionBD = new conexionBD();
     $objconexionBD->abrirConexion();	
 	
-	//Municipal esto es siempre 0
-	$maximo = 0;
+	$maximo;
 	
 		
-	//Departamental busca municipales	
-	if($tipoAsignacion<3)
+	switch($tipoAsignacion)
 	{
-		$query="select max(count) from (select count(*) from channels_assignations natural join channel_assignations_per_city natural join channels where \"ID_Operator\" =".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." group by \"ID_cities\") as tablaParcial";
-		$result= $objconexionBD->enviarConsulta($query);
-		while ($row =  pg_fetch_array ($result))
-		{
-			$maximo += $row['max'];
-		}	
-		pg_free_result($result);			
+		case 0:
+			//Asignacion nacional	
+			
+			$resultadosAcumulados = array();
+				
+			$query="select \"ID_Territorial_Division\" as idter, count(*) as total from channels_assignations natural join channel_assignations_per_territorialdivision where \"ID_Operator\" = ".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." group by \"ID_Territorial_Division\";";
+			
+			//Primero se calcula por entidad territorial
+			$resultadosAcumulados = array();
+			$result= $objconexionBD->enviarConsulta($query);
+			while ($row =  pg_fetch_array ($result))
+			{
+				$resultadosAcumulados[$row['iddep']] = $row['total'];
+			}			
+			pg_free_result($result);
+				
+			//Luego se calcula por departamentos de la divisiones territoriales
+			foreach($resultadosAcumulados as $idTer => $resIt){
+				
+				$maximoLocal = 0;
+				$resultadosAcumuladosDep = array();	
+									
+				$query="select \"ID_departament\" as iddep, count(*) as total from channels_assignations natural join channel_assignations_per_departament natural join channels natural join departaments where \"ID_Operator\" = ".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." and \"ID_Territorial_Division\"=".$idTer." group by \"ID_departament\";";
+				
+				$result= $objconexionBD->enviarConsulta($query);
+				
+				while ($row =  pg_fetch_array ($result))
+				{
+						$resultadosAcumuladosDep[$row['iddep']] = $row['total'];
+				}			
+				pg_free_result($result);	
+		
+				//Se suma lo encontrado a los municipios de cada departamento
+				foreach($resultadosAcumuladosDep as $idDep => $resDep)
+				{
+					$query="select max(count) as total from (select count(*) from channels_assignations natural join channel_assignations_per_city natural join channels natural join cities where \"ID_Operator\" = ".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." and \"ID_departament\"=".$idDep." group by \"ID_cities\") as tablaParcial;";	
+					
+					$result= $objconexionBD->enviarConsulta($query);
+		
+					while ($row =  pg_fetch_array ($result))
+					{
+						$resultadosAcumuladosDep[$idDep] += $row['total'];	
+						if($maximoLocal < $resultadosAcumulados[$idDep]) $maximoLocal = $resultadosAcumulados[$idDep];				
+					}					
+					pg_free_result($result);				
+				}
+				
+				$resultadosAcumulados[$idTer] += $maximoLocal;
+				if($maximo < $resultadosAcumulados[$idTer]) $maximo = $resultadosAcumulados[$idTer];				
+
+			}		
+			break;
+		case 1:
+			//Asignacion territorial
+			//Se debe considerar la suma de lo que tiene un operador en un departamento y en un municipio
+			$resultadosAcumulados = array();
+			
+			//Primero se calcula por departamento
+			$query="select \"ID_departament\" as iddep, count(*) as total from channels_assignations natural join channel_assignations_per_departament natural join channels natural join departaments where \"ID_Operator\" = ".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." and \"ID_Territorial_Division\"=".$idLugarAsignacion." group by \"ID_departament\";";
+			
+			$result= $objconexionBD->enviarConsulta($query);
+			
+			while ($row =  pg_fetch_array ($result))
+			{
+					$resultadosAcumulados[$row['iddep']] = $row['total'];
+			}			
+			pg_free_result($result);	
+	
+			//Se suma lo encontrado a los municipios de cada departamento
+			foreach($resultadosAcumulados as $idDep => $res)
+			{
+				$query="select max(count) as total from (select count(*) from channels_assignations natural join channel_assignations_per_city natural join channels natural join cities where \"ID_Operator\" = ".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." and \"ID_departament\"=".$idDep." group by \"ID_cities\") as tablaParcial;";	
+				
+				$result= $objconexionBD->enviarConsulta($query);
+	
+				while ($row =  pg_fetch_array ($result))
+				{
+					$resultadosAcumulados[$idDep] += $row['total'];
+					
+					if($maximo < $resultadosAcumulados[$idDep]) $maximo = $resultadosAcumulados[$idDep];
+				}					
+				pg_free_result($result);
+				
+			}						
+			break;
+			
+		case 2:
+			//Asignacion departamental
+			//Se considera el maximo que tiene un operador en un municipio dado
+			$query="select max(count) as total from (select count(*) from channels_assignations natural join channel_assignations_per_city natural join channels natural join cities where \"ID_Operator\" = ".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." and \"ID_departament\"=".$idLugarAsignacion." group by \"ID_cities\") as tablaParcial;";
+			
+			$result= $objconexionBD->enviarConsulta($query);
+			
+			while ($row =  pg_fetch_array ($result))
+			{
+				$maximo += $row['total'];
+			}	
+			
+			pg_free_result($result);	
+			break;			
+		default:
+			//Asignacion municipal
+			$maximo = 0;
+			break;
 		
 	}
 	
-	//Territorial busca departamentales
-	//Debe considerar por departamento y municipio <mal>
-	if($tipoAsignacion<2)
-	{		
-		$query="select max(count) from (select count(*) from channels_assignations natural join channel_assignations_per_departament natural join channels where \"ID_Operator\" =".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." group by \"ID_departament\") as tablaParcial";
+					
+	
+		$query="select * from channels_assignations natural join channel_assignations_per_city natural join channels where \"ID_Operator\" =".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." group by \"ID_cities\") as tablaParcial";
 		$result= $objconexionBD->enviarConsulta($query);
 		while ($row =  pg_fetch_array ($result))
 		{
 			$maximo += $row['max'];
 		}	
-		pg_free_result($result);	
-	}
-	//Nacional busca territorial	
-	//Debe considerar por territorio y su cez por departamento y asu vez por municipio <mal>
-	if($tipoAsignacion<1)
-	{		
-
-		$query="select max(count) from (select count(*) from channels_assignations natural join channel_assignations_per_territorialdivision natural join channels where \"ID_Operator\" =".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." group by \"ID_Territorial_Division\") as tablaParcial";
-		$result= $objconexionBD->enviarConsulta($query);
-		while ($row =  pg_fetch_array ($result))
-		{
-			$maximo += $row['max'];
-		}	
-		pg_free_result($result);		
-	}
+	
+	
 	$objconexionBD->cerrarConexion();	
 	return $maximo;
 }

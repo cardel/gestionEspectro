@@ -56,7 +56,7 @@ SELECT pg_catalog.setval('"Territorial_Divisions_ID_Territorial_Division_seq"', 
 
 
 --
--- Name: channel_assignations_national; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- Name: channel_assignations_national; Type: TABLE; Schema: public; Owner: drupal; Tablespace: 
 --
 
 CREATE TABLE channel_assignations_national (
@@ -65,10 +65,10 @@ CREATE TABLE channel_assignations_national (
 );
 
 
-ALTER TABLE public.channel_assignations_national OWNER TO postgres;
+ALTER TABLE public.channel_assignations_national OWNER TO drupal;
 
 --
--- Name: channel_assignations_national_id_channels_assignations_nati_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: channel_assignations_national_id_channels_assignations_nati_seq; Type: SEQUENCE; Schema: public; Owner: drupal
 --
 
 CREATE SEQUENCE channel_assignations_national_id_channels_assignations_nati_seq
@@ -79,24 +79,24 @@ CREATE SEQUENCE channel_assignations_national_id_channels_assignations_nati_seq
     CACHE 1;
 
 
-ALTER TABLE public.channel_assignations_national_id_channels_assignations_nati_seq OWNER TO postgres;
+ALTER TABLE public.channel_assignations_national_id_channels_assignations_nati_seq OWNER TO drupal;
 
 --
--- Name: channel_assignations_national_id_channels_assignations_nati_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: channel_assignations_national_id_channels_assignations_nati_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
 --
 
 ALTER SEQUENCE channel_assignations_national_id_channels_assignations_nati_seq OWNED BY channel_assignations_national.id_channels_assignations_national;
 
 
 --
--- Name: channel_assignations_national_id_channels_assignations_nati_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: channel_assignations_national_id_channels_assignations_nati_seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
 --
 
 SELECT pg_catalog.setval('channel_assignations_national_id_channels_assignations_nati_seq', 1, false);
 
 
 --
--- Name: channel_assignations_national_id_channels_assignations_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: channel_assignations_national_id_channels_assignations_seq; Type: SEQUENCE; Schema: public; Owner: drupal
 --
 
 CREATE SEQUENCE channel_assignations_national_id_channels_assignations_seq
@@ -107,37 +107,37 @@ CREATE SEQUENCE channel_assignations_national_id_channels_assignations_seq
     CACHE 1;
 
 
-ALTER TABLE public.channel_assignations_national_id_channels_assignations_seq OWNER TO postgres;
+ALTER TABLE public.channel_assignations_national_id_channels_assignations_seq OWNER TO drupal;
 
 --
--- Name: channel_assignations_national_id_channels_assignations_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: channel_assignations_national_id_channels_assignations_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
 --
 
 ALTER SEQUENCE channel_assignations_national_id_channels_assignations_seq OWNED BY channel_assignations_national.id_channels_assignations;
 
 
 --
--- Name: channel_assignations_national_id_channels_assignations_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: channel_assignations_national_id_channels_assignations_seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
 --
 
 SELECT pg_catalog.setval('channel_assignations_national_id_channels_assignations_seq', 1, false);
 
 
 --
--- Name: channel_assignations_per_city; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- Name: channel_assignations_per_city; Type: TABLE; Schema: public; Owner: drupal; Tablespace: 
 --
 
 CREATE TABLE channel_assignations_per_city (
     id_channels_assignations_per_city integer NOT NULL,
     id_channels_assignations integer NOT NULL,
-    id_cities integer NOT NULL
+    "ID_cities" integer NOT NULL
 );
 
 
-ALTER TABLE public.channel_assignations_per_city OWNER TO postgres;
+ALTER TABLE public.channel_assignations_per_city OWNER TO drupal;
 
 --
--- Name: channel_assignations_per_city_id_channels_assignations_per__seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_city_id_channels_assignations_per__seq; Type: SEQUENCE; Schema: public; Owner: drupal
 --
 
 CREATE SEQUENCE channel_assignations_per_city_id_channels_assignations_per__seq
@@ -148,24 +148,24 @@ CREATE SEQUENCE channel_assignations_per_city_id_channels_assignations_per__seq
     CACHE 1;
 
 
-ALTER TABLE public.channel_assignations_per_city_id_channels_assignations_per__seq OWNER TO postgres;
+ALTER TABLE public.channel_assignations_per_city_id_channels_assignations_per__seq OWNER TO drupal;
 
 --
--- Name: channel_assignations_per_city_id_channels_assignations_per__seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_city_id_channels_assignations_per__seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
 --
 
 ALTER SEQUENCE channel_assignations_per_city_id_channels_assignations_per__seq OWNED BY channel_assignations_per_city.id_channels_assignations_per_city;
 
 
 --
--- Name: channel_assignations_per_city_id_channels_assignations_per__seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_city_id_channels_assignations_per__seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
 --
 
 SELECT pg_catalog.setval('channel_assignations_per_city_id_channels_assignations_per__seq', 1, false);
 
 
 --
--- Name: channel_assignations_per_city_id_channels_assignations_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_city_id_channels_assignations_seq; Type: SEQUENCE; Schema: public; Owner: drupal
 --
 
 CREATE SEQUENCE channel_assignations_per_city_id_channels_assignations_seq
@@ -176,24 +176,24 @@ CREATE SEQUENCE channel_assignations_per_city_id_channels_assignations_seq
     CACHE 1;
 
 
-ALTER TABLE public.channel_assignations_per_city_id_channels_assignations_seq OWNER TO postgres;
+ALTER TABLE public.channel_assignations_per_city_id_channels_assignations_seq OWNER TO drupal;
 
 --
--- Name: channel_assignations_per_city_id_channels_assignations_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_city_id_channels_assignations_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
 --
 
 ALTER SEQUENCE channel_assignations_per_city_id_channels_assignations_seq OWNED BY channel_assignations_per_city.id_channels_assignations;
 
 
 --
--- Name: channel_assignations_per_city_id_channels_assignations_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_city_id_channels_assignations_seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
 --
 
 SELECT pg_catalog.setval('channel_assignations_per_city_id_channels_assignations_seq', 1, false);
 
 
 --
--- Name: channel_assignations_per_city_id_cities_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_city_id_cities_seq; Type: SEQUENCE; Schema: public; Owner: drupal
 --
 
 CREATE SEQUENCE channel_assignations_per_city_id_cities_seq
@@ -204,37 +204,37 @@ CREATE SEQUENCE channel_assignations_per_city_id_cities_seq
     CACHE 1;
 
 
-ALTER TABLE public.channel_assignations_per_city_id_cities_seq OWNER TO postgres;
+ALTER TABLE public.channel_assignations_per_city_id_cities_seq OWNER TO drupal;
 
 --
--- Name: channel_assignations_per_city_id_cities_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_city_id_cities_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
 --
 
-ALTER SEQUENCE channel_assignations_per_city_id_cities_seq OWNED BY channel_assignations_per_city.id_cities;
+ALTER SEQUENCE channel_assignations_per_city_id_cities_seq OWNED BY channel_assignations_per_city."ID_cities";
 
 
 --
--- Name: channel_assignations_per_city_id_cities_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_city_id_cities_seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
 --
 
 SELECT pg_catalog.setval('channel_assignations_per_city_id_cities_seq', 1, false);
 
 
 --
--- Name: channel_assignations_per_departament; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- Name: channel_assignations_per_departament; Type: TABLE; Schema: public; Owner: drupal; Tablespace: 
 --
 
 CREATE TABLE channel_assignations_per_departament (
     id_channels_assignations_per_departament integer NOT NULL,
     id_channels_assignations integer NOT NULL,
-    id_departaments integer NOT NULL
+    "ID_departament" integer NOT NULL
 );
 
 
-ALTER TABLE public.channel_assignations_per_departament OWNER TO postgres;
+ALTER TABLE public.channel_assignations_per_departament OWNER TO drupal;
 
 --
--- Name: channel_assignations_per_depa_id_channels_assignations_per__seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_depa_id_channels_assignations_per__seq; Type: SEQUENCE; Schema: public; Owner: drupal
 --
 
 CREATE SEQUENCE channel_assignations_per_depa_id_channels_assignations_per__seq
@@ -245,24 +245,24 @@ CREATE SEQUENCE channel_assignations_per_depa_id_channels_assignations_per__seq
     CACHE 1;
 
 
-ALTER TABLE public.channel_assignations_per_depa_id_channels_assignations_per__seq OWNER TO postgres;
+ALTER TABLE public.channel_assignations_per_depa_id_channels_assignations_per__seq OWNER TO drupal;
 
 --
--- Name: channel_assignations_per_depa_id_channels_assignations_per__seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_depa_id_channels_assignations_per__seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
 --
 
 ALTER SEQUENCE channel_assignations_per_depa_id_channels_assignations_per__seq OWNED BY channel_assignations_per_departament.id_channels_assignations_per_departament;
 
 
 --
--- Name: channel_assignations_per_depa_id_channels_assignations_per__seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_depa_id_channels_assignations_per__seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
 --
 
 SELECT pg_catalog.setval('channel_assignations_per_depa_id_channels_assignations_per__seq', 1, false);
 
 
 --
--- Name: channel_assignations_per_departame_id_channels_assignations_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_departame_id_channels_assignations_seq; Type: SEQUENCE; Schema: public; Owner: drupal
 --
 
 CREATE SEQUENCE channel_assignations_per_departame_id_channels_assignations_seq
@@ -273,24 +273,24 @@ CREATE SEQUENCE channel_assignations_per_departame_id_channels_assignations_seq
     CACHE 1;
 
 
-ALTER TABLE public.channel_assignations_per_departame_id_channels_assignations_seq OWNER TO postgres;
+ALTER TABLE public.channel_assignations_per_departame_id_channels_assignations_seq OWNER TO drupal;
 
 --
--- Name: channel_assignations_per_departame_id_channels_assignations_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_departame_id_channels_assignations_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
 --
 
 ALTER SEQUENCE channel_assignations_per_departame_id_channels_assignations_seq OWNED BY channel_assignations_per_departament.id_channels_assignations;
 
 
 --
--- Name: channel_assignations_per_departame_id_channels_assignations_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_departame_id_channels_assignations_seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
 --
 
 SELECT pg_catalog.setval('channel_assignations_per_departame_id_channels_assignations_seq', 1, false);
 
 
 --
--- Name: channel_assignations_per_departament_id_departaments_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_departament_id_departaments_seq; Type: SEQUENCE; Schema: public; Owner: drupal
 --
 
 CREATE SEQUENCE channel_assignations_per_departament_id_departaments_seq
@@ -301,37 +301,37 @@ CREATE SEQUENCE channel_assignations_per_departament_id_departaments_seq
     CACHE 1;
 
 
-ALTER TABLE public.channel_assignations_per_departament_id_departaments_seq OWNER TO postgres;
+ALTER TABLE public.channel_assignations_per_departament_id_departaments_seq OWNER TO drupal;
 
 --
--- Name: channel_assignations_per_departament_id_departaments_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_departament_id_departaments_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
 --
 
-ALTER SEQUENCE channel_assignations_per_departament_id_departaments_seq OWNED BY channel_assignations_per_departament.id_departaments;
+ALTER SEQUENCE channel_assignations_per_departament_id_departaments_seq OWNED BY channel_assignations_per_departament."ID_departament";
 
 
 --
--- Name: channel_assignations_per_departament_id_departaments_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_departament_id_departaments_seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
 --
 
 SELECT pg_catalog.setval('channel_assignations_per_departament_id_departaments_seq', 1, false);
 
 
 --
--- Name: channel_assignations_per_territorialdivision; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- Name: channel_assignations_per_territorialdivision; Type: TABLE; Schema: public; Owner: drupal; Tablespace: 
 --
 
 CREATE TABLE channel_assignations_per_territorialdivision (
     id_channels_assignations_per_territorialdivision integer NOT NULL,
     id_channels_assignations integer NOT NULL,
-    id_territorial_division integer NOT NULL
+    "ID_Territorial_Division" integer NOT NULL
 );
 
 
-ALTER TABLE public.channel_assignations_per_territorialdivision OWNER TO postgres;
+ALTER TABLE public.channel_assignations_per_territorialdivision OWNER TO drupal;
 
 --
--- Name: channel_assignations_per_terr_id_channels_assignations_per__seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_terr_id_channels_assignations_per__seq; Type: SEQUENCE; Schema: public; Owner: drupal
 --
 
 CREATE SEQUENCE channel_assignations_per_terr_id_channels_assignations_per__seq
@@ -342,24 +342,24 @@ CREATE SEQUENCE channel_assignations_per_terr_id_channels_assignations_per__seq
     CACHE 1;
 
 
-ALTER TABLE public.channel_assignations_per_terr_id_channels_assignations_per__seq OWNER TO postgres;
+ALTER TABLE public.channel_assignations_per_terr_id_channels_assignations_per__seq OWNER TO drupal;
 
 --
--- Name: channel_assignations_per_terr_id_channels_assignations_per__seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_terr_id_channels_assignations_per__seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
 --
 
 ALTER SEQUENCE channel_assignations_per_terr_id_channels_assignations_per__seq OWNED BY channel_assignations_per_territorialdivision.id_channels_assignations_per_territorialdivision;
 
 
 --
--- Name: channel_assignations_per_terr_id_channels_assignations_per__seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_terr_id_channels_assignations_per__seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
 --
 
 SELECT pg_catalog.setval('channel_assignations_per_terr_id_channels_assignations_per__seq', 1, false);
 
 
 --
--- Name: channel_assignations_per_territori_id_channels_assignations_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_territori_id_channels_assignations_seq; Type: SEQUENCE; Schema: public; Owner: drupal
 --
 
 CREATE SEQUENCE channel_assignations_per_territori_id_channels_assignations_seq
@@ -370,24 +370,24 @@ CREATE SEQUENCE channel_assignations_per_territori_id_channels_assignations_seq
     CACHE 1;
 
 
-ALTER TABLE public.channel_assignations_per_territori_id_channels_assignations_seq OWNER TO postgres;
+ALTER TABLE public.channel_assignations_per_territori_id_channels_assignations_seq OWNER TO drupal;
 
 --
--- Name: channel_assignations_per_territori_id_channels_assignations_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_territori_id_channels_assignations_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
 --
 
 ALTER SEQUENCE channel_assignations_per_territori_id_channels_assignations_seq OWNED BY channel_assignations_per_territorialdivision.id_channels_assignations;
 
 
 --
--- Name: channel_assignations_per_territori_id_channels_assignations_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_territori_id_channels_assignations_seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
 --
 
 SELECT pg_catalog.setval('channel_assignations_per_territori_id_channels_assignations_seq', 1, false);
 
 
 --
--- Name: channel_assignations_per_territoria_id_territorial_division_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_territoria_id_territorial_division_seq; Type: SEQUENCE; Schema: public; Owner: drupal
 --
 
 CREATE SEQUENCE channel_assignations_per_territoria_id_territorial_division_seq
@@ -398,17 +398,17 @@ CREATE SEQUENCE channel_assignations_per_territoria_id_territorial_division_seq
     CACHE 1;
 
 
-ALTER TABLE public.channel_assignations_per_territoria_id_territorial_division_seq OWNER TO postgres;
+ALTER TABLE public.channel_assignations_per_territoria_id_territorial_division_seq OWNER TO drupal;
 
 --
--- Name: channel_assignations_per_territoria_id_territorial_division_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_territoria_id_territorial_division_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
 --
 
-ALTER SEQUENCE channel_assignations_per_territoria_id_territorial_division_seq OWNED BY channel_assignations_per_territorialdivision.id_territorial_division;
+ALTER SEQUENCE channel_assignations_per_territoria_id_territorial_division_seq OWNED BY channel_assignations_per_territorialdivision."ID_Territorial_Division";
 
 
 --
--- Name: channel_assignations_per_territoria_id_territorial_division_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: channel_assignations_per_territoria_id_territorial_division_seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
 --
 
 SELECT pg_catalog.setval('channel_assignations_per_territoria_id_territorial_division_seq', 1, false);
@@ -433,20 +433,20 @@ CREATE TABLE channels (
 ALTER TABLE public.channels OWNER TO drupal;
 
 --
--- Name: channels_assignations; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- Name: channels_assignations; Type: TABLE; Schema: public; Owner: drupal; Tablespace: 
 --
 
 CREATE TABLE channels_assignations (
     id_channels_assignations integer NOT NULL,
-    id_operators integer NOT NULL,
-    id_channels integer NOT NULL
+    "ID_Operator" integer NOT NULL,
+    "ID_channels" integer NOT NULL
 );
 
 
-ALTER TABLE public.channels_assignations OWNER TO postgres;
+ALTER TABLE public.channels_assignations OWNER TO drupal;
 
 --
--- Name: channels_assignations_id_channels_assignations_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: channels_assignations_id_channels_assignations_seq; Type: SEQUENCE; Schema: public; Owner: drupal
 --
 
 CREATE SEQUENCE channels_assignations_id_channels_assignations_seq
@@ -457,24 +457,24 @@ CREATE SEQUENCE channels_assignations_id_channels_assignations_seq
     CACHE 1;
 
 
-ALTER TABLE public.channels_assignations_id_channels_assignations_seq OWNER TO postgres;
+ALTER TABLE public.channels_assignations_id_channels_assignations_seq OWNER TO drupal;
 
 --
--- Name: channels_assignations_id_channels_assignations_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: channels_assignations_id_channels_assignations_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
 --
 
 ALTER SEQUENCE channels_assignations_id_channels_assignations_seq OWNED BY channels_assignations.id_channels_assignations;
 
 
 --
--- Name: channels_assignations_id_channels_assignations_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: channels_assignations_id_channels_assignations_seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
 --
 
 SELECT pg_catalog.setval('channels_assignations_id_channels_assignations_seq', 1, false);
 
 
 --
--- Name: channels_assignations_id_channels_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: channels_assignations_id_channels_seq; Type: SEQUENCE; Schema: public; Owner: drupal
 --
 
 CREATE SEQUENCE channels_assignations_id_channels_seq
@@ -485,24 +485,24 @@ CREATE SEQUENCE channels_assignations_id_channels_seq
     CACHE 1;
 
 
-ALTER TABLE public.channels_assignations_id_channels_seq OWNER TO postgres;
+ALTER TABLE public.channels_assignations_id_channels_seq OWNER TO drupal;
 
 --
--- Name: channels_assignations_id_channels_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: channels_assignations_id_channels_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
 --
 
-ALTER SEQUENCE channels_assignations_id_channels_seq OWNED BY channels_assignations.id_channels;
+ALTER SEQUENCE channels_assignations_id_channels_seq OWNED BY channels_assignations."ID_channels";
 
 
 --
--- Name: channels_assignations_id_channels_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: channels_assignations_id_channels_seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
 --
 
 SELECT pg_catalog.setval('channels_assignations_id_channels_seq', 1, false);
 
 
 --
--- Name: channels_assignations_id_operators_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: channels_assignations_id_operators_seq; Type: SEQUENCE; Schema: public; Owner: drupal
 --
 
 CREATE SEQUENCE channels_assignations_id_operators_seq
@@ -513,17 +513,17 @@ CREATE SEQUENCE channels_assignations_id_operators_seq
     CACHE 1;
 
 
-ALTER TABLE public.channels_assignations_id_operators_seq OWNER TO postgres;
+ALTER TABLE public.channels_assignations_id_operators_seq OWNER TO drupal;
 
 --
--- Name: channels_assignations_id_operators_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: channels_assignations_id_operators_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: drupal
 --
 
-ALTER SEQUENCE channels_assignations_id_operators_seq OWNED BY channels_assignations.id_operators;
+ALTER SEQUENCE channels_assignations_id_operators_seq OWNED BY channels_assignations."ID_Operator";
 
 
 --
--- Name: channels_assignations_id_operators_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: channels_assignations_id_operators_seq; Type: SEQUENCE SET; Schema: public; Owner: drupal
 --
 
 SELECT pg_catalog.setval('channels_assignations_id_operators_seq', 1, false);
@@ -1116,80 +1116,80 @@ SELECT pg_catalog.setval('services_id_service_seq', 42, true);
 
 
 --
--- Name: id_channels_assignations_national; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: id_channels_assignations_national; Type: DEFAULT; Schema: public; Owner: drupal
 --
 
 ALTER TABLE channel_assignations_national ALTER COLUMN id_channels_assignations_national SET DEFAULT nextval('channel_assignations_national_id_channels_assignations_nati_seq'::regclass);
 
 
 --
--- Name: id_channels_assignations; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: id_channels_assignations; Type: DEFAULT; Schema: public; Owner: drupal
 --
 
 ALTER TABLE channel_assignations_national ALTER COLUMN id_channels_assignations SET DEFAULT nextval('channel_assignations_national_id_channels_assignations_seq'::regclass);
 
 
 --
--- Name: id_channels_assignations_per_city; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: id_channels_assignations_per_city; Type: DEFAULT; Schema: public; Owner: drupal
 --
 
 ALTER TABLE channel_assignations_per_city ALTER COLUMN id_channels_assignations_per_city SET DEFAULT nextval('channel_assignations_per_city_id_channels_assignations_per__seq'::regclass);
 
 
 --
--- Name: id_channels_assignations; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: id_channels_assignations; Type: DEFAULT; Schema: public; Owner: drupal
 --
 
 ALTER TABLE channel_assignations_per_city ALTER COLUMN id_channels_assignations SET DEFAULT nextval('channel_assignations_per_city_id_channels_assignations_seq'::regclass);
 
 
 --
--- Name: id_cities; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: ID_cities; Type: DEFAULT; Schema: public; Owner: drupal
 --
 
-ALTER TABLE channel_assignations_per_city ALTER COLUMN id_cities SET DEFAULT nextval('channel_assignations_per_city_id_cities_seq'::regclass);
+ALTER TABLE channel_assignations_per_city ALTER COLUMN "ID_cities" SET DEFAULT nextval('channel_assignations_per_city_id_cities_seq'::regclass);
 
 
 --
--- Name: id_channels_assignations_per_departament; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: id_channels_assignations_per_departament; Type: DEFAULT; Schema: public; Owner: drupal
 --
 
 ALTER TABLE channel_assignations_per_departament ALTER COLUMN id_channels_assignations_per_departament SET DEFAULT nextval('channel_assignations_per_depa_id_channels_assignations_per__seq'::regclass);
 
 
 --
--- Name: id_channels_assignations; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: id_channels_assignations; Type: DEFAULT; Schema: public; Owner: drupal
 --
 
 ALTER TABLE channel_assignations_per_departament ALTER COLUMN id_channels_assignations SET DEFAULT nextval('channel_assignations_per_departame_id_channels_assignations_seq'::regclass);
 
 
 --
--- Name: id_departaments; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: ID_departament; Type: DEFAULT; Schema: public; Owner: drupal
 --
 
-ALTER TABLE channel_assignations_per_departament ALTER COLUMN id_departaments SET DEFAULT nextval('channel_assignations_per_departament_id_departaments_seq'::regclass);
+ALTER TABLE channel_assignations_per_departament ALTER COLUMN "ID_departament" SET DEFAULT nextval('channel_assignations_per_departament_id_departaments_seq'::regclass);
 
 
 --
--- Name: id_channels_assignations_per_territorialdivision; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: id_channels_assignations_per_territorialdivision; Type: DEFAULT; Schema: public; Owner: drupal
 --
 
 ALTER TABLE channel_assignations_per_territorialdivision ALTER COLUMN id_channels_assignations_per_territorialdivision SET DEFAULT nextval('channel_assignations_per_terr_id_channels_assignations_per__seq'::regclass);
 
 
 --
--- Name: id_channels_assignations; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: id_channels_assignations; Type: DEFAULT; Schema: public; Owner: drupal
 --
 
 ALTER TABLE channel_assignations_per_territorialdivision ALTER COLUMN id_channels_assignations SET DEFAULT nextval('channel_assignations_per_territori_id_channels_assignations_seq'::regclass);
 
 
 --
--- Name: id_territorial_division; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: ID_Territorial_Division; Type: DEFAULT; Schema: public; Owner: drupal
 --
 
-ALTER TABLE channel_assignations_per_territorialdivision ALTER COLUMN id_territorial_division SET DEFAULT nextval('channel_assignations_per_territoria_id_territorial_division_seq'::regclass);
+ALTER TABLE channel_assignations_per_territorialdivision ALTER COLUMN "ID_Territorial_Division" SET DEFAULT nextval('channel_assignations_per_territoria_id_territorial_division_seq'::regclass);
 
 
 --
@@ -1200,24 +1200,24 @@ ALTER TABLE channels ALTER COLUMN "ID_channels" SET DEFAULT nextval('channels_id
 
 
 --
--- Name: id_channels_assignations; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: id_channels_assignations; Type: DEFAULT; Schema: public; Owner: drupal
 --
 
 ALTER TABLE channels_assignations ALTER COLUMN id_channels_assignations SET DEFAULT nextval('channels_assignations_id_channels_assignations_seq'::regclass);
 
 
 --
--- Name: id_operators; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: ID_Operator; Type: DEFAULT; Schema: public; Owner: drupal
 --
 
-ALTER TABLE channels_assignations ALTER COLUMN id_operators SET DEFAULT nextval('channels_assignations_id_operators_seq'::regclass);
+ALTER TABLE channels_assignations ALTER COLUMN "ID_Operator" SET DEFAULT nextval('channels_assignations_id_operators_seq'::regclass);
 
 
 --
--- Name: id_channels; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: ID_channels; Type: DEFAULT; Schema: public; Owner: drupal
 --
 
-ALTER TABLE channels_assignations ALTER COLUMN id_channels SET DEFAULT nextval('channels_assignations_id_channels_seq'::regclass);
+ALTER TABLE channels_assignations ALTER COLUMN "ID_channels" SET DEFAULT nextval('channels_assignations_id_channels_seq'::regclass);
 
 
 --
@@ -1333,34 +1333,123 @@ ALTER TABLE territorial_divisions ALTER COLUMN "ID_Territorial_Division" SET DEF
 
 
 --
--- Data for Name: channel_assignations_national; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: channel_assignations_national; Type: TABLE DATA; Schema: public; Owner: drupal
 --
 
 COPY channel_assignations_national (id_channels_assignations_national, id_channels_assignations) FROM stdin;
+1	1
+2	2
+3	3
+4	4
+5	5
+6	6
+7	7
+8	8
+9	9
+10	10
+11	11
+12	12
+13	13
+14	14
+15	15
+16	16
+17	17
+18	18
+19	19
+20	20
+21	21
+22	22
+23	23
+24	24
+25	25
+26	26
+27	27
+28	28
+29	29
+30	30
+31	31
+32	32
 \.
 
 
 --
--- Data for Name: channel_assignations_per_city; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: channel_assignations_per_city; Type: TABLE DATA; Schema: public; Owner: drupal
 --
 
-COPY channel_assignations_per_city (id_channels_assignations_per_city, id_channels_assignations, id_cities) FROM stdin;
+COPY channel_assignations_per_city (id_channels_assignations_per_city, id_channels_assignations, "ID_cities") FROM stdin;
+1	66	1002
+2	67	1002
+3	68	1002
+4	69	1002
+5	70	1002
+6	71	1002
+7	72	1002
+8	73	1002
+9	74	1002
+10	75	149
+11	76	149
+12	77	149
+13	78	149
+14	79	149
+15	80	149
+16	81	149
+17	82	149
+18	83	149
+19	84	1
+20	85	1
+21	86	1
+22	87	1
+23	88	1
+24	89	1
 \.
 
 
 --
--- Data for Name: channel_assignations_per_departament; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: channel_assignations_per_departament; Type: TABLE DATA; Schema: public; Owner: drupal
 --
 
-COPY channel_assignations_per_departament (id_channels_assignations_per_departament, id_channels_assignations, id_departaments) FROM stdin;
+COPY channel_assignations_per_departament (id_channels_assignations_per_departament, id_channels_assignations, "ID_departament") FROM stdin;
+1	49	31
+2	50	31
+3	51	31
+4	52	31
+5	53	31
+6	54	31
+7	55	2
+8	56	2
+9	57	2
+10	58	2
+11	59	2
+12	60	2
+13	61	2
+14	62	2
+15	63	2
+16	64	2
+17	65	2
 \.
 
 
 --
--- Data for Name: channel_assignations_per_territorialdivision; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: channel_assignations_per_territorialdivision; Type: TABLE DATA; Schema: public; Owner: drupal
 --
 
-COPY channel_assignations_per_territorialdivision (id_channels_assignations_per_territorialdivision, id_channels_assignations, id_territorial_division) FROM stdin;
+COPY channel_assignations_per_territorialdivision (id_channels_assignations_per_territorialdivision, id_channels_assignations, "ID_Territorial_Division") FROM stdin;
+1	33	2
+2	34	2
+3	35	2
+4	36	2
+5	37	2
+6	38	2
+7	39	2
+8	40	3
+9	41	3
+10	42	3
+11	43	5
+12	44	5
+13	45	5
+14	46	5
+15	47	5
+16	48	5
 \.
 
 
@@ -5147,39 +5236,39 @@ COPY channels ("ID_channels", "ID_frequency_ranks", channel_description, channel
 3776	36	Telefonía móvil celular 800Mhz  Canal 797                                                                                       	797	848910000	893910000	f	f
 3777	36	Telefonía móvil celular 800Mhz  Canal 798                                                                                       	798	848940000	893940000	f	f
 3778	36	Telefonía móvil celular 800Mhz  Canal 799                                                                                       	799	848970000	893970000	f	f
-3779	36	Telefonía móvil celular 800Mhz  Canal 991                                                                                       	991	824040000	869040000	f	f
-3780	36	Telefonía móvil celular 800Mhz  Canal 992                                                                                       	992	824070000	869070000	f	f
-3781	36	Telefonía móvil celular 800Mhz  Canal 993                                                                                       	993	824100000	869100000	f	f
-3782	36	Telefonía móvil celular 800Mhz  Canal 994                                                                                       	994	824130000	869130000	f	f
-3783	36	Telefonía móvil celular 800Mhz  Canal 995                                                                                       	995	824160000	869160000	f	f
-3784	36	Telefonía móvil celular 800Mhz  Canal 996                                                                                       	996	824190000	869190000	f	f
-3785	36	Telefonía móvil celular 800Mhz  Canal 997                                                                                       	997	824220000	869220000	f	f
-3786	36	Telefonía móvil celular 800Mhz  Canal 998                                                                                       	998	824250000	869250000	f	f
-3787	36	Telefonía móvil celular 800Mhz  Canal 999                                                                                       	999	824280000	869280000	f	f
-3788	36	Telefonía móvil celular 800Mhz  Canal 1000                                                                                      	1000	824310000	869310000	f	f
-3789	36	Telefonía móvil celular 800Mhz  Canal 1001                                                                                      	1001	824340000	869340000	f	f
-3790	36	Telefonía móvil celular 800Mhz  Canal 1002                                                                                      	1002	824370000	869370000	f	f
-3791	36	Telefonía móvil celular 800Mhz  Canal 1003                                                                                      	1003	824400000	869400000	f	f
-3792	36	Telefonía móvil celular 800Mhz  Canal 1004                                                                                      	1004	824430000	869430000	f	f
-3793	36	Telefonía móvil celular 800Mhz  Canal 1005                                                                                      	1005	824460000	869460000	f	f
-3794	36	Telefonía móvil celular 800Mhz  Canal 1006                                                                                      	1006	824490000	869490000	f	f
-3795	36	Telefonía móvil celular 800Mhz  Canal 1007                                                                                      	1007	824520000	869520000	f	f
-3796	36	Telefonía móvil celular 800Mhz  Canal 1008                                                                                      	1008	824550000	869550000	f	f
-3797	36	Telefonía móvil celular 800Mhz  Canal 1009                                                                                      	1009	824580000	869580000	f	f
-3798	36	Telefonía móvil celular 800Mhz  Canal 1010                                                                                      	1010	824610000	869610000	f	f
-3799	36	Telefonía móvil celular 800Mhz  Canal 1011                                                                                      	1011	824640000	869640000	f	f
-3800	36	Telefonía móvil celular 800Mhz  Canal 1012                                                                                      	1012	824670000	869670000	f	f
-3801	36	Telefonía móvil celular 800Mhz  Canal 1013                                                                                      	1013	824700000	869700000	f	f
-3802	36	Telefonía móvil celular 800Mhz  Canal 1014                                                                                      	1014	824730000	869730000	f	f
-3803	36	Telefonía móvil celular 800Mhz  Canal 1015                                                                                      	1015	824760000	869760000	f	f
-3804	36	Telefonía móvil celular 800Mhz  Canal 1016                                                                                      	1016	824790000	869790000	f	f
-3805	36	Telefonía móvil celular 800Mhz  Canal 1017                                                                                      	1017	824820000	869820000	f	f
-3806	36	Telefonía móvil celular 800Mhz  Canal 1018                                                                                      	1018	824850000	869850000	f	f
-3807	36	Telefonía móvil celular 800Mhz  Canal 1019                                                                                      	1019	824880000	869880000	f	f
-3808	36	Telefonía móvil celular 800Mhz  Canal 1020                                                                                      	1020	824910000	869910000	f	f
-3809	36	Telefonía móvil celular 800Mhz  Canal 1021                                                                                      	1021	824940000	869940000	f	f
-3810	36	Telefonía móvil celular 800Mhz  Canal 1022                                                                                      	1022	824970000	869970000	f	f
-3811	36	Telefonía móvil celular 800Mhz  Canal 1023                                                                                      	1023	825000000	870000000	f	f
+3779	36	Telefonía móvil celular 800Mhz  Canal 991                                                                                       	800	824040000	869040000	f	f
+3780	36	Telefonía móvil celular 800Mhz  Canal 992                                                                                       	801	824070000	869070000	f	f
+3781	36	Telefonía móvil celular 800Mhz  Canal 993                                                                                       	802	824100000	869100000	f	f
+3782	36	Telefonía móvil celular 800Mhz  Canal 994                                                                                       	803	824130000	869130000	f	f
+3783	36	Telefonía móvil celular 800Mhz  Canal 995                                                                                       	804	824160000	869160000	f	f
+3784	36	Telefonía móvil celular 800Mhz  Canal 996                                                                                       	805	824190000	869190000	f	f
+3785	36	Telefonía móvil celular 800Mhz  Canal 997                                                                                       	806	824220000	869220000	f	f
+3786	36	Telefonía móvil celular 800Mhz  Canal 998                                                                                       	807	824250000	869250000	f	f
+3787	36	Telefonía móvil celular 800Mhz  Canal 999                                                                                       	808	824280000	869280000	f	f
+3788	36	Telefonía móvil celular 800Mhz  Canal 1000                                                                                      	809	824310000	869310000	f	f
+3789	36	Telefonía móvil celular 800Mhz  Canal 1001                                                                                      	810	824340000	869340000	f	f
+3790	36	Telefonía móvil celular 800Mhz  Canal 1002                                                                                      	811	824370000	869370000	f	f
+3791	36	Telefonía móvil celular 800Mhz  Canal 1003                                                                                      	812	824400000	869400000	f	f
+3792	36	Telefonía móvil celular 800Mhz  Canal 1004                                                                                      	813	824430000	869430000	f	f
+3793	36	Telefonía móvil celular 800Mhz  Canal 1005                                                                                      	814	824460000	869460000	f	f
+3794	36	Telefonía móvil celular 800Mhz  Canal 1006                                                                                      	815	824490000	869490000	f	f
+3795	36	Telefonía móvil celular 800Mhz  Canal 1007                                                                                      	816	824520000	869520000	f	f
+3796	36	Telefonía móvil celular 800Mhz  Canal 1008                                                                                      	817	824550000	869550000	f	f
+3797	36	Telefonía móvil celular 800Mhz  Canal 1009                                                                                      	818	824580000	869580000	f	f
+3798	36	Telefonía móvil celular 800Mhz  Canal 1010                                                                                      	819	824610000	869610000	f	f
+3799	36	Telefonía móvil celular 800Mhz  Canal 1011                                                                                      	820	824640000	869640000	f	f
+3800	36	Telefonía móvil celular 800Mhz  Canal 1012                                                                                      	821	824670000	869670000	f	f
+3801	36	Telefonía móvil celular 800Mhz  Canal 1013                                                                                      	822	824700000	869700000	f	f
+3802	36	Telefonía móvil celular 800Mhz  Canal 1014                                                                                      	823	824730000	869730000	f	f
+3803	36	Telefonía móvil celular 800Mhz  Canal 1015                                                                                      	824	824760000	869760000	f	f
+3804	36	Telefonía móvil celular 800Mhz  Canal 1016                                                                                      	825	824790000	869790000	f	f
+3805	36	Telefonía móvil celular 800Mhz  Canal 1017                                                                                      	826	824820000	869820000	f	f
+3806	36	Telefonía móvil celular 800Mhz  Canal 1018                                                                                      	827	824850000	869850000	f	f
+3807	36	Telefonía móvil celular 800Mhz  Canal 1019                                                                                      	828	824880000	869880000	f	f
+3808	36	Telefonía móvil celular 800Mhz  Canal 1020                                                                                      	829	824910000	869910000	f	f
+3809	36	Telefonía móvil celular 800Mhz  Canal 1021                                                                                      	830	824940000	869940000	f	f
+3810	36	Telefonía móvil celular 800Mhz  Canal 1022                                                                                      	831	824970000	869970000	f	f
+3811	36	Telefonía móvil celular 800Mhz  Canal 1023                                                                                      	832	825000000	870000000	f	f
 3812	37	Sistemas de relevadores radioeléctricos Frecuencia 1                                                                            	1	1428500000	1477500000	f	f
 3813	37	Sistemas de relevadores radioeléctricos Frecuencia 2                                                                            	2	1429000000	1478000000	f	f
 3814	37	Sistemas de relevadores radioeléctricos Frecuencia 3                                                                            	3	1429500000	1478500000	f	f
@@ -8759,10 +8848,99 @@ COPY channels ("ID_channels", "ID_frequency_ranks", channel_description, channel
 
 
 --
--- Data for Name: channels_assignations; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: channels_assignations; Type: TABLE DATA; Schema: public; Owner: drupal
 --
 
-COPY channels_assignations (id_channels_assignations, id_operators, id_channels) FROM stdin;
+COPY channels_assignations (id_channels_assignations, "ID_Operator", "ID_channels") FROM stdin;
+1	10	2980
+2	10	2981
+3	10	2982
+4	10	2983
+5	10	2984
+6	10	2985
+7	10	2986
+8	10	2987
+9	10	2988
+10	10	2989
+11	10	2990
+12	3	2995
+13	3	2996
+14	3	2997
+15	3	2998
+16	3	2999
+17	3	3000
+18	3	3001
+19	3	3002
+20	3	3003
+21	3	3004
+22	2	3079
+23	2	3080
+24	2	3081
+25	2	3082
+26	2	3083
+27	2	3084
+28	2	3085
+29	2	3086
+30	2	3087
+31	2	3088
+32	2	3089
+33	10	3181
+34	10	3182
+35	10	3183
+36	10	3184
+37	10	3185
+38	10	3186
+39	10	3187
+40	10	3185
+41	10	3186
+42	10	3187
+43	10	3187
+44	10	3188
+45	10	3189
+46	10	3190
+47	10	3191
+48	10	3192
+49	3	3029
+50	3	3030
+51	3	3031
+52	3	3032
+53	3	3033
+54	3	3034
+55	2	3009
+56	2	3010
+57	2	3011
+58	2	3012
+59	2	3013
+60	2	3014
+61	2	3015
+62	2	3016
+63	2	3017
+64	2	3018
+65	2	3019
+66	10	3481
+67	10	3482
+68	10	3483
+69	10	3484
+70	10	3485
+71	2	3488
+72	2	3489
+73	2	3490
+74	2	3491
+75	10	3483
+76	10	3484
+77	10	3485
+78	10	3486
+79	10	3487
+80	2	3488
+81	2	3489
+82	2	3490
+83	2	3491
+84	3	3486
+85	3	3487
+86	3	3488
+87	3	3489
+88	3	3490
+89	3	3491
 \.
 
 
@@ -11548,7 +11726,7 @@ ALTER TABLE ONLY frequency_bands
 
 
 --
--- Name: primary_keys_channels_assignations; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- Name: primary_keys_channels_assignations; Type: CONSTRAINT; Schema: public; Owner: drupal; Tablespace: 
 --
 
 ALTER TABLE ONLY channels_assignations
@@ -11588,28 +11766,28 @@ ALTER TABLE ONLY territorial_divisions
 
 
 --
--- Name: channel_assignations_national_id_channels_assignations_index; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+-- Name: channel_assignations_national_id_channels_assignations_index; Type: INDEX; Schema: public; Owner: drupal; Tablespace: 
 --
 
 CREATE INDEX channel_assignations_national_id_channels_assignations_index ON channel_assignations_national USING btree (id_channels_assignations);
 
 
 --
--- Name: channel_assignations_per_city_id_channels_assignations_index; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+-- Name: channel_assignations_per_city_id_channels_assignations_index; Type: INDEX; Schema: public; Owner: drupal; Tablespace: 
 --
 
 CREATE INDEX channel_assignations_per_city_id_channels_assignations_index ON channel_assignations_per_city USING btree (id_channels_assignations);
 
 
 --
--- Name: channel_assignations_per_departament_id_channels_assignations_i; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+-- Name: channel_assignations_per_departament_id_channels_assignations_i; Type: INDEX; Schema: public; Owner: drupal; Tablespace: 
 --
 
 CREATE INDEX channel_assignations_per_departament_id_channels_assignations_i ON channel_assignations_per_departament USING btree (id_channels_assignations);
 
 
 --
--- Name: channels_assignations_id_channels_assignations_index; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+-- Name: channels_assignations_id_channels_assignations_index; Type: INDEX; Schema: public; Owner: drupal; Tablespace: 
 --
 
 CREATE INDEX channels_assignations_id_channels_assignations_index ON channels_assignations USING btree (id_channels_assignations);

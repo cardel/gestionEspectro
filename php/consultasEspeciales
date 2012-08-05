@@ -34,11 +34,13 @@ select * from channels_assignations natural join channel_assignations_national n
 --Asignaciones parciales por operador de entrada	
 ----Seleccionar la suma ------------
 ----------Ya que las asignaciones se van propagando es necesario-----------
-select max(count) from (select count(*) from channels_assignations natural join channel_assignations_per_territorialdivision natural join channels where "ID_Operator" = 10 and "ID_frequency_ranks"=36 group by "ID_Territorial_Division") as tablaParcial;
+select "ID_Territorial_Division" as idter, count(*) as total from channels_assignations natural join channel_assignations_per_territorialdivision natural join channels where "ID_Operator" = 10 and "ID_frequency_ranks"=36 group by "ID_Territorial_Division";
 +
-select max(count) from (select count(*) from channels_assignations natural join channel_assignations_per_departament natural join channels where "ID_Operator" = 10 and "ID_frequency_ranks"=36 group by "ID_departament") as tablaParcial;
-+
-select max(count) from (select count(*) from channels_assignations natural join channel_assignations_per_city natural join channels where "ID_Operator" = 10 and "ID_frequency_ranks"=36 group by "ID_cities") as tablaParcial;
+select "ID_departament", count(*) from channels_assignations natural join channel_assignations_per_departament natural join channels natural join departaments where "ID_Operator" = 3 and "ID_frequency_ranks"=36 and "ID_Territorial_Division"=5 group by "ID_departament";
+
+//El ID_Departament pasa a abajo
+
+select count(*) from channels_assignations natural join channel_assignations_per_city natural join channels natural join cities where "ID_Operator" = 10 and "ID_frequency_ranks"=36 and "ID_departament"=31 group by "ID_cities";
 
 //////////////////////////////////////////////////////////////////////////
 
