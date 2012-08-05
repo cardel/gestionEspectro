@@ -36,7 +36,7 @@ select * from channels_assignations natural join channel_assignations_national n
 ----------Ya que las asignaciones se van propagando es necesario-----------
 select "ID_Territorial_Division" as idter, count(*) as total from channels_assignations natural join channel_assignations_per_territorialdivision natural join channels where "ID_Operator" = 10 and "ID_frequency_ranks"=36 group by "ID_Territorial_Division";
 +
-select "ID_departament", count(*) from channels_assignations natural join channel_assignations_per_departament natural join channels natural join departaments where "ID_Operator" = 3 and "ID_frequency_ranks"=36 and "ID_Territorial_Division"=5 group by "ID_departament";
+select "ID_departament", count(*) from channels_assignations natural join channel_assignations_per_departament natural join channels natural join departaments where "ID_Operator" = 10 and "ID_frequency_ranks"=36 and "ID_Territorial_Division"=5 group by "ID_departament";
 
 //El ID_Departament pasa a abajo
 

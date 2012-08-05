@@ -94,7 +94,7 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
     $objconexionBD = new conexionBD();
     $objconexionBD->abrirConexion();	
 	
-	$maximo;
+	$maximo=0;
 	
 		
 	switch($tipoAsignacion)
@@ -106,7 +106,7 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 				
 			$query="select \"ID_Territorial_Division\" as idter, count(*) as total from channels_assignations natural join channel_assignations_per_territorialdivision natural join channels where \"ID_Operator\" = ".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." group by \"ID_Territorial_Division\";";
 			
-			//Primero se calcula por entidad territorial
+			//Ahora total por entidad territorial
 			$result= $objconexionBD->enviarConsulta($query);
 			
 			while ($row =  pg_fetch_array ($result))
@@ -147,13 +147,14 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 				}
 				
 				$resultadosAcumulados[$idTer] += $maximoLocal;
+				
 				if($maximo < $resultadosAcumulados[$idTer]) $maximo = $resultadosAcumulados[$idTer];				
 
 			}		
 			break;
 		case 1:
 			//Asignacion territorial
-			//Se debe considerar la suma de lo que tiene un operador en un departamento y en un municipio
+			
 			$resultadosAcumulados = array();
 			
 			//Primero se calcula por departamento
@@ -170,6 +171,8 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 			//Se suma lo encontrado a los municipios de cada departamento
 			foreach($resultadosAcumulados as $idDep => $res)
 			{
+				
+		
 				$query="select max(count) as total from (select count(*) from channels_assignations natural join channel_assignations_per_city natural join channels natural join cities where \"ID_Operator\" = ".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." and \"ID_departament\"=".$idDep." group by \"ID_cities\") as tablaParcial;";	
 				
 				$result= $objconexionBD->enviarConsulta($query);
@@ -188,7 +191,6 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 		case 2:
 			//Asignacion departamental
 			//Se considera el maximo que tiene un operador en un municipio dado
-			$query="select max(count) as total from (select count(*) from channels_assignations natural join channel_assignations_per_city natural join channels natural join cities where \"ID_Operator\" = ".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." and \"ID_departament\"=".$idLugarAsignacion." group by \"ID_cities\") as tablaParcial;";
 			
 			$result= $objconexionBD->enviarConsulta($query);
 			
