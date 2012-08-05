@@ -140,7 +140,7 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 					while ($row =  pg_fetch_array ($result))
 					{
 						$resultadosAcumuladosDep[$idDep] += $row['total'];	
-						if($maximoLocal < $resultadosAcumuladosDep[$idDep]) $maximoLocal = $resultadosAcumulados[$idDep];				
+						if($maximoLocal < $resultadosAcumuladosDep[$idDep]) $maximoLocal = $resultadosAcumuladosDep[$idDep];				
 					}					
 					pg_free_result($result);				
 				}
