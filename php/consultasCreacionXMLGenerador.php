@@ -9,8 +9,6 @@ function obtenerInutilizableYReservado($id_frequency_rank )
 	
 	$salida="";
 
-	
-
 	$inutilizado = "\t\t\t\t\t<entry key=\"inutilizado\">\n";
 	$inutilizado .= "\t\t\t\t\t\t<tuple>\n";
 	$inutilizado .= "\t\t\t\t\t\t\t<i>\n";
@@ -28,7 +26,7 @@ function obtenerInutilizableYReservado($id_frequency_rank )
 	  $inut = 0;
 	  $reser = 0;
 	  
-	  if($row["disabled"]=='f') $inut=1;
+	  if($row["disabled"]!='f') $inut=1;
 	  if($row["reserved"]!='f') $reser=1;
 	  
  	  $inutilizado .= "\t\t\t\t\t\t\t\t\t<i>".$inut."</i>\n";	    
