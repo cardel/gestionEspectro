@@ -195,11 +195,11 @@
 							   $selectDepartaments = $_POST["selectDepartaments"];
 							   $selectCities = $_POST["selectCities"];
 							   
-							   echo "<input type=\"hidden\"	name=\"selectBandForm\" value=".$selectBand."/>";
-							   echo "<input type=\"hidden\"	name=\"selectRanksForm\" value=".$selectRanks."/>";
-							   echo "<input type=\"hidden\"	name=\"selectTerritorialDivisionForm\" value=".$selectTerritorialDivision."/>";
-							   echo "<input type=\"hidden\"	name=\"selectDepartamentsForm\" value=".$selectDepartaments."/>";
-							   echo "<input type=\"hidden\"	name=\"selectCitiesForm\" value=".$selectCities."/>";
+							   echo "<input type=\"hidden\"	name=\"selectBandForm\" value=".$selectBand." />";
+							   echo "<input type=\"hidden\"	name=\"selectRanksForm\" value=".$selectRanks." />";
+							   echo "<input type=\"hidden\"	name=\"selectTerritorialDivisionForm\" value=".$selectTerritorialDivision." />";
+							   echo "<input type=\"hidden\"	name=\"selectDepartamentsForm\" value=".$selectDepartaments." />";
+							   echo "<input type=\"hidden\"	name=\"selectCitiesForm\" value=".$selectCities." />";
 							}	
 				
 					}					
