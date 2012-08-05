@@ -76,13 +76,17 @@ function obtenerInutilizableYReservado($id_frequency_rank )
 	$objconexionBD->cerrarConexion();	
 	return $salida;
 }
-
+/*
+ * Esta funcion obtiene el maximo que tiene asignado un operador en las subdivisiones de la region de trabajo
+ * Por ejemplo
+ * Para el caso nacional, toma las divisiones territoriales, departamentales y municipales, las suma y obtiene el total
+ */ 
 function obtenerMaximoParcial($operador, $tipoAsignacion, $id_frequency_rank )
 {
+	
+	//!!ESTO DEBE CORREGIRSE
     $objconexionBD = new conexionBD();
-    $objconexionBD->abrirConexion();		
-	
-	
+    $objconexionBD->abrirConexion();	
 	
 	//Municipal esto es siempre 0
 	$maximo = 0;
@@ -123,13 +127,21 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $id_frequency_rank )
 		}	
 		pg_free_result($result);		
 	}
-	
-
-
 	$objconexionBD->cerrarConexion();	
 	return $maximo;
 }
+
+function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLugarAsignacion)
+{
 	
+		return 0;
+}
+	
+function obtenerAsignacion($requerimientos, $tipoAsignacion, $idAsignacion, $id_frequency_rank )
+{
+	
+		return 0;
+}
 
 	
 ?>
