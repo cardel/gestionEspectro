@@ -134,7 +134,7 @@ function crearRequerimiento()
 	$("#enlaceMunicipios").css("display", "none");
 	
 	$("#botonReq").attr('disabled','disabled');
-	$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'crearPostParaListas', , idConsulta: 0, selectBand:selectBand, selectRanks:selectRanks, selectTerritorialDivision:selectTerritorialDivision,selectDepartaments:selectDepartaments, selectCities:selectCities}, function(data){
+	$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'crearPostParaListas', idConsulta: 0, selectBand:selectBand, selectRanks:selectRanks, selectTerritorialDivision:selectTerritorialDivision,selectDepartaments:selectDepartaments, selectCities:selectCities}, function(data){
 		$("#crearPostParaListas").html(data);
 
 	});
