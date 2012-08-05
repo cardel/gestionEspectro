@@ -6,6 +6,7 @@
 	drupal_add_css($path = 'sites/all/libraries/jquery.ui/themes/default/ui.all.css', $type = 'module', $media = 'all', $preprocess = TRUE);
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/syntaxhighlighter/scripts/shCore.js');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/syntaxhighlighter/scripts/shBrushXml.js');
+	drupal_add_js(drupal_get_path('module', 'mymodule') . 'gestionEspectro/php/drupaljs/generador.js');
 	drupal_add_css($path = 'js/syntaxhighlighter/styles/shCore.css', $type = 'module', $media = 'all', $preprocess = TRUE);
 	drupal_add_css($path = 'js/syntaxhighlighter/styles/shThemeDefault.css', $type = 'module', $media = 'all', $preprocess = TRUE);
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/colorBoxU.js');
@@ -29,84 +30,19 @@
 		<li>A nivel departamental seleccione el departamento dentro de la región especifíca</li>
 		<li>A nivel local seleccione el municipio dentro del departamento especifíco</li>
 	</ul>	
-	<script language="javascript">
-	function borrarDepartamentos(){
-		$("#departamentos").html(" ");      
-		$("#municipios").html(" ");       
-	}
-	function borrarMunicipios(){
-		$("#municipios").html(" ");       
-	}
-	</script>
+
 	<div id="enlaceDivisionTerritorial">
 	<a href="#" id="consultarDivisionTerritorial" onclick="javascript:consultarDivisionTerritorial();"> Seleccionar división territorial </a>
 	</div>
 
-	<script language="javascript">
-	function consultarDivisionTerritorial(){ 
-		$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'divisionTerritorial', idConsulta: 0 }, function(data){
-			$("#territorialDivision").html(data);
-			$("#departamentos").html("");
-			$("#municipios").html("");
-			$("#tipoAsignacion").html("La asignación es a nivel regional");
-		});  
-	}
-	</script>	
-
 	<div id="territorialDivision"></div>
-
-	<script language="javascript">
-	function consultarDepartamentos(){ 
-		var selector = $('#selectTerritorialDivision').val();
-		$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'departamentos', idConsulta: selector }, function(data){
-			$("#departamentos").html(data);
-			$("#municipios").html("");
-			$("#tipoAsignacion").html("La asignación es a nivel departamental");
-
-		});  
-	}
-	</script>
-
 	<div id="departamentos"></div>
-
-	<script language="javascript">
-	function consultarMunicipios(){    
-		var selector = $('#selectDepartaments').val();
-		$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'municipios', idConsulta: selector }, function(data){
-			$("#municipios").html(data);
-			$("#tipoAsignacion").html("La asignación es a nivel municipal");
-		});         
-	}
-	</script>
 
 	<div id="municipios"></div>	
 		
 	<p class='estilo'>Selección banda</p>
 	Por favor seleccione una banda y posteriormente un rango donde desea generar el requerimiento.
-
-	<script language="javascript">
-	function consultarBandas(){    
-		$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'bandas', idConsulta: 0 }, function(data){
-			$("#bandas").html(data);
-		});      
-	}
-	consultarBandas();
-	</script>
-
-	<div id="bandas"></div>	
-
-	<script language="javascript">
-	function consultarRangos(){  
-		var selector = $('#selectBands').val();
-		$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'rangos', idConsulta: selector }, function(data){
-			$("#rangos").html(data);
-		});   
-		$("#serviciosBanda").html(" "); 
-		$("#numCanales").html(" ");  
-		$("#botonRequerimientos").css("display", "none");  
-		$("#parametrosRango").css("display", "none");   
-	}
-	</script>
+	<div id="bandas"></div>		
 	<div id="rangos"></div>	
 
 
@@ -412,8 +348,13 @@
 
 			//maximo ocupado por un operador de entrada
 			$salida .= "\t\t<entry key=\"PartialAssignation\">\n";
-			$salida .= "\t\t\t<i>".$separacion."</i>\n";
-			$salida .= "\t\t</entry>\n";
+			foreach($requerimientos as $op)
+			{
+				$salida .= "\t\t\t\t\t<entry key=\"".$op[0]."\">\n";
+				$salida .= "\t\t\t\t\t\t<i>". obtenerMaximoParcial($op[0], $tipoAsignacion, $rangoSeleccionado)."</i>\n";
+				$salida .= "\t\t\t\t\t</entry>\n";
+			}
+					$salida .= "\t\t</entry>\n";
 			
 			//Asignaciones actuales				
 			$salida .= "\t\t<entry key=\"AssignationChannel\">\n";

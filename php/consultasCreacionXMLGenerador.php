@@ -8,7 +8,7 @@ function numeroDeOperadores($id_frequency_rank, $requerimientos )
     $objconexionBD = new conexionBD();
     $objconexionBD->abrirConexion();	
     
-    $query="select DISTINCT \"ID_Operator\" from channels_assignations natural join channel_assignations_per_city natural join cities natural join operators natural join channels where  \"ID_frequency_ranks\"=".$id_frequency_rank.";";	
+    $query="select DISTINCT \"ID_Operator\" from channels_assignations natural join channel_assignations_per_city natural join cities natural join operators natural join channels where \"ID_frequency_ranks\"=".$id_frequency_rank.";";	
  	$result= $objconexionBD->enviarConsulta($query);	
 
 	while ($row =  pg_fetch_array ($result))
@@ -16,7 +16,7 @@ function numeroDeOperadores($id_frequency_rank, $requerimientos )
 		$total++;
 	}	
 	pg_free_result($result);
-	foreach($requerimientos as  $a)
+	foreach($requerimientos as $a)
 	{
 		$query="select count(*) from channels_assignations natural join channel_assignations_per_city natural join cities natural join operators natural join channels where \"ID_Operator\"=".$a[0]." and \"ID_frequency_ranks\"=".$id_frequency_rank.";";	 	$resultAux= $objconexionBD->enviarConsulta($query);
 		
@@ -76,5 +76,60 @@ function obtenerInutilizableYReservado($id_frequency_rank )
 	$objconexionBD->cerrarConexion();	
 	return $salida;
 }
+
+function obtenerMaximoParcial($operador, $tipoAsignacion, $id_frequency_rank )
+{
+    $objconexionBD = new conexionBD();
+    $objconexionBD->abrirConexion();		
+	
+	
+	
+	//Municipal esto es siempre 0
+	$maximo = 0;
+	
+		
+	//Departamental busca municipales
+	if($tipoAsignacion<3)
+	{
+		$query="select max(count) from (select count(*) from channels_assignations natural join channel_assignations_per_city natural join channels where \"ID_Operator\" =".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." group by \"ID_cities\") as tablaParcial";
+		$result= $objconexionBD->enviarConsulta($query);
+		while ($row =  pg_fetch_array ($result))
+		{
+			$maximo += $row['max'];
+		}	
+		pg_free_result($result);			
+		
+	}
+	//Territorial busca departamentales
+	if($tipoAsignacion<2)
+	{		
+		$query="select max(count) from (select count(*) from channels_assignations natural join channel_assignations_per_departament natural join channels where \"ID_Operator\" =".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." group by \"ID_departament\") as tablaParcial";
+		$result= $objconexionBD->enviarConsulta($query);
+		while ($row =  pg_fetch_array ($result))
+		{
+			$maximo += $row['max'];
+		}	
+		pg_free_result($result);	
+	}
+	
+	if($tipoAsignacion<1)
+	{		
+		//Nacional busca territorial
+		$query="select max(count) from (select count(*) from channels_assignations natural join channel_assignations_per_territorialdivision natural join channels where \"ID_Operator\" =".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." group by \"ID_Territorial_Division\") as tablaParcial";
+		$result= $objconexionBD->enviarConsulta($query);
+		while ($row =  pg_fetch_array ($result))
+		{
+			$maximo += $row['max'];
+		}	
+		pg_free_result($result);		
+	}
+	
+
+
+	$objconexionBD->cerrarConexion();	
+	return $maximo;
+}
+	
+
 	
 ?>
