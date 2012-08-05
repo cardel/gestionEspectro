@@ -204,18 +204,8 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 			$maximo = 0;
 			break;
 		
-	}
-	
-					
-	
-		$query="select * from channels_assignations natural join channel_assignations_per_city natural join channels where \"ID_Operator\" =".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." group by \"ID_cities\") as tablaParcial";
-		$result= $objconexionBD->enviarConsulta($query);
-		while ($row =  pg_fetch_array ($result))
-		{
-			$maximo += $row['max'];
-		}	
-	
-	
+	}	
+
 	$objconexionBD->cerrarConexion();	
 	return $maximo;
 }
