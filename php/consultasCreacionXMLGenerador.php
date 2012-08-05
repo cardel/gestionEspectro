@@ -104,11 +104,11 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 			
 			$resultadosAcumulados = array();
 				
-			$query="select \"ID_Territorial_Division\" as idter, count(*) as total from channels_assignations natural join channel_assignations_per_territorialdivision where \"ID_Operator\" = ".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." group by \"ID_Territorial_Division\";";
+			$query="select \"ID_Territorial_Division\" as idter, count(*) as total from channels_assignations natural join channel_assignations_per_territorialdivision natural join channels where \"ID_Operator\" = ".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." group by \"ID_Territorial_Division\";";
 			
 			//Primero se calcula por entidad territorial
-			$resultadosAcumulados = array();
 			$result= $objconexionBD->enviarConsulta($query);
+			
 			while ($row =  pg_fetch_array ($result))
 			{
 				$resultadosAcumulados[$row['idter']] = $row['total'];
