@@ -22,13 +22,13 @@ function obtenerInutilizableYReservado($id_frequency_rank )
 	$reservado .= "\t\t\t\t\t\t\t\t<list>\n";	
 	
 	$query="select channel_number, reserved, disabled from channels where \"ID_frequency_ranks\" = ".$id_frequency_rank." order by channel_number;";
-	$salida.=$query;
 	$result= $objconexionBD->enviarConsulta($query);	
 	while ($row =  pg_fetch_array ($result))
 	{
 	  $inut = 0;
 	  $reser = 0;
 	  
+	  $salida.=$row["disabled"];
 	  if($row["disabled"]) $inut=1;
 	  if($row["reserved"]) $reser=1;
 	  
