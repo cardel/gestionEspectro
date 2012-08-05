@@ -190,7 +190,8 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 		case 2:
 			//Asignacion departamental
 			//Se considera el maximo que tiene un operador en un municipio dado
-			
+			$query="select max(count) as total from (select count(*) from channels_assignations natural join channel_assignations_per_city natural join channels natural join cities where \"ID_Operator\" = ".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." and \"ID_departament\"=".$idLugarAsignacion." group by \"ID_cities\") as tablaParcial;";	
+					
 			$result= $objconexionBD->enviarConsulta($query);
 			
 			while ($row =  pg_fetch_array ($result))
