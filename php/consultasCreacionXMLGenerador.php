@@ -8,8 +8,7 @@ function obtenerInutilizableYReservado($id_frequency_rank )
     $objconexionBD->abrirConexion();		
 	
 	$salida="";
-	$query="select channel_number, reserved, disabled from channels where \"ID_frequency_ranks\" = ".$id_frequency_rank." order by channel_number;";
-	$result= $objconexionBD->enviarConsulta($query);
+
 	
 
 	$inutilizado = "\t\t\t\t\t<entry key=\"inutilizado\">\n";
@@ -22,6 +21,9 @@ function obtenerInutilizableYReservado($id_frequency_rank )
 	$reservado .= "\t\t\t\t\t\t\t<i>\n";
 	$reservado .= "\t\t\t\t\t\t\t\t<list>\n";	
 	
+	$query="select channel_number, reserved, disabled from channels where \"ID_frequency_ranks\" = ".$id_frequency_rank." order by channel_number;";
+	$salida=.$query;
+	$result= $objconexionBD->enviarConsulta($query);	
 	while ($row =  pg_fetch_array ($result))
 	{
 	  $inut = 0;
