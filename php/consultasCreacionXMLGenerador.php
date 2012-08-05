@@ -111,7 +111,7 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 			$result= $objconexionBD->enviarConsulta($query);
 			while ($row =  pg_fetch_array ($result))
 			{
-				$resultadosAcumulados[$row['iddep']] = $row['total'];
+				$resultadosAcumulados[$row['idter']] = $row['total'];
 			}			
 			pg_free_result($result);
 				
