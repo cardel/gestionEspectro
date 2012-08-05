@@ -204,11 +204,11 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 			pg_free_result($result);	
 			break;		
 		case 3:	
-		default:
 			//Asignacion municipal
 			$maximo = 0;
 			break;
-		
+		default:
+			break;
 	}	
 
 	$objconexionBD->cerrarConexion();	
