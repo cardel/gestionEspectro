@@ -34,7 +34,6 @@
 	<div id="enlaceDivisionTerritorial">
 	<a href="#" id="consultarDivisionTerritorial" onclick="javascript:consultarDivisionTerritorial();"> Seleccionar división territorial </a>
 	</div>
-
 	<div id="territorialDivision"></div>
 	<div id="departamentos"></div>
 
