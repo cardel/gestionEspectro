@@ -1,7 +1,13 @@
 <?php
+/*
+ * Carlos Andres Delgado
+ * Diseño e implementación de una aplicación para la gestión del espectro radioeléctrico
+ * Consultas para generador de entradas
+*/
 
 require ("/var/www/html/site/gestionEspectro/php/conexionBD.php");
 
+//Esta funcion retorna el número de operadores de la banda mas los que entran
 function numeroDeOperadores($id_frequency_rank, $requerimientos )
 {
 	$total = sizeof($requerimientos);
@@ -31,7 +37,7 @@ function numeroDeOperadores($id_frequency_rank, $requerimientos )
 	return $total;
 }
 
-
+//Esta funcion retorna los canales reservado e inutilizables de una banda
 function obtenerInutilizableYReservado($id_frequency_rank )
 {
     $objconexionBD = new conexionBD();
@@ -92,7 +98,7 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $id_frequency_rank )
 	$maximo = 0;
 	
 		
-	//Departamental busca municipales
+	//Departamental busca municipales	
 	if($tipoAsignacion<3)
 	{
 		$query="select max(count) from (select count(*) from channels_assignations natural join channel_assignations_per_city natural join channels where \"ID_Operator\" =".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." group by \"ID_cities\") as tablaParcial";
@@ -104,7 +110,9 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $id_frequency_rank )
 		pg_free_result($result);			
 		
 	}
+	
 	//Territorial busca departamentales
+	//Debe considerar por departamento y municipio <mal>
 	if($tipoAsignacion<2)
 	{		
 		$query="select max(count) from (select count(*) from channels_assignations natural join channel_assignations_per_departament natural join channels where \"ID_Operator\" =".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." group by \"ID_departament\") as tablaParcial";
@@ -115,10 +123,11 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $id_frequency_rank )
 		}	
 		pg_free_result($result);	
 	}
-	
+	//Nacional busca territorial	
+	//Debe considerar por territorio y su cez por departamento y asu vez por municipio <mal>
 	if($tipoAsignacion<1)
 	{		
-		//Nacional busca territorial
+
 		$query="select max(count) from (select count(*) from channels_assignations natural join channel_assignations_per_territorialdivision natural join channels where \"ID_Operator\" =".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." group by \"ID_Territorial_Division\") as tablaParcial";
 		$result= $objconexionBD->enviarConsulta($query);
 		while ($row =  pg_fetch_array ($result))
