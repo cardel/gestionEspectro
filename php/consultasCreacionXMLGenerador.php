@@ -95,8 +95,10 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
     $objconexionBD->abrirConexion();	
 	
 	$maximo=0;
+	
+	$assignation = intval($tipoAsignacion);
 		
-	switch($tipoAsignacion)
+	switch($assignation)
 	{
 		case 0:
 			//Asignacion nacional	
@@ -196,11 +198,12 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 			
 			while ($row =  pg_fetch_array ($result))
 			{
-				$maximo += $row['total'];
+				$maximo = $row['total'];
 			}	
 			
 			pg_free_result($result);	
-			break;			
+			break;		
+		case 3:	
 		default:
 			//Asignacion municipal
 			$maximo = 0;

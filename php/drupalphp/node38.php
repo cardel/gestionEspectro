@@ -225,10 +225,10 @@
 			foreach($requerimientos as $op)
 			{
 				$salida .= "\t\t\t\t\t<entry key=\"".$op[0]."\">\n";
-				$salida .= "\t\t\t\t\t\t<i>". obtenerMaximoParcial($op[0], $tipoAsignacion, $idAsignacion, $rangoSeleccionado)."</i>\n";
+				$salida .= "\t\t\t\t\t\t<i>".obtenerMaximoParcial($op[0], $tipoAsignacion, $idAsignacion, $rangoSeleccionado)."</i>\n";
 				$salida .= "\t\t\t\t\t</entry>\n";
 			}
-					$salida .= "\t\t</entry>\n";
+			$salida .= "\t\t</entry>\n";
 			
 			//Asignaciones actuales				
 			$salida .= "\t\t<entry key=\"AssignationChannel\">\n";
