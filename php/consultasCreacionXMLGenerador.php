@@ -94,11 +94,9 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
     $objconexionBD = new conexionBD();
     $objconexionBD->abrirConexion();	
 	
-	$maximo=0;
+	$maximo=0;	
 	
-	$assignation = intval($tipoAsignacion);
-		
-	switch($assignation)
+	switch($tipoAsignacion)
 	{
 		case 0:
 			//Asignacion nacional	
