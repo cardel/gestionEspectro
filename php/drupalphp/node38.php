@@ -384,11 +384,11 @@
 			
 			//Consultar operadores actuales
 			$salida .= "\t\t<entry key=\"Operators\">\n";
-			$salida .= "\t\t\t<i>".numeroDeOperadores($id_frequency_rank, $operadores )."</i>\n";
+			$salida .= "\t\t\t<i>".numeroDeOperadores($rangoSeleccionado, $requerimientos )."</i>\n";
 			$salida .= "\t\t</entry>\n";	
 			
 			$salida .= "\t\t<entry key=\"OperatorsOfInput\">\n";
-			$salida .= "\t\t\t<i>".sizeof($operadores)."</i>\n";
+			$salida .= "\t\t\t<i>".sizeof($requerimientos)."</i>\n";
 			$salida .= "\t\t</entry>\n";	
 			
 			$salida .= "\t\t<entry key=\"ChannelSeparation\">\n";
