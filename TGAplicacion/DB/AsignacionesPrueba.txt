@@ -1,0 +1,40 @@
+Banda 800MHz
+
+NACIONAL
+1-10 Movistar
+16-25 Tigo
+100-110 Une
+
+
+TERRITORIAL
+Division Medellin
+202 - 208 Movistar
+
+Division cucuta
+206-208 Movistar
+
+
+Division cali
+208-213 Movistar
+
+
+DEPARTAMENTAL
+Valle
+50-55 Tigo
+
+
+Antioquia
+30-40 une
+
+
+MUNICIPAL
+Cali
+502-506 Movistar
+509-512 Tigo
+
+Bogota
+504-508 Movistar
+509-512 Tigo
+
+Medellin
+507-512 Une
