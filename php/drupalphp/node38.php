@@ -75,7 +75,6 @@
 		$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'municipios', idConsulta: selector }, function(data){
 			$("#municipios").html(data);
 			$("#tipoAsignacion").html("La asignación es a nivel municipal");
-
 		});         
 	}
 	</script>

@@ -74,7 +74,7 @@
 				   while ($row =  pg_fetch_array ($result))
 				   {
 					  print ("<option value=$row[ID_frequency_bands]>");
-					  print ($row[frequency_bands_name]." ".$row["frequency_bands_range"]);
+					  print ($row["frequency_bands_name"]." ".$row["frequency_bands_range"]);
 					  print ("</option>\n");		
 					}
 					echo "</select>";	
@@ -121,9 +121,9 @@
 								$result= $objconexionBD->enviarConsulta($query);
 							    while ($row =  pg_fetch_array ($result))
 							    {
-								  echo "<input type=\"hidden\" name=\"numeroCanalesFormulario\" value=".$row[channels_number]."/>";
-  								  echo "<input type=\"hidden\" name=\"channel_separationFormulario\" value=".$row[channel_separation]."/>";
-  								  echo "<input type=\"hidden\" name=\"maxChannelPerOperatorFormulario\" value=".$row[max_channels_per_operator]."/>";
+								  echo "<input type=\"hidden\" name=\"numeroCanalesFormulario\" value=".$row["channels_number"]."/>";
+  								  echo "<input type=\"hidden\" name=\"channel_separationFormulario\" value=".$row["channel_separation"]."/>";
+  								  echo "<input type=\"hidden\" name=\"maxChannelPerOperatorFormulario\" value=".$row["max_channels_per_operator"]."/>";
 
 								}
 							}
