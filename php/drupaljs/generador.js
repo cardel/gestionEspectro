@@ -123,7 +123,7 @@ function crearRequerimiento()
 	$('#selectDepartaments').attr('disabled','disabled');
 	
 	var selectCities = -1;
-	if($('#selectDepartaments').length)
+	if($('#selectCities').length)
 	{
 		selectCities = $('#selectCities').val();
 	}
