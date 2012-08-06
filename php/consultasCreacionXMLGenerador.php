@@ -32,6 +32,7 @@ function retornarOperadores($id_frequency_rank, $tipoAsignacion, $idAsignacion, 
     $tipoConsultaInicio="";
     $tipoConsultaFinal="";
     
+    //Se toma en cuenta que las asignaciones se propagan de divisiones a subdivisiones, por ejemplo una asignación nacional va con otras
     switch($tipoAsignacion)
     {
 			case 0:
@@ -39,19 +40,18 @@ function retornarOperadores($id_frequency_rank, $tipoAsignacion, $idAsignacion, 
 				$tipoConsultaFinal="";
 				break;
 			case 1:
-				$tipoConsultaInicio = " channel_assignations_per_territorialdivision ";
+				$tipoConsultaInicio = " channel_assignations_national natural join channel_assignations_per_territorialdivision ";
 				$tipoConsultaFinal=" and \"ID_Territorial_Division\"=".$idAsignacion;
 				break;
 			case 2:
-				$tipoConsultaInicio = " channel_assignations_per_departament ";
+				$tipoConsultaInicio = " channel_assignations_national natural join channel_assignations_per_territorialdivision natural join channel_assignations_per_departament natural join territorial_divisions ";
 				$tipoConsultaFinal=" and \"ID_departament\"=".$idAsignacion;
 				break;
 			case 3:
 			default:
-				$tipoConsultaInicio = " channel_assignations_per_city ";
+				$tipoConsultaInicio = " channel_assignations_national natural join channel_assignations_per_territorialdivision natural join channel_assignations_per_departament natural join channel_assignations_per_city natural join territorial_divisions natural join departaments ";
 				$tipoConsultaFinal=" and \"ID_cities\"=".$idAsignacion;
-				break;
-		
+				break;		
 	}
     
     
@@ -485,6 +485,7 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
     $tipoConsultaInicio="";
     $tipoConsultaFinal="";
     
+    //Se toma en cuenta que las asignaciones se propagan de divisiones a subdivisiones, por ejemplo una asignación nacional va con otras
     switch($tipoAsignacion)
     {
 			case 0:
@@ -492,16 +493,16 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
 				$tipoConsultaFinal="";
 				break;
 			case 1:
-				$tipoConsultaInicio = " channel_assignations_per_territorialdivision ";
+				$tipoConsultaInicio = " channel_assignations_national natural join channel_assignations_per_territorialdivision ";
 				$tipoConsultaFinal=" and \"ID_Territorial_Division\"=".$idAsignacion;
 				break;
 			case 2:
-				$tipoConsultaInicio = " channel_assignations_per_departament ";
+				$tipoConsultaInicio = " channel_assignations_national natural join channel_assignations_per_territorialdivision natural join channel_assignations_per_departament natural join territorial_divisions ";
 				$tipoConsultaFinal=" and \"ID_departament\"=".$idAsignacion;
 				break;
 			case 3:
 			default:
-				$tipoConsultaInicio = " channel_assignations_per_city ";
+				$tipoConsultaInicio = " channel_assignations_national natural join channel_assignations_per_territorialdivision natural join channel_assignations_per_departament natural join channel_assignations_per_city natural join territorial_divisions natural join departaments ";
 				$tipoConsultaFinal=" and \"ID_cities\"=".$idAsignacion;
 				break;		
 	}
@@ -515,7 +516,9 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
 		$salida .= "\t\t\t\t\t\t\t<i>\n";
 		$salida .= "\t\t\t\t\t\t\t\t<list>\n";
 	
-		$query="select channel_number as canal from channels_assignations natural join ".$tipoConsultaInicio." natural join operators natural join channels where \"ID_Operator\"=".$listaOperadoresOrdenada[$i]." and \"ID_frequency_ranks\"=".$id_frequency_rank." ".$tipoConsultaFinal." ;";	
+		$query="select channel_number as canal from channels_assignations natural join ".$tipoConsultaInicio." natural join operators natural join channels where \"ID_Operator\"=".$listaOperadoresOrdenada[$i]." and \"ID_frequency_ranks\"=".$id_frequency_rank." ".$tipoConsultaFinal." ;";
+		
+		$salida.=$query."\n";	
 		
 		$result= $objconexionBD->enviarConsulta($query);	
 		
