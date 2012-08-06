@@ -272,7 +272,7 @@ function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLu
 			$asignado = array();
 
 			//Asignaciones de todas las divisiones territoriales
-			$query = "select DISTINCT channel_number from channels natural join channel_assignations_per_departament natural join channels_assignations natural join departaments where \"ID_frequency_ranks\" = ".$id_frequency_rank." order by channel_number;";
+			$query = "select DISTINCT channel_number from channels natural join channel_assignations_per_departament natural join channels_assignations where \"ID_frequency_ranks\" = ".$id_frequency_rank." order by channel_number;";
 			$result= $objconexionBD->enviarConsulta($query);
 			
 			while ($row =  pg_fetch_array ($result))
@@ -288,8 +288,8 @@ function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLu
 			
 			while ($row =  pg_fetch_array ($result))
 			{
-					$departamentos[$row['iddep']] = 0;
-			}			
+				$departamentos[$row['iddep']] = 0;
+			}		
 			pg_free_result($result);	
 			
 			foreach($departamentos as $dep => $res)
