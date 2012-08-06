@@ -233,7 +233,13 @@
 			$salida .= "\t\t<entry key=\"PartialAssignation\">\n";
 			foreach($requerimientos as $op)
 			{
-				$salida .= "\t\t\t\t\t<entry key=\"".$op[0]."\">\n";
+				$keyOP = 0;
+				foreach ($listaOperadores as $key => $elemento) {
+					if ($elemento == $op[0]) {
+						$keyOP =  $key;
+					}
+				}
+				$salida .= "\t\t\t\t\t<entry key=\"".$keyOP."\">\n";
 				$salida .= "\t\t\t\t\t\t<i>".obtenerMaximoParcial($op[0], $tipoAsignacion, $idAsignacion, $rangoSeleccionado)."</i>\n";
 				$salida .= "\t\t\t\t\t</entry>\n";
 			}

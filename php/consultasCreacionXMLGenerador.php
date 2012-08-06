@@ -477,8 +477,72 @@ function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLu
 
 function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignacion, $id_frequency_rank )
 {
+	$salida = "";
+
+    $objconexionBD = new conexionBD();
+    $objconexionBD->abrirConexion();	
+    
+    $tipoConsultaInicio="";
+    $tipoConsultaFinal="";
+    
+    switch($tipoAsignacion)
+    {
+			case 0:
+				$tipoConsultaInicio = " channel_assignations_national ";
+				$tipoConsultaFinal="";
+				break;
+			case 1:
+				$tipoConsultaInicio = " channel_assignations_per_territorialdivision ";
+				$tipoConsultaFinal=" and \"ID_Territorial_Division\"=".$idAsignacion;
+				break;
+			case 2:
+				$tipoConsultaInicio = " channel_assignations_per_departament ";
+				$tipoConsultaFinal=" and \"ID_departament\"=".$idAsignacion;
+				break;
+			case 3:
+			default:
+				$tipoConsultaInicio = " channel_assignations_per_city ";
+				$tipoConsultaFinal=" and \"ID_cities\"=".$idAsignacion;
+				break;		
+	}
+    
+    $asignacion = array();
+    for($i=3; $i<=sizeof($listaOperadoresOrdenada); $i++)
+    {
+		$salida .= "\t\t\t\t\t<entry key=\"".$listaOperadoresOrdenada[$i]."\">\n";
+		$salida .= "\t\t\t\t\t\t<tuple>\n";
+		$salida .= "\t\t\t\t\t\t\t<i>\n";
+		$salida .= "\t\t\t\t\t\t\t\t<list>\n";
+	
+		$query="select channel_number as canal from channels_assignations natural join ".$tipoConsultaInicio." natural join operators natural join channels where  \"ID_Operator\"=".$listaOperadoresOrdenada[$i]." and \"ID_frequency_ranks\"=".$id_frequency_rank." ".$tipoConsultaFinal." ;";	
 		
-		return 0;
+		$result= $objconexionBD->enviarConsulta($query);	
+		
+		//Consultar operadores actuales en la banda
+		while ($row =  pg_fetch_array ($result))
+		{
+			$asignacion[$row['canal']] = 1;
+		}	
+		pg_free_result($result);
+		
+		$query="select channel_number, reserved, disabled from channels where \"ID_frequency_ranks\" = ".$id_frequency_rank." order by channel_number;";
+		$result= $objconexionBD->enviarConsulta($query);	
+		
+		while ($row =  pg_fetch_array ($result))
+		{  
+		  $ingresar = 0;		  
+		  if($asignacion[$row['channel_number']]==1) $ingresar = 1;			  
+		  $salida .= "\t\t\t\t\t\t\t\t\t<i>".$ingresar."</i>\n";
+		}
+		$salida .= "\t\t\t\t\t\t\t\t</list>\n";	
+		$salida .= "\t\t\t\t\t\t\t</i>\n";
+		$salida .= "\t\t\t\t\t</entry>\n";	
+		pg_free_result($result);		
+		
+	}
+	
+ 	$objconexionBD->cerrarConexion();	
+	return $salida;
 }
 
 	
