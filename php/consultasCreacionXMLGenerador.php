@@ -32,14 +32,14 @@ function retornarOperadores($id_frequency_rank, $tipoAsignacion, $idAsignacion, 
     $tipoConsultaInicio="";
     $tipoConsultaFinal="";
     
-    $tipoAssing = $tipoAsignacion;   
+    $typeAssign = $tipoAsignacion;   
     
     $idAsignacionTerritorial = $idAsignacion;
     $idAsignacionDepartamental = $idAsignacion;
     $idAsignacionMunicipal = $idAsignacion;
     
     //Se toma en cuenta que las asignaciones se propagan de divisiones a subdivisiones, por ejemplo una asignación nacional va con otras
-	while($tipoAssing >= 0)
+	while($typeAssign >= 0)
 	{
 		switch($tipoAsignacion)
 		{
@@ -51,20 +51,20 @@ function retornarOperadores($id_frequency_rank, $tipoAsignacion, $idAsignacion, 
 					$tipoConsultaInicio = " channel_assignations_national natural join channel_assignations_per_territorialdivision ";
 					$tipoConsultaFinal=" and \"ID_Territorial_Division\"=".$idAsignacionTerritorial;
 					break;
-					case 2:
-						$tipoConsultaInicio = " channel_assignations_national natural join channel_assignations_per_departament ";
-						$tipoConsultaFinal=" and \"ID_departament\"=".$idAsignacionDepartamental;
-						
-						//Consultar ID_Territorial
-						$query="select \"ID_Territorial_Division\" as idTer from departaments where \"ID_departament\" =".$idAsignacionDepartamental.";";	
-						
-						$result= $objconexionBD->enviarConsulta($query);	
+				case 2:
+					$tipoConsultaInicio = " channel_assignations_national natural join channel_assignations_per_departament ";
+					$tipoConsultaFinal=" and \"ID_departament\"=".$idAsignacionDepartamental;
+					
+					//Consultar ID_Territorial
+					$query="select \"ID_Territorial_Division\" as idTer from departaments where \"ID_departament\" =".$idAsignacionDepartamental.";";	
+					
+					$result= $objconexionBD->enviarConsulta($query);	
 
-						while ($row =  pg_fetch_array ($result))
-						{
-							$idAsignacionTerritorial= $row['idTer'];
-						}	
-						break;
+					while ($row =  pg_fetch_array ($result))
+					{
+						$idAsignacionTerritorial= $row['idTer'];
+					}	
+					break;
 				case 3:
 				default:
 					$tipoConsultaInicio = " channel_assignations_national natural join channel_assignations_per_city ";
@@ -81,7 +81,7 @@ function retornarOperadores($id_frequency_rank, $tipoAsignacion, $idAsignacion, 
 					
 					break;		
 		}
-		$tipoAssing--;
+		$typeAssign--;
 		
 		$query="select DISTINCT \"ID_Operator\" as idop from channels_assignations natural join ".$tipoConsultaInicio." natural join operators natural join channels where \"ID_frequency_ranks\"=".$id_frequency_rank." ".$tipoConsultaFinal." ;";	
 		$result= $objconexionBD->enviarConsulta($query);	
@@ -89,11 +89,11 @@ function retornarOperadores($id_frequency_rank, $tipoAsignacion, $idAsignacion, 
 		//Consultar operadores actuales en la banda
 		while ($row =  pg_fetch_array ($result))
 		{
-			if(!(in_array($row['idop'],$salida)))
-			{
+			//if(!(in_array($row['idop'],$salida)))
+			//{
 				$contador++;
 				$salida[$contador] = $row['idop'];
-			}
+			//}
 
 		}	
 		pg_free_result($result);		
@@ -519,7 +519,7 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
     $tipoConsultaInicio="";
     $tipoConsultaFinal="";
     
-   $tipoAssing = $tipoAsignacion;   
+   $typeAssign = $tipoAsignacion;   
     
     $idAsignacionTerritorial = $idAsignacion;
     $idAsignacionDepartamental = $idAsignacion;
@@ -535,7 +535,7 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
 		$salida .= "\t\t\t\t\t\t\t\t<list>\n";
 		
 		//Revisar asignaciones desde subdivisiones a divisiones
-		while($tipoAssing >= 0)
+		while($typeAssign >= 0)
 		{
 			switch($tipoAsignacion)
 			{
@@ -576,7 +576,7 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
 						
 						break;		
 			}
-			$tipoAssing--;	
+			$typeAssign--;	
 		
 			$query="select channel_number as canal from channels_assignations natural join ".$tipoConsultaInicio." natural join operators natural join channels where \"ID_Operator\"=".$listaOperadoresOrdenada[$i]." and \"ID_frequency_ranks\"=".$id_frequency_rank." ".$tipoConsultaFinal." ;";
 					
