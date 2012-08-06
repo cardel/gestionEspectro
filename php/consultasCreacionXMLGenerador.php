@@ -269,6 +269,54 @@ function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLu
 	switch($tipoAsignacion)
 	{
 		case 0:
+			$asignado = array();
+
+			//Asignaciones de todas las divisiones territoriales
+			$query = "select DISTINCT channel_number from channels natural join channel_assignations_per_departament natural join channels_assignations natural join departaments where \"ID_frequency_ranks\" = ".$id_frequency_rank." order by channel_number;";
+			$result= $objconexionBD->enviarConsulta($query);
+			
+			while ($row =  pg_fetch_array ($result))
+			{  
+			  $asignado[$row['channel_number']] = 1;
+			}	
+			pg_free_result($result);
+						
+			//Se seleccionan todos los departamentos
+			$departamentos = array();
+			$query="select \"ID_departament\" as iddep from departaments ;";
+			$result= $objconexionBD->enviarConsulta($query);
+			
+			while ($row =  pg_fetch_array ($result))
+			{
+					$departamentos[$row['iddep']] = 0;
+			}			
+			pg_free_result($result);	
+			
+			foreach($departamentos as $dep => $res)
+			{
+				$query = "select DISTINCT channel_number from channels natural join channel_assignations_per_city natural join channels_assignations natural join cities where \"ID_frequency_ranks\" = ".$id_frequency_rank." and \"ID_departament\" = ".$dep." order by channel_number;";
+
+				$result= $objconexionBD->enviarConsulta($query);	
+				
+				while ($row =  pg_fetch_array ($result))
+				{  
+				  $asignado[$row['channel_number']] = 1;
+				}	
+				pg_free_result($result);
+				
+				$query="select channel_number, reserved, disabled from channels where \"ID_frequency_ranks\" = ".$id_frequency_rank." order by channel_number;";
+				$result= $objconexionBD->enviarConsulta($query);	
+				
+				while ($row =  pg_fetch_array ($result))
+				{  
+				  $ingresar = 0;
+				  
+				  if($asignado[$row['channel_number']]==1) $ingresar = 1;			  
+				  $salida .= "\t\t\t\t\t\t\t\t\t<i>".$ingresar."</i>\n";
+				}	
+				pg_free_result($result);	
+			
+			}
 			break;
 		case 1:
 			$asignado = array();
