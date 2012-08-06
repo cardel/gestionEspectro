@@ -26,7 +26,7 @@
 	else{
 		if($tipoConsulta=='departamentos')
 		{
-		   echo "<select id=\"selectDepartaments\" name=\"selectDepartaments\" onchange=\"javascript:borrarMunicipios();\">";
+		   echo "<select id=\"selectDepartaments\"  onchange=\"javascript:borrarMunicipios();\">";
 		   $query="select * from departaments where \"ID_Territorial_Division\"=".$idConsulta.";";
 		   
 		   $result= $objconexionBD->enviarConsulta($query);

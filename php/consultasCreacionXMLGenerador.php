@@ -38,7 +38,7 @@ function numeroDeOperadores($id_frequency_rank, $requerimientos )
 }
 
 //Esta funcion retorna los canales reservado e inutilizables de una banda
-function obtenerInutilizableYReservado($id_frequency_rank )
+function obtenerInutilizableYReservado($id_frequency_rank)
 {
     $objconexionBD = new conexionBD();
     $objconexionBD->abrirConexion();		
@@ -172,8 +172,7 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 	
 			//Se suma lo encontrado a los municipios de cada departamento
 			foreach($resultadosAcumulados as $idDep => $res)
-			{
-				
+			{			
 		
 				$query="select max(count) as total from (select count(*) from channels_assignations natural join channel_assignations_per_city natural join channels natural join cities where \"ID_Operator\" = ".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." and \"ID_departament\"=".$idDep." group by \"ID_cities\") as tablaParcial;";	
 				
@@ -187,7 +186,8 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 				}					
 				pg_free_result($result);
 				
-			}						
+			}
+			//Faltan municipios						
 			break;
 			
 		case 2:
