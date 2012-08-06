@@ -243,12 +243,10 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 			pg_free_result($result);	
 			break;		
 		case 3:	
-		$salida.="entro a 3";
 			//Asignacion municipal
 			$maximo = 0;
 			break;
 		default:
-		$salida.="entro a default";
 			break;
 	}	
 
@@ -303,20 +301,19 @@ function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLu
 				  $asignado[$row['channel_number']] = 1;
 				}	
 				pg_free_result($result);
-				
-				$query="select channel_number, reserved, disabled from channels where \"ID_frequency_ranks\" = ".$id_frequency_rank." order by channel_number;";
-				$result= $objconexionBD->enviarConsulta($query);	
-				
-				while ($row =  pg_fetch_array ($result))
-				{  
-				  $ingresar = 0;
-				  
-				  if($asignado[$row['channel_number']]==1) $ingresar = 1;			  
-				  $salida .= "\t\t\t\t\t\t\t\t\t<i>".$ingresar."</i>\n";
-				}	
-				pg_free_result($result);	
-			
+
 			}
+			$query="select channel_number, reserved, disabled from channels where \"ID_frequency_ranks\" = ".$id_frequency_rank." order by channel_number;";
+			$result= $objconexionBD->enviarConsulta($query);	
+			
+			while ($row =  pg_fetch_array ($result))
+			{  
+			  $ingresar = 0;
+			  
+			  if($asignado[$row['channel_number']]==1) $ingresar = 1;			  
+			  $salida .= "\t\t\t\t\t\t\t\t\t<i>".$ingresar."</i>\n";
+			}	
+				pg_free_result($result);
 			break;
 		case 1:
 			$asignado = array();
@@ -352,20 +349,20 @@ function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLu
 				  $asignado[$row['channel_number']] = 1;
 				}	
 				pg_free_result($result);
-				
-				$query="select channel_number, reserved, disabled from channels where \"ID_frequency_ranks\" = ".$id_frequency_rank." order by channel_number;";
-				$result= $objconexionBD->enviarConsulta($query);	
-				
-				while ($row =  pg_fetch_array ($result))
-				{  
-				  $ingresar = 0;
-				  
-				  if($asignado[$row['channel_number']]==1) $ingresar = 1;			  
-				  $salida .= "\t\t\t\t\t\t\t\t\t<i>".$ingresar."</i>\n";
-				}	
-				pg_free_result($result);	
 			
-			}				
+			}	
+			$query="select channel_number, reserved, disabled from channels where \"ID_frequency_ranks\" = ".$id_frequency_rank." order by channel_number;";
+			$result= $objconexionBD->enviarConsulta($query);	
+			
+			while ($row =  pg_fetch_array ($result))
+			{  
+			  $ingresar = 0;
+			  
+			  if($asignado[$row['channel_number']]==1) $ingresar = 1;			  
+			  $salida .= "\t\t\t\t\t\t\t\t\t<i>".$ingresar."</i>\n";
+			}	
+			pg_free_result($result);
+							
 			break;
 		case 2:
 			$asignado = array();
