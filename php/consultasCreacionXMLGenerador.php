@@ -28,16 +28,16 @@ function retornarOperadores($id_frequency_rank, $tipoAsignacion, $idAsignacion, 
 				break;
 			case 1:
 				$tipoConsultaInicio = " channel_assignations_per_territorialdivision ";
-				$tipoConsultaFinal=" \"ID_Territorial_Division\"=".$idAsignacion;
+				$tipoConsultaFinal=" and \"ID_Territorial_Division\"=".$idAsignacion;
 				break;
 			case 2:
 				$tipoConsultaInicio = " channel_assignations_per_departament ";
-				$tipoConsultaFinal=" \"ID_departament\"=".$idAsignacion;
+				$tipoConsultaFinal=" and \"ID_departament\"=".$idAsignacion;
 				break;
 			case 3:
 			default:
 				$tipoConsultaInicio = " channel_assignations_per_city ";
-				$tipoConsultaFinal=" \"ID_cities\"=".$idAsignacion;
+				$tipoConsultaFinal=" and \"ID_cities\"=".$idAsignacion;
 				break;
 		
 	}
