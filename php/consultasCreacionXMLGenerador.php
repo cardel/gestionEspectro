@@ -271,6 +271,52 @@ function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLu
 		case 0:
 			break;
 		case 1:
+			$asignado = array();
+
+			$query = "select  DISTINCT channel_number from channels natural join channel_assignations_per_departament natural join channels_assignations natural join departaments where \"ID_frequency_ranks\" = .$id_frequency_rank. and \"ID_Territorial_Division\" = ".$idLugarAsignacion." order by channel_number;";
+			
+			while ($row =  pg_fetch_array ($result))
+			{  
+			  $asignado[$row['channel_number']] = 1;
+			}	
+			pg_free_result($result);
+						
+			//Se seleccionan los departamentos de la division territorial
+			$departamentos = array();
+			$query="select \"ID_departament\" as iddep from departaments where \"ID_Territorial_Division\"=".$idLugarAsignacion.";";
+			$result= $objconexionBD->enviarConsulta($query);
+			
+			while ($row =  pg_fetch_array ($result))
+			{
+					$departamentos[$row['iddep']] = 0;
+			}			
+			pg_free_result($result);	
+			
+			foreach($departamentos as $dep => $res)
+			{
+				$query = "select DISTINCT channel_number from channels natural join channel_assignations_per_city natural join channels_assignations natural join cities where \"ID_frequency_ranks\" = ".$id_frequency_rank." and \"ID_departament\" = ".$dep." order by channel_number;";
+
+				$result= $objconexionBD->enviarConsulta($query);	
+				
+				while ($row =  pg_fetch_array ($result))
+				{  
+				  $asignado[$row['channel_number']] = 1;
+				}	
+				pg_free_result($result);
+				
+				$query="select channel_number, reserved, disabled from channels where \"ID_frequency_ranks\" = ".$id_frequency_rank." order by channel_number;";
+				$result= $objconexionBD->enviarConsulta($query);	
+				
+				while ($row =  pg_fetch_array ($result))
+				{  
+				  $ingresar = 0;
+				  
+				  if($asignado[$row['channel_number']]==1) $ingresar = 1;			  
+				  $salida .= "\t\t\t\t\t\t\t\t\t<i>".$ingresar."</i>\n";
+				}	
+				pg_free_result($result);	
+			
+			}				
 			break;
 		case 2:
 			$asignado = array();
@@ -295,9 +341,7 @@ function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLu
 			  if($asignado[$row['channel_number']]==1) $ingresar = 1;			  
 			  $salida .= "\t\t\t\t\t\t\t\t\t<i>".$ingresar."</i>\n";
 			}	
-			pg_free_result($result);
-
-			
+			pg_free_result($result);			
 			break;
 		case 3:
 		default:			
@@ -320,7 +364,7 @@ function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLu
 	return $salida;;
 }
 	
-function obtenerAsignacion($requerimientos, $tipoAsignacion, $idAsignacion, $id_frequency_rank )
+function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignacion, $id_frequency_rank )
 {
 	
 		return 0;
