@@ -95,12 +95,12 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
     $objconexionBD->abrirConexion();	
 	
 	$maximo=0;	
-	
+	$salida = "";
 	switch($tipoAsignacion)
 	{
-		$salida = "";
+		
 		case 0:
-			$salida="entro a 0";
+			$salida.="entro a 0";
 			//Asignacion nacional	
 			
 			$resultadosAcumulados = array();
@@ -154,7 +154,7 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 			}		
 			break;
 		case 1:
-		$salida="entro a 1";
+		$salida.="entro a 1";
 			//Asignacion territorial
 			
 			$resultadosAcumulados = array();
@@ -191,7 +191,7 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 			break;
 			
 		case 2:
-		$salida="entro a 2";
+		$salida.="entro a 2";
 			//Asignacion departamental
 			//Se considera el maximo que tiene un operador en un municipio dado
 			$query="select max(count) as total from (select count(*) from channels_assignations natural join channel_assignations_per_city natural join channels natural join cities where \"ID_Operator\" = ".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." and \"ID_departament\"=".$idLugarAsignacion." group by \"ID_cities\") as tablaParcial;";	
@@ -206,12 +206,12 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 			pg_free_result($result);	
 			break;		
 		case 3:	
-		$salida="entro a 3";
+		$salida.="entro a 3";
 			//Asignacion municipal
 			$maximo = 0;
 			break;
 		default:
-		$salida="entro a default";
+		$salida.="entro a default";
 			break;
 	}	
 
