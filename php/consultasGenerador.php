@@ -200,6 +200,14 @@
 							   echo "<input type=\"hidden\"	name=\"selectTerritorialDivisionForm\" value=".$selectTerritorialDivision." />";
 							   echo "<input type=\"hidden\"	name=\"selectDepartamentsForm\" value=".$selectDepartaments." />";
 							   echo "<input type=\"hidden\"	name=\"selectCitiesForm\" value=".$selectCities." />";
+							   
+							   echo "<div>";
+							   echo "<input type=\"text\"	name=\"select22BandForm\" value=".$selectBand." />";
+							   echo "<input type=\"text\"	name=\"select22RanksForm\" value=".$selectRanks." />";
+							   echo "<input type=\"text\"	name=\"selectT222erritorialDivisionForm\" value=".$selectTerritorialDivision." />";
+							   echo "<input type=\"text\"	name=\"selectD222epartamentsForm\" value=".$selectDepartaments." />";
+							   echo "<input type=\"text\"	name=\"selectCi222tiesForm\" value=".$selectCities." />"; 
+							   echo "</div>";
 							}	
 				
 					}					
