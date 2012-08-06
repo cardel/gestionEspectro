@@ -293,7 +293,7 @@ function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLu
 			{  
 			  $ingresar = 0;
 			  
-			  if(asignado[$row['channel_number']]==1) $ingresar = 1;			  
+			  if($asignado[$row['channel_number']]==1) $ingresar = 1;			  
 			  $salida .= "\t\t\t\t\t\t\t\t\t<i>".$ingresar."</i>\n";
 			}	
 			pg_free_result($result);
