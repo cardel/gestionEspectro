@@ -507,7 +507,7 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
 	}
     
     $asignacion = array();
-    for($i=3; $i<=sizeof($listaOperadoresOrdenada); $i++)
+    for($i=4; $i<=sizeof($listaOperadoresOrdenada); $i++)
     {
 		$salida .= "\t\t\t\t\t<entry key=\"".$listaOperadoresOrdenada[$i]."\">\n";
 		$salida .= "\t\t\t\t\t\t<tuple>\n";
