@@ -506,15 +506,16 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
 				break;		
 	}
     
-    $asignacion = array();
+    
     for($i=4; $i<=sizeof($listaOperadoresOrdenada); $i++)
     {
+		$asignacion = array();
 		$salida .= "\t\t\t\t\t<entry key=\"".$listaOperadoresOrdenada[$i]."\">\n";
 		$salida .= "\t\t\t\t\t\t<tuple>\n";
 		$salida .= "\t\t\t\t\t\t\t<i>\n";
 		$salida .= "\t\t\t\t\t\t\t\t<list>\n";
 	
-		$query="select channel_number as canal from channels_assignations natural join ".$tipoConsultaInicio." natural join operators natural join channels where  \"ID_Operator\"=".$listaOperadoresOrdenada[$i]." and \"ID_frequency_ranks\"=".$id_frequency_rank." ".$tipoConsultaFinal." ;";	
+		$query="select channel_number as canal from channels_assignations natural join ".$tipoConsultaInicio." natural join operators natural join channels where \"ID_Operator\"=".$listaOperadoresOrdenada[$i]." and \"ID_frequency_ranks\"=".$id_frequency_rank." ".$tipoConsultaFinal." ;";	
 		
 		$result= $objconexionBD->enviarConsulta($query);	
 		
