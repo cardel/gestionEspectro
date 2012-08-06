@@ -519,7 +519,7 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
     $tipoConsultaInicio="";
     $tipoConsultaFinal="";
     
-   $typeAssign = $tipoAsignacion;   
+	$typeAssign = $tipoAsignacion;   
     
     $idAsignacionTerritorial = $idAsignacion;
     $idAsignacionDepartamental = $idAsignacion;
@@ -554,7 +554,7 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
 						//Consultar ID_Territorial
 						$query="select \"ID_Territorial_Division\" as idTer from departaments where \"ID_departament\" =".$idAsignacionDepartamental.";";	
 						$result= $objconexionBD->enviarConsulta($query);	
-
+						$salida.=$query."\n";
 						while ($row =  pg_fetch_array ($result))
 						{
 							$idAsignacionTerritorial= $row['idTer'];

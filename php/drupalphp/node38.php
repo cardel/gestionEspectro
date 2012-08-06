@@ -196,7 +196,7 @@
 			
 			$listaOperadores = retornarOperadores($rangoSeleccionado, $tipoAsignacion , $idAsignacion, $requerimientos );
 			
-			$salida .= "\t\t\t<i>".sizeof($listaOperadores).implode(", ", $listaOperadores)."</i>\n";
+			$salida .= "\t\t\t<i>".sizeof($listaOperadores)"</i>\n";
 			$salida .= "\t\t</entry>\n";	
 			
 			$salida .= "\t\t<entry key=\"OperatorsOfInput\">\n";
