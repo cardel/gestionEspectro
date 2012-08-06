@@ -46,7 +46,7 @@
 		{
 			if($tipoConsulta=='municipios')
 			{	
-			   echo "<select id=\"selectCities\" name=\"selectCities\">";
+			   echo "<select id=\"selectCities\">";
 			   $query="select * from cities where \"ID_departament\"=".$idConsulta.";";
 			   
 			   $result= $objconexionBD->enviarConsulta($query);

@@ -111,23 +111,24 @@ function crearRequerimiento()
 	if($('#selectTerritorialDivision').length)
 	{
 		selectTerritorialDivision = $('#selectTerritorialDivision').val();
+		$('#selectTerritorialDivision').attr('disabled','disabled');
 	}
-	$('#selectTerritorialDivision').attr('disabled','disabled');
-	
+
 	var selectDepartaments=-1;
 	if($('#selectDepartaments').length)
 	{
-		selectDepartaments = $('#selectDepartaments').val();	
+		selectDepartaments = $('#selectDepartaments').val();
+		$('#selectDepartaments').attr('disabled','disabled');
+	
 	}
-
-	$('#selectDepartaments').attr('disabled','disabled');
 	
 	var selectCities = -1;
 	if($('#selectCities').length)
 	{
 		selectCities = $('#selectCities').val();
+		$('#selectCities').attr('disabled','disabled');
+
 	}
-	$('#selectCities').attr('disabled','disabled');
 	
 	$("#enlaceDivisionTerritorial").css("display", "none");
 	$("#enlaceDepartamentos").css("display", "none");
