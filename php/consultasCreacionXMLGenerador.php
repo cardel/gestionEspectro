@@ -32,10 +32,14 @@ function retornarOperadores($id_frequency_rank, $tipoAsignacion, $idAsignacion, 
     $tipoConsultaInicio="";
     $tipoConsultaFinal="";
     
-    $tipoAssign = $tipoAsignacion;
+    $tipoAssing = $tipoAsignacion;   
+    
+    $idAsignacionTerritorial = $idAsignacion;
+    $idAsignacionDepartamental = $idAsignacion;
+    $idAsignacionMunicipal = $idAsignacion;
     
     //Se toma en cuenta que las asignaciones se propagan de divisiones a subdivisiones, por ejemplo una asignación nacional va con otras
-	while($tipoAssign >= 0)
+	while($tipoAssing >= 0)
 	{
 		switch($tipoAsignacion)
 		{
@@ -45,18 +49,39 @@ function retornarOperadores($id_frequency_rank, $tipoAsignacion, $idAsignacion, 
 					break;
 				case 1:
 					$tipoConsultaInicio = " channel_assignations_national natural join channel_assignations_per_territorialdivision ";
-					$tipoConsultaFinal=" and \"ID_Territorial_Division\"=".$idAsignacion;
+					$tipoConsultaFinal=" and \"ID_Territorial_Division\"=".$idAsignacionTerritorial;
 					break;
-				case 2:
-					$tipoConsultaInicio = " channel_assignations_national natural join channel_assignations_per_departament ";
-					$tipoConsultaFinal=" and \"ID_departament\"=".$idAsignacion;
-					break;
+					case 2:
+						$tipoConsultaInicio = " channel_assignations_national natural join channel_assignations_per_departament ";
+						$tipoConsultaFinal=" and \"ID_departament\"=".$idAsignacionDepartamental;
+						
+						//Consultar ID_Territorial
+						$query="select \"ID_Territorial_Division\" as idTer from departaments where \"ID_departament\" =".$idAsignacionDepartamental.";";	
+						
+						$result= $objconexionBD->enviarConsulta($query);	
+
+						while ($row =  pg_fetch_array ($result))
+						{
+							$idAsignacionTerritorial= $row['idTer'];
+						}	
+						break;
 				case 3:
 				default:
 					$tipoConsultaInicio = " channel_assignations_national natural join channel_assignations_per_city ";
-					$tipoConsultaFinal=" and \"ID_cities\"=".$idAsignacion;
+					$tipoConsultaFinal=" and \"ID_cities\"=".$idAsignacionMunicipal;
+					
+					//Consultar ID_Departamental
+					$query="select \"ID_departament\" as idDep from cities where \"ID_cities\" =".$idAsignacionMunicipal.";";	
+					$result= $objconexionBD->enviarConsulta($query);	
+
+					while ($row =  pg_fetch_array ($result))
+					{
+						$idAsignacionDepartamental= $row['idDep'];
+					}	
+					
 					break;		
 		}
+		$tipoAssing--;
 		
 		$query="select DISTINCT \"ID_Operator\" as idop from channels_assignations natural join ".$tipoConsultaInicio." natural join operators natural join channels where \"ID_frequency_ranks\"=".$id_frequency_rank." ".$tipoConsultaFinal." ;";	
 		$result= $objconexionBD->enviarConsulta($query);	
@@ -64,8 +89,12 @@ function retornarOperadores($id_frequency_rank, $tipoAsignacion, $idAsignacion, 
 		//Consultar operadores actuales en la banda
 		while ($row =  pg_fetch_array ($result))
 		{
-			$contador++;
-			$salida[$contador] = $row['idop'];
+			if(!(in_array($row['idop'],$salida)))
+			{
+				$contador++;
+				$salida[$contador] = $row['idop'];
+			}
+
 		}	
 		pg_free_result($result);		
 		
@@ -490,43 +519,67 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
     $tipoConsultaInicio="";
     $tipoConsultaFinal="";
     
+   $tipoAssing = $tipoAsignacion;   
+    
+    $idAsignacionTerritorial = $idAsignacion;
+    $idAsignacionDepartamental = $idAsignacion;
+    $idAsignacionMunicipal = $idAsignacion;
+    
     //Se toma en cuenta que las asignaciones se propagan de divisiones a subdivisiones, por ejemplo una asignación nacional va con otras
-	while($tipoAssign >= 0)
+	for($i=4; $i<=sizeof($listaOperadoresOrdenada); $i++)
 	{
-		switch($tipoAsignacion)
+		$asignacion = array();
+		$salida .= "\t\t\t\t\t<entry key=\"".$listaOperadoresOrdenada[$i]."\">\n";
+		$salida .= "\t\t\t\t\t\t<tuple>\n";
+		$salida .= "\t\t\t\t\t\t\t<i>\n";
+		$salida .= "\t\t\t\t\t\t\t\t<list>\n";
+		
+		//Revisar asignaciones desde subdivisiones a divisiones
+		while($tipoAssing >= 0)
 		{
-				case 0:
-					$tipoConsultaInicio = " channel_assignations_national ";
-					$tipoConsultaFinal="";
-					break;
-				case 1:
-					$tipoConsultaInicio = " channel_assignations_national natural join channel_assignations_per_territorialdivision ";
-					$tipoConsultaFinal=" and \"ID_Territorial_Division\"=".$idAsignacion;
-					break;
-				case 2:
-					$tipoConsultaInicio = " channel_assignations_national natural join channel_assignations_per_departament ";
-					$tipoConsultaFinal=" and \"ID_departament\"=".$idAsignacion;
-					break;
-				case 3:
-				default:
-					$tipoConsultaInicio = " channel_assignations_national natural join channel_assignations_per_city ";
-					$tipoConsultaFinal=" and \"ID_cities\"=".$idAsignacion;
-					break;		
-		}
-    
-    
-		for($i=4; $i<=sizeof($listaOperadoresOrdenada); $i++)
-		{
-			$asignacion = array();
-			$salida .= "\t\t\t\t\t<entry key=\"".$listaOperadoresOrdenada[$i]."\">\n";
-			$salida .= "\t\t\t\t\t\t<tuple>\n";
-			$salida .= "\t\t\t\t\t\t\t<i>\n";
-			$salida .= "\t\t\t\t\t\t\t\t<list>\n";
+			switch($tipoAsignacion)
+			{
+					case 0:
+						$tipoConsultaInicio = " channel_assignations_national ";
+						$tipoConsultaFinal="";
+						break;
+					case 1:
+						$tipoConsultaInicio = " channel_assignations_national natural join channel_assignations_per_territorialdivision ";
+						$tipoConsultaFinal=" and \"ID_Territorial_Division\"=".$idAsignacionTerritorial;
+						break;
+					case 2:
+						$tipoConsultaInicio = " channel_assignations_national natural join channel_assignations_per_departament ";
+						$tipoConsultaFinal=" and \"ID_departament\"=".$idAsignacionDepartamental;
+						
+						//Consultar ID_Territorial
+						$query="select \"ID_Territorial_Division\" as idTer from departaments where \"ID_departament\" =".$idAsignacionDepartamental.";";	
+						$result= $objconexionBD->enviarConsulta($query);	
+
+						while ($row =  pg_fetch_array ($result))
+						{
+							$idAsignacionTerritorial= $row['idTer'];
+						}	
+						break;
+					case 3:
+					default:
+						$tipoConsultaInicio = " channel_assignations_national natural join channel_assignations_per_city ";
+						$tipoConsultaFinal=" and \"ID_cities\"=".$idAsignacionMunicipal;
+						
+						//Consultar ID_Departamental
+						$query="select \"ID_departament\" as idDep from cities where \"ID_cities\" =".$idAsignacionMunicipal.";";	
+						$result= $objconexionBD->enviarConsulta($query);	
+
+						while ($row =  pg_fetch_array ($result))
+						{
+							$idAsignacionDepartamental= $row['idDep'];
+						}	
+						
+						break;		
+			}
+			$tipoAssing--;	
 		
 			$query="select channel_number as canal from channels_assignations natural join ".$tipoConsultaInicio." natural join operators natural join channels where \"ID_Operator\"=".$listaOperadoresOrdenada[$i]." and \"ID_frequency_ranks\"=".$id_frequency_rank." ".$tipoConsultaFinal." ;";
-			
-			$salida.=$query."\n";	
-			
+					
 			$result= $objconexionBD->enviarConsulta($query);	
 			
 			//Consultar operadores actuales en la banda
@@ -534,24 +587,25 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
 			{
 				$asignacion[$row['canal']] = 1;
 			}	
-			pg_free_result($result);
+			pg_free_result($result);			
+	
 		}
+		
 		$query="select channel_number, reserved, disabled from channels where \"ID_frequency_ranks\" = ".$id_frequency_rank." order by channel_number;";
 		$result= $objconexionBD->enviarConsulta($query);	
-		
+
 		while ($row =  pg_fetch_array ($result))
 		{  
 		  $ingresar = 0;		  
 		  if($asignacion[$row['channel_number']]==1) $ingresar = 1;			  
 		  $salida .= "\t\t\t\t\t\t\t\t\t<i>".$ingresar."</i>\n";
 		}
+		
 		$salida .= "\t\t\t\t\t\t\t\t</list>\n";	
 		$salida .= "\t\t\t\t\t\t\t</i>\n";
 		$salida .= "\t\t\t\t\t</entry>\n";	
-		pg_free_result($result);		
-		
+		pg_free_result($result);
 	}
-	
  	$objconexionBD->cerrarConexion();	
 	return $salida;
 }
