@@ -63,11 +63,11 @@ function retornarOperadores($id_frequency_rank, $tipoAsignacion, $idAsignacion, 
 		
 		while ($row =  pg_fetch_array ($resultAux))
 		{
-			//if(!in_array($row['idop'], $salida))
-			//{
+			if($row['count'] == 0)
+			{
 				$contador++;
-				$salida[$contador] = $row['idop'];
-			//}
+				$salida[$contador] = $a[0];
+			}
 
 		}	
 		pg_free_result($resultAux);
