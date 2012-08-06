@@ -252,7 +252,7 @@
 
 			$salida .= obtenerInutilizableYReservado($rangoSeleccionado);
 			$salida .= obtenerAsignacionesParciales($rangoSeleccionado, $tipoAsignacion, $idAsignacion);
-		
+			$salida .= obtenerAsignacion($listaOperadores, $tipoAsignacion, $idAsignacion, $rangoSeleccionado );
 			$salida .= "\t\t\t\t</i>\n";
 			$salida .= "\t\t\t</tuple>\n";					
 			$salida .= "\t\t</entry>\n";	
