@@ -193,7 +193,10 @@
 			
 			//Consultar operadores actuales
 			$salida .= "\t\t<entry key=\"Operators\">\n";
-			$salida .= "\t\t\t<i>".implode(", ",retornarOperadores($rangoSeleccionado, $tipoAsignacion , $idAsignacion, $requerimientos ))."</i>\n";
+			
+			$listaOperadores = retornarOperadores($rangoSeleccionado, $tipoAsignacion , $idAsignacion, $requerimientos );
+			
+			$salida .= "\t\t\t<i>".implode(", ",$listaOperadores)."</i>\n";
 			$salida .= "\t\t</entry>\n";	
 			
 			$salida .= "\t\t<entry key=\"OperatorsOfInput\">\n";
@@ -211,7 +214,13 @@
 			$salida .= "\t\t\t\t<i>\n";
 			foreach($requerimientos as $op)
 			{
-				$salida .= "\t\t\t\t\t<entry key=\"".$op[0]."\">\n";
+				$keyOP = 0;
+				foreach ($listaOperadores as $key => $elemento) {
+					if ($elemento == $op[0]) {
+						$keyOP =  $key;
+					}
+				}
+				$salida .= "\t\t\t\t\t<entry key=\"".$keyOP."\">\n";
 				$salida .= "\t\t\t\t\t\t<i>".$op[1]."</i>\n";
 				$salida .= "\t\t\t\t\t</entry>\n";
 			}

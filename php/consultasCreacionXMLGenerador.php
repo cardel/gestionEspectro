@@ -14,6 +14,18 @@ function retornarOperadores($id_frequency_rank, $tipoAsignacion, $idAsignacion, 
 {
 	$salida = array();
 	$contador = 0;
+	
+	/* Agregar comodines*/
+	
+	$contador++;
+	$salida[$contador]= "inutilizado";
+
+	$contador++;
+	$salida[$contador]= "reservado";
+	
+	$contador++;
+	$salida[$contador]= "parcial";
+	
     $objconexionBD = new conexionBD();
     $objconexionBD->abrirConexion();	
     
