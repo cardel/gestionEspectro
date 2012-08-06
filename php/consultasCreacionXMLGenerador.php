@@ -258,8 +258,41 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 
 function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLugarAsignacion)
 {
+    $objconexionBD = new conexionBD();
+    $objconexionBD->abrirConexion();		
 	
-		return 0;
+	$salida = "\t\t\t\t\t<entry key=\"parcial\">\n";
+	$salida .= "\t\t\t\t\t\t<tuple>\n";
+	$salida .= "\t\t\t\t\t\t\t<i>\n";
+	$salida .= "\t\t\t\t\t\t\t\t<list>\n";
+	
+	switch($tipoAsignacion)
+	{
+		case 0:
+			break;
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3:
+		default:			
+			$query="select channel_number, reserved, disabled from channels where \"ID_frequency_ranks\" = ".$id_frequency_rank." order by channel_number;";
+			$result= $objconexionBD->enviarConsulta($query);	
+			
+			while ($row =  pg_fetch_array ($result))
+			{  
+			  $salida .= "\t\t\t\t\t\t\t\t\t<i>0</i>\n";
+			}	
+			pg_free_result($result);	
+			break;
+		
+	}			
+	$salida .= "\t\t\t\t\t\t\t\t</list>\n";	
+	$salida .= "\t\t\t\t\t\t\t</i>\n";
+	$salida .= "\t\t\t\t\t</entry>\n";
+	$objconexionBD->cerrarConexion();
+		
+	return $salida;;
 }
 	
 function obtenerAsignacion($requerimientos, $tipoAsignacion, $idAsignacion, $id_frequency_rank )

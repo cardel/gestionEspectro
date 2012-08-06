@@ -236,6 +236,7 @@
 			$salida .= "\t\t\t\t<i>\n";
 
 			$salida .= obtenerInutilizableYReservado($rangoSeleccionado);
+			$salida .= obtenerAsignacionesParciales($rangoSeleccionado, $tipoAsignacion, $idAsignacion);
 		
 			$salida .= "\t\t\t\t</i>\n";
 			$salida .= "\t\t\t</tuple>\n";					
