@@ -274,7 +274,7 @@ function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLu
 			$asignado = array();
 
 			$query = "select  DISTINCT channel_number from channels natural join channel_assignations_per_departament natural join channels_assignations natural join departaments where \"ID_frequency_ranks\" = .$id_frequency_rank. and \"ID_Territorial_Division\" = ".$idLugarAsignacion." order by channel_number;";
-			
+			$result= $objconexionBD->enviarConsulta($query);
 			while ($row =  pg_fetch_array ($result))
 			{  
 			  $asignado[$row['channel_number']] = 1;
