@@ -48,11 +48,11 @@ function retornarOperadores($id_frequency_rank, $tipoAsignacion, $idAsignacion, 
 					$tipoConsultaFinal="";
 					break;
 				case 1:
-					$tipoConsultaInicio = " channel_assignations_national natural join channel_assignations_per_territorialdivision ";
+					$tipoConsultaInicio = " channel_assignations_per_territorialdivision ";
 					$tipoConsultaFinal=" and \"ID_Territorial_Division\"=".$idAsignacionTerritorial;
 					break;
 				case 2:
-					$tipoConsultaInicio = " channel_assignations_national natural join channel_assignations_per_departament ";
+					$tipoConsultaInicio = " channel_assignations_per_departament ";
 					$tipoConsultaFinal=" and \"ID_departament\"=".$idAsignacionDepartamental;
 					
 					//Consultar ID_Territorial
@@ -544,11 +544,11 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
 						$tipoConsultaFinal="";
 						break;
 					case 1:
-						$tipoConsultaInicio = " channel_assignations_national natural join channel_assignations_per_territorialdivision ";
+						$tipoConsultaInicio = " channel_assignations_per_territorialdivision ";
 						$tipoConsultaFinal=" and \"ID_Territorial_Division\"=".$idAsignacionTerritorial;
 						break;
 					case 2:
-						$tipoConsultaInicio = " channel_assignations_national natural join channel_assignations_per_departament ";
+						$tipoConsultaInicio = " channel_assignations_per_departament ";
 						$tipoConsultaFinal=" and \"ID_departament\"=".$idAsignacionDepartamental;
 						
 						//Consultar ID_Territorial
@@ -579,7 +579,7 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
 			$typeAssign--;	
 		
 			$query="select channel_number as canal from channels_assignations natural join ".$tipoConsultaInicio." natural join operators natural join channels where \"ID_Operator\"=".$listaOperadoresOrdenada[$i]." and \"ID_frequency_ranks\"=".$id_frequency_rank." ".$tipoConsultaFinal." ;";
-			$salida.=$query."\n";		
+
 			$result= $objconexionBD->enviarConsulta($query);	
 			
 			//Consultar operadores actuales en la banda
