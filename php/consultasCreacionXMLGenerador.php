@@ -8,6 +8,10 @@
 require ("/var/www/html/site/gestionEspectro/php/conexionBD.php");
 
 //Esta funcion retorna el número de operadores de la banda mas los que entran
+/*
+ * CORREGIR
+ * 
+ */ 
 function numeroDeOperadores($id_frequency_rank, $requerimientos )
 {
 	$total = sizeof($requerimientos);
@@ -409,10 +413,20 @@ function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLu
 		
 	return $salida;;
 }
-	
+
+/*
+ * Esta funcion retorna un arreglo con todos los operadores mas los operadores que entran (considera si ya tienen asignación).
+ */ 
+function listaOperadores($requerimientos, $tipoAsignacion, $idAsignacion, $id_frequency_rank)
+{
+	//Depenta de la primera funcion
+}	
+
+
+
 function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignacion, $id_frequency_rank )
 {
-	
+		
 		return 0;
 }
 

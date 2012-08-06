@@ -58,7 +58,7 @@
 		<td>Tope por operador en la banda: </td><td id="topeOperadorBanda"></td>
 		</tr>
 		<tr>
-		<td>Seperación entre canales establecida por el regulador: </td><td id="channelSeparation"></td>
+		<td>Separación entre canales establecida por el regulador: </td><td id="channelSeparation"></td>
 		</tr>
 		</table>
 	</div>
