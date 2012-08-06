@@ -41,7 +41,7 @@ function retornarOperadores($id_frequency_rank, $tipoAsignacion, $idAsignacion, 
     //Se toma en cuenta que las asignaciones se propagan de divisiones a subdivisiones, por ejemplo una asignación nacional va con otras
 	while($typeAssign >= 0)
 	{
-		switch($tipoAsignacion)
+		switch($typeAssign)
 		{
 				case 0:
 					$tipoConsultaInicio = " channel_assignations_national ";
@@ -89,11 +89,11 @@ function retornarOperadores($id_frequency_rank, $tipoAsignacion, $idAsignacion, 
 		//Consultar operadores actuales en la banda
 		while ($row =  pg_fetch_array ($result))
 		{
-			//if(!(in_array($row['idop'],$salida)))
-			//{
+			if(!(in_array($row['idop'],$salida)))
+			{
 				$contador++;
 				$salida[$contador] = $row['idop'];
-			//}
+			}
 
 		}	
 		pg_free_result($result);		
@@ -537,7 +537,7 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
 		//Revisar asignaciones desde subdivisiones a divisiones
 		while($typeAssign >= 0)
 		{
-			switch($tipoAsignacion)
+			switch($typeAssign)
 			{
 					case 0:
 						$tipoConsultaInicio = " channel_assignations_national ";
