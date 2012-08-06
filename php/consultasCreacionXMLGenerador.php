@@ -64,6 +64,7 @@ function retornarOperadores($id_frequency_rank, $tipoAsignacion, $idAsignacion, 
 					{
 						$idAsignacionTerritorial= $row['idTer'];
 					}	
+					pg_free_result($result);
 					break;
 				case 3:
 				default:
@@ -78,7 +79,7 @@ function retornarOperadores($id_frequency_rank, $tipoAsignacion, $idAsignacion, 
 					{
 						$idAsignacionDepartamental= $row['idDep'];
 					}	
-					
+					pg_free_result($result);
 					break;		
 		}
 		$typeAssign--;
@@ -559,6 +560,7 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
 						{
 							$idAsignacionTerritorial= $row['idTer'];
 						}	
+						pg_free_result($result);
 						break;
 					case 3:
 					default:
@@ -573,7 +575,7 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
 						{
 							$idAsignacionDepartamental= $row['idDep'];
 						}	
-						
+						pg_free_result($result);
 						break;		
 			}
 			$typeAssign--;	
