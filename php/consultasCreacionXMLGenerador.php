@@ -100,6 +100,7 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 			//Asignacion nacional	
 			
 			$resultadosAcumulados = array();
+			$divisionesTerritoriales = array();
 				
 			$query="select \"ID_Territorial_Division\" as idter, count(*) as total from channels_assignations natural join channel_assignations_per_territorialdivision natural join channels where \"ID_Operator\" = ".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." group by \"ID_Territorial_Division\";";
 			
@@ -111,12 +112,27 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 				$resultadosAcumulados[$row['idter']] = $row['total'];
 			}			
 			pg_free_result($result);
-				
+			
+			//Se calculan las divisiones territoriales			
+					
+			$query="select \"ID_Territorial_Division\" as terr from territorial_divisions;";
+			
+			//Ahora total por entidad territorial
+			$result= $objconexionBD->enviarConsulta($query);
+			
+			while ($row =  pg_fetch_array ($result))
+			{
+				$divisionesTerritoriales[$row['terr']] = 0;
+			}			
+			pg_free_result($result);
+			
+						
 			//Luego se calcula por departamentos de la divisiones territoriales
-			foreach($resultadosAcumulados as $idTer => $resIt){
+			foreach($divisionesTerritoriales as $idTer => $resIt){
 				
 				$maximoLocal = 0;
 				$resultadosAcumuladosDep = array();	
+				$departamentos = array();
 									
 				$query="select \"ID_departament\" as iddep, count(*) as total from channels_assignations natural join channel_assignations_per_departament natural join channels natural join departaments where \"ID_Operator\" = ".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." and \"ID_Territorial_Division\"=".$idTer." group by \"ID_departament\";";
 				
@@ -124,12 +140,22 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 				
 				while ($row =  pg_fetch_array ($result))
 				{
-						$resultadosAcumuladosDep[$row['iddep']] = $row['total'];
+					$resultadosAcumuladosDep[$row['iddep']] = $row['total'];
 				}			
 				pg_free_result($result);	
 		
-				//Se suma lo encontrado a los municipios de cada departamento
-				foreach($resultadosAcumuladosDep as $idDep => $resDep)
+				//Se suma lo encontrado a los municipios de cada departamento de la division territorial
+				$query="select \"ID_departament\" as iddep from departaments where \"ID_Territorial_Division\"=".$idTer.";";
+				$result= $objconexionBD->enviarConsulta($query);
+				
+				while ($row =  pg_fetch_array ($result))
+				{
+						$departamentos[$row['iddep']] = 0;
+				}			
+				pg_free_result($result);					
+					
+				
+				foreach($departamentos as $idDep => $resDep)
 				{
 					$query="select max(count) as total from (select count(*) from channels_assignations natural join channel_assignations_per_city natural join channels natural join cities where \"ID_Operator\" = ".$operador." and \"ID_frequency_ranks\"=".$id_frequency_rank." and \"ID_departament\"=".$idDep." group by \"ID_cities\") as tablaParcial;";	
 					
@@ -137,13 +163,17 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 		
 					while ($row =  pg_fetch_array ($result))
 					{
-						$resultadosAcumuladosDep[$idDep] += $row['total'];	
+						$aux = $resultadosAcumuladosDep[$idDep];
+						if($aux==null) $aux = 0;
+						$resultadosAcumuladosDep[$idDep] = $aux + $row['total'];	
 						if($maximoLocal < $resultadosAcumuladosDep[$idDep]) $maximoLocal = $resultadosAcumuladosDep[$idDep];				
 					}					
 					pg_free_result($result);				
 				}
 				
-				$resultadosAcumulados[$idTer] += $maximoLocal;
+				$aux = $resultadosAcumulados[$idTer];
+				if($aux == null) $aux = 0;	
+				$resultadosAcumulados[$idTer] = $aux + $maximoLocal;
 				
 				if($maximo < $resultadosAcumulados[$idTer]) $maximo = $resultadosAcumulados[$idTer];				
 
