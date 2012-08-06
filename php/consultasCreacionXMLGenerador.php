@@ -554,7 +554,7 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
 						//Consultar ID_Territorial
 						$query="select \"ID_Territorial_Division\" as idTer from departaments where \"ID_departament\" =".$idAsignacionDepartamental.";";	
 						$result= $objconexionBD->enviarConsulta($query);	
-						$salida.=$query."\n";
+
 						while ($row =  pg_fetch_array ($result))
 						{
 							$idAsignacionTerritorial= $row['idTer'];
@@ -591,7 +591,7 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
 	
 		}
 		
-		$query="select channel_number, reserved, disabled from channels where \"ID_frequency_ranks\" = ".$id_frequency_rank." order by channel_number;";
+		$query="select channel_number from channels where \"ID_frequency_ranks\" = ".$id_frequency_rank." order by channel_number;";
 		$result= $objconexionBD->enviarConsulta($query);	
 
 		while ($row =  pg_fetch_array ($result))
