@@ -7,38 +7,74 @@
 
 require ("/var/www/html/site/gestionEspectro/php/conexionBD.php");
 
-//Esta funcion retorna el número de operadores de la banda mas los que entran
 /*
- * CORREGIR
- * 
+ * Esta función retorna los operadores presente en el lugar de asignación unido con los operadores de los requerimientos
  */ 
-function numeroDeOperadores($id_frequency_rank, $requerimientos )
+function retornarOperadores($id_frequency_rank, $tipoAsignacion, $idAsignacion, $requerimientos )
 {
-	$total = sizeof($requerimientos);
+	$salida = array();
+	$contador = 0;
     $objconexionBD = new conexionBD();
     $objconexionBD->abrirConexion();	
     
-    $query="select DISTINCT \"ID_Operator\" from channels_assignations natural join channel_assignations_per_city natural join cities natural join operators natural join channels where \"ID_frequency_ranks\"=".$id_frequency_rank.";";	
+    $tipoConsultaInicio="";
+    $tipoConsultaFinal="";
+    
+    switch($tipoAsignacion)
+    {
+			case 0:
+				$tipoConsultaInicio = " channel_assignations_national ";
+				$tipoConsultaFinal="";
+				break;
+			case 1:
+				$tipoConsultaInicio = " channel_assignations_per_territorialdivision ";
+				$tipoConsultaFinal=" \"ID_Territorial_Division\"=".$idAsignacion;
+				break;
+			case 2:
+				$tipoConsultaInicio = " channel_assignations_per_departament ";
+				$tipoConsultaFinal=" \"ID_departament\"=".$idAsignacion;
+				break;
+			case 3:
+			default:
+				$tipoConsultaInicio = " channel_assignations_per_city ";
+				$tipoConsultaFinal=" \"ID_cities\"=".$idAsignacion;
+				break;
+		
+	}
+    
+    
+    $query="select DISTINCT \"ID_Operator\" as idop from channels_assignations natural join ".$tipoConsultaInicio." natural join operators natural join channels where \"ID_frequency_ranks\"=".$id_frequency_rank." ".$tipoConsultaFinal." ;";	
  	$result= $objconexionBD->enviarConsulta($query);	
 
+	//Consultar operadores actuales en la banda
 	while ($row =  pg_fetch_array ($result))
 	{
-		$total++;
+		$contador++;
+		$salida[$contador] = $row['idop'];
 	}	
 	pg_free_result($result);
+	
+	//Ingresar los operadores que requieren al array
 	foreach($requerimientos as $a)
 	{
-		$query="select count(*) from channels_assignations natural join channel_assignations_per_city natural join cities natural join operators natural join channels where \"ID_Operator\"=".$a[0]." and \"ID_frequency_ranks\"=".$id_frequency_rank.";";	 	$resultAux= $objconexionBD->enviarConsulta($query);
+		$query="select count(*) as total from channels_assignations natural join ".$tipoConsultaInicio." natural join operators natural join channels where \"ID_Operator\" =".$a[0]." and \"ID_frequency_ranks\"=".$id_frequency_rank." ".$tipoConsultaFinal." ;";		
+		
+		$resultAux= $objconexionBD->enviarConsulta($query);
 		
 		while ($row =  pg_fetch_array ($resultAux))
 		{
-			if($row['count']==0) $total--;
+			if(!in_array($row['idop'], $salida[$contador]))
+			{
+				$contador++;
+				$salida[$contador] = $row['idop'];
+			}
+
 		}	
 		pg_free_result($resultAux);
 	}	
 		
  	$objconexionBD->cerrarConexion();	
-	return $total;
+	return $salida;
 }
 
 //Esta funcion retorna los canales reservado e inutilizables de una banda
@@ -273,7 +309,18 @@ function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLu
 		case 0:
 			$asignado = array();
 
-			//Asignaciones de todas las divisiones territoriales
+			//Asignaciones de todas las asignaciones territoriales
+			$query = "select DISTINCT channel_number from channels natural join channel_assignations_per_territorialdivision natural join channels_assignations where \"ID_frequency_ranks\" = ".$id_frequency_rank." order by channel_number;";
+			$result= $objconexionBD->enviarConsulta($query);
+			
+			while ($row =  pg_fetch_array ($result))
+			{  
+			  $asignado[$row['channel_number']] = 1;
+			}	
+			pg_free_result($result);
+						
+
+			//Asignaciones de todos los departamentos
 			$query = "select DISTINCT channel_number from channels natural join channel_assignations_per_departament natural join channels_assignations where \"ID_frequency_ranks\" = ".$id_frequency_rank." order by channel_number;";
 			$result= $objconexionBD->enviarConsulta($query);
 			
@@ -413,14 +460,6 @@ function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLu
 		
 	return $salida;;
 }
-
-/*
- * Esta funcion retorna un arreglo con todos los operadores mas los operadores que entran (considera si ya tienen asignación).
- */ 
-function listaOperadores($requerimientos, $tipoAsignacion, $idAsignacion, $id_frequency_rank)
-{
-	//Depenta de la primera funcion
-}	
 
 
 
