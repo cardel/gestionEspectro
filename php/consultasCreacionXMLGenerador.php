@@ -56,13 +56,13 @@ function retornarOperadores($id_frequency_rank, $tipoAsignacion, $idAsignacion, 
 					$tipoConsultaFinal=" and \"ID_departament\"=".$idAsignacionDepartamental;
 					
 					//Consultar ID_Territorial
-					$query="select \"ID_Territorial_Division\" as idTer from departaments where \"ID_departament\" =".$idAsignacionDepartamental.";";	
+					$query="select \"ID_Territorial_Division\" as idter from departaments where \"ID_departament\" =".$idAsignacionDepartamental.";";	
 					
 					$result= $objconexionBD->enviarConsulta($query);	
 
 					while ($row =  pg_fetch_array ($result))
 					{
-						$idAsignacionTerritorial= $row['idTer'];
+						$idAsignacionTerritorial= $row['idter'];
 					}	
 					pg_free_result($result);
 					break;
@@ -72,12 +72,12 @@ function retornarOperadores($id_frequency_rank, $tipoAsignacion, $idAsignacion, 
 					$tipoConsultaFinal=" and \"ID_cities\"=".$idAsignacionMunicipal;
 					
 					//Consultar ID_Departamental
-					$query="select \"ID_departament\" as idDep from cities where \"ID_cities\" =".$idAsignacionMunicipal.";";	
+					$query="select \"ID_departament\" as iddep from cities where \"ID_cities\" =".$idAsignacionMunicipal.";";	
 					$result= $objconexionBD->enviarConsulta($query);	
 
 					while ($row =  pg_fetch_array ($result))
 					{
-						$idAsignacionDepartamental= $row['idDep'];
+						$idAsignacionDepartamental= $row['iddep'];
 					}	
 					pg_free_result($result);
 					break;		
@@ -553,12 +553,12 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
 						$tipoConsultaFinal=" and \"ID_departament\"=".$idAsignacionDepartamental;
 						
 						//Consultar ID_Territorial
-						$query="select \"ID_Territorial_Division\" as idTer from departaments where \"ID_departament\" =".$idAsignacionDepartamental.";";	
+						$query="select \"ID_Territorial_Division\" as idter from departaments where \"ID_departament\" =".$idAsignacionDepartamental.";";	
 						$result= $objconexionBD->enviarConsulta($query);	
 
 						while ($row =  pg_fetch_array ($result))
 						{
-							$idAsignacionTerritorial= $row['idTer'];
+							$idAsignacionTerritorial= $row['idter'];
 						}	
 						pg_free_result($result);
 						break;
@@ -568,12 +568,12 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
 						$tipoConsultaFinal=" and \"ID_cities\"=".$idAsignacionMunicipal;
 						
 						//Consultar ID_Departamental
-						$query="select \"ID_departament\" as idDep from cities where \"ID_cities\" =".$idAsignacionMunicipal.";";	
+						$query="select \"ID_departament\" as iddep from cities where \"ID_cities\" =".$idAsignacionMunicipal.";";	
 						$result= $objconexionBD->enviarConsulta($query);	
 
 						while ($row =  pg_fetch_array ($result))
 						{
-							$idAsignacionDepartamental= $row['idDep'];
+							$idAsignacionDepartamental= $row['iddep'];
 						}	
 						pg_free_result($result);
 						break;		
