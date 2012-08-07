@@ -352,8 +352,8 @@ function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLu
 {
     $objconexionBD = new conexionBD();
     $objconexionBD->abrirConexion();		
-	$salida .= "\t\t\t\t<i>\n";
-	$salida = "\t\t\t\t\t<entry key=\"parcial\">\n";
+	$salida = "\t\t\t\t<i>\n";
+	$salida .= "\t\t\t\t\t<entry key=\"parcial\">\n";
 	$salida .= "\t\t\t\t\t\t<tuple>\n";
 	$salida .= "\t\t\t\t\t\t\t<i>\n";
 	$salida .= "\t\t\t\t\t\t\t\t<list>\n";

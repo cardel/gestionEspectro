@@ -32,7 +32,7 @@
 			<tuple>
 				<i>
 					<entry key="7">
-						<i>034</i>
+						<i>34</i>
 					</entry>
 				</i>
 			</tuple>
@@ -889,6 +889,8 @@
 							</i>
 						</tuple>
 					</entry>
+				</i>
+				<i>
 					<entry key="reservado">
 						<tuple>
 							<i>
@@ -1729,6 +1731,7 @@
 							</i>
 						</tuple>
 					</entry>
+				</i>
 					<entry key="parcial">
 						<tuple>
 							<i>
@@ -2569,6 +2572,8 @@
 							</i>
 						</tuple>
 					</entry>
+				</i>
+				<i>
 					<entry key="2">
 						<tuple>
 							<i>
@@ -3409,6 +3414,8 @@
 							</i>
 						</tuple>
 					</entry>
+				</i>
+				<i>
 					<entry key="3">
 						<tuple>
 							<i>
@@ -4249,6 +4256,8 @@
 							</i>
 						</tuple>
 					</entry>
+				</i>
+				<i>
 					<entry key="10">
 						<tuple>
 							<i>
@@ -5089,7 +5098,9 @@
 							</i>
 						</tuple>
 					</entry>
-					<entry key="18">
+				</i>
+				<i>
+					<entry key="14">
 						<tuple>
 							<i>
 								<list>
