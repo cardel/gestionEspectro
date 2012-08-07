@@ -579,7 +579,7 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
 						break;		
 			}
 			$typeAssign--;	
-		
+			$salida.=$query."\n";
 			$query="select channel_number as canal from channels_assignations natural join ".$tipoConsultaInicio." natural join operators natural join channels where \"ID_Operator\"=".$listaOperadoresOrdenada[$i]." and \"ID_frequency_ranks\"=".$id_frequency_rank." ".$tipoConsultaFinal." ;";
 
 			$result= $objconexionBD->enviarConsulta($query);	
