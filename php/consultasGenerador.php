@@ -121,9 +121,9 @@
 								$result= $objconexionBD->enviarConsulta($query);
 							    while ($row =  pg_fetch_array ($result))
 							    {
-								  echo "<input type=\"hidden\" name=\"numeroCanalesFormulario\" value=".$row["channels_number"]."/>";
-  								  echo "<input type=\"hidden\" name=\"channel_separationFormulario\" value=".$row["channel_separation"]."/>";
-  								  echo "<input type=\"hidden\" name=\"maxChannelPerOperatorFormulario\" value=".$row["max_channels_per_operator"]."/>";
+								  echo "<input type=\"hidden\" name=\"numeroCanalesFormulario\" value=".$row["channels_number"]." />";
+  								  echo "<input type=\"hidden\" name=\"channel_separationFormulario\" value=".$row["channel_separation"]." />";
+  								  echo "<input type=\"hidden\" name=\"maxChannelPerOperatorFormulario\" value=".$row["max_channels_per_operator"]." />";
 
 								}
 							}
