@@ -37,7 +37,7 @@
 		$operacion = "none";
 	}	
 	
-	if ($accion == "upload" && $file==null) {
+	if ($accion == "upload") {
 	
 		// obtenemos los datos del archivo 
 		$tamano = $_FILES["archivo"]['size'];
