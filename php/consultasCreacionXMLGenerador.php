@@ -135,7 +135,7 @@ function obtenerInutilizableYReservado($id_frequency_rank)
 	$inutilizado .= "\t\t\t\t\t\t\t<i>\n";
 	$inutilizado .= "\t\t\t\t\t\t\t\t<list>\n";
 	
-	$reservado="\t\t\t\t\t<entry key=\"reservado\">\n";
+	$reservado= "\t\t\t\t\t<entry key=\"reservado\">\n";
 	$reservado .= "\t\t\t\t\t\t<tuple>\n";
 	$reservado .= "\t\t\t\t\t\t\t<i>\n";
 	$reservado .= "\t\t\t\t\t\t\t\t<list>\n";	
@@ -156,10 +156,12 @@ function obtenerInutilizableYReservado($id_frequency_rank)
 	pg_free_result($result);
 	$inutilizado .= "\t\t\t\t\t\t\t\t</list>\n";	
 	$inutilizado .= "\t\t\t\t\t\t\t</i>\n";
+	$inutilizado .= "\t\t\t\t\t\t</tuple>\n";
 	$inutilizado .= "\t\t\t\t\t</entry>\n";
 
 	$reservado .= "\t\t\t\t\t\t\t\t</list>\n";	
 	$reservado .= "\t\t\t\t\t\t\t</i>\n";
+	$reservado .= "\t\t\t\t\t\t</tuple>\n";
 	$reservado .= "\t\t\t\t\t</entry>\n";
 	
 	$salida.= $inutilizado;
@@ -502,6 +504,7 @@ function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLu
 	}			
 	$salida .= "\t\t\t\t\t\t\t\t</list>\n";	
 	$salida .= "\t\t\t\t\t\t\t</i>\n";
+	$salida .= "\t\t\t\t\t\t</tuple>\n";
 	$salida .= "\t\t\t\t\t</entry>\n";
 	$objconexionBD->cerrarConexion();
 		
@@ -604,6 +607,7 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
 		
 		$salida .= "\t\t\t\t\t\t\t\t</list>\n";	
 		$salida .= "\t\t\t\t\t\t\t</i>\n";
+		$salida .= "\t\t\t\t\t\t</tuple>\n";
 		$salida .= "\t\t\t\t\t</entry>\n";	
 		pg_free_result($result);
 	}
