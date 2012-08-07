@@ -520,7 +520,7 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
     $tipoConsultaInicio="";
     $tipoConsultaFinal="";
     
-	$typeAssign = $tipoAsignacion;   
+	 
     
     $idAsignacionTerritorial = $idAsignacion;
     $idAsignacionDepartamental = $idAsignacion;
@@ -534,7 +534,7 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
 		$salida .= "\t\t\t\t\t\t<tuple>\n";
 		$salida .= "\t\t\t\t\t\t\t<i>\n";
 		$salida .= "\t\t\t\t\t\t\t\t<list>\n";
-		
+		$typeAssign = $tipoAsignacion;  
 		//Revisar asignaciones desde subdivisiones a divisiones
 		while($typeAssign >= 0)
 		{
