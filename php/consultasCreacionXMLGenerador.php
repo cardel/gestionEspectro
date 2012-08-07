@@ -128,14 +128,16 @@ function retornarOperadores($id_frequency_rank, $tipoAsignacion, $idAsignacion, 
 function obtenerInutilizableYReservado($id_frequency_rank)
 {
     $objconexionBD = new conexionBD();
-    $objconexionBD->abrirConexion();		
-	
-	$inutilizado = "\t\t\t\t\t<entry key=\"inutilizado\">\n";
+    $objconexionBD->abrirConexion();
+    		
+	$inutilizado = "\t\t\t\t<i>\n";
+	$inutilizado .= "\t\t\t\t\t<entry key=\"inutilizado\">\n";
 	$inutilizado .= "\t\t\t\t\t\t<tuple>\n";
 	$inutilizado .= "\t\t\t\t\t\t\t<i>\n";
 	$inutilizado .= "\t\t\t\t\t\t\t\t<list>\n";
 	
-	$reservado= "\t\t\t\t\t<entry key=\"reservado\">\n";
+	$reservado = "\t\t\t\t<i>\n";
+	$reservado .= "\t\t\t\t\t<entry key=\"reservado\">\n";
 	$reservado .= "\t\t\t\t\t\t<tuple>\n";
 	$reservado .= "\t\t\t\t\t\t\t<i>\n";
 	$reservado .= "\t\t\t\t\t\t\t\t<list>\n";	
@@ -158,12 +160,15 @@ function obtenerInutilizableYReservado($id_frequency_rank)
 	$inutilizado .= "\t\t\t\t\t\t\t</i>\n";
 	$inutilizado .= "\t\t\t\t\t\t</tuple>\n";
 	$inutilizado .= "\t\t\t\t\t</entry>\n";
+	$inutilizado .= "\t\t\t\t</i>\n";
+
 
 	$reservado .= "\t\t\t\t\t\t\t\t</list>\n";	
 	$reservado .= "\t\t\t\t\t\t\t</i>\n";
 	$reservado .= "\t\t\t\t\t\t</tuple>\n";
 	$reservado .= "\t\t\t\t\t</entry>\n";
-	
+	$reservado .= "\t\t\t\t</i>\n";
+
 	$salida.= $inutilizado;
 	$salida.= $reservado;
 	$objconexionBD->cerrarConexion();	
@@ -347,7 +352,7 @@ function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLu
 {
     $objconexionBD = new conexionBD();
     $objconexionBD->abrirConexion();		
-	
+	$salida .= "\t\t\t\t<i>\n";
 	$salida = "\t\t\t\t\t<entry key=\"parcial\">\n";
 	$salida .= "\t\t\t\t\t\t<tuple>\n";
 	$salida .= "\t\t\t\t\t\t\t<i>\n";
@@ -506,6 +511,8 @@ function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLu
 	$salida .= "\t\t\t\t\t\t\t</i>\n";
 	$salida .= "\t\t\t\t\t\t</tuple>\n";
 	$salida .= "\t\t\t\t\t</entry>\n";
+	$salida .= "\t\t\t\t</i>\n";
+
 	$objconexionBD->cerrarConexion();
 		
 	return $salida;;
@@ -533,6 +540,7 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
 	for($i=4; $i<=sizeof($listaOperadoresOrdenada); $i++)
 	{
 		$asignacion = array();
+		$salida .= "\t\t\t\t<i>\n";
 		$salida .= "\t\t\t\t\t<entry key=\"".$listaOperadoresOrdenada[$i]."\">\n";
 		$salida .= "\t\t\t\t\t\t<tuple>\n";
 		$salida .= "\t\t\t\t\t\t\t<i>\n";
@@ -609,6 +617,8 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
 		$salida .= "\t\t\t\t\t\t\t</i>\n";
 		$salida .= "\t\t\t\t\t\t</tuple>\n";
 		$salida .= "\t\t\t\t\t</entry>\n";	
+		$salida .= "\t\t\t\t</i>\n";
+
 		pg_free_result($result);
 	}
  	$objconexionBD->cerrarConexion();	

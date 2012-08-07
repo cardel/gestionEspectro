@@ -231,6 +231,8 @@
 
 			//maximo ocupado por un operador de entrada
 			$salida .= "\t\t<entry key=\"PartialAssignation\">\n";
+			$salida .= "\t\t\t<tuple>\n";
+			$salida .= "\t\t\t\t<i>\n";
 			foreach($requerimientos as $op)
 			{
 				$keyOP = 0;
@@ -243,17 +245,17 @@
 				$salida .= "\t\t\t\t\t\t<i>".obtenerMaximoParcial($op[0], $tipoAsignacion, $idAsignacion, $rangoSeleccionado)."</i>\n";
 				$salida .= "\t\t\t\t\t</entry>\n";
 			}
+			$salida .= "\t\t\t\t</i>\n";
+			$salida .= "\t\t\t</tuple>\n";	
 			$salida .= "\t\t</entry>\n";
 			
 			//Asignaciones actuales				
 			$salida .= "\t\t<entry key=\"AssignationChannel\">\n";
 			$salida .= "\t\t\t<tuple>\n";
-			$salida .= "\t\t\t\t<i>\n";
 
 			$salida .= obtenerInutilizableYReservado($rangoSeleccionado);
 			$salida .= obtenerAsignacionesParciales($rangoSeleccionado, $tipoAsignacion, $idAsignacion);
 			$salida .= obtenerAsignacion($listaOperadores, $tipoAsignacion, $idAsignacion, $rangoSeleccionado );
-			$salida .= "\t\t\t\t</i>\n";
 			$salida .= "\t\t\t</tuple>\n";					
 			$salida .= "\t\t</entry>\n";	
 							

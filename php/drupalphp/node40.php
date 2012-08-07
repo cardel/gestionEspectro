@@ -30,14 +30,14 @@
 		
 	$file = $_POST["oredefinedinput"];
 	
-	if ($file=="null" && $_FILES["archivo"]['name']=="")
+	if ($file==null && $_FILES["archivo"]['name']=="" && $operacion == "Ejecutar")
 	{
 		echo "<script language='javascript'>alert('Debe ingresar un archivo o seleccionar uno de la lista');</script>";
 		$accion = "none";
 		$operacion = "none";
-	}
+	}	
 	
-	if ($accion == "upload" && $file=="null") {
+	if ($accion == "upload" && $file==null) {
 	
 		// obtenemos los datos del archivo 
 		$tamano = $_FILES["archivo"]['size'];
@@ -46,6 +46,8 @@
 		
 		if ($archivo != "") {
 			// guardamos el archivo a la carpeta files
+			exec("rm -f /var/www/html/site/gestionEspectro/entradas/".$user->uid."/".$archivo);
+			
 			$destino =  "/var/www/html/site/gestionEspectro/entradas/".$user->uid."/".$archivo;
 			$file = $destino;
 			if (copy($_FILES['archivo']['tmp_name'],$destino)) {
@@ -133,7 +135,9 @@
 	$outputit6="/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it6.xml";
 	
 	if($operacion == "Ejecutar")
-	{		
+	{	
+		
+
 		//Cambiar variables de entorno
 		$saved = getenv("PATH");
 		$newld = "/home/avispa/mozart-1.4.0/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin";
