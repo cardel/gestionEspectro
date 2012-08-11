@@ -22,7 +22,6 @@ import
    Property
    Application
    Open
-   Browser
 define
 
    %Entradas
@@ -200,7 +199,6 @@ define
    else
       Salida = {BuscarMejorSolucionEnTiempoDado {New Search.object script({GenerarAsignacion NoMantenerAsignacionesActuales NoConsiderarTope NoConsiderarSeparacion NumeroOperadorPorCanal})} TiempoEjecucion}
    end
-   {Browser.browse Salida}
    % %%---------------------------------------------------------------------
    % %% ESCRIBIR ARCHIVO DE SALIDA
    % %%----------------------------------------------------------------------
