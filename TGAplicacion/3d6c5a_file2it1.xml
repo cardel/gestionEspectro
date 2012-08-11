@@ -4,31 +4,45 @@
 		<geograficAssignationType> 2 </geograficAssignationType>
 		<geograficAssignationID> 13 </geograficAssignationID>
 		<frequencyBand> 2 </frequencyBand>
-		<especificBand> 3 </especificBand>
+		<frequencyRank> 3 </frequencyRank>
 		<channelsNumber> 10 </channelsNumber>
-		<operatorsNumber> 6 </operatorsNumber>
+		<operatorsNumber> 3 </operatorsNumber>
 		<channelSeparation> 1 </channelSeparation>
 		<numberOperatorPerChannel> 1 </numberOperatorPerChannel>
 		<considerTop> true </considerTop>
 		<staticAssignation> true </staticAssignation>
 		<considerSeparation> true </considerSeparation>
-		<numSolutions> 3 </numSolutions>
+		<numSolutions> 1 </numSolutions>
 		<spacesCreated> 1 </spacesCreated>
-		<spacesSucceeded> 3 </spacesSucceeded>
-		<FDVariables> 5100 </FDVariables>
-		<propagators> 2883 </propagators>
-		<memoryUsage> 524512 </memoryUsage>
-		<executionTime> 210 </executionTime>
+		<spacesSucceeded> 1 </spacesSucceeded>
+		<FDVariables> 1294 </FDVariables>
+		<propagators> 1497 </propagators>
+		<memoryUsage> 1442652 </memoryUsage>
+		<executionTime> 100 </executionTime>
 	</head>
 	<solution id="0">
 		<costs>
-			<blocksNumber> 4 </blocksNumber>
-			<difChannelNumberMaxBlockFree> 7 </difChannelNumberMaxBlockFree>
-			<channelNumberUseless> 2 </channelNumberUseless>
-			<totalCost> 429 </totalCost>
+			<blocksNumber> 3 </blocksNumber>
+			<difChannelNumberMaxBlockFree> 6 </difChannelNumberMaxBlockFree>
+			<channelNumberUseless> 3 </channelNumberUseless>
+			<totalCost> 396 </totalCost>
 		</costs>
 		<report>
-			<operator name="inutilizable">
+			<operator name="canales">
+				 <channels>
+					<channel ID="1"> 0 </channel>
+					<channel ID="2"> 0 </channel>
+					<channel ID="3"> 0 </channel>
+					<channel ID="4"> 0 </channel>
+					<channel ID="5"> 0 </channel>
+					<channel ID="6"> 0 </channel>
+					<channel ID="7"> 0 </channel>
+					<channel ID="8"> 0 </channel>
+					<channel ID="9"> 0 </channel>
+					<channel ID="10"> 0 </channel>
+				</channels>
+			</operator>
+			<operator name="canales">
 				 <channels>
 					<channel ID="1"> 1 </channel>
 					<channel ID="2"> 0 </channel>
@@ -42,7 +56,7 @@
 					<channel ID="10"> 0 </channel>
 				</channels>
 			</operator>
-			<operator name="reservado">
+			<operator name="canales">
 				 <channels>
 					<channel ID="1"> 0 </channel>
 					<channel ID="2"> 0 </channel>
@@ -52,241 +66,11 @@
 					<channel ID="6"> 0 </channel>
 					<channel ID="7"> 0 </channel>
 					<channel ID="8"> 0 </channel>
-					<channel ID="9"> 0 </channel>
-					<channel ID="10"> 0 </channel>
-				</channels>
-			</operator>
-			<operator name="parcial">
-				 <channels>
-					<channel ID="1"> 0 </channel>
-					<channel ID="2"> 1 </channel>
-					<channel ID="3"> 0 </channel>
-					<channel ID="4"> 0 </channel>
-					<channel ID="5"> 0 </channel>
-					<channel ID="6"> 0 </channel>
-					<channel ID="7"> 0 </channel>
-					<channel ID="8"> 0 </channel>
-					<channel ID="9"> 0 </channel>
-					<channel ID="10"> 0 </channel>
-				</channels>
-			</operator>
-			<operator name="movistar">
-				 <channels>
-					<channel ID="1"> 0 </channel>
-					<channel ID="2"> 0 </channel>
-					<channel ID="3"> 0 </channel>
-					<channel ID="4"> 0 </channel>
-					<channel ID="5"> 0 </channel>
-					<channel ID="6"> 0 </channel>
-					<channel ID="7"> 0 </channel>
-					<channel ID="8"> 0 </channel>
-					<channel ID="9"> 0 </channel>
-					<channel ID="10"> 0 </channel>
-				</channels>
-			</operator>
-			<operator name="tigo">
-				 <channels>
-					<channel ID="1"> 0 </channel>
-					<channel ID="2"> 0 </channel>
-					<channel ID="3"> 0 </channel>
-					<channel ID="4"> 0 </channel>
-					<channel ID="5"> 0 </channel>
-					<channel ID="6"> 1 </channel>
-					<channel ID="7"> 0 </channel>
-					<channel ID="8"> 0 </channel>
-					<channel ID="9"> 0 </channel>
-					<channel ID="10"> 0 </channel>
-				</channels>
-			</operator>
-			<operator name="une">
-				 <channels>
-					<channel ID="1"> 0 </channel>
-					<channel ID="2"> 0 </channel>
-					<channel ID="3"> 0 </channel>
-					<channel ID="4"> 0 </channel>
-					<channel ID="5"> 0 </channel>
-					<channel ID="6"> 0 </channel>
-					<channel ID="7"> 0 </channel>
-					<channel ID="8"> 1 </channel>
 					<channel ID="9"> 1 </channel>
 					<channel ID="10"> 1 </channel>
 				</channels>
 			</operator>
-		</report>
-	</solution>
-	<solution id="1">
-		<costs>
-			<blocksNumber> 4 </blocksNumber>
-			<difChannelNumberMaxBlockFree> 7 </difChannelNumberMaxBlockFree>
-			<channelNumberUseless> 3 </channelNumberUseless>
-			<totalCost> 462 </totalCost>
-		</costs>
-		<report>
-			<operator name="inutilizable">
-				 <channels>
-					<channel ID="1"> 1 </channel>
-					<channel ID="2"> 0 </channel>
-					<channel ID="3"> 0 </channel>
-					<channel ID="4"> 0 </channel>
-					<channel ID="5"> 0 </channel>
-					<channel ID="6"> 0 </channel>
-					<channel ID="7"> 0 </channel>
-					<channel ID="8"> 0 </channel>
-					<channel ID="9"> 0 </channel>
-					<channel ID="10"> 0 </channel>
-				</channels>
-			</operator>
-			<operator name="reservado">
-				 <channels>
-					<channel ID="1"> 0 </channel>
-					<channel ID="2"> 0 </channel>
-					<channel ID="3"> 0 </channel>
-					<channel ID="4"> 0 </channel>
-					<channel ID="5"> 0 </channel>
-					<channel ID="6"> 0 </channel>
-					<channel ID="7"> 0 </channel>
-					<channel ID="8"> 0 </channel>
-					<channel ID="9"> 0 </channel>
-					<channel ID="10"> 0 </channel>
-				</channels>
-			</operator>
-			<operator name="parcial">
-				 <channels>
-					<channel ID="1"> 0 </channel>
-					<channel ID="2"> 1 </channel>
-					<channel ID="3"> 0 </channel>
-					<channel ID="4"> 0 </channel>
-					<channel ID="5"> 0 </channel>
-					<channel ID="6"> 0 </channel>
-					<channel ID="7"> 0 </channel>
-					<channel ID="8"> 0 </channel>
-					<channel ID="9"> 0 </channel>
-					<channel ID="10"> 0 </channel>
-				</channels>
-			</operator>
-			<operator name="movistar">
-				 <channels>
-					<channel ID="1"> 0 </channel>
-					<channel ID="2"> 0 </channel>
-					<channel ID="3"> 0 </channel>
-					<channel ID="4"> 0 </channel>
-					<channel ID="5"> 0 </channel>
-					<channel ID="6"> 0 </channel>
-					<channel ID="7"> 0 </channel>
-					<channel ID="8"> 0 </channel>
-					<channel ID="9"> 0 </channel>
-					<channel ID="10"> 0 </channel>
-				</channels>
-			</operator>
-			<operator name="tigo">
-				 <channels>
-					<channel ID="1"> 0 </channel>
-					<channel ID="2"> 0 </channel>
-					<channel ID="3"> 0 </channel>
-					<channel ID="4"> 1 </channel>
-					<channel ID="5"> 0 </channel>
-					<channel ID="6"> 0 </channel>
-					<channel ID="7"> 0 </channel>
-					<channel ID="8"> 0 </channel>
-					<channel ID="9"> 0 </channel>
-					<channel ID="10"> 0 </channel>
-				</channels>
-			</operator>
-			<operator name="une">
-				 <channels>
-					<channel ID="1"> 0 </channel>
-					<channel ID="2"> 0 </channel>
-					<channel ID="3"> 0 </channel>
-					<channel ID="4"> 0 </channel>
-					<channel ID="5"> 0 </channel>
-					<channel ID="6"> 0 </channel>
-					<channel ID="7"> 0 </channel>
-					<channel ID="8"> 1 </channel>
-					<channel ID="9"> 1 </channel>
-					<channel ID="10"> 1 </channel>
-				</channels>
-			</operator>
-		</report>
-	</solution>
-	<solution id="2">
-		<costs>
-			<blocksNumber> 4 </blocksNumber>
-			<difChannelNumberMaxBlockFree> 8 </difChannelNumberMaxBlockFree>
-			<channelNumberUseless> 3 </channelNumberUseless>
-			<totalCost> 495 </totalCost>
-		</costs>
-		<report>
-			<operator name="inutilizable">
-				 <channels>
-					<channel ID="1"> 1 </channel>
-					<channel ID="2"> 0 </channel>
-					<channel ID="3"> 0 </channel>
-					<channel ID="4"> 0 </channel>
-					<channel ID="5"> 0 </channel>
-					<channel ID="6"> 0 </channel>
-					<channel ID="7"> 0 </channel>
-					<channel ID="8"> 0 </channel>
-					<channel ID="9"> 0 </channel>
-					<channel ID="10"> 0 </channel>
-				</channels>
-			</operator>
-			<operator name="reservado">
-				 <channels>
-					<channel ID="1"> 0 </channel>
-					<channel ID="2"> 0 </channel>
-					<channel ID="3"> 0 </channel>
-					<channel ID="4"> 0 </channel>
-					<channel ID="5"> 0 </channel>
-					<channel ID="6"> 0 </channel>
-					<channel ID="7"> 0 </channel>
-					<channel ID="8"> 0 </channel>
-					<channel ID="9"> 0 </channel>
-					<channel ID="10"> 0 </channel>
-				</channels>
-			</operator>
-			<operator name="parcial">
-				 <channels>
-					<channel ID="1"> 0 </channel>
-					<channel ID="2"> 1 </channel>
-					<channel ID="3"> 0 </channel>
-					<channel ID="4"> 0 </channel>
-					<channel ID="5"> 0 </channel>
-					<channel ID="6"> 0 </channel>
-					<channel ID="7"> 0 </channel>
-					<channel ID="8"> 0 </channel>
-					<channel ID="9"> 0 </channel>
-					<channel ID="10"> 0 </channel>
-				</channels>
-			</operator>
-			<operator name="movistar">
-				 <channels>
-					<channel ID="1"> 0 </channel>
-					<channel ID="2"> 0 </channel>
-					<channel ID="3"> 0 </channel>
-					<channel ID="4"> 0 </channel>
-					<channel ID="5"> 0 </channel>
-					<channel ID="6"> 0 </channel>
-					<channel ID="7"> 0 </channel>
-					<channel ID="8"> 0 </channel>
-					<channel ID="9"> 0 </channel>
-					<channel ID="10"> 0 </channel>
-				</channels>
-			</operator>
-			<operator name="tigo">
-				 <channels>
-					<channel ID="1"> 0 </channel>
-					<channel ID="2"> 0 </channel>
-					<channel ID="3"> 0 </channel>
-					<channel ID="4"> 1 </channel>
-					<channel ID="5"> 0 </channel>
-					<channel ID="6"> 0 </channel>
-					<channel ID="7"> 0 </channel>
-					<channel ID="8"> 0 </channel>
-					<channel ID="9"> 0 </channel>
-					<channel ID="10"> 0 </channel>
-				</channels>
-			</operator>
-			<operator name="une">
+			<operator name="canales">
 				 <channels>
 					<channel ID="1"> 0 </channel>
 					<channel ID="2"> 0 </channel>
@@ -295,7 +79,7 @@
 					<channel ID="5"> 0 </channel>
 					<channel ID="6"> 1 </channel>
 					<channel ID="7"> 1 </channel>
-					<channel ID="8"> 1 </channel>
+					<channel ID="8"> 0 </channel>
 					<channel ID="9"> 0 </channel>
 					<channel ID="10"> 0 </channel>
 				</channels>

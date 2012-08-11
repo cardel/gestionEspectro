@@ -10,7 +10,6 @@
 functor
 import
    %Modulos de mozart
-   FD
 export
    buscarMejorPorNumeroDeBloques:BuscarMejorPorNumeroDeBloques
    buscarMejorPorSizeDeBloquesLibres:BuscarMejorPorSizeDeBloquesLibres

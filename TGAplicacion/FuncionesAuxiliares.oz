@@ -9,8 +9,6 @@
 
 functor
 import
-   %Modulos Mozart
-   FD
    %Modulos personalizados
    Entradas
 
@@ -23,15 +21,38 @@ define
 
    %Numero canales
    C = Entradas.c
-   %Numero operadores
-   N = Entradas.n
+
    
-%Calcular traspuesta de una matriz
+   %%Calcular traspuesta de una matriz
+   proc {TrasponerMatrizTuplas MatrizPorOperadores ?Salida}
+      local
+         Elementos = {Record.arity MatrizPorOperadores}
+      in
+         Salida = {Tuple.make traspuesta C}
+
+         {Record.forAll Salida
+          proc{$ P}
+             P = {Record.make canal Elementos}
+          end
+         }
+         
+         {For 1 C 1
+          proc{$ I}
+             {List.forAll Elementos
+              proc{$ J}
+                 Salida.I.J = MatrizPorOperadores.J.I
+              end
+             }
+          end
+         }      
+      end
+   end
+
    proc {TrasponerFila Lista Indice ?Salida}
       if Lista == nil then Salida = nil
       else
          Salida = {Nth Lista.1 Indice}|{TrasponerFila Lista.2 Indice}
-   end
+      end
    end
    
    proc {GenerarListaTraspuesta Lista Indice ?Salida}
@@ -40,30 +61,18 @@ define
          Salida={TrasponerFila Lista Indice}|{GenerarListaTraspuesta Lista Indice+1}
       end
    end
-
-%Calcular suma lista
+   
+   %%Calcular suma lista
    proc {SumaLista Lista ?Salida}
       if Lista==nil then Salida = 0
       else Salida=Lista.1+{SumaLista Lista.2}
       end
    end
    
-%Suma Tupla
+   %%Suma Tupla
    proc {SumaTupla Tupla Indice ?Salida}
       if Indice>{Length Tupla} then Salida = 0
       else Salida=Tupla.Indice + {SumaTupla Tupla Indice+1}
       end
-end
-   
-%Trasponer tupla de tuplas
-   proc{TrasponerMatrizTuplas MatrizPorFilas ?Salida}
-      
-      Salida={Tuple.make asignacionTraspuesta C}
-      {For 1 C 1 proc {$ I} Salida.I = {FD.tuple canal N 0#1} end}
-      
-   %Para mantener consistencia se requiere que ambas sean la misma
-      {For 1 N 1 proc {$ I} {For 1 C 1 proc{$ J} MatrizPorFilas.I.J = Salida.J.I end} end}
-      
-   end
-   
+   end  
 end

@@ -36,13 +36,13 @@ define
                GeograficAssignationID=Reg.geograficAssignationID
                GeograficAssignationType=Reg.geograficAssignationType
                BandaDeFrecuencia=Reg.bandaDeFrecuencia
-               BandaEspecifica=Reg.bandaEspecifica               
+               RangoDeFrecuencia=Reg.rangoDeFrecuencia               
                DA DB DC DD DE DF DG DH DI DJ DK A B C D E F G 
             in
                DA="\t\t<geograficAssignationType> "#GeograficAssignationType#" </geograficAssignationType>\n"
                DB="\t\t<geograficAssignationID> "#GeograficAssignationID#" </geograficAssignationID>\n"
                DC="\t\t<frequencyBand> "#BandaDeFrecuencia#" </frequencyBand>\n"
-               DD="\t\t<especificBand> "#BandaEspecifica#" </especificBand>\n"
+               DD="\t\t<frequencyRank> "#RangoDeFrecuencia#" </frequencyRank>\n"
                DE="\t\t<channelsNumber> "#Canales#" </channelsNumber>\n"
                DF="\t\t<operatorsNumber> "#Operadores#" </operatorsNumber>\n"
                DG="\t\t<channelSeparation> "#Separacion#" </channelSeparation>\n"

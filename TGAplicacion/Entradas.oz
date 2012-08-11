@@ -7,28 +7,37 @@ import
    Application
    Parser at 'x-oz://system/xml/Parser.ozf'
 export
+   %%Variables del modelo
    c:C
+   o:O
    n:N
-   bci:Bci
+   opp:OPp
+   opi:OPi
+   opt:OPt
+   cic:CIc
+   cre:CRe
+   cpc:CPc
+   bico:BIco
+   req:Req
+   sep:Sep
+   tope:Tope
+   apo:APo
+
+   %%Variables de la entrada
    pesoNumeroDeBloques:PesoNumeroDeBloques
    pesoSizeMaxDeCanalesLibre:PesoSizeMaxDeCanalesLibre
    pesoNumeroDeCanalesInutiles:PesoNumeroDeCanalesInutiles
-   o:O
-   req:Req
-   inOP:InOP
-   inReqCanal:InReqCanal
-   sep:Sep
-   tope:Tope
-   apo:Apo
-   inCanalesAsignadosEnEntrada:InCanalesAsignadosEnEntrada
+   geograficAssignationType:GeograficAssignationType
+   geograficAssignationID:GeograficAssignationID
+   bandaDeFrecuencia:BandaDeFrecuencia
+   rangoDeFrecuencia:RangoDeFrecuencia
+   
+   %%Funciones
    leerEntradaXML:LeerEntradaXML
    asignarPesos:AsignarPesos
    estrategia:Estrategia
    ingresarEstrategia:IngresarEstrategia
-   geograficAssignationType:GeograficAssignationType
-   geograficAssignationID:GeograficAssignationID
-   bandaDeFrecuencia:BandaDeFrecuencia
-   bandaEspecifica:BandaEspecifica
+
 define
 
    %%---------------------------------------------------
@@ -56,62 +65,71 @@ define
       end
    end
 
-   %Tipo de asignacion
-   %0 Nacional, 1 Terrotorial, 2 departamental, 3 municipal
-   GeograficAssignationType
+   %%---------------------------------------------------------------------------
+   %% Datos de entrada
+   %%---------------------------------------------------------------------------
 
-   %ID de la asignación, en el caso nacional no importa éste parámetro
-   GeograficAssignationID
-   
-   %ID de banda de frecuencia
-   BandaDeFrecuencia
+   %%Variables del modelo
 
-   %ID de Banda especifica
-   BandaEspecifica
-
-   %%Estrategia de busqueda
-   Estrategia
-   
-   %%Numero de canales
+   %%Nümero de canales
    C
 
-   %%Numero total de operadores
-   N
-   
-   %%Asignacion actual de canales
-   Bci
+   %%Número de operadores en la banda que requieren asignación
+   O
 
-   %%Pesos asignados por el usuario
+   %%Número de operadores presente en la banda
+   N
+
+   %%Conjunto de operadores en la banda
+   OPp
+
+   %%Conjunto de operadores que solicitan canales en la banda
+   OPi
+
+   %%Unión entre los conjuntos de operadores presentes en la banda y los que solicitan asignación
+   OPt
+
+   %%Canales marcados como inutilizables
+   CIc
+
+   %%Canales marcados como reservados
+   CRe
+
+   %%Canales asignados en las subdivisiones de la región de trabajo
+   CPc
+
+   %%Asignación de canales por operadores presentes en la banda
+   BIco
+
+   %%Requerimientos de canales de los operadores que solicitan canales
+   Req
+
+   %%Separación mínima entre canales exigida en la banda
+   Sep
+
+   %%Tope por operador permitido en la banda
+   Tope
+
+   %%Número máximo de canales que posee un operador que solicita canales dentro de las subdivisiones de la región de trabajo
+   APo
+
+   %%Variables de la entrada
    PesoNumeroDeBloques
    PesoSizeMaxDeCanalesLibre
    PesoNumeroDeCanalesInutiles
+   Estrategia
 
-   %%Operadores entrada
-   O
+   %%Datos de región de trabajo
 
-   %%Entrada de operadores y sus requerimientos
-   Req
+   %%Esta indica el tipo de región de trabajo 0 para nacional, 1 para territorial/regional, 2 para departamental, 3 para municipio
+   GeograficAssignationType
+   GeograficAssignationID
 
-   %%Operadores para asignar
-   InOP
-
-   %%Requerimientos de cada operadores
-   InReqCanal
-
-   %%Separacion entre canales exigida
-   %%Restriccion debil Sep = 0
-   Sep
-
-   %%Tope por operador maximo
-   %%Restriccion debil Tope = Numero de canales
-   Tope
-
-   %%Es para el caso de frecuencias parcialmente utilizadas (Subdivisiones de la principal) cuanto asignado por operador de entrada
-   %%CanalYaAsingado = [0 0 0] para restriccion debil
-   Apo
-
-   %%Canales ya asignados
-   InCanalesAsignadosEnEntrada
+   %%Datos de la banda de frecuencia de trabajo
+   BandaDeFrecuencia
+   RangoDeFrecuencia
+   
+ 
    %%----------------------------------------------------------------------------
    %%Fin de datos de entrada
    %%----------------------------------------------------------------------------
@@ -138,24 +156,10 @@ define
          end
          Instancia={New MyParser init}
          DatosParseados={Instancia parseVS(Datos $)}
-         
          DatosAProcesar = {Nth {Nth DatosParseados 2}.children 2}.children
          {ForAll DatosAProcesar proc{$ P } {AsignarVariables P} end}
 
-
-         InOP = {Arity Req}
-         InReqCanal = {Record.toList Req}
-         %Asignar Variables dependientes
-         InCanalesAsignadosEnEntrada = {proc {$ ?Salida}
-                                           Salida={List.make O}
-                                           {List.forAllInd InOP
-                                            proc{$ I P}
-                                               {Nth Salida I} = {FoldL {Record.toList Bci.P} fun{$ X Y} X+Y end 0}
-                                            end
-                                           }
-                                        end
-                                       }
-         
+         OPt ={List.append OPi {List.filter OPp fun{$ P} {Bool.'not' {List.member P OPi}} end}}
       end
    end
 
@@ -165,87 +169,171 @@ define
          NombreVariable=Input.alist.key
          DefinicionVariable=Input.children.1
       in
-         case NombreVariable of 'NumberChannels' then
+         case NombreVariable of 'GeograficAssignationType' then
+            GeograficAssignationType = {String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
+         [] 'GeograficAssignationID' then
+            GeograficAssignationID = {String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
+         [] 'FrequencyBand' then
+            BandaDeFrecuencia = {String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}} 
+         [] 'FrequencyRank' then
+            RangoDeFrecuencia =  {String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}} 
+         [] 'NumberChannels' then
             C = {String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
-         [] 'Operators' then
-            N = {String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
-         [] 'OperatorsOfInput' then
-            O = {String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}      
+         [] 'NumberPresentOperators' then
+            N =  {String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
+         [] 'NumberOfOperatorWithRequirements' then
+            O = {String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
          [] 'ChannelSeparation' then
             Sep = {String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
-         [] 'PartialAssignation' then
+         [] 'PresentOperators' then
             local
-               ListaEtiquetas
+               ListaElementos = DefinicionVariable.children
+               Size = {List.length ListaElementos}
             in
-               ListaEtiquetas = {List.make {Length DefinicionVariable.children.1.children}}
-               {List.forAllInd DefinicionVariable.children.1.children
-                proc{$ I P}
-                   {Nth ListaEtiquetas I} = {String.toInt {AtomToString P.alist.key}}
-                end}
-               Apo = {Record.make asignacionesParciales ListaEtiquetas}
-               %Como el orden es el mismo se puede llenar directamente
-               {List.forAllInd DefinicionVariable.children.1.children
-                proc{$ I P}
-                   Apo.{Nth ListaEtiquetas I} = {String.toInt {List.filter {VirtualString.toString P.children.1.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
-                end}
+               OPp = {List.make Size}
+               {List.forAllInd ListaElementos
+                proc{$ I T}
+                   {Nth OPp I} = {String.toInt {List.filter {VirtualString.toString T.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}} 
+                end
+               }
             end
+         [] 'OperatorsWithRequeriments' then
+            local
+               ListaElementos = DefinicionVariable.children
+               Size = {List.length ListaElementos}
+            in
+               OPi = {List.make Size}
+               {List.forAllInd ListaElementos
+                proc{$ I T}
+                   {Nth OPi I} = {String.toInt {List.filter {VirtualString.toString T.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}} 
+                end
+               }
+            end 
          [] 'Requeriments' then
             local
-               ListaEtiquetas
+               ListaElementos = DefinicionVariable.children
+               Size = {List.length ListaElementos}
+               ListaMarcas
             in
-               ListaEtiquetas = {List.make {Length DefinicionVariable.children.1.children}}
-               {List.forAllInd DefinicionVariable.children.1.children
-                proc{$ I P}
-                   {Nth ListaEtiquetas I} = {String.toInt {AtomToString P.alist.key}}
-                end}
-               Req = {Record.make requerimientos ListaEtiquetas}
-               %Como el orden es el mismo se puede llenar directamente
-               {List.forAllInd DefinicionVariable.children.1.children
-                proc{$ I P}
-                   Req.{Nth ListaEtiquetas I} = {String.toInt {List.filter {VirtualString.toString P.children.1.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
-                end}
-            end
-            
-         [] 'AssignationChannel' then
-            local
-               Input = DefinicionVariable.children
-            in
+               ListaMarcas = {List.make Size}
+               {List.forAllInd ListaElementos
+                proc{$ I T}
+                   {Nth ListaMarcas I} = {String.toInt {List.filter {VirtualString.toString T.children.1.alist.key} fun {$ P} {Bool.and P\=32 P\=10} end}}                  
+                end
+               }
                
-               Bci = {Tuple.make asignacion N}
+               Req = {Record.make requerimientos ListaMarcas}
+               
+               {List.forAllInd ListaElementos
+                proc{$ I T}
+                   Req.{Nth ListaMarcas I} = {String.toInt {List.filter {VirtualString.toString T.children.1.children.1.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
+                end
+               } 
+            end
+         [] 'MaxAssignationsSubDivision' then
+            local
+               ListaElementos = DefinicionVariable.children
+               Size = {List.length ListaElementos}
+               ListaMarcas
+            in
+               ListaMarcas = {List.make Size}
+               {List.forAllInd ListaElementos
+                proc{$ I T}
+                   {Nth ListaMarcas I} = {String.toInt {List.filter {VirtualString.toString T.children.1.alist.key} fun {$ P} {Bool.and P\=32 P\=10} end}}                  
+                end
+               }
+               
+               APo  = {Record.make maxcanalasignadosubdiv ListaMarcas}
+               
+               {List.forAllInd ListaElementos
+                proc{$ I T}
+                   APo.{Nth ListaMarcas I} = {String.toInt {List.filter {VirtualString.toString T.children.1.children.1.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
+                end
+               }
+               
+            end
+         [] 'ChannelAssignInDivisions' then
+            local
+               ListaElementos = DefinicionVariable.children
+               Size = {List.length ListaElementos}
+            in
+               CPc = {List.make Size}
+               {List.forAllInd ListaElementos
+                proc{$ I T}
+                   {Nth CPc I} = {String.toInt {List.filter {VirtualString.toString T.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}} 
+                end
+               }
+            end
+         [] 'ReservedChannels' then
+            local
+                 ListaElementos = DefinicionVariable.children
+               Size = {List.length ListaElementos}
+            in
+               CRe = {List.make Size}
+               {List.forAllInd ListaElementos
+                proc{$ I T}
+                   {Nth CRe I} = {String.toInt {List.filter {VirtualString.toString T.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}} 
+                end
+               }
+            end          
+         [] 'DisabledChannels' then
+            local
+               ListaElementos = DefinicionVariable.children
+               Size = {List.length ListaElementos}
+            in
+               CIc = {List.make Size}
+               {List.forAllInd ListaElementos
+                proc{$ I T}
+                   {Nth CIc I} = {String.toInt {List.filter {VirtualString.toString T.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}} 
+                end
+               }
+             end     
+         [] 'ChannelAssignation' then
+            local
+               ListaElementos = DefinicionVariable.children
+               ListaMarcas
+               Size
+            in
+               Size = {List.length ListaElementos}
+               ListaMarcas = {List.make Size}
 
-               {List.forAllInd Input
-                proc{$ I P}
+               {List.forAllInd ListaElementos
+                proc{$ I T}
+                   {Nth ListaMarcas I} = {String.toInt {List.filter {VirtualString.toString T.children.1.alist.key} fun {$ P} {Bool.and P\=32 P\=10} end}} 
+                end
+               }
+               
+               BIco = {Record.make asignacionactual ListaMarcas}
+               {Record.forAll BIco
+                proc{$ T}
+                   T = {Tuple.make canales C}
+                end
+               }
+               
+               {List.forAllInd ListaElementos
+                proc {$ I T}
                    local
-                      Nombre =  P.children.1.alist.key
-                      Lista = P.children.1.children.1.children.1.children.1.children
+                      ListaCanales = T.children.1.children.1.children.1.children
                    in
-                      Bci.I = {Tuple.make Nombre C}
-
-                      {List.forAllInd Lista
-                       proc{$ J T}
-                          Bci.I.J =  {String.toInt {List.filter {VirtualString.toString T.children.1.data}  fun {$ P} {Bool.and P\=32 P\=10} end}}
-                       end
-                      }
+                   {Record.forAllInd BIco.{Nth ListaMarcas I}
+                    proc {$ J X}
+                       X = {String.toInt {List.filter {VirtualString.toString {Nth ListaCanales J}.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
+                    end
+                   }
                    end
                 end
                }
             end
-         [] 'MaximumOperatorChannels' then
-            Tope={String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
-         [] 'GeograficAssignationType' then
-            GeograficAssignationType={String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
-         [] 'GeograficAssignationID' then
-            GeograficAssignationID={String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
-         [] 'FrecuencyBand' then
-            BandaDeFrecuencia={String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
-         [] 'EspecificBand' then
-            BandaEspecifica={String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
-                  else
-            {System.showInfo "Input read error, "#NombreVariable#" variable not exist!"}
-            {Application.exit 0}           
+         [] 'MaxChannelAssignationByOperator' then
+            Tope = {String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
+         else
+           {System.showInfo "Input read error, "#NombreVariable#" variable not exist!"}
+           {Application.exit 0}           
          end   
       end
    end
+      %%BandaDeFrecuencia
+   %%RangoDeFrecuencia
    %%Asignar PESOS
    proc{AsignarPesos PNB PSM PNC}
       %%Pesos asignados por el usuario

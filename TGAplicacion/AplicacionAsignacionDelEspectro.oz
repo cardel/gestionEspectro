@@ -22,7 +22,7 @@ import
    Property
    Application
    Open
-	
+   Browser
 define
 
    %Entradas
@@ -32,7 +32,7 @@ define
    GeograficAssignationType=Entradas.geograficAssignationType
    GeograficAssignationID=Entradas.geograficAssignationID
    BandaDeFrecuencia=Entradas.bandaDeFrecuencia
-   BandaEspecifica=Entradas.bandaEspecifica
+   RangoDeFrecuencia=Entradas.rangoDeFrecuencia
    %%Restricciones
    GenerarAsignacion=Restricciones.generarAsignacion
    
@@ -112,24 +112,24 @@ define
    %%Leer XML
    {LeerEntradaXML RutaArchivo}
                              
-   %%Numero maximo de soluciones
+   % %%Numero maximo de soluciones
    NumeroMaxSoluciones=Args.ns
                              
-   %%Restricciones debiles
+   % %%Restricciones debiles
    NoMantenerAsignacionesActuales=Args.nmas
    NoConsiderarTope=Args.ntope
    NoConsiderarSeparacion=Args.nsep
    NumeroOperadorPorCanal=Args.nopc
                           
-   %%-------------------------------------------------------------------------
-   %%PROCEDIMIENTO EJECUTAR APLICACION DURANTE UN TIEMPO
+   % %%-------------------------------------------------------------------------
+   % %%PROCEDIMIENTO EJECUTAR APLICACION DURANTE UN TIEMPO
    %%-----------------------------------------------------------------------
    proc {BuscarMejorSolucionEnTiempoDado Engine Tiempo ?Salida}
       local
          Dead
          proc{BuscarSolucion Contador ?Res}
             if {IsFree Dead} then
-               local
+                local
                   Sol
                in
                   if Contador=<NumeroMaxSoluciones then
@@ -165,9 +165,9 @@ define
    %%Ingresa la estrategia de búsqueda para que quede como entrada
    {IngresarEstrategia Estrategia}
    
-   %%-----------------------------------------------------------------
-   %%DATOS DE DESEMPEÑO DE UNA SOLUCIÓN
-   %%-----------------------------------------------------------------
+   % %%-----------------------------------------------------------------
+   % %%DATOS DE DESEMPEÑO DE UNA SOLUCIÓN
+   % %%-----------------------------------------------------------------
    fun{DatosDesempeno}
       EF EC EE VC PC MU R P
    in
@@ -178,13 +178,13 @@ define
       PC={Property.get 'fd.propagators'}
       MU={Property.get 'memory.code'}
       P={Property.get 'time.total'}
-      R=r(ef:EF ec:EC ee:EE vc:VC pc:PC mu:MU p:P geograficAssignationType:GeograficAssignationType geograficAssignationID:GeograficAssignationID bandaDeFrecuencia:BandaDeFrecuencia bandaEspecifica:BandaEspecifica)
+      R=r(ef:EF ec:EC ee:EE vc:VC pc:PC mu:MU p:P geograficAssignationType:GeograficAssignationType geograficAssignationID:GeograficAssignationID bandaDeFrecuencia:BandaDeFrecuencia rangoDeFrecuencia:RangoDeFrecuencia)
       R
    end
-   %%------------------------------------------------------------------
-   %%EJECUTAR DE ACUERDO A UN MOTOR DE BÚSQUEDA
-   %%------------------------------------------------------------------
-
+   % %%------------------------------------------------------------------
+   % %%EJECUTAR DE ACUERDO A UN MOTOR DE BÚSQUEDA
+   % %%------------------------------------------------------------------
+   %{Explorer.all {GenerarAsignacion NoMantenerAsignacionesActuales NoConsiderarTope NoConsiderarSeparacion NumeroOperadorPorCanal}}
    case Motor of 1 then
 
       Salida={BuscarMejorSolucionEnTiempoDado {New Search.object script({GenerarAsignacion NoMantenerAsignacionesActuales NoConsiderarTope NoConsiderarSeparacion NumeroOperadorPorCanal})} TiempoEjecucion}
@@ -200,9 +200,10 @@ define
    else
       Salida = {BuscarMejorSolucionEnTiempoDado {New Search.object script({GenerarAsignacion NoMantenerAsignacionesActuales NoConsiderarTope NoConsiderarSeparacion NumeroOperadorPorCanal})} TiempoEjecucion}
    end
-   %%---------------------------------------------------------------------
-   %% ESCRIBIR ARCHIVO DE SALIDA
-   %%----------------------------------------------------------------------
+   {Browser.browse Salida}
+   % %%---------------------------------------------------------------------
+   % %% ESCRIBIR ARCHIVO DE SALIDA
+   % %%----------------------------------------------------------------------
    Desempenio = {DatosDesempeno}
    
    ArchivoSalida={String.toAtom Args.o}

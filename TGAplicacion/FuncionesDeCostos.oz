@@ -9,35 +9,32 @@
 functor
 
 import
-   %%Modulos Mozart
+   %Modulos mozart
    FD
    %%Modulos personalizados
    Entradas
-   FuncionesAuxiliares
 export
    calcularNumeroDeCambios:CalcularNumeroDeCambios
    sizeMaxDeBloqueLibres:SizeMaxDeBloqueLibres
    numeroCanalesInutilizados:NumeroCanalesInutilizados
 define
-   TrasponerMatrizTuplas=FuncionesAuxiliares.trasponerMatrizTuplas %Trasponer la matriz de tuplas
    C=Entradas.c %Numero total de canales
-   N=Entradas.n %Numero total de operadores
-   InOP=Entradas.inOP %Operadores que solicitan asignacion
+   OPt=Entradas.opt %Operadores en la banda
 %-----------------------------------------------------------------------------------------------------------------
 %Calcular numero de bloques
 %------------------------------------------------------------------------------------------------------------------
    proc {CalcularNumeroDeCambios Sol ?Salida}
       local
-         Cao = {Tuple.make cao N}
-         Aux = {Tuple.make sumaOp N}
+         Cao = {Record.make cao OPt}
+         Aux = {Record.make sumaOp OPt}
       in
-         {For 1 N 1
+         {List.forAll OPt
           proc {$ I}
              Cao.I = {Tuple.make canal C}
           end
          }
          %%Calcular para cada operador
-         {For 1 N 1
+         {List.forAll OPt
           proc{$ I}
              {For 1 C-1 1
               proc{$ J}
@@ -54,7 +51,7 @@ define
          
          
          %%Sumamos para cada operador
-         {For 1 N 1
+         {List.forAll OPt
           proc{$ I}
              Aux.I = {Record.foldL Cao.I fun{$ X Y} X+Y end 0}
           end
@@ -66,21 +63,14 @@ define
 %---------------------------------------------------------------------------------------------------------------------
 %Calcular tamaño máximo de bloque libre (Canales libres contiguos)
 %-----------------------------------------------------------------------------------------------------------------------
-   proc {SizeMaxDeBloqueLibres Sol ?Salida}
+   proc {SizeMaxDeBloqueLibres ECC ?Salida}
       local
-         BcoT = {TrasponerMatrizTuplas Sol}
-         Ecc = {Tuple.make canalLibre C}
          Clm = {Tuple.make conteocanalLibre C}
       in
-         {For 1 C 1
-          proc {$ I}
-             Ecc.I= {FD.reified.sum BcoT.I '=:' 0}
-          end
-         }
          %Ir sumando
          {For 1 C 1
           proc{$ I}
-             case Ecc.I of 1 then
+             case ECC.I of 1 then
                 case I of 1 then
                    Clm.I = 1
                 else
@@ -110,7 +100,7 @@ define
              end
 			}
 		 else		
-            {ForAll InOP
+            {ForAll OPt
              proc{$ I}
                 %%Evaluar hacia adelante
                 {For 1 C-1 1

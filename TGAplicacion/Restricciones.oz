@@ -27,22 +27,26 @@ define
    %% Variables: Entradas de la aplicación
    %%--------------------------------------------------------------
    C=Entradas.c %Numero total de canales
-   N=Entradas.n %Numero total de operadores
-   Bci=Entradas.bci %Asignacion de entrada
+   BIco=Entradas.bico %Asignacion de entrada
+   OPi=Entradas.opi %Operadores que solicitan asignacion
+   OPp=Entradas.opp %Operadores presentes en la banda
+   OPt=Entradas.opt %Total de operadores
    PesoNumeroDeBloques=Entradas.pesoNumeroDeBloques %Peso ingresado por el usuario
    PesoSizeMaxDeCanalesLibre=Entradas.pesoSizeMaxDeCanalesLibre %Peso ingresado por el usuario
    PesoNumeroDeCanalesInutiles=Entradas.pesoNumeroDeCanalesInutiles %Perso ingresado por el usuario
    Tope=Entradas.tope %Tope
    Sep %Separacion
    %%Asignaciones parciales
-   Apo=Entradas.apo %Asignaciones parciales
+   CIc=Entradas.cic %Canales inutilizados en la banda
+   CRe=Entradas.cre %Canales reservados en la banda
+   CPc=Entradas.cpc %Canales con asignaciones en las subdivisiones de la región de trabajo
+   Apo=Entradas.apo %Maximo de canales de operadores de entrada
    %%Asignaciones en banda
    
    EstrategiaBusqueda=Entradas.estrategia %Estrategia seleccionada por el usuario
-   O=Entradas.o %Numero de operadores con requerimientos
    Req=Entradas.req %Requerimientos
-   InOP=Entradas.inOP %Operadores de entrada (Derivado de req)
-   InReqCanal=Entradas.inReqCanal %Requerimientos de entrada (Derivado de req)
+   %InOP=Entradas.inOP %Operadores de entrada (Derivado de req)
+   %Req=Entradas.inReqCanal %Requerimientos de entrada (Derivado de req)
    
    %%---------------------------------------------------------------------
    %%DISTRIBUIDORES
@@ -50,8 +54,7 @@ define
    
    AsignarAlInicioDeLaBandaEnOrden=Distribuidores.asignarAlInicioDeLaBandaEnOrden
    AsignarAlFinalDeLaBandaEnOrden=Distribuidores.asignarAlFinalDeLaBandaEnOrden
-   AsignarPrimeroAOperadoresConAsignacion=Distribuidores.asignarPrimeroAOperadoresConAsignacion
-   AsignarPrimeroAOperadoresSinAsignacion=Distribuidores.asignarPrimeroAOperadoresSinAsignacion
+   AsignarPrimeroAOperadoresDepAsignacion=Distribuidores.asignarPrimeroAOperadoresDepAsignacion
    AsignarPrimeroARequerimientosMasGrandes=Distribuidores.asignarPrimeroARequerimientosMasGrandes
    AsignarPrimeroARequerimientosMasChicos=Distribuidores.asignarPrimeroARequerimientosMasChicos
    %%----------------------------------------------------------------
@@ -70,8 +73,7 @@ define
    %% FUNCION PRINCIPAL
    %%---------------------------------------------------------------
 
-  fun{GenerarAsignacion MantenerAsignacionesActuales NoConsiderarTope NoConsiderarSeparacion NumeroOperadorPorCanal}
-
+   fun{GenerarAsignacion NoMantenerAsignacionesActuales NoConsiderarTope NoConsiderarSeparacion NumeroOperadorPorCanal}
       if NoConsiderarSeparacion == 1 then
 			Sep= 0
 	  else
@@ -81,14 +83,19 @@ define
       proc{$ ?Solucion}
          local
             %%La matriz de entrada esta por filas, para facilitar las operaciones se requiere trasponerla
-            BcoT %Salida traspuesta
-            Bco %Salida
+            BOcoT %Salida traspuesta
+            BOco %Salida
             R = NumeroOperadorPorCanal %Numero de operadores por canal
-            CAC = MantenerAsignacionesActuales %Mantener asignacion actual de canales que solicitan
+             %Mantener asignacion actual de canales que solicitan
+            CAC
             ECC = {FD.tuple estadoCanales C 0#1} %Define si un canal esta ocupado o no
          in
             %%Definir
-
+            if NoMantenerAsignacionesActuales == 1 then
+               CAC = 0
+            else
+               CAC = 1
+            end
             %%Matriz por filas
             Solucion = {Tuple.make solucion 2}
             Solucion.1 = {Tuple.make costos 4}
@@ -97,109 +104,134 @@ define
             Solucion.1.3 = {Tuple.make numeroDeCanalesInutiles 1}
             Solucion.1.4 = {Tuple.make costoTotal 1}
 
-            Bco = {Tuple.make asignacion N}  
-            {For 1 N 1 proc {$ I} Bco.I = {FD.tuple {Label Bci.I} C 0#1} end}
-            Solucion.2=Bco
-    
+            BOco = {Record.make asignacionfinal OPt}  
+            {Record.forAll BOco proc{$ P} P = {FD.tuple canales C 0#1} end}
+            Solucion.2=BOco
+            
             %%Matriz por columnas
-            BcoT = {TrasponerMatrizTuplas Bco}
+            BOcoT = {TrasponerMatrizTuplas BOco}
+
+            %%Definir ECC
+            {Record.forAllInd BOcoT
+             proc{$ I P}
+                ECC.I =: {FD.reified.sum {List.append {Record.toList P} [{Nth CPc I}]} '<:' 1}
+             end
+            }
             %%---------------------------------------------------------------------------
             %% Restricciones
             %%----------------------------------------------------------------------------
      
-            %%Se mantiene asignacion para operadores que solicitan canales si 
+            % %%Se mantiene asignacion para operadores que solicitan canale 
+
             if CAC == 1 then
-               {For 1 N 1 
-                proc{$ I}
-                   if {List.member I InOP} then
-                      {For 1 C 1
-                       proc {$ J}
-                          if Bci.I.J == 1 then
-                             Bco.I.J = 1
+               local
+                  InterOPpOPi = {List.filter OPi fun{$ P} {List.member P OPp} end}
+               in
+                  {List.forAll InterOPpOPi
+                   proc{$ P}
+                      {Record.forAllInd BOco.P
+                       proc{$ I T}
+                          if BIco.P.I == 1 then
+                             T =: 1
                           end
                        end
                       }
                    end
-                end
-               }
+                  }
+               end
             end
- 
-            %%Todo operador que no solicita conserva asignación
-            {For 1 N 1 
-             proc{$ I}
-                if {Bool.'not' {List.member I InOP}} then
-                   {For 1 C 1
-                    proc {$ J}
-                       Bco.I.J = Bci.I.J
+
+            % %%Todo operador que no solicita conserva asignación
+            local
+               RestaOPpOPi = {List.filter OPp fun{$ P} {Bool.'not' {List.member P OPi}} end}
+            in
+               {List.forAll RestaOPpOPi
+                proc{$ P}
+                   {Record.forAllInd BOco.P
+                    proc{$ I T} skip
+                       T =: BIco.P.I
                     end
                    }
                 end
-             end
-            }
+               }
+            end
  
             %%Maximo R operadores por canal excepto o1 y o2 que son inutil y reservado
-            {For 1 C 1
-             proc{$ I}
-                {FD.sum BcoT.I '=<:' R}
-             end
-            }
-            %%El canal inutil y reservado solo se puede asignar una vez
-            {For 1 C 1
-             proc{$ I}
-                if {FD.reified.sum [BcoT.I.1 BcoT.I.2] '>=:' 1}==1 then
-                   {FD.sum BcoT.I '=<:' 1}
-                end
-             end
-            }
-            %%Existen suficientes canales para cumplir los requerimientos de entrada
+             {For 1 C 1
+              proc{$ I}
+                 {FD.sum {List.append {Record.toList BOcoT.I} [{Nth CPc I}]} '=<:' R}
+              end
+             }
+            % %%El canal inutil y reservado solo se puede asignar una vez
+             {For 1 C 1
+              proc{$ I}
+                 if {FD.reified.sum [{Nth CIc I} {Nth CRe I}] '>=:' 1}==1 then
+                    {FD.sum BOcoT.I '=<:' 1}
+                 end
+              end
+             }
+            % %%Existen suficientes canales para cumplir los requerimientos de entrada
 
-            %%Definir si canales estan ocupados o no
-            {For 1 C 1
-             proc{$ P}
-                {FD.reified.sum BcoT.P '=:' 0 ECC.P}
-             end
-            }
+            local
+               TotalRequerimientos = {Record.foldL Req fun{$ X Y} X+Y end 0}
+            in
+               {FD.sum ECC '>=:' TotalRequerimientos}
+            end
 
-            {FD.sum ECC '>=:' {FoldL InReqCanal fun{$ X Y} X+Y end 0}+Sep*(O-1)}
 
-            %%Todos los operadores deben tener asignados un numero de canales igual al numero de canales asignados a los que poseen en la entrada mas lo que requieren
-            {ForAll InOP
-             proc{$ P}
-                {FD.sum Bco.P '=:' {FoldL {Record.toList Bci.P}fun{$ X Y} X+Y end 0}+Req.P}
-             end
-            }
+            % %%Todos los operadores deben tener asignados un numero de canales igual al numero de canales asignados a los que poseen en la entrada mas lo que requieren
 
-            %%Se requiere una separacion minima de Sep entre los operadores que requieren asignacion y entre estos con los que están que pueden o no cumplir la separación
-            
-            if R == 1 then
-               {ForAll InOP
-                proc{$ I}
-                   {For 1 C-Sep 1
-                    proc{$ J}
-                       {For 1 Sep 1
-                        proc{$ S}
-                           {For 1 N 1
-                            proc{$ T}
-                               if {Bool.and T\=I (J+S)=<C} then
-                                  Bco.I.J + Bco.T.(J+S) =<: 1
-                               end
-                               if {Bool.and T\=I (J-S)>=1} then
-                                  Bco.I.J + Bco.T.(J-S) =<: 1
-                               end  
-							end
-                           }
-                        end
-                       }
-                    end
-                   }
+            local
+               RestaOPiOPp = {List.filter OPi fun{$ P} {Bool.'not' {List.member P OPp}} end}
+            in
+               {List.forAll RestaOPiOPp
+                proc{$ P}
+                   {FD.sum BOco.P '=:' Req.P}
                 end
                }
             end
-            %%Topes legales operadores
-
-            {ForAll InOP
-             proc{$ I}
-                {FD.sum Bco.I '=<:' Tope-Apo.I}
+            %%Todos los operadores que tienen asignación y solicitan canales deben tener una asignación igual a lo que requiren más lo que tenian ya asignado
+            
+            local
+               InterOPpOPi = {List.filter OPi fun{$ P} {List.member P OPp} end}
+            in
+               {List.forAll InterOPpOPi
+                proc{$ P}
+                   {FD.sum BOco.P '=:' Req.P + {Record.foldL BIco.P fun{$ X Y} X+Y end 0}}
+                end
+               }
+            end
+            
+            % %%Se requiere una separacion minima de Sep entre los operadores que requieren asignacion y entre estos con los que están que pueden o no cumplir la separación
+            {ForAll OPi
+             proc{$ O}
+                {ForAll OPt
+                 proc{$ Oprima}
+                    {For 1 Sep 1
+                     proc{$ S}
+                        {For 1 C 1
+                         proc{$ Canal}
+                            if O \= Oprima then
+                               if Canal-S>=1 then
+                                  BOco.O.Canal + BOco.Oprima.(Canal-S) =<: 1
+                               end
+                               if Canal+S =< C then
+                                  BOco.O.Canal + BOco.Oprima.(Canal+S) =<: 1
+                               end
+                            end
+                         end
+                        }
+                     end
+                    }
+                 end
+                }
+             end
+            }
+            
+            % %%Topes legales operadores
+            {List.forAll OPi
+             proc{$ P}                   
+                {FD.sum {List.append {Record.toList BOco.P} [Apo.P]} '=<:' Tope}
              end
             }
 
@@ -208,35 +240,35 @@ define
             %%-------------------------------------------------------------
             case EstrategiaBusqueda
             of 1 then
-               {AsignarAlInicioDeLaBandaEnOrden Bco}
+               {AsignarAlInicioDeLaBandaEnOrden BOco}
             [] 2 then
-               {AsignarAlFinalDeLaBandaEnOrden Bco}
+               {AsignarAlFinalDeLaBandaEnOrden BOco}
             [] 3 then
-               {AsignarPrimeroAOperadoresConAsignacion Bco inicio}
+               {AsignarPrimeroAOperadoresDepAsignacion  BOco asignados inicio}
             [] 4 then
-               {AsignarPrimeroAOperadoresConAsignacion Bco final}
+               {AsignarPrimeroAOperadoresDepAsignacion  BOco asignados final}
             [] 5 then
-               {AsignarPrimeroAOperadoresSinAsignacion Bco inicio}
+               {AsignarPrimeroAOperadoresDepAsignacion  BOco asignados inicio}
             [] 6 then
-               {AsignarPrimeroAOperadoresSinAsignacion Bco final}
+               {AsignarPrimeroAOperadoresDepAsignacion  BOco asignados final}
             [] 7 then
-               {AsignarPrimeroARequerimientosMasGrandes Bco inicio}
+               {AsignarPrimeroARequerimientosMasGrandes BOco inicio}
             [] 8 then
-               {AsignarPrimeroARequerimientosMasGrandes Bco final}
+               {AsignarPrimeroARequerimientosMasGrandes BOco final}
             [] 9 then
-               {AsignarPrimeroARequerimientosMasChicos Bco inicio}
+               {AsignarPrimeroARequerimientosMasChicos BOco inicio}
             [] 10 then
-               {AsignarPrimeroARequerimientosMasChicos Bco final}
+               {AsignarPrimeroARequerimientosMasChicos BOco final}
             else
-               {AsignarAlInicioDeLaBandaEnOrden Bco}
+               {AsignarAlInicioDeLaBandaEnOrden BOco}
             end
             %%---------------------------------------------------------------
             %% CALCULAR COSTOS POR SOLUCION
             %%---------------------------------------------------------------  
-           
-            Solucion.1.1.1 = {CalcularNumeroDeCambios Bco}
-            Solucion.1.2.1 = {SizeMaxDeBloqueLibres Bco}
-            Solucion.1.3.1 = {NumeroCanalesInutilizados Bco R Sep}
+         
+            Solucion.1.1.1 = {CalcularNumeroDeCambios BOco}
+            Solucion.1.2.1 = {SizeMaxDeBloqueLibres ECC}
+            Solucion.1.3.1 = {NumeroCanalesInutilizados BOco R Sep}
             Solucion.1.4.1 = Solucion.1.1.1*PesoNumeroDeBloques + Solucion.1.2.1*PesoSizeMaxDeCanalesLibre + Solucion.1.3.1*PesoNumeroDeCanalesInutiles
          end
       end

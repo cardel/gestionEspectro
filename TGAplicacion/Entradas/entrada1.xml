@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <instance>
-  <presentation name="entrada1.xml" nbSolutions="?" format="XCSP 2.1">
-Representacion entrada de problema gestion espectro radioelectrico
-</presentation>
+  <presentation nbSolutions="?" format="XCSP 2.1">
+	Representacion entrada de problema gestion espectro radioelectrico
+  </presentation>
   <dict>
     <entry key="GeograficAssignationType">
       <i> 2 </i>
@@ -10,175 +10,167 @@ Representacion entrada de problema gestion espectro radioelectrico
     <entry key="GeograficAssignationID">
       <i> 13 </i>
     </entry>
-    <entry key="FrecuencyBand">
+    <entry key="FrequencyBand">
       <i> 2 </i>
     </entry>
-    <entry key="EspecificBand">
+    <entry key="FrequencyRank">
       <i> 3 </i>
     </entry>
     <entry key="NumberChannels">
       <i> 10 </i>
     </entry>
-    <entry key="Operators">
-      <i> 6 </i>
+    <entry key="NumberPresentOperators">
+      <i> 3 </i>
     </entry>
-    <entry key="OperatorsOfInput">
+    <entry key="NumberOfOperatorWithRequirements">
       <i> 2 </i>
     </entry>
     <entry key="ChannelSeparation">
       <i> 1 </i>
     </entry>
+     <entry key="PresentOperators">
+		<list>
+			<i> 1 </i>
+			<i> 4 </i>
+			<i> 6 </i>
+		</list>
+    </entry>
+     <entry key="OperatorsWithRequeriments">
+		<list>
+			<i> 6 </i>
+			<i> 12 </i>
+		</list>
+    </entry>
     <entry key="Requeriments">
       <tuple>
         <i>
-          <entry key="5">
+          <entry key="6">
             <i>1</i>
           </entry>
-          <entry key="6">
+		</i>
+		<i>
+          <entry key="12">
             <i>2</i>
           </entry>
         </i>
       </tuple>
     </entry>
-	 <entry key="PartialAssignation">
+	 <entry key="MaxAssignationsSubDivision">
 		<tuple>
 			<i>
-				<entry key="5">
-					<i>0</i>
-				</entry>
 				<entry key="6">
+					<i>2</i>
+				</entry>
+			</i>
+			<i>
+				<entry key="12">
 					<i>0</i>
 				</entry>
 			</i>	
 		</tuple>
 	</entry>
-    <entry key="AssignationChannel">
+	 <entry key="ChannelAssignInDivisions">
+		<list>
+			<i>0</i>
+			<i>0</i>
+			<i>0</i>
+			<i>0</i>
+			<i>0</i>
+			<i>0</i>
+			<i>0</i>
+			<i>0</i>
+			<i>0</i>
+			<i>0</i>
+		</list>
+	</entry>
+	 <entry key="ReservedChannels">
+		<list>
+			<i>0</i>
+			<i>0</i>
+			<i>0</i>
+			<i>0</i>
+			<i>0</i>
+			<i>0</i>
+			<i>0</i>
+			<i>0</i>
+			<i>0</i>
+			<i>0</i>
+		</list>
+	</entry>
+	 <entry key="DisabledChannels">
+		<list>
+			<i>0</i>
+			<i>0</i>
+			<i>0</i>
+			<i>0</i>
+			<i>0</i>
+			<i>0</i>
+			<i>0</i>
+			<i>0</i>
+			<i>0</i>
+			<i>0</i>
+		</list>
+	</entry>
+    <entry key="ChannelAssignation">
       <tuple>
-        <i>
-          <entry key="inutilizable">
-            <tuple>
-              <i>
-                <list>
-                  <i>1</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                </list>
-              </i>
-            </tuple>
-          </entry>
-        </i>
-        <i>
-          <entry key="reservado">
-            <tuple>
-              <i>
-                <list>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                </list>
-              </i>
-            </tuple>
-          </entry>
-        </i>
-        <i>
-          <entry key="parcial">
-            <tuple>
-              <i>
-                <list>
-                  <i>0</i>
-                  <i>1</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                </list>
-              </i>
-            </tuple>
-          </entry>
-        </i>
-        <i>
-          <entry key="movistar">
-            <tuple>
-              <i>
-                <list>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                </list>
-              </i>
-            </tuple>
-          </entry>
-        </i>
-        <i>
-          <entry key="tigo">
-            <tuple>
-              <i>
-                <list>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                </list>
-              </i>
-            </tuple>
-          </entry>
-        </i>
-        <i>
-          <entry key="une">
-            <tuple>
-              <i>
-                <list>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>0</i>
-                  <i>1</i>
-                </list>
-              </i>
-            </tuple>
-          </entry>
-        </i>
+			<i>
+				<entry key="1">
+				<i>
+					<list>
+						<i>0</i>
+						<i>0</i>
+						<i>0</i>
+						<i>0</i>
+						<i>0</i>
+						<i>0</i>
+						<i>0</i>
+						<i>0</i>
+						<i>0</i>
+						<i>0</i>
+					</list>
+				</i>
+				</entry>
+			</i>
+			<i>
+				<entry key="4">
+				<i>
+					<list>
+						<i>1</i>
+						<i>0</i>
+						<i>0</i>
+						<i>0</i>
+						<i>0</i>
+						<i>0</i>
+						<i>0</i>
+						<i>0</i>
+						<i>0</i>
+						<i>0</i>
+					</list>
+				</i>
+				</entry>
+			</i>
+			<i>
+				<entry key="6">
+				<i>
+					<list>
+						<i>0</i>
+						<i>0</i>
+						<i>0</i>
+						<i>0</i>
+						<i>0</i>
+						<i>0</i>
+						<i>0</i>
+						<i>0</i>
+						<i>0</i>
+						<i>1</i>
+					</list>
+				</i>
+				</entry>
+			</i>
       </tuple>
     </entry>
-    <entry key="MaximumOperatorChannels">
+    <entry key="MaxChannelAssignationByOperator">
       <i> 10 </i>
     </entry>
   </dict>
 </instance>
-
