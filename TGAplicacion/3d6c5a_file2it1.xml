@@ -17,8 +17,8 @@
 		<spacesSucceeded> 1 </spacesSucceeded>
 		<FDVariables> 1294 </FDVariables>
 		<propagators> 1497 </propagators>
-		<memoryUsage> 1442652 </memoryUsage>
-		<executionTime> 100 </executionTime>
+		<memoryUsage> 526808 </memoryUsage>
+		<executionTime> 20 </executionTime>
 	</head>
 	<solution id="0">
 		<costs>
@@ -28,7 +28,7 @@
 			<totalCost> 396 </totalCost>
 		</costs>
 		<report>
-			<operator name="canales">
+			<operator name="1">
 				 <channels>
 					<channel ID="1"> 0 </channel>
 					<channel ID="2"> 0 </channel>
@@ -42,7 +42,7 @@
 					<channel ID="10"> 0 </channel>
 				</channels>
 			</operator>
-			<operator name="canales">
+			<operator name="4">
 				 <channels>
 					<channel ID="1"> 1 </channel>
 					<channel ID="2"> 0 </channel>
@@ -56,7 +56,7 @@
 					<channel ID="10"> 0 </channel>
 				</channels>
 			</operator>
-			<operator name="canales">
+			<operator name="6">
 				 <channels>
 					<channel ID="1"> 0 </channel>
 					<channel ID="2"> 0 </channel>
@@ -70,7 +70,7 @@
 					<channel ID="10"> 1 </channel>
 				</channels>
 			</operator>
-			<operator name="canales">
+			<operator name="12">
 				 <channels>
 					<channel ID="1"> 0 </channel>
 					<channel ID="2"> 0 </channel>

@@ -134,7 +134,7 @@ define
          %%Costos
          Costos="\t\t<costs>\n"#{CostostoString {Record.toList In.1}}#"\t\t</costs>\n"
          %%Soluciones
-         Soluciones="\t\t<report>\n"#{AsignacionesToString {Record.toList In.2.1} 1}#"\t\t</report>\n"
+         Soluciones="\t\t<report>\n"#{AsignacionesToString {Record.toList In.2.1}  {Record.arity In.2.1} 1}#"\t\t</report>\n"
 
          %%Total
          Salida=Costos#Soluciones#EtiquetaFinal
@@ -155,15 +155,15 @@ define
       end
    end
 
-   proc{AsignacionesToString In NumeroOperador ?Salida}
+   proc{AsignacionesToString In ListaOperadores NumeroOperador ?Salida}
       local
          EtiquetaInicio
          Canales
       in
          if In==nil then Salida=nil
          else
-            EtiquetaInicio="\t\t\t<operator name=\""#{Label In.1}#"\">\n"
-            Canales="\t\t\t\t <channels>\n"#{AsignacionesIntToString {Record.toList In.1} 1}#"\t\t\t\t</channels>\n"#"\t\t\t</operator>\n"#{AsignacionesToString In.2 NumeroOperador+1}
+            EtiquetaInicio="\t\t\t<operator name=\""#ListaOperadores.1#"\">\n"
+            Canales="\t\t\t\t <channels>\n"#{AsignacionesIntToString {Record.toList In.1} 1}#"\t\t\t\t</channels>\n"#"\t\t\t</operator>\n"#{AsignacionesToString In.2 ListaOperadores.2 NumeroOperador+1}
             Salida=EtiquetaInicio#Canales
          end
       end
