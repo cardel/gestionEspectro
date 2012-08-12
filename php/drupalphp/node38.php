@@ -15,6 +15,7 @@
 	drupal_add_css($path = 'gestionEspectro/php/drupalcss/botonesEspectro.css', $type = 'module', $media = 'all', $preprocess = TRUE);
 	
 	if(!is_dir("/var/www/html/site/gestionEspectro/entradas/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/entradas/".$user->uid, 0755);
+	if(!is_dir("/var/www/html/site/gestionEspectro/entradasTemp/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/entradasTemp/".$user->uid, 0755);
 	if(!is_dir("/var/www/html/site/gestionEspectro/salidas/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/salidas/".$user->uid, 0755);
 	if(!is_dir("/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid, 0755);
 ?>
@@ -251,11 +252,11 @@
 			//maximo ocupado por un operador de entrada
 			$salida .= "\t\t<entry key=\"MaxAssignationsSubDivision\">\n";
 			$salida .= "\t\t\t<tuple>\n";
-			foreach($requerimientos as $key => $op)
+			foreach($requerimientos as $op)
 			{
 				$salida .= "\t\t\t\t<i>\n";
-				$salida .= "\t\t\t\t\t<entry key=\"".$key."\">\n";
-				$salida .= "\t\t\t\t\t\t<i>".obtenerMaximoParcial($key, $tipoAsignacion, $idAsignacion, $rangoSeleccionado)."</i>\n";
+				$salida .= "\t\t\t\t\t<entry key=\"".$op[0]."\">\n";
+				$salida .= "\t\t\t\t\t\t<i>".obtenerMaximoParcial($op[0], $tipoAsignacion, $idAsignacion, $rangoSeleccionado)."</i>\n";
 				$salida .= "\t\t\t\t\t</entry>\n";
 				$salida .= "\t\t\t\t</i>\n";
 			}
@@ -297,14 +298,16 @@
 			$salida .= "\t\t</entry>\n";	
 														
 			$salida .= "\t</dict>\n";
-			$salida .= "</instance>\n";				
-			
+			$salida .= "</instance>\n";		
 					
-			echo "<pre class='brush: xml'>\n";
-			$salida = str_replace("<","&lt;",$salida);
-			$salida = str_replace(">","&gt;",$salida);	
-			echo $salida;		
-			echo "</pre>";	
+			$prefijo = substr(md5(uniqid(rand())),0,6);
+			$archivoSalida = "/var/www/html/site/gestionEspectro/entradasTemp/".$user->uid."/".$prefijo."_generado.xml";
+			$fp = fopen($archivoSalida,"a");
+			fwrite($fp, $salida . PHP_EOL);
+			fclose($fp);
+			echo "<input type=button class=\"botonverde\" onClick=\"window.open('".$archivoSalida."' ,'_blank ','toolbar=1,menubar=1,width=500,height=600');\" value=\"Descargar XML\" />\n";
+			echo "<input type=button class=\"botonamarillo\" value=\"Almacenar XML\" onClick=\"almacenarArchivoGenerador()();\" />\n";
+
 		}
 		else
 		{

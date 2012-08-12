@@ -159,6 +159,7 @@ define
          DatosAProcesar = {Nth {Nth DatosParseados 2}.children 2}.children
          {ForAll DatosAProcesar proc{$ P } {AsignarVariables P} end}
 
+
          OPt ={List.append OPi {List.filter OPp fun{$ P} {Bool.'not' {List.member P OPi}} end}}
       end
    end
@@ -303,26 +304,30 @@ define
                 end
                }
                
-               BIco = {Record.make asignacionactual ListaMarcas}
-               {Record.forAll BIco
-                proc{$ T}
+               if ListaMarcas == nil then
+                  BIco = nil
+               else
+                  BIco = {Record.make asignacionactual ListaMarcas}
+                  {Record.forAll BIco
+                   proc{$ T}
                    T = {Tuple.make canales C}
-                end
-               }
+                   end
+                  }
                
-               {List.forAllInd ListaElementos
-                proc {$ I T}
-                   local
-                      ListaCanales = T.children.1.children.1.children.1.children
-                   in
-                   {Record.forAllInd BIco.{Nth ListaMarcas I}
+                  {List.forAllInd ListaElementos
+                   proc {$ I T}
+                      local
+                         ListaCanales = T.children.1.children.1.children.1.children
+                      in
+                         {Record.forAllInd BIco.{Nth ListaMarcas I}
                     proc {$ J X}
                        X = {String.toInt {List.filter {VirtualString.toString {Nth ListaCanales J}.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}
                     end
-                   }
+                         }
+                      end
                    end
-                end
-               }
+                  }
+               end
             end
          [] 'MaxChannelAssignationByOperator' then
             Tope = {String.toInt {List.filter {VirtualString.toString DefinicionVariable.children.1.data} fun {$ P} {Bool.and P\=32 P\=10} end}}

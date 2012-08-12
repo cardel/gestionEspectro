@@ -122,7 +122,6 @@ define
             %%----------------------------------------------------------------------------
      
             % %%Se mantiene asignacion para operadores que solicitan canale 
-
             if CAC == 1 then
                local
                   InterOPpOPi = {List.filter OPi fun{$ P} {List.member P OPp} end}
@@ -234,7 +233,6 @@ define
                 {FD.sum {List.append {Record.toList BOco.P} [Apo.P]} '=<:' Tope}
              end
             }
-
             %%------------------------------------------------------------
             %%  ESTRATEGIAS DE BUSQUEDA
             %%-------------------------------------------------------------
@@ -264,8 +262,7 @@ define
             end
             %%---------------------------------------------------------------
             %% CALCULAR COSTOS POR SOLUCION
-            %%---------------------------------------------------------------  
-         
+            %%---------------------------------------------------------------             
             Solucion.1.1.1 = {CalcularNumeroDeCambios BOco}
             Solucion.1.2.1 = {SizeMaxDeBloqueLibres ECC}
             Solucion.1.3.1 = {NumeroCanalesInutilizados BOco R Sep}

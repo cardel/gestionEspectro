@@ -187,3 +187,9 @@ function eliminarFila(oId){
 	("#numeroCanales").val(0);	
 	return false;
 }  
+
+//Funcion para almacenar archivo
+function almacenarArchivoGenerador()
+{
+		alert('ok');
+}
