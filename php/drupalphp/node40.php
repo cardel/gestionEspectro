@@ -1,6 +1,432 @@
 <?php
 global $user;
 
+function mostrarResultados($numIt, $out1, $out2, $out3, $out4, $out5, $out6, $prefijo)
+{
+	global $user;
+	echo '<div id="tabs" class="tabs" style="width:100%;">';
+	
+	echo '<ul>';
+	if($numIt>0) echo '<li><a href="#tabs-1">Iteración 1</a></li>';
+	if($numIt>1) echo '<li><a href="#tabs-2">Iteración 2</a></li>';
+	if($numIt>2) echo '<li><a href="#tabs-3">Iteración 3</a></li>';
+	if($numIt>3) echo '<li><a href="#tabs-4">Iteración 4</a></li>';
+	if($numIt>4) echo '<li><a href="#tabs-5">Iteración 5</a></li>';
+	if($numIt>5) echo '<li><a href="#tabs-6">Iteración 6</a></li>';
+	echo '</ul>';
+			
+	//Iteraccion 1
+	if($numIt>0)
+	{
+		echo '<div id="tabs-1">';
+		echo $file;
+		$solucion = simplexml_load_file($out1);
+		 
+		$head = $solucion->head; 
+		$numeroDeSolucionesEncontradas = $head->numSolutions;
+		
+		$numeroDeOperadores = $head->operatorsNumber;
+		$numeroDeCanales = $head->channelsNumber;
+		?>
+		<script language="javascript">
+		function botonGuardarXMLIt1(){
+			var file = '<?php echo $out1; ?>';
+			var nombreArchivo = prompt("Ingrese el nombre con que se va guardar el archivo","salidaIT1.xml");
+			if(nombreArchivo){
+				$.post("gestionEspectro/php/almacenarArchivo.php", { file : file, nombreArchivo: nombreArchivo, userID : '<?php echo $user->uid; ?>' }, function(data){
+					$('#botonGuardarXMLIt1').attr('disabled','-1');
+					$('#botonGuardarXMLIt1').attr("class","deshabilitado");
+				});
+			} 
+		}
+		</script>
+		<script language="javascript">
+		function headit1(){
+			var file = '<?php echo $out1; ?>';
+			var fileXML = '<?php echo "gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it1.xml"; ?>';
+			$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML, botonXML: 'botonGuardarXMLIt1' }, function(data){
+				$("#headit1").html(data);
+			});         
+		}
+		headit1();
+		</script>
+		<div id="headit1"></div>
+			
+		<?php
+		
+		echo "<p class='estilo'>Soluciones</p>\n";
+		echo "<select id=\"selectit1\">";
+		for($i=0; $i<$numeroDeSolucionesEncontradas; $i++)
+		{
+				echo "<option value=\"".$i."\">Solución #".$i."</option>";
+		}
+		echo "</select>";
+		?>
+		<a href="#" onclick="javascript:recargarit1();"> Mostrar solución </a>
+		
+		<script language="javascript">
+		function recargarit1(){    
+			var selector = $('#selectit1').val();
+			var file = '<?php echo $out1; ?>';
+
+			$.post("gestionEspectro/php/iteraccion.php", { opcSelec: selector, file: file }, function(data){
+				$("#mostrarSolIt1").html(data);
+			});         
+		}
+		</script>			
+
+		<div id="mostrarSolIt1"></div>
+
+		<?php
+		echo "</p>\n";
+		echo "</div>\n";
+
+	}
+	
+	if($numIt>1)
+	{
+		echo '<div id="tabs-2">';
+		$solucion = simplexml_load_file($out2);
+		 
+		$head = $solucion->head; 
+		$numeroDeSolucionesEncontradas = $head->numSolutions;
+		
+		$numeroDeOperadores = $head->operatorsNumber;
+		$numeroDeCanales = $head->channelsNumber;
+		?>
+		<script language="javascript">
+		function botonGuardarXMLIt2(){
+			var file = '<?php echo $out2; ?>';
+			var nombreArchivo = prompt("Ingrese el nombre con que se va guardar el archivo","salidaIT2.xml");
+			if(nombreArchivo){
+				$.post("gestionEspectro/php/almacenarArchivo.php", { file : file, nombreArchivo: nombreArchivo, userID : '<?php echo $user->uid; ?>' }, function(data){
+					$('#botonGuardarXMLIt2').attr('disabled','-1');
+					$('#botonGuardarXMLIt2').attr("class","deshabilitado");
+				}); 
+			}			
+		}
+		</script>
+		<script language="javascript">
+		function headit2(){
+			var file = '<?php echo $out2; ?>';
+			var fileXML = '<?php echo "gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it2.xml"; ?>';
+			$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML, botonXML: 'botonGuardarXMLIt2' }, function(data){
+				$("#headit2").html(data);
+			});         
+		}
+		headit2();
+		</script>		
+		<div id="headit2"></div>
+			
+		<?php
+		
+		echo "<p class='estilo'>Soluciones</p>\n";
+		echo "<select id=\"selectit2\">";
+		for($i=0; $i<$numeroDeSolucionesEncontradas; $i++)
+		{
+				echo "<option value=\"".$i."\">Solución #".$i."</option>";
+		}
+		echo "</select>";
+		?>
+		<a href="#" onclick="javascript:recargarit2();"> Mostrar solución </a>
+		
+		<script language="javascript">
+		function recargarit2(){    
+			var selector = $('#selectit2').val();
+			var file = '<?php echo $out2; ?>';
+			$.post("gestionEspectro/php/iteraccion.php", { opcSelec: selector, file: file }, function(data){
+				$("#mostrarSolIt2").html(data);
+			});         
+		}
+		</script>			
+
+		<div id="mostrarSolIt2"></div>
+
+		<?php
+		echo "</p>\n";
+		echo "</div>\n";
+	}
+	
+	if($numIt>2)
+	{
+		echo '<div id="tabs-3">';
+		$solucion = simplexml_load_file($out3);
+		$head = $solucion->head; 
+		$numeroDeSolucionesEncontradas = $head->numSolutions;
+		
+		$numeroDeOperadores = $head->operatorsNumber;
+		$numeroDeCanales = $head->channelsNumber;
+		?>
+		<script language="javascript">
+		function botonGuardarXMLIt3(){
+			var file = '<?php echo $out3; ?>';
+			var nombreArchivo = prompt("Ingrese el nombre con que se va guardar el archivo","salidaIT3.xml");
+			if(nombreArchivo){
+				$.post("gestionEspectro/php/almacenarArchivo.php", { file : file, nombreArchivo: nombreArchivo, userID : '<?php echo $user->uid; ?>' }, function(data){
+					$('#botonGuardarXMLIt3').attr('disabled','-1');
+					$('#botonGuardarXMLIt3').attr("class","deshabilitado");
+				}); 
+			}
+		}
+		</script>	
+		<script language="javascript">
+		function headit3(){
+			var file = '<?php echo $out3; ?>';
+			var fileXML = '<?php echo "gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it3.xml"; ?>';
+			$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML, botonXML: 'botonGuardarXMLIt3' }, function(data){
+				$("#headit3").html(data);
+			});         
+		}
+		headit3();
+		</script>	
+		<div id="headit3"></div>
+			
+		<?php
+		
+		echo "<p class='estilo'>Soluciones</p>\n";
+		echo "<select id=\"selectit3\">";
+		for($i=0; $i<$numeroDeSolucionesEncontradas; $i++)
+		{
+				echo "<option value=\"".$i."\">Solución #".$i."</option>";
+		}
+		echo "</select>";
+		?>
+		<a href="#" onclick="javascript:recargarit3();"> Mostrar solución </a>
+		
+		<script language="javascript">
+		function recargarit3(){    
+			var selector = $('#selectit3').val();
+			var file = '<?php echo $out3; ?>';
+
+			$.post("gestionEspectro/php/iteraccion.php", { opcSelec: selector, file: file }, function(data){
+				$("#mostrarSolIt3").html(data);
+			});         
+		}
+		</script>			
+
+		<div id="mostrarSolIt3"></div>
+
+		<?php
+		echo "</p>\n";
+		echo "</div>\n";
+	}
+	if($numIt>3)
+	{
+		echo '<div id="tabs-4">';
+		$solucion = simplexml_load_file($out4);
+		 
+		$head = $solucion->head; 
+		$numeroDeSolucionesEncontradas = $head->numSolutions;
+		
+		$numeroDeOperadores = $head->operatorsNumber;
+		$numeroDeCanales = $head->channelsNumber;
+		?>
+		<script language="javascript">
+		function botonGuardarXMLIt4(){
+			var file = '<?php echo $out4; ?>';
+			var nombreArchivo = prompt("Ingrese el nombre con que se va guardar el archivo","salidaIT4.xml");
+			if(nombreArchivo){
+				$.post("gestionEspectro/php/almacenarArchivo.php", { file : file, nombreArchivo: nombreArchivo, userID : '<?php echo $user->uid; ?>' }, function(data){
+					$('#botonGuardarXMLIt4').attr('disabled','-1');
+					$('#botonGuardarXMLIt4').attr("class","deshabilitado");
+				});
+			} 
+		}
+		</script>	
+		<script language="javascript">
+		function headit4(){
+			var file = '<?php echo $out4; ?>';
+			var fileXML = '<?php echo "gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it4.xml"; ?>';
+			$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML, botonXML: 'botonGuardarXMLIt4' }, function(data){
+				$("#headit4").html(data);
+			});         
+		}
+		headit4();
+		</script>	
+		<div id="headit4"></div>
+			
+		<?php
+		
+		echo "<p class='estilo'>Soluciones</p>\n";
+		echo "<select id=\"selectit2\">";
+		for($i=0; $i<$numeroDeSolucionesEncontradas; $i++)
+		{
+				echo "<option value=\"".$i."\">Solución #".$i."</option>";
+		}
+		echo "</select>";
+		?>
+		<a href="#" onclick="javascript:recargarit4();"> Mostrar solución </a>
+		
+		<script language="javascript">
+		function recargarit4(){    
+			var selector = $('#selectit4').val();
+			var file = '<?php echo $out4; ?>';
+			$.post("gestionEspectro/php/iteraccion.php", { opcSelec: selector, file: file }, function(data){
+				$("#mostrarSolIt4").html(data);
+			});         
+		}
+		</script>			
+
+		<div id="mostrarSolIt4"></div>
+
+		<?php
+		echo "</p>\n";
+		echo "</div>\n";
+	}
+	if($numIt>4)
+	{
+		echo '<div id="tabs-5">';
+		$solucion = simplexml_load_file($out5);
+		 
+		$head = $solucion->head; 
+		$numeroDeSolucionesEncontradas = $head->numSolutions;
+		
+		$numeroDeOperadores = $head->operatorsNumber;
+		$numeroDeCanales = $head->channelsNumber;
+		?>
+		<script language="javascript">
+		function botonGuardarXMLIt5(){
+			var file = '<?php echo $out5; ?>';
+			var nombreArchivo = prompt("Ingrese el nombre con que se va guardar el archivo","salidaIT5.xml");
+			if(nombreArchivo){
+				$.post("gestionEspectro/php/almacenarArchivo.php", { file : file, nombreArchivo: nombreArchivo, userID : '<?php echo $user->uid; ?>' }, function(data){
+					$('#botonGuardarXMLIt5').attr('disabled','-1');
+					$('#botonGuardarXMLIt5').attr("class","deshabilitado");
+				}); 
+			}
+		}
+		</script>	
+		
+		<script language="javascript">
+		function headit5(){
+			var file = '<?php echo $out5; ?>';
+			var fileXML = '<?php echo "gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it5.xml"; ?>';
+			$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML, botonXML: 'botonGuardarXMLIt5' }, function(data){
+				$("#headit5").html(data);
+			});         
+		}
+		headit5();
+		</script>	
+		<div id="headit5"></div>
+			
+		<?php
+		echo "<p class='estilo'>Soluciones</p>\n";
+		echo "<select id=\"selectit5\">";
+		for($i=0; $i<$numeroDeSolucionesEncontradas; $i++)
+		{
+				echo "<option value=\"".$i."\">Solución #".$i."</option>";
+		}
+		echo "</select>";
+		?>
+		<a href="#" onclick="javascript:recargarit5();"> Mostrar solución </a>
+		
+		<script language="javascript">
+		function recargarit5(){    
+			var selector = $('#selectit5').val();
+			var file = '<?php echo $out5; ?>';
+
+			$.post("gestionEspectro/php/iteraccion.php", { opcSelec: selector, file: file }, function(data){
+				$("#mostrarSolIt5").html(data);
+			});         
+		}
+		</script>			
+
+		<div id="mostrarSolIt5"></div>
+
+		<?php
+		echo "</p>\n";
+		echo "</div>\n";
+	}
+	if($numIt>5)
+	{
+		echo '<div id="tabs-6">';
+		$solucion = simplexml_load_file($out6);
+		 
+		$head = $solucion->head; 
+		$numeroDeSolucionesEncontradas = $head->numSolutions;
+		
+		$numeroDeOperadores = $head->operatorsNumber;
+		$numeroDeCanales = $head->channelsNumber;
+
+		?>
+		<script language="javascript">
+		function botonGuardarXMLIt6(){
+			var file = '<?php echo $out6; ?>';
+			var nombreArchivo = prompt("Ingrese el nombre con que se va guardar el archivo","salidaIT6.xml");
+			if(nombreArchivo){
+				$.post("gestionEspectro/php/almacenarArchivo.php", { file : file, nombreArchivo: nombreArchivo, userID : '<?php echo $user->uid; ?>' }, function(data){
+					$('#botonGuardarXMLIt6').attr('disabled','-1');
+					$('#botonGuardarXMLIt6').attr("class","deshabilitado");
+				});
+			} 
+		}
+		</script>			
+		
+		<script language="javascript">
+		function headit6(){
+			var file = '<?php echo $out6; ?>';
+			var fileXML = '<?php echo "gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it6.xml"; ?>';
+			$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML, botonXML: 'botonGuardarXMLIt6' }, function(data){
+				$("#headit6").html(data);
+			});         
+		}
+		headit6();
+		</script>	
+		<div id="headit6"></div>			
+			
+		<?php
+		echo "<p class='estilo'>Soluciones</p>\n";
+		echo "<select id=\"selectit6\">";
+		for($i=0; $i<$numeroDeSolucionesEncontradas; $i++)
+		{
+				echo "<option value=\"".$i."\">Solución #".$i."</option>";
+		}
+		echo "</select>";
+		?>
+		<a href="#" onclick="javascript:recargarit6();"> Mostrar solución </a>
+		
+		<script language="javascript">
+		function recargarit6(){    
+			var selector = $('#selectit6').val();
+			var file = '<?php echo $out6; ?>';
+			$.post("gestionEspectro/php/iteraccion.php", { opcSelec: selector, file: file }, function(data){
+				$("#mostrarSolIt6").html(data);
+			});         
+		}
+		</script>			
+
+		<div id="mostrarSolIt6"></div>
+
+	<?php
+		echo "</p>\n";
+		echo "</div>\n";
+	}
+	echo "<input type=button id=\"accionFormulario\" class=\"botonrojo\" value=\"Mostrar formulario\" onclick=\"mostrarOcultar();\"/>\n";
+	?>
+	<script language="javascript">
+	function ocultarForm(){
+		document.getElementById("formularioHTML").style.display='none'; 
+	}
+	window.onload = function(){	ocultarForm();}
+	
+	function mostrarOcultar()
+	{
+		if(document.getElementById("formularioHTML").style.display=='block')
+		{
+			document.getElementById("formularioHTML").style.display='none'; 
+			document.getElementById("accionFormulario").value = "Mostrar formulario";
+
+		}
+		else
+		{
+			document.getElementById("accionFormulario").value = "Ocultar formulario";
+			document.getElementById("formularioHTML").style.display='block'; 			
+		}
+	}
+	</script>	
+	<?php	
+}
+
 if($user->uid==0)
 {
 	echo "<script>alert('Debe estar autenticado en el sistema para poder ver \xe9sta p\xe1gina');</script>";
@@ -178,435 +604,9 @@ else{
 		putenv("PATH=$saved");
 		mostrarResultados($numeroIteracciones,$outputit1,$outputit2,$outputit3,$outputit4,$outputit5,$outputit6,$prefijo);
 	}
-
-	function mostrarResultados($numIt, $out1, $out2, $out3, $out4, $out5, $out6, $prefijo)
-	{
-		global $user;
-		echo '<div id="tabs" class="tabs" style="width:100%;">';
-		
-		echo '<ul>';
-		if($numIt>0) echo '<li><a href="#tabs-1">Iteración 1</a></li>';
-		if($numIt>1) echo '<li><a href="#tabs-2">Iteración 2</a></li>';
-		if($numIt>2) echo '<li><a href="#tabs-3">Iteración 3</a></li>';
-		if($numIt>3) echo '<li><a href="#tabs-4">Iteración 4</a></li>';
-		if($numIt>4) echo '<li><a href="#tabs-5">Iteración 5</a></li>';
-		if($numIt>5) echo '<li><a href="#tabs-6">Iteración 6</a></li>';
-		echo '</ul>';
-				
-		//Iteraccion 1
-		if($numIt>0)
-		{
-			echo '<div id="tabs-1">';
-			echo $file;
-			$solucion = simplexml_load_file($out1);
-			 
-			$head = $solucion->head; 
-			$numeroDeSolucionesEncontradas = $head->numSolutions;
-			
-			$numeroDeOperadores = $head->operatorsNumber;
-			$numeroDeCanales = $head->channelsNumber;
-			?>
-			<script language="javascript">
-			function botonGuardarXMLIt1(){
-				var file = '<?php echo $out1; ?>';
-				var nombreArchivo = prompt("Ingrese el nombre con que se va guardar el archivo","salidaIT1.xml");
-				if(nombreArchivo){
-					$.post("gestionEspectro/php/almacenarArchivo.php", { file : file, nombreArchivo: nombreArchivo, userID : '<?php echo $user->uid; ?>' }, function(data){
-						$('#botonGuardarXMLIt1').attr('disabled','-1');
-						$('#botonGuardarXMLIt1').attr("class","deshabilitado");
-					});
-				} 
-			}
-			</script>
-			<script language="javascript">
-			function headit1(){
-				var file = '<?php echo $out1; ?>';
-				var fileXML = '<?php echo "gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it1.xml"; ?>';
-				$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML, botonXML: 'botonGuardarXMLIt1' }, function(data){
-					$("#headit1").html(data);
-				});         
-			}
-			headit1();
-			</script>
-			<div id="headit1"></div>
-				
-			<?php
-			
-			echo "<p class='estilo'>Soluciones</p>\n";
-			echo "<select id=\"selectit1\">";
-			for($i=0; $i<$numeroDeSolucionesEncontradas; $i++)
-			{
-					echo "<option value=\"".$i."\">Solución #".$i."</option>";
-			}
-			echo "</select>";
-			?>
-			<a href="#" onclick="javascript:recargarit1();"> Mostrar solución </a>
-			
-			<script language="javascript">
-			function recargarit1(){    
-				var selector = $('#selectit1').val();
-				var file = '<?php echo $out1; ?>';
-
-				$.post("gestionEspectro/php/iteraccion.php", { opcSelec: selector, file: file }, function(data){
-					$("#mostrarSolIt1").html(data);
-				});         
-			}
-			</script>			
-
-			<div id="mostrarSolIt1"></div>
-
-			<?php
-			echo "</p>\n";
-			echo "</div>\n";
-
-		}
-		
-		if($numIt>1)
-		{
-			echo '<div id="tabs-2">';
-			$solucion = simplexml_load_file($out2);
-			 
-			$head = $solucion->head; 
-			$numeroDeSolucionesEncontradas = $head->numSolutions;
-			
-			$numeroDeOperadores = $head->operatorsNumber;
-			$numeroDeCanales = $head->channelsNumber;
-			?>
-			<script language="javascript">
-			function botonGuardarXMLIt2(){
-				var file = '<?php echo $out2; ?>';
-				var nombreArchivo = prompt("Ingrese el nombre con que se va guardar el archivo","salidaIT2.xml");
-				if(nombreArchivo){
-					$.post("gestionEspectro/php/almacenarArchivo.php", { file : file, nombreArchivo: nombreArchivo, userID : '<?php echo $user->uid; ?>' }, function(data){
-						$('#botonGuardarXMLIt2').attr('disabled','-1');
-						$('#botonGuardarXMLIt2').attr("class","deshabilitado");
-					}); 
-				}			
-			}
-			</script>
-			<script language="javascript">
-			function headit2(){
-				var file = '<?php echo $out2; ?>';
-				var fileXML = '<?php echo "gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it2.xml"; ?>';
-				$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML, botonXML: 'botonGuardarXMLIt2' }, function(data){
-					$("#headit2").html(data);
-				});         
-			}
-			headit2();
-			</script>		
-			<div id="headit2"></div>
-				
-			<?php
-			
-			echo "<p class='estilo'>Soluciones</p>\n";
-			echo "<select id=\"selectit2\">";
-			for($i=0; $i<$numeroDeSolucionesEncontradas; $i++)
-			{
-					echo "<option value=\"".$i."\">Solución #".$i."</option>";
-			}
-			echo "</select>";
-			?>
-			<a href="#" onclick="javascript:recargarit2();"> Mostrar solución </a>
-			
-			<script language="javascript">
-			function recargarit2(){    
-				var selector = $('#selectit2').val();
-				var file = '<?php echo $out2; ?>';
-				$.post("gestionEspectro/php/iteraccion.php", { opcSelec: selector, file: file }, function(data){
-					$("#mostrarSolIt2").html(data);
-				});         
-			}
-			</script>			
-
-			<div id="mostrarSolIt2"></div>
-
-			<?php
-			echo "</p>\n";
-			echo "</div>\n";
-		}
-		
-		if($numIt>2)
-		{
-			echo '<div id="tabs-3">';
-			$solucion = simplexml_load_file($out3);
-			$head = $solucion->head; 
-			$numeroDeSolucionesEncontradas = $head->numSolutions;
-			
-			$numeroDeOperadores = $head->operatorsNumber;
-			$numeroDeCanales = $head->channelsNumber;
-			?>
-			<script language="javascript">
-			function botonGuardarXMLIt3(){
-				var file = '<?php echo $out3; ?>';
-				var nombreArchivo = prompt("Ingrese el nombre con que se va guardar el archivo","salidaIT3.xml");
-				if(nombreArchivo){
-					$.post("gestionEspectro/php/almacenarArchivo.php", { file : file, nombreArchivo: nombreArchivo, userID : '<?php echo $user->uid; ?>' }, function(data){
-						$('#botonGuardarXMLIt3').attr('disabled','-1');
-						$('#botonGuardarXMLIt3').attr("class","deshabilitado");
-					}); 
-				}
-			}
-			</script>	
-			<script language="javascript">
-			function headit3(){
-				var file = '<?php echo $out3; ?>';
-				var fileXML = '<?php echo "gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it3.xml"; ?>';
-				$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML, botonXML: 'botonGuardarXMLIt3' }, function(data){
-					$("#headit3").html(data);
-				});         
-			}
-			headit3();
-			</script>	
-			<div id="headit3"></div>
-				
-			<?php
-			
-			echo "<p class='estilo'>Soluciones</p>\n";
-			echo "<select id=\"selectit3\">";
-			for($i=0; $i<$numeroDeSolucionesEncontradas; $i++)
-			{
-					echo "<option value=\"".$i."\">Solución #".$i."</option>";
-			}
-			echo "</select>";
-			?>
-			<a href="#" onclick="javascript:recargarit3();"> Mostrar solución </a>
-			
-			<script language="javascript">
-			function recargarit3(){    
-				var selector = $('#selectit3').val();
-				var file = '<?php echo $out3; ?>';
-
-				$.post("gestionEspectro/php/iteraccion.php", { opcSelec: selector, file: file }, function(data){
-					$("#mostrarSolIt3").html(data);
-				});         
-			}
-			</script>			
-
-			<div id="mostrarSolIt3"></div>
-
-			<?php
-			echo "</p>\n";
-			echo "</div>\n";
-		}
-		if($numIt>3)
-		{
-			echo '<div id="tabs-4">';
-			$solucion = simplexml_load_file($out4);
-			 
-			$head = $solucion->head; 
-			$numeroDeSolucionesEncontradas = $head->numSolutions;
-			
-			$numeroDeOperadores = $head->operatorsNumber;
-			$numeroDeCanales = $head->channelsNumber;
-			?>
-			<script language="javascript">
-			function botonGuardarXMLIt4(){
-				var file = '<?php echo $out4; ?>';
-				var nombreArchivo = prompt("Ingrese el nombre con que se va guardar el archivo","salidaIT4.xml");
-				if(nombreArchivo){
-					$.post("gestionEspectro/php/almacenarArchivo.php", { file : file, nombreArchivo: nombreArchivo, userID : '<?php echo $user->uid; ?>' }, function(data){
-						$('#botonGuardarXMLIt4').attr('disabled','-1');
-						$('#botonGuardarXMLIt4').attr("class","deshabilitado");
-					});
-				} 
-			}
-			</script>	
-			<script language="javascript">
-			function headit4(){
-				var file = '<?php echo $out4; ?>';
-				var fileXML = '<?php echo "gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it4.xml"; ?>';
-				$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML, botonXML: 'botonGuardarXMLIt4' }, function(data){
-					$("#headit4").html(data);
-				});         
-			}
-			headit4();
-			</script>	
-			<div id="headit4"></div>
-				
-			<?php
-			
-			echo "<p class='estilo'>Soluciones</p>\n";
-			echo "<select id=\"selectit2\">";
-			for($i=0; $i<$numeroDeSolucionesEncontradas; $i++)
-			{
-					echo "<option value=\"".$i."\">Solución #".$i."</option>";
-			}
-			echo "</select>";
-			?>
-			<a href="#" onclick="javascript:recargarit4();"> Mostrar solución </a>
-			
-			<script language="javascript">
-			function recargarit4(){    
-				var selector = $('#selectit4').val();
-				var file = '<?php echo $out4; ?>';
-				$.post("gestionEspectro/php/iteraccion.php", { opcSelec: selector, file: file }, function(data){
-					$("#mostrarSolIt4").html(data);
-				});         
-			}
-			</script>			
-
-			<div id="mostrarSolIt4"></div>
-
-			<?php
-			echo "</p>\n";
-			echo "</div>\n";
-		}
-		if($numIt>4)
-		{
-			echo '<div id="tabs-5">';
-			$solucion = simplexml_load_file($out5);
-			 
-			$head = $solucion->head; 
-			$numeroDeSolucionesEncontradas = $head->numSolutions;
-			
-			$numeroDeOperadores = $head->operatorsNumber;
-			$numeroDeCanales = $head->channelsNumber;
-			?>
-			<script language="javascript">
-			function botonGuardarXMLIt5(){
-				var file = '<?php echo $out5; ?>';
-				var nombreArchivo = prompt("Ingrese el nombre con que se va guardar el archivo","salidaIT5.xml");
-				if(nombreArchivo){
-					$.post("gestionEspectro/php/almacenarArchivo.php", { file : file, nombreArchivo: nombreArchivo, userID : '<?php echo $user->uid; ?>' }, function(data){
-						$('#botonGuardarXMLIt5').attr('disabled','-1');
-						$('#botonGuardarXMLIt5').attr("class","deshabilitado");
-					}); 
-				}
-			}
-			</script>	
-			
-			<script language="javascript">
-			function headit5(){
-				var file = '<?php echo $out5; ?>';
-				var fileXML = '<?php echo "gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it5.xml"; ?>';
-				$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML, botonXML: 'botonGuardarXMLIt5' }, function(data){
-					$("#headit5").html(data);
-				});         
-			}
-			headit5();
-			</script>	
-			<div id="headit5"></div>
-				
-			<?php
-			echo "<p class='estilo'>Soluciones</p>\n";
-			echo "<select id=\"selectit5\">";
-			for($i=0; $i<$numeroDeSolucionesEncontradas; $i++)
-			{
-					echo "<option value=\"".$i."\">Solución #".$i."</option>";
-			}
-			echo "</select>";
-			?>
-			<a href="#" onclick="javascript:recargarit5();"> Mostrar solución </a>
-			
-			<script language="javascript">
-			function recargarit5(){    
-				var selector = $('#selectit5').val();
-				var file = '<?php echo $out5; ?>';
-
-				$.post("gestionEspectro/php/iteraccion.php", { opcSelec: selector, file: file }, function(data){
-					$("#mostrarSolIt5").html(data);
-				});         
-			}
-			</script>			
-
-			<div id="mostrarSolIt5"></div>
-
-			<?php
-			echo "</p>\n";
-			echo "</div>\n";
-		}
-		if($numIt>5)
-		{
-			echo '<div id="tabs-6">';
-			$solucion = simplexml_load_file($out6);
-			 
-			$head = $solucion->head; 
-			$numeroDeSolucionesEncontradas = $head->numSolutions;
-			
-			$numeroDeOperadores = $head->operatorsNumber;
-			$numeroDeCanales = $head->channelsNumber;
-
-			?>
-			<script language="javascript">
-			function botonGuardarXMLIt6(){
-				var file = '<?php echo $out6; ?>';
-				var nombreArchivo = prompt("Ingrese el nombre con que se va guardar el archivo","salidaIT6.xml");
-				if(nombreArchivo){
-					$.post("gestionEspectro/php/almacenarArchivo.php", { file : file, nombreArchivo: nombreArchivo, userID : '<?php echo $user->uid; ?>' }, function(data){
-						$('#botonGuardarXMLIt6').attr('disabled','-1');
-						$('#botonGuardarXMLIt6').attr("class","deshabilitado");
-					});
-				} 
-			}
-			</script>			
-			
-			<script language="javascript">
-			function headit6(){
-				var file = '<?php echo $out6; ?>';
-				var fileXML = '<?php echo "gestionEspectro/salidasTemp/".$user->uid."/".$prefijo."_file2it6.xml"; ?>';
-				$.post("gestionEspectro/php/encabezado.php", { file: file, fileXML: fileXML, botonXML: 'botonGuardarXMLIt6' }, function(data){
-					$("#headit6").html(data);
-				});         
-			}
-			headit6();
-			</script>	
-			<div id="headit6"></div>			
-				
-			<?php
-			echo "<p class='estilo'>Soluciones</p>\n";
-			echo "<select id=\"selectit6\">";
-			for($i=0; $i<$numeroDeSolucionesEncontradas; $i++)
-			{
-					echo "<option value=\"".$i."\">Solución #".$i."</option>";
-			}
-			echo "</select>";
-			?>
-			<a href="#" onclick="javascript:recargarit6();"> Mostrar solución </a>
-			
-			<script language="javascript">
-			function recargarit6(){    
-				var selector = $('#selectit6').val();
-				var file = '<?php echo $out6; ?>';
-				$.post("gestionEspectro/php/iteraccion.php", { opcSelec: selector, file: file }, function(data){
-					$("#mostrarSolIt6").html(data);
-				});         
-			}
-			</script>			
-
-			<div id="mostrarSolIt6"></div>
-
-			<?php
-			echo "</p>\n";
-			echo "</div>\n";
-		}
-		echo "<input type=button id=\"accionFormulario\" class=\"botonrojo\" value=\"Mostrar formulario\" onclick=\"mostrarOcultar();\"/>\n";
-		?>
-		<script language="javascript">
-		function ocultarForm(){
-			document.getElementById("formularioHTML").style.display='none'; 
-		}
-		window.onload = function(){	ocultarForm();}
-		
-		function mostrarOcultar()
-		{
-			if(document.getElementById("formularioHTML").style.display=='block')
-			{
-				document.getElementById("formularioHTML").style.display='none'; 
-				document.getElementById("accionFormulario").value = "Mostrar formulario";
-
-			}
-			else
-			{
-				document.getElementById("accionFormulario").value = "Ocultar formulario";
-				document.getElementById("formularioHTML").style.display='block'; 			
-			}
-		}
-		</script>	
-		<?php	
-
-	}
 }
 ?>
+
 <div id="formularioHTML">
 	<form action="/site/?q=node/40" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">
 		<div class="form-item" id="edit-file-upload-wrapper">
