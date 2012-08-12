@@ -68,7 +68,6 @@
 	}
 	
 
-	
 	function consultarBandaTrabajo($bandaID)
 	{
 	    $objconexionBD = new conexionBD();

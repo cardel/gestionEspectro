@@ -1,5 +1,5 @@
 <?php
-
+include('gestionEspectro/php/consultasCreacionXMLGenerador.php');
 global $user;
 	
 if($user->uid==0)
@@ -9,7 +9,6 @@ if($user->uid==0)
 }
 else{
 	
-	include('gestionEspectro/php/consultasCreacionXMLGenerador.php');
 	drupal_add_css($path = 'css/datatable.css', $type = 'module', $media = 'all', $preprocess = TRUE);
 	drupal_add_css($path = 'gestionEspectro/php/drupalcss/estilosFormGestion.css', $type = 'module', $media = 'all', $preprocess = TRUE);
 	drupal_set_html_head('<script type="text/javascript" src="https://www.google.com/jsapi"></script>');
@@ -195,11 +194,11 @@ else{
 			$salida .= "\t\t</entry>\n";			
 
 			$salida .= "\t\t<entry key=\"FrequencyBand\">\n";
-			$salida .= "\t\t\t<i>".$rangoSeleccionado."</i>\n";
+			$salida .= "\t\t\t<i>".$bandaSeleccionada."</i>\n";
 			$salida .= "\t\t</entry>\n";
 			
 			$salida .= "\t\t<entry key=\"FrequencyRank\">\n";
-			$salida .= "\t\t\t<i>".$bandaSeleccionada."</i>\n";
+			$salida .= "\t\t\t<i>".$rangoSeleccionado."</i>\n";
 			$salida .= "\t\t</entry>\n";	
 
 			$salida .= "\t\t<entry key=\"NumberChannels\">\n";
@@ -339,7 +338,7 @@ else{
 				} 
 			}
 			</script>
-			<?	
+			<?php	
 			
 		}
 		else
