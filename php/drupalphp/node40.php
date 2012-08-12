@@ -1,4 +1,12 @@
 <?php
+global $user;
+
+if($user->uid==0)
+{
+	echo "<script>alert('Debe estar autenticado en el sistema para poder ver \xe9sta p\xe1gina');</script>";
+	echo "<script>location.href='http://avispa.univalle.edu.co/site/';</script>";
+}
+else{
 	jquery_ui_add('ui.tabs');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'dataTables/media/js/jquery.dataTables.js');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/jtables.js');
@@ -16,7 +24,6 @@
 	echo "<p class='estiloTitulo'>Aplicación gestión del espectro usando programación por restricciones</p>\n";
 	echo '<p style="text-align:left";><a class="iframe" href="http://avispa.univalle.edu.co/~cardel/proyInv/ayudaSecuenciamientoAviones/ayuda.php"><img border="0" src="files/HelpIcon.gif" width="50" height="50"><br/>Ayuda</a></p>';
 
-	global $user;
 	$status = "";
 	$accion = $_POST["action"];
 	$operacion = $_POST["op"];
@@ -598,6 +605,7 @@
 		<?php	
 
 	}
+}
 ?>
 <div id="formularioHTML">
 	<form action="/site/?q=node/40" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">

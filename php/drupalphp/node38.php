@@ -1,4 +1,14 @@
 <?php
+
+global $user;
+	
+if($user->uid==0)
+{
+	echo "<script>alert('Debe estar autenticado en el sistema para poder ver \xe9sta p\xe1gina');</script>";
+	echo "<script>location.href='http://avispa.univalle.edu.co/site/';</script>";
+}
+else{
+	
 	include('gestionEspectro/php/consultasCreacionXMLGenerador.php');
 	drupal_add_css($path = 'css/datatable.css', $type = 'module', $media = 'all', $preprocess = TRUE);
 	drupal_add_css($path = 'gestionEspectro/php/drupalcss/estilosFormGestion.css', $type = 'module', $media = 'all', $preprocess = TRUE);
@@ -14,10 +24,14 @@
 	echo '<p style="text-align:left";><a class="iframe" href="http://avispa.univalle.edu.co/~cardel/proyInv/ayudaSecuenciamientoAviones/ayuda.php"><img border="0" src="files/HelpIcon.gif" width="50" height="50"><br/>Ayuda</a></p>';
 	drupal_add_css($path = 'gestionEspectro/php/drupalcss/botonesEspectro.css', $type = 'module', $media = 'all', $preprocess = TRUE);
 	
+
+	
 	if(!is_dir("/var/www/html/site/gestionEspectro/entradas/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/entradas/".$user->uid, 0755);
 	if(!is_dir("/var/www/html/site/gestionEspectro/entradasTemp/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/entradasTemp/".$user->uid, 0755);
 	if(!is_dir("/var/www/html/site/gestionEspectro/salidas/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/salidas/".$user->uid, 0755);
 	if(!is_dir("/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid, 0755);
+
+
 ?>
 <form action="/site/?q=node/38" method="post">
 	<p class='estilo'>Selección geográfica</p>
@@ -167,7 +181,7 @@
 			}
 			
 			//Crear XML
-			$salida = "\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+			$salida = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 			$salida .= "<instance>\n";
 			$salida .= "\t<presentation nbSolutions=\"?\" format=\"XCSP 2.1\">\n\t\tRepresentacion entrada de problema gestion espectro radioelectrico\n\t</presentation>\n";
 			$salida .= "\t<dict>\n";
@@ -302,17 +316,20 @@
 					
 			$prefijo = substr(md5(uniqid(rand())),0,6);
 			$archivoSalida = "/var/www/html/site/gestionEspectro/entradasTemp/".$user->uid."/".$prefijo."_generado.xml";
+			$archivoVer = "/site/gestionEspectro/entradasTemp/".$user->uid."/".$prefijo."_generado.xml";
+			
 			$fp = fopen($archivoSalida,"a");
 			fwrite($fp, $salida . PHP_EOL);
 			fclose($fp);
-			echo "<input type=button class=\"botonverde\" onClick=\"window.open('".$archivoSalida."' ,'_blank ','toolbar=1,menubar=1,width=500,height=600');\" value=\"Descargar XML\" />\n";
-			echo "<input type=button class=\"botonamarillo\" value=\"Almacenar XML\" onClick=\"almacenarArchivoGenerador()();\" />\n";
-
+			echo "<div>"; 
+			echo "<input type=button class=\"botonverde\" onClick=\"window.open('".$archivoVer."' ,'_blank ','toolbar=1,menubar=1,width=500,height=600');\" value=\"Descargar XML Generado\" />\n";
+			echo "<input type=button class=\"botonamarillo\" value=\"Almacenar XML Generado\" onClick=\"almacenarArchivoGenerador()();\" />\n";
+			echo "</div>";
 		}
 		else
 		{
 			echo "<script language=\"javascript\">alert(\"Los requerimientos están vacios, por favor ingrese por lo menos uno\");</script>";
 		}
 	}
-
+}
 ?>
