@@ -321,14 +321,30 @@ else{
 			$fp = fopen($archivoSalida,"a");
 			fwrite($fp, $salida . PHP_EOL);
 			fclose($fp);
-			echo "<div>"; 
+
+			echo "<p class='estilo'>Resultados</p>\n";
 			echo "<input type=button class=\"botonverde\" onClick=\"window.open('".$archivoVer."' ,'_blank ','toolbar=1,menubar=1,width=500,height=600');\" value=\"Descargar XML Generado\" />\n";
-			echo "<input type=button class=\"botonamarillo\" value=\"Almacenar XML Generado\" onClick=\"almacenarArchivoGenerador()();\" />\n";
+			echo "<input type=button class=\"botonamarillo\" value=\"Almacenar XML Generado\" onClick=\"almacenarArchivoGenerador();\"  id=\"botonAlmacenarEntrada\" />\n";
 			echo "</div>";
+			?>
+			<script language="javascript">
+			function botonGuardarXMLIt6(){
+				var file = '<?php echo $archivoSalida; ?>';
+				var nombreArchivo = prompt("Ingrese el nombre con que se va guardar el archivo","entrada.xml");
+				if(nombreArchivo){
+					$.post("gestionEspectro/php/almacenarEntradas.php", { file : file, nombreArchivo: nombreArchivo, userID : '<?php echo $user->uid; ?>' }, function(data){
+						$('#botonAlmacenarEntrada').attr('disabled','true');
+						$('#botonAlmacenarEntrada').attr("class","deshabilitado");
+					});
+				} 
+			}
+			</script>
+			<?	
+			
 		}
 		else
 		{
-			echo "<script language=\"javascript\">alert(\"Los requerimientos están vacios, por favor ingrese por lo menos uno\");</script>";
+			echo "<script language=\"javascript\">alert(\"Los requerimientos est\xe1n vacios, por favor ingrese por lo menos uno\");</script>";
 		}
 	}
 }

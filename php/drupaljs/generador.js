@@ -188,8 +188,4 @@ function eliminarFila(oId){
 	return false;
 }  
 
-//Funcion para almacenar archivo
-function almacenarArchivoGenerador()
-{
-		alert('ok');
-}
+
