@@ -183,7 +183,7 @@
 			$salida .= "\t\t\t<i>".$rangoSeleccionado."</i>\n";
 			$salida .= "\t\t</entry>\n";
 			
-			$salida .= "\t\t<entry key=\"EspecificBand\">\n";
+			$salida .= "\t\t<entry key=\"FrequencyRank\">\n";
 			$salida .= "\t\t\t<i>".$bandaSeleccionada."</i>\n";
 			$salida .= "\t\t</entry>\n";	
 
@@ -192,14 +192,14 @@
 			$salida .= "\t\t</entry>\n";	
 			
 			//Consultar operadores actuales
-			$salida .= "\t\t<entry key=\"Operators\">\n";
+			$salida .= "\t\t<entry key=\"NumberPResenteOperators\">\n";
 			
-			$listaOperadores = retornarOperadores($rangoSeleccionado, $tipoAsignacion , $idAsignacion, $requerimientos );
+			$listaOperadores = retornarOperadores($rangoSeleccionado, $tipoAsignacion , $idAsignacion);
 			
 			$salida .= "\t\t\t<i>".sizeof($listaOperadores)."</i>\n";
 			$salida .= "\t\t</entry>\n";	
 			
-			$salida .= "\t\t<entry key=\"OperatorsOfInput\">\n";
+			$salida .= "\t\t<entry key=\"NumberOfOperatorWithRequirements\">\n";
 			$salida .= "\t\t\t<i>".sizeof($requerimientos)."</i>\n";
 			$salida .= "\t\t</entry>\n";	
 			
@@ -207,26 +207,30 @@
 			$salida .= "\t\t\t<i>".$separacion."</i>\n";
 			$salida .= "\t\t</entry>\n";	
 			
-		
-			//Requerimientos
-			$salida .= "\t\t<entry key=\"Requeriments\">\n";
-			$salida .= "\t\t\t<tuple>\n";
-			$salida .= "\t\t\t\t<i>\n";
-			foreach($requerimientos as $op)
+			//Operadores presentes
+			$salida .= "\t\t<entry key=\"PresentOperators\">\n";
+			$salida .= "\t\t\t<list>\n";
+			foreach($listaOperadores as $key => $op)
 			{
-				$keyOP = 0;
-				foreach ($listaOperadores as $key => $elemento) {
-					if ($elemento == $op[0]) {
-						$keyOP =  $key;
-					}
-				}
-				$salida .= "\t\t\t\t\t<entry key=\"".$keyOP."\">\n";
-				$salida .= "\t\t\t\t\t\t<i>".$op[1]."</i>\n";
-				$salida .= "\t\t\t\t\t</entry>\n";
+				$salida .= "\t\t\t\t<i>";
+				$salida .= $op;
+				$salida .= "\t\t\t\t</i>\n";
 			}
 		
-			$salida .= "\t\t\t\t</i>\n";
-			$salida .= "\t\t\t</tuple>\n";	
+			$salida .= "\t\t\t</list>\n";	
+			$salida .= "\t\t</entry>\n";				
+		
+			//Requerimientos
+			$salida .= "\t\t<entry key=\"OperatorsWithRequeriments\">\n";
+			$salida .= "\t\t\t<list>\n";
+			foreach($requerimientos as $op)
+			{
+				$salida .= "\t\t\t\t<i>";
+				$salida .= $op[0];
+				$salida .= "\t\t\t\t</i>\n";
+			}
+		
+			$salida .= "\t\t\t</list>\n";	
 			$salida .= "\t\t</entry>\n";	
 
 			//maximo ocupado por un operador de entrada

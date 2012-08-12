@@ -10,22 +10,11 @@ require ("/var/www/html/site/gestionEspectro/php/conexionBD.php");
 /*
  * Esta función retorna los operadores presente en el lugar de asignación unido con los operadores de los requerimientos
  */ 
-function retornarOperadores($id_frequency_rank, $tipoAsignacion, $idAsignacion, $requerimientos )
+function retornarOperadores($id_frequency_rank, $tipoAsignacion, $idAsignacion)
 {
 	$salida = array();
-	$contador = 0;
-	
-	/* Agregar comodines*/
-	
-	$contador++;
-	$salida[$contador]= "inutilizado";
 
-	$contador++;
-	$salida[$contador]= "reservado";
-	
-	$contador++;
-	$salida[$contador]= "parcial";
-	
+	$contador = 0;
     $objconexionBD = new conexionBD();
     $objconexionBD->abrirConexion();	
     
@@ -100,25 +89,6 @@ function retornarOperadores($id_frequency_rank, $tipoAsignacion, $idAsignacion, 
 		pg_free_result($result);		
 		
 	}
-	
-	//Ingresar los operadores que requieren al array
-	foreach($requerimientos as $a)
-	{
-		$query="select count(*) as total from channels_assignations natural join ".$tipoConsultaInicio." natural join operators natural join channels where \"ID_Operator\" =".$a[0]." and \"ID_frequency_ranks\"=".$id_frequency_rank." ".$tipoConsultaFinal." ;";		
-		
-		$resultAux= $objconexionBD->enviarConsulta($query);
-		
-		while ($row =  pg_fetch_array ($resultAux))
-		{
-			if($row['total'] == 0)
-			{
-				$contador++;
-				$salida[$contador] = $a[0];
-			}
-
-		}	
-		pg_free_result($resultAux);
-	}	
 		
  	$objconexionBD->cerrarConexion();	
 	return $salida;
