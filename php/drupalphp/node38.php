@@ -328,11 +328,11 @@ else{
 			echo "</div>";
 			?>
 			<script language="javascript">
-			function botonGuardarXMLIt6(){
+			function almacenarArchivoGenerador(){
 				var file = '<?php echo $archivoSalida; ?>';
 				var nombreArchivo = prompt("Ingrese el nombre con que se va guardar el archivo","entrada.xml");
 				if(nombreArchivo){
-					$.post("gestionEspectro/php/almacenarEntradas.php", { file : file, nombreArchivo: nombreArchivo, userID : '<?php echo $user->uid; ?>' }, function(data){
+					$.post("gestionEspectro/php/almacenarEntrada.php", { file : file, nombreArchivo: nombreArchivo, userID : '<?php echo $user->uid; ?>' }, function(data){
 						$('#botonAlmacenarEntrada').attr('disabled','true');
 						$('#botonAlmacenarEntrada').attr("class","deshabilitado");
 					});
