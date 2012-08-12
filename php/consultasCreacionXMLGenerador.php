@@ -322,12 +322,8 @@ function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLu
 {
     $objconexionBD = new conexionBD();
     $objconexionBD->abrirConexion();		
-	$salida = "\t\t\t\t<i>\n";
-	$salida .= "\t\t\t\t\t<entry key=\"parcial\">\n";
-	$salida .= "\t\t\t\t\t\t<tuple>\n";
-	$salida .= "\t\t\t\t\t\t\t<i>\n";
-	$salida .= "\t\t\t\t\t\t\t\t<list>\n";
-	
+	$salida = "";
+
 	switch($tipoAsignacion)
 	{
 		case 0:
@@ -386,7 +382,7 @@ function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLu
 			  $ingresar = 0;
 			  
 			  if($asignado[$row['channel_number']]==1) $ingresar = 1;			  
-			  $salida .= "\t\t\t\t\t\t\t\t\t<i>".$ingresar."</i>\n";
+			  $salida .= "\t\t\t\t<i>".$ingresar."</i>\n";
 			}	
 				pg_free_result($result);
 			break;
@@ -434,7 +430,7 @@ function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLu
 			  $ingresar = 0;
 			  
 			  if($asignado[$row['channel_number']]==1) $ingresar = 1;			  
-			  $salida .= "\t\t\t\t\t\t\t\t\t<i>".$ingresar."</i>\n";
+			  $salida .= "\t\t\t\t<i>".$ingresar."</i>\n";
 			}	
 			pg_free_result($result);
 							
@@ -460,7 +456,7 @@ function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLu
 			  $ingresar = 0;
 			  
 			  if($asignado[$row['channel_number']]==1) $ingresar = 1;			  
-			  $salida .= "\t\t\t\t\t\t\t\t\t<i>".$ingresar."</i>\n";
+			  $salida .= "\t\t\t\t<i>".$ingresar."</i>\n";
 			}	
 			pg_free_result($result);			
 			break;
@@ -471,18 +467,12 @@ function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLu
 			
 			while ($row =  pg_fetch_array ($result))
 			{  
-			  $salida .= "\t\t\t\t\t\t\t\t\t<i>0</i>\n";
+			  $salida .= "\t\t\t\t<i>".$ingresar."</i>\n";
 			}	
 			pg_free_result($result);	
 			break;
 		
 	}			
-	$salida .= "\t\t\t\t\t\t\t\t</list>\n";	
-	$salida .= "\t\t\t\t\t\t\t</i>\n";
-	$salida .= "\t\t\t\t\t\t</tuple>\n";
-	$salida .= "\t\t\t\t\t</entry>\n";
-	$salida .= "\t\t\t\t</i>\n";
-
 	$objconexionBD->cerrarConexion();
 		
 	return $salida;;

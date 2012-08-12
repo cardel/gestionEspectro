@@ -214,29 +214,43 @@
 			{
 				$salida .= "\t\t\t\t<i>";
 				$salida .= $op;
-				$salida .= "\t\t\t\t</i>\n";
+				$salida .= "</i>\n";
 			}
 		
 			$salida .= "\t\t\t</list>\n";	
 			$salida .= "\t\t</entry>\n";				
 		
-			//Requerimientos
+			//Operadores con requerimientos
 			$salida .= "\t\t<entry key=\"OperatorsWithRequeriments\">\n";
 			$salida .= "\t\t\t<list>\n";
 			foreach($requerimientos as $op)
 			{
 				$salida .= "\t\t\t\t<i>";
 				$salida .= $op[0];
-				$salida .= "\t\t\t\t</i>\n";
+				$salida .= "</i>\n";
 			}
 		
 			$salida .= "\t\t\t</list>\n";	
 			$salida .= "\t\t</entry>\n";	
 
-			//maximo ocupado por un operador de entrada
-			$salida .= "\t\t<entry key=\"PartialAssignation\">\n";
+			//Reqerimientos
+			$salida .= "\t\t<entry key=\"OperatorsWithRequeriments\">\n";
 			$salida .= "\t\t\t<tuple>\n";
-			$salida .= "\t\t\t\t<i>\n";
+			foreach($requerimientos as $op)
+			{
+				$salida .= "\t\t\t\t<i>\n";
+				$salida .= "\t\t\t\t\t<entry key=\"".$op[0]."\">\n";
+				$salida .= "\t\t\t\t\t\t<i>".$op[1]."</i>";
+				$salida .= "\t\t\t\t\t</entry>\n";
+				$salida .= "\t\t\t\t</i>\n";
+			}
+		
+			$salida .= "\t\t\t</tuple>\n";	
+			$salida .= "\t\t</entry>\n";	
+
+			//maximo ocupado por un operador de entrada
+			$salida .= "\t\t<entry key=\"MaxAssignationsSubDivision\">\n";
+			$salida .= "\t\t\t<tuple>\n";
 			foreach($requerimientos as $op)
 			{
 				$keyOP = 0;
@@ -245,20 +259,53 @@
 						$keyOP =  $key;
 					}
 				}
+				$salida .= "\t\t\t\t<i>\n";
 				$salida .= "\t\t\t\t\t<entry key=\"".$keyOP."\">\n";
 				$salida .= "\t\t\t\t\t\t<i>".obtenerMaximoParcial($op[0], $tipoAsignacion, $idAsignacion, $rangoSeleccionado)."</i>\n";
 				$salida .= "\t\t\t\t\t</entry>\n";
+				$salida .= "\t\t\t\t</i>\n";
 			}
-			$salida .= "\t\t\t\t</i>\n";
 			$salida .= "\t\t\t</tuple>\n";	
 			$salida .= "\t\t</entry>\n";
+			
+			//Asignaciones Parciales
+			$salida .= "\t\t<entry key=\"ChannelAssignInDivisions\">\n";
+			$salida .= "\t\t\t<list>\n";
+			$salida .= obtenerAsignacionesParciales($rangoSeleccionado, $tipoAsignacion, $idAsignacion);
+			$salida .= "\t\t\t</list>\n";	
+			$salida .= "\t\t</entry>\n";
+						
+			//Canales reservados
+			$salida .= "\t\t<entry key=\"ReservedChannels\">\n";
+			$salida .= "\t\t\t<list>\n";
+			foreach($listaOperadores as $key => $op)
+			{
+				$salida .= "\t\t\t\t<i>";
+				$salida .= $op;
+				$salida .= "</i>\n";
+			}
+		
+			$salida .= "\t\t\t</list>\n";	
+			$salida .= "\t\t</entry>\n";	
+			
+			//Canales Inutilizados
+			$salida .= "\t\t<entry key=\"DisabledChannels\">\n";
+			$salida .= "\t\t\t<list>\n";
+			foreach($listaOperadores as $key => $op)
+			{
+				$salida .= "\t\t\t\t<i>";
+				$salida .= $op;
+				$salida .= "</i>\n";
+			}
+		
+			$salida .= "\t\t\t</list>\n";	
+			$salida .= "\t\t</entry>\n";	
 			
 			//Asignaciones actuales				
 			$salida .= "\t\t<entry key=\"AssignationChannel\">\n";
 			$salida .= "\t\t\t<tuple>\n";
 
 			$salida .= obtenerInutilizableYReservado($rangoSeleccionado);
-			$salida .= obtenerAsignacionesParciales($rangoSeleccionado, $tipoAsignacion, $idAsignacion);
 			$salida .= obtenerAsignacion($listaOperadores, $tipoAsignacion, $idAsignacion, $rangoSeleccionado );
 			$salida .= "\t\t\t</tuple>\n";					
 			$salida .= "\t\t</entry>\n";	
