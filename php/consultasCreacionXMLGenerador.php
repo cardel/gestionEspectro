@@ -94,52 +94,47 @@ function retornarOperadores($id_frequency_rank, $tipoAsignacion, $idAsignacion)
 	return $salida;
 }
 
-//Esta funcion retorna los canales reservado e inutilizables de una banda
-function obtenerInutilizableYReservado($id_frequency_rank)
+//Esta funcion retorna los canales reservado de una banda
+function obtenerReservado($id_frequency_rank)
 {
     $objconexionBD = new conexionBD();
     $objconexionBD->abrirConexion();
     		
-	$inutilizado = "\t\t\t\t<i>\n";
-	$inutilizado .= "\t\t\t\t\t<entry key=\"inutilizado\">\n";
-	$inutilizado .= "\t\t\t\t\t\t<tuple>\n";
-	$inutilizado .= "\t\t\t\t\t\t\t<i>\n";
-	$inutilizado .= "\t\t\t\t\t\t\t\t<list>\n";
-	
-	$reservado = "\t\t\t\t<i>\n";
-	$reservado .= "\t\t\t\t\t<entry key=\"reservado\">\n";
-	$reservado .= "\t\t\t\t\t\t<tuple>\n";
-	$reservado .= "\t\t\t\t\t\t\t<i>\n";
-	$reservado .= "\t\t\t\t\t\t\t\t<list>\n";	
+	$reservado = "";
 	
 	$query="select channel_number, reserved, disabled from channels where \"ID_frequency_ranks\" = ".$id_frequency_rank." order by channel_number;";
 	$result= $objconexionBD->enviarConsulta($query);	
 	while ($row =  pg_fetch_array ($result))
 	{
-	  $inut = 0;
-	  $reser = 0;
-	  
-	  if($row["disabled"]!='f') $inut=1;
-	  if($row["reserved"]!='f') $reser=1;
-	  
- 	  $inutilizado .= "\t\t\t\t\t\t\t\t\t<i>".$inut."</i>\n";	    
- 	  $reservado .= "\t\t\t\t\t\t\t\t\t<i>".$reser."</i>\n";
+	  $reser = 0;	  
+	  if($row["reserved"]!='f') $reser=1;	  
+ 	  $reservado .= "\t\t\t\t<i>".$reser."</i>\n";
 	}	
 	pg_free_result($result);
-	$inutilizado .= "\t\t\t\t\t\t\t\t</list>\n";	
-	$inutilizado .= "\t\t\t\t\t\t\t</i>\n";
-	$inutilizado .= "\t\t\t\t\t\t</tuple>\n";
-	$inutilizado .= "\t\t\t\t\t</entry>\n";
-	$inutilizado .= "\t\t\t\t</i>\n";
 
 
-	$reservado .= "\t\t\t\t\t\t\t\t</list>\n";	
-	$reservado .= "\t\t\t\t\t\t\t</i>\n";
-	$reservado .= "\t\t\t\t\t\t</tuple>\n";
-	$reservado .= "\t\t\t\t\t</entry>\n";
-	$reservado .= "\t\t\t\t</i>\n";
+	$salida.= $reservado;
+	$objconexionBD->cerrarConexion();	
+	return $salida;
+}
+//Esta funcion retorna los canales inutilizables de una banda
+function obtenerInutilizable($id_frequency_rank)
+{
+    $objconexionBD = new conexionBD();
+    $objconexionBD->abrirConexion();
+    		
+	$inutilizado="";	
+	
+	$query="select channel_number, reserved, disabled from channels where \"ID_frequency_ranks\" = ".$id_frequency_rank." order by channel_number;";
+	$result= $objconexionBD->enviarConsulta($query);	
+	while ($row =  pg_fetch_array ($result))
+	{
+	  $inut = 0;	  
+	  if($row["disabled"]!='f') $inut=1;	  
+ 	  $inutilizado .= "\t\t\t\t<i>".$inut."</i>\n";	    
+	}	
+	pg_free_result($result);
 
-	$salida.= $inutilizado;
 	$salida.= $reservado;
 	$objconexionBD->cerrarConexion();	
 	return $salida;
@@ -318,6 +313,9 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 	return $maximo;
 }
 
+/*
+ * Esta funcion obtiene la asignacion en las subdivisiones del área de trabajo en el rango de frecuencias que se busca asignar
+ */ 
 function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLugarAsignacion)
 {
     $objconexionBD = new conexionBD();
@@ -478,7 +476,9 @@ function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLu
 	return $salida;;
 }
 
-
+/*
+ * Esta funcion obtiene las asignaciones de los canales
+ */
 
 function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignacion, $id_frequency_rank )
 {
@@ -497,14 +497,13 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
     $idAsignacionMunicipal = $idAsignacion;
     
     //Se toma en cuenta que las asignaciones se propagan de divisiones a subdivisiones, por ejemplo una asignación nacional va con otras
-	for($i=4; $i<=sizeof($listaOperadoresOrdenada); $i++)
+	foreach($listaOperadoresOrdenada as $op)
 	{
 		$asignacion = array();
 		$salida .= "\t\t\t\t<i>\n";
-		$salida .= "\t\t\t\t\t<entry key=\"".$listaOperadoresOrdenada[$i]."\">\n";
-		$salida .= "\t\t\t\t\t\t<tuple>\n";
-		$salida .= "\t\t\t\t\t\t\t<i>\n";
-		$salida .= "\t\t\t\t\t\t\t\t<list>\n";
+		$salida .= "\t\t\t\t\t<entry key=\"".$op."\">\n";
+		$salida .= "\t\t\t\t\t\t<i>\n";
+		$salida .= "\t\t\t\t\t\t\t<list>\n";
 		$typeAssign = $tipoAsignacion;  
 		//Revisar asignaciones desde subdivisiones a divisiones
 		while($typeAssign >= 0)
@@ -551,7 +550,7 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
 			}
 			$typeAssign--;	
 			
-			$query="select channel_number as canal from channels_assignations natural join ".$tipoConsultaInicio." natural join operators natural join channels where \"ID_Operator\"=".$listaOperadoresOrdenada[$i]." and \"ID_frequency_ranks\"=".$id_frequency_rank." ".$tipoConsultaFinal." ;";
+			$query="select channel_number as canal from channels_assignations natural join ".$tipoConsultaInicio." natural join operators natural join channels where \"ID_Operator\"=".$op." and \"ID_frequency_ranks\"=".$id_frequency_rank." ".$tipoConsultaFinal." ;";
 			$result= $objconexionBD->enviarConsulta($query);	
 			
 			//Consultar operadores actuales en la banda
@@ -570,12 +569,11 @@ function obtenerAsignacion($listaOperadoresOrdenada, $tipoAsignacion, $idAsignac
 		{  
 		  $ingresar = 0;		  
 		  if($asignacion[$row['channel_number']]==1) $ingresar = 1;			  
-		  $salida .= "\t\t\t\t\t\t\t\t\t<i>".$ingresar."</i>\n";
+		  $salida .= "\t\t\t\t\t\t\t\t<i>".$ingresar."</i>\n";
 		}
 		
-		$salida .= "\t\t\t\t\t\t\t\t</list>\n";	
-		$salida .= "\t\t\t\t\t\t\t</i>\n";
-		$salida .= "\t\t\t\t\t\t</tuple>\n";
+		$salida .= "\t\t\t\t\t\t\t</list>\n";	
+		$salida .= "\t\t\t\t\t\t</i>\n";
 		$salida .= "\t\t\t\t\t</entry>\n";	
 		$salida .= "\t\t\t\t</i>\n";
 

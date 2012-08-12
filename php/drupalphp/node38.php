@@ -240,7 +240,7 @@
 			{
 				$salida .= "\t\t\t\t<i>\n";
 				$salida .= "\t\t\t\t\t<entry key=\"".$op[0]."\">\n";
-				$salida .= "\t\t\t\t\t\t<i>".$op[1]."</i>";
+				$salida .= "\t\t\t\t\t\t<i>".$op[1]."</i>\n";
 				$salida .= "\t\t\t\t\t</entry>\n";
 				$salida .= "\t\t\t\t</i>\n";
 			}
@@ -278,40 +278,27 @@
 			//Canales reservados
 			$salida .= "\t\t<entry key=\"ReservedChannels\">\n";
 			$salida .= "\t\t\t<list>\n";
-			foreach($listaOperadores as $key => $op)
-			{
-				$salida .= "\t\t\t\t<i>";
-				$salida .= $op;
-				$salida .= "</i>\n";
-			}
-		
+			$salida .= obtenerReservado($rangoSeleccionado);
 			$salida .= "\t\t\t</list>\n";	
 			$salida .= "\t\t</entry>\n";	
 			
 			//Canales Inutilizados
 			$salida .= "\t\t<entry key=\"DisabledChannels\">\n";
 			$salida .= "\t\t\t<list>\n";
-			foreach($listaOperadores as $key => $op)
-			{
-				$salida .= "\t\t\t\t<i>";
-				$salida .= $op;
-				$salida .= "</i>\n";
-			}
-		
+			$salida .= obtenerInutilizable($rangoSeleccionado);
 			$salida .= "\t\t\t</list>\n";	
 			$salida .= "\t\t</entry>\n";	
 			
 			//Asignaciones actuales				
-			$salida .= "\t\t<entry key=\"AssignationChannel\">\n";
+			$salida .= "\t\t<entry key=\"ChannelAssignation\">\n";
 			$salida .= "\t\t\t<tuple>\n";
 
-			$salida .= obtenerInutilizableYReservado($rangoSeleccionado);
 			$salida .= obtenerAsignacion($listaOperadores, $tipoAsignacion, $idAsignacion, $rangoSeleccionado );
 			$salida .= "\t\t\t</tuple>\n";					
 			$salida .= "\t\t</entry>\n";	
 							
 			//Tope de canales por operador en la banda	
-			$salida .= "\t\t<entry key=\"MaximumOperatorChannels\">\n";
+			$salida .= "\t\t<entry key=\"MaxChannelAssignationByOperator\">\n";
 			$salida .= "\t\t\t<i>".$maxChannelPerOperatorFormulario."</i>\n";
 			$salida .= "\t\t</entry>\n";	
 														
