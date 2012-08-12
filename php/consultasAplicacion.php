@@ -75,7 +75,7 @@
 		$objconexionBD->abrirConexion();	
 		
 		$salida = "";
-		$query="select frequency_bands_name,frequency_bands_range from frequency_bands where \"ID_frequency_bands\"=".$bandaID.";";
+		$query="select frequency_bands_name, frequency_bands_range from frequency_bands where \"ID_frequency_bands\"=".$bandaID.";";
 
 		$result= $objconexionBD->enviarConsulta($query);
 		while ($row =  pg_fetch_array ($result))
