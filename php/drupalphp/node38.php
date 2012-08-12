@@ -179,7 +179,7 @@
 			$salida .= "\t\t\t<i>".$idAsignacion."</i>\n";
 			$salida .= "\t\t</entry>\n";			
 
-			$salida .= "\t\t<entry key=\"FrecuencyBand\">\n";
+			$salida .= "\t\t<entry key=\"FrequencyBand\">\n";
 			$salida .= "\t\t\t<i>".$rangoSeleccionado."</i>\n";
 			$salida .= "\t\t</entry>\n";
 			
@@ -192,7 +192,7 @@
 			$salida .= "\t\t</entry>\n";	
 			
 			//Consultar operadores actuales
-			$salida .= "\t\t<entry key=\"NumberPResenteOperators\">\n";
+			$salida .= "\t\t<entry key=\"NumberPresentOperators\">\n";
 			
 			$listaOperadores = retornarOperadores($rangoSeleccionado, $tipoAsignacion , $idAsignacion);
 			
@@ -234,7 +234,7 @@
 			$salida .= "\t\t</entry>\n";	
 
 			//Reqerimientos
-			$salida .= "\t\t<entry key=\"OperatorsWithRequeriments\">\n";
+			$salida .= "\t\t<entry key=\"Requeriments\">\n";
 			$salida .= "\t\t\t<tuple>\n";
 			foreach($requerimientos as $op)
 			{
@@ -251,17 +251,11 @@
 			//maximo ocupado por un operador de entrada
 			$salida .= "\t\t<entry key=\"MaxAssignationsSubDivision\">\n";
 			$salida .= "\t\t\t<tuple>\n";
-			foreach($requerimientos as $op)
+			foreach($requerimientos as $key => $op)
 			{
-				$keyOP = 0;
-				foreach ($listaOperadores as $key => $elemento) {
-					if ($elemento == $op[0]) {
-						$keyOP =  $key;
-					}
-				}
 				$salida .= "\t\t\t\t<i>\n";
-				$salida .= "\t\t\t\t\t<entry key=\"".$keyOP."\">\n";
-				$salida .= "\t\t\t\t\t\t<i>".obtenerMaximoParcial($op[0], $tipoAsignacion, $idAsignacion, $rangoSeleccionado)."</i>\n";
+				$salida .= "\t\t\t\t\t<entry key=\"".$key."\">\n";
+				$salida .= "\t\t\t\t\t\t<i>".obtenerMaximoParcial($key, $tipoAsignacion, $idAsignacion, $rangoSeleccionado)."</i>\n";
 				$salida .= "\t\t\t\t\t</entry>\n";
 				$salida .= "\t\t\t\t</i>\n";
 			}

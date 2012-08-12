@@ -135,7 +135,7 @@ function obtenerInutilizable($id_frequency_rank)
 	}	
 	pg_free_result($result);
 
-	$salida.= $reservado;
+	$salida.= $inutilizado;
 	$objconexionBD->cerrarConexion();	
 	return $salida;
 }
