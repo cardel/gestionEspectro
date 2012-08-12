@@ -1,5 +1,5 @@
 <?php
-require ("/var/www/html/site/gestionEspectro/php/consultasGenerador.php");
+require ("/var/www/html/site/gestionEspectro/php/consultasAplicacion.php");
 
 $file = $_POST['file'];
 $fileXML = $_POST['fileXML'];

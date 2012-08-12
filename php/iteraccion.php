@@ -1,5 +1,5 @@
 <?php
-require ("/var/www/html/site/gestionEspectro/php/consultasGenerador.php");
+require ("/var/www/html/site/gestionEspectro/php/consultasAplicacion.php");
 $seleccion = (int) $_POST['opcSelec'];
 $file = $_POST['file'];
 $solucionIt = simplexml_load_file($file);
