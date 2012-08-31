@@ -468,7 +468,6 @@ void leerArchivo(string nombreArchivoEntrada)
 {
 	FILE * ArchivoDeEntrada;	
 	ArchivoDeEntrada = fopen(nombreArchivoEntrada.c_str(), "r");
-	cout << "ok" << endl;
 	//Numero de canales
 	fscanf(ArchivoDeEntrada, "%d", &C); 
 	
@@ -489,7 +488,6 @@ void leerArchivo(string nombreArchivoEntrada)
 
 	//Numero de operadores que no están presentes y solicitan asignacion OpiNoOpp
 	fscanf(ArchivoDeEntrada, "%d", &InN);
-	cout << "ok1" << endl;
 	Opp = new int[P];
 	
 	for(int i=0; i<P; i++)
@@ -503,59 +501,59 @@ void leerArchivo(string nombreArchivoEntrada)
 	{
 		fscanf(ArchivoDeEntrada, "%d", &Opi[i]); 
 	}
-	
+	cout << "ok3" << endl;
 	Req = new int[T];
 	
 	for(int i=0; i<T; i++)
 	{
 		fscanf(ArchivoDeEntrada, "%d", &Req[i]); 
 	}
-
+cout << "ok4" << endl;
 	Opt = new int[N];
 	for(int i=0; i<N; i++)
 	{
 		fscanf(ArchivoDeEntrada, "%d", &Opt[i]); 
 	}
-	
+	cout << "ok5" << endl;
 	OppNoOpi = new int[NnI];
 	for(int i=0; i<NnI; i++)
 	{
 		fscanf(ArchivoDeEntrada, "%d", &OppNoOpi[i]); 
 	}
-
+cout << "ok6" << endl;
 	OppOpi = new int[NI];
 	for(int i=0; i<NI; i++)
 	{
 		fscanf(ArchivoDeEntrada, "%d", &OppOpi[i]); 
 	}
 
-
+cout << "ok7" << endl;
 	OpiNoOpp = new int[InN];
 	for(int i=0; i<InN; i++)
 	{
 		fscanf(ArchivoDeEntrada, "%d", &OpiNoOpp[i]); 
 	}
-	
+cout << "ok8" << endl;	
 	char * asiAct = new char[C*P];
 	fscanf(ArchivoDeEntrada, "%s", asiAct); 
 	asignacionesActuales = (string)asiAct;
 	delete asiAct;
-	
+	cout << "ok9" << endl;
 	char * asiEnSub = new char[C];	
 	fscanf(ArchivoDeEntrada, "%s", asiEnSub); 
 	EnSubDivisiones = (string)asiEnSub;
 	delete asiEnSub;
-	
+cout << "ok10" << endl;	
 	char * reser = new char[C];
 	fscanf(ArchivoDeEntrada, "%s", reser); 
 	Reservado = (string)reser;
 	delete reser;
-	
+	cout << "ok11" << endl;
 	char * inut = new char[C];
 	fscanf(ArchivoDeEntrada, "%s", inut); 
 	Reservado = (string)reser;
 	delete inut;
-	
+	cout << "ok12" << endl;
 	fscanf(ArchivoDeEntrada, "%d", &BandaDeFrecuencia); 
 	fscanf(ArchivoDeEntrada, "%d", &RangoDeFrecuencia); 
 	fscanf(ArchivoDeEntrada, "%d", &Sep); 
