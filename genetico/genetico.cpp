@@ -821,11 +821,11 @@ int main(int argc, char* argv[])
 		fprintf(ArchivoDeSalida,"%s%d%s","\t<solution id=\"",i,"\">\n");
 		
 		fprintf(ArchivoDeSalida,"%s","\t\t<costs>\n");		
-		fprintf(ArchivoDeSalida,"%s%d%s","\t\t\t<violations>\"",poblacionFinalConCostos.at(i).second.first,"\"</violations>\n");
-		fprintf(ArchivoDeSalida,"%s%d%s","\t\t\t<blocksNumber>\"",poblacionFinalConCostos.at(i).second.second.at(0),"\"</blocksNumber>\n");
-		fprintf(ArchivoDeSalida,"%s%d%s","\t\t\t<difChannelNumberMaxBlockFree>\"",poblacionFinalConCostos.at(i).second.second.at(1),"\"</difChannelNumberMaxBlockFree>\n");
-		fprintf(ArchivoDeSalida,"%s%d%s","\t\t\t<channelNumberUseless>\"",poblacionFinalConCostos.at(i).second.second.at(2),"\"</channelNumberUseless>\n");
-		fprintf(ArchivoDeSalida,"%s%d%s","\t\t\t<totalCost>\"",poblacionFinalConCostos.at(i).second.second.at(3),"\"</totalCost>\n");
+		fprintf(ArchivoDeSalida,"%s%d%s","\t\t\t<violations>",poblacionFinalConCostos.at(i).second.first,"</violations>\n");
+		fprintf(ArchivoDeSalida,"%s%d%s","\t\t\t<blocksNumber>",poblacionFinalConCostos.at(i).second.second.at(0),"</blocksNumber>\n");
+		fprintf(ArchivoDeSalida,"%s%d%s","\t\t\t<difChannelNumberMaxBlockFree>",poblacionFinalConCostos.at(i).second.second.at(1),"</difChannelNumberMaxBlockFree>\n");
+		fprintf(ArchivoDeSalida,"%s%d%s","\t\t\t<channelNumberUseless>",poblacionFinalConCostos.at(i).second.second.at(2),"</channelNumberUseless>\n");
+		fprintf(ArchivoDeSalida,"%s%d%s","\t\t\t<totalCost>",poblacionFinalConCostos.at(i).second.second.at(3),"</totalCost>\n");
 		fprintf(ArchivoDeSalida,"%s","\t\t</costs>\n");
 	
 		fprintf(ArchivoDeSalida,"%s","\t\t<report>\n");		
