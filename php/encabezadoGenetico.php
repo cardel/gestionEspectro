@@ -59,7 +59,7 @@ echo "<td class='estilo'>Número de soluciones</td>\n";
 echo "<td class='estilo'>$head->numSolutions</td>\n";
 echo "</tr>\n";
 echo "<tr>\n";
-echo "<td class='estilo'>Tiempo de ejecución</td>\n";
+echo "<td class='estilo'>Tiempo de ejecución (Segundos)</td>\n";
 echo "<td class='estilo'>$head->executionTime</td>\n";
 echo "</tr>\n";
 echo "<tr>\n";
