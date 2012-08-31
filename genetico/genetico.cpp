@@ -468,7 +468,7 @@ void leerArchivo(string nombreArchivoEntrada)
 {
 	FILE * ArchivoDeEntrada;	
 	ArchivoDeEntrada = fopen(nombreArchivoEntrada.c_str(), "r");
-	
+	cout << "ok" << endl;
 	//Numero de canales
 	fscanf(ArchivoDeEntrada, "%d", &C); 
 	
@@ -489,14 +489,14 @@ void leerArchivo(string nombreArchivoEntrada)
 
 	//Numero de operadores que no están presentes y solicitan asignacion OpiNoOpp
 	fscanf(ArchivoDeEntrada, "%d", &InN);
-
+	cout << "ok1" << endl;
 	Opp = new int[P];
 	
 	for(int i=0; i<P; i++)
 	{
 		fscanf(ArchivoDeEntrada, "%d", &Opp[i]); 
 	}
-	
+	cout << "ok2" << endl;	
 	Opi = new int[T];
 	
 	for(int i=0; i<T; i++)
