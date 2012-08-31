@@ -13,7 +13,6 @@
 #include <cstdio>
 #include <sstream>
 #include <algorithm>
-#include <time.h>
 
 #define SIZE          8192  /* buffer size for reading /proc/<pid>/status */
 using namespace std;
