@@ -450,7 +450,7 @@ else{
 	echo "<p class='estiloTitulo'>Aplicación gestión del espectro usando programación por restricciones</p>\n";
 	echo '<p style="text-align:left";><a class="iframe" href="http://avispa.univalle.edu.co/~cardel/proyInv/ayudaSecuenciamientoAviones/ayuda.php"><img border="0" src="files/HelpIcon.gif" width="50" height="50"><br/>Ayuda</a></p>';
 
-	$status = "";
+	$status = -1;
 	$accion = $_POST["action"];
 	$operacion = $_POST["op"];
 
@@ -462,13 +462,6 @@ else{
 	if(!is_dir("/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid, 0755);
 	
 	$file = $_POST["oredefinedinput"];
-	
-	if ($file==null && $_FILES["archivo"]['name']=="" && $operacion == "Ejecutar")
-	{
-		echo "<script language='javascript'>alert('Debe ingresar un archivo o seleccionar uno de la lista');</script>";
-		$accion = "none";
-		$operacion = "none";
-	}	
 	
 	if ($accion == "upload") {
 	
@@ -484,16 +477,21 @@ else{
 			$destino =  "/var/www/html/site/gestionEspectro/entradas/".$user->uid."/".$archivo;
 			$file = $destino;
 			if (copy($_FILES['archivo']['tmp_name'],$destino)) {
-				$status = "Archivo subido: <b>".$archivo."</b>";
+				$status = 1;
 			} else {
-				$status = "Error al subir el archivo";
+				$status = -1;
 			}
 		} else {			
-			$status = "Error al subir archivo";
+			$status = -1;
 		}
 	}
-
-	echo $status;
+	
+	if ($status==-1 && $file=="null")
+	{
+		echo "<script language='javascript'>alert('Debe ingresar un archivo o seleccionar uno de la lista');</script>";
+		$accion = "none";
+		$operacion = "none";
+	}	
 	//Variables para todas las iteracciones
 	$motor = $_POST["motor"];
 	$estrategia = $_POST["estrategia"];
@@ -730,45 +728,45 @@ else{
 			<td width="50%" bgcolor="#AE8EE6">
 				<div id="it1">
 					<p style='text-align:center; font-size:18px'>
-						 Iteracción 1
+						 Iteración 1
 					</p>
-					<div class="form-item" id="edit-propCostos-wrapper">
+					<div class="form-item">
 						<label class="option" for="edit-propCostos">
-						<input type="checkbox" name="noSepit1" id="edit-propCostos" value="1"  class="form-checkbox"/> No considerar separación.</label>
+						<input type="checkbox" name="noSepit1"  value="1"  class="form-checkbox"/> No considerar separación.</label>
 					</div>
-					<div class="form-item" id="edit-restriTec-wrapper">
-						<label class="option" for="edit-restriTec"><input type="checkbox" name="noconsidTopeit1" id="edit-restriTec" value="1" class="form-checkbox"/> No considerar tope.</label>
+					<div class="form-item">
+						<label class="option" for="edit-restriTec"><input type="checkbox" name="noconsidTopeit1" value="1" class="form-checkbox"/> No considerar tope.</label>
 					</div>
-					<div class="form-item" id="edit-frec-wrapper">
+					<div class="form-item">
 						<label class="option" for="edit-frec">
-						<input type="checkbox" name="noMantenerSepit1" id="edit-frec" value="1" class="form-checkbox"/> Canales en operadores que solicitan asignación se pueden mover.</label>
+						<input type="checkbox" name="noMantenerSepit1" value="1" class="form-checkbox"/> Canales en operadores que solicitan asignación se pueden mover.</label>
 					</div>
-					<div class="form-item" id="edit-numerOperadores-wrapper">
+					<div class="form-item">
 						<label for="edit-numerOperadores">Número de operadores por canal: </label>
-						<input type="text" maxlength="64" name="numerOpeCanalit1" default="1" id="edit-numerOperadores" value="1" size="30" class="form-text"/>
-						<div class="description"> Número de operadores por canal (en casos especiales > 1)</div>
+						<input type="text" maxlength="64" name="numerOpeCanalit1" default="1" value="1" size="30" class="form-text"/>
+						<div class="description"> Número de operadores por canal (en casos especiales> 1)</div>
 					</div>
 				</div>
 			</td>
 			<td width="50%" style="text-align:right" bgcolor="#AE8EE6">
 				<div id="it2" style="display:none">
 					<p style='text-align:center; font-size:18px'>
-						 Iteracción 2
+						 Iteración 2
 					</p>
-					<div class="form-item" id="edit-propCostos-wrapper">
-						<label class="option" for="edit-propCostos"><input type="checkbox" name="noSepit2" id="edit-propCostos" value="1" class="form-checkbox"/> No considerar separación.</label>
+					<div class="form-item">
+						<label class="option" for="edit-propCostos"><input type="checkbox" name="noSepit2"  value="1" class="form-checkbox"/> No considerar separación.</label>
 					</div>
-					<div class="form-item" id="edit-restriTec-wrapper">
-						<label class="option" for="edit-restriTec"><input type="checkbox" name="noconsidTopeit2" id="edit-restriTec" value="1" class="form-checkbox"/> No considerar tope.</label>
+					<div class="form-item">
+						<label class="option" for="edit-restriTec"><input type="checkbox" name="noconsidTopeit2" value="1" class="form-checkbox"/> No considerar tope.</label>
 					</div>
-					<div class="form-item" id="edit-frec-wrapper">
-						<label class="option" for="edit-frec"><input type="checkbox" name="noMantenerSepit2" id="edit-frec" value="1" class="form-checkbox"/> Canales en operadores que solicitan asignación se pueden mover.</label>
+					<div class="form-item">
+						<label class="option" for="edit-frec"><input type="checkbox" name="noMantenerSepit2" value="1" class="form-checkbox"/> Canales en operadores que solicitan asignación se pueden mover.</label>
 					</div>
-					<div class="form-item" id="edit-numerOperadores-wrapper">
+					<div class="form-item">
 						<label for="edit-numerOperadores">Número de operadores por canal: </label>
-						<input type="text" maxlength="64" name="numerOpeCanalit2" id="edit-numerOperadores" size="30" value="1" class="form-text"/>
+						<input type="text" maxlength="64" name="numerOpeCanalit2" size="30" value="1" class="form-text"/>
 						<div class="description">
-							 Número de operadores por canal (en casos especiales > 1)
+							 Número de operadores por canal (en casos especiales> 1)
 						</div>
 					</div>
 				</div>
@@ -778,22 +776,22 @@ else{
 			<td width="50%" bgcolor="#A9E68E">
 				<div id="it3" style="display:none">
 					<p style='text-align:center; font-size:18px'>
-						 Iteracción 3
+						 Iteración 3
 					</p>
-					<div class="form-item" id="edit-propCostos-wrapper">
-						<label class="option" for="edit-propCostos"><input type="checkbox" name="noSepit3" id="edit-propCostos" value="1" class="form-checkbox"/> No considerar separación.</label>
+					<div class="form-item">
+						<label class="option" for="edit-propCostos"><input type="checkbox" name="noSepit3"  value="1" class="form-checkbox"/> No considerar separación.</label>
 					</div>
-					<div class="form-item" id="edit-restriTec-wrapper">
-						<label class="option" for="edit-restriTec"><input type="checkbox" name="noconsidTopeit3" id="edit-restriTec" value="1" class="form-checkbox"/> No considerar tope.</label>
+					<div class="form-item">
+						<label class="option" for="edit-restriTec"><input type="checkbox" name="noconsidTopeit3" value="1" class="form-checkbox"/> No considerar tope.</label>
 					</div>
-					<div class="form-item" id="edit-frec-wrapper">
-						<label class="option" for="edit-frec"><input type="checkbox" name="noMantenerSepit3" id="edit-frec" value="1" class="form-checkbox"/> Canales en operadores que solicitan asignación se pueden mover.</label>
+					<div class="form-item">
+						<label class="option" for="edit-frec"><input type="checkbox" name="noMantenerSepit3" value="1" class="form-checkbox"/> Canales en operadores que solicitan asignación se pueden mover.</label>
 					</div>
-					<div class="form-item" id="edit-numerOperadores-wrapper">
+					<div class="form-item">
 						<label for="edit-numerOperadores">Número de operadores por canal: </label>
-						<input type="text" maxlength="64" name="numerOpeCanalit3" id="edit-numerOperadores" size="30" value="1" class="form-text"/>
+						<input type="text" maxlength="64" name="numerOpeCanalit3" size="30" value="1" class="form-text"/>
 						<div class="description">
-							 Número de operadores por canal (en casos especiales > 1)
+							 Número de operadores por canal (en casos especiales> 1)
 						</div>
 					</div>
 				</div>
@@ -801,22 +799,22 @@ else{
 			<td width="50%" style="text-align:right" bgcolor="#A9E68E">
 				<div id="it4" style="display:none">
 					<p style='text-align:center; font-size:18px'>
-						 Iteracción 4
+						 Iteración 4
 					</p>
-					<div class="form-item" id="edit-propCostos-wrapper">
-						<label class="option" for="edit-propCostos"><input type="checkbox" name="noSepit4" id="edit-propCostos" value="1" class="form-checkbox"/> No considerar separación.</label>
+					<div class="form-item">
+						<label class="option" for="edit-propCostos"><input type="checkbox" name="noSepit4"  value="1" class="form-checkbox"/> No considerar separación.</label>
 					</div>
-					<div class="form-item" id="edit-restriTec-wrapper">
-						<label class="option" for="edit-restriTec"><input type="checkbox" name="noconsidTopeit4" id="edit-restriTec" value="1" class="form-checkbox"/> No considerar tope.</label>
+					<div class="form-item">
+						<label class="option" for="edit-restriTec"><input type="checkbox" name="noconsidTopeit4" value="1" class="form-checkbox"/> No considerar tope.</label>
 					</div>
-					<div class="form-item" id="edit-frec-wrapper">
-						<label class="option" for="edit-frec"><input type="checkbox" name="noMantenerSepit4" id="edit-frec" value="1" class="form-checkbox"/> Canales en operadores que solicitan asignación se pueden mover.</label>
+					<div class="form-item">
+						<label class="option" for="edit-frec"><input type="checkbox" name="noMantenerSepit4" value="1" class="form-checkbox"/> Canales en operadores que solicitan asignación se pueden mover.</label>
 					</div>
-					<div class="form-item" id="edit-numerOperadores-wrapper">
+					<div class="form-item">
 						<label for="edit-numerOperadores">Número de operadores por canal: </label>
-						<input type="text" maxlength="64" name="numerOpeCanalit4" id="edit-numerOperadores" size="30" value="1" class="form-text"/>
+						<input type="text" maxlength="64" name="numerOpeCanalit4" size="30" value="1" class="form-text"/>
 						<div class="description">
-							 Número de operadores por canal (en casos especiales > 1)
+							 Número de operadores por canal (en casos especiales> 1)
 						</div>
 					</div>
 				</div>
@@ -826,22 +824,22 @@ else{
 			<td width="50%" bgcolor="#E6DB8E">
 				<div id="it5" style="display:none">
 					<p style='text-align:center; font-size:18px'>
-						 Iteracción 5
+						 Iteración 5
 					</p>
-					<div class="form-item" id="edit-propCostos-wrapper">
-						<label class="option" for="edit-propCostos"><input type="checkbox" name="noSepit5" id="edit-propCostos" value="1" class="form-checkbox"/> No considerar separación.</label>
+					<div class="form-item">
+						<label class="option" for="edit-propCostos"><input type="checkbox" name="noSepit5"  value="1" class="form-checkbox"/> No considerar separación.</label>
 					</div>
-					<div class="form-item" id="edit-restriTec-wrapper">
-						<label class="option" for="edit-restriTec"><input type="checkbox" name="noconsidTopeit5" id="edit-restriTec" value="1" class="form-checkbox"/> No considerar tope.</label>
+					<div class="form-item">
+						<label class="option" for="edit-restriTec"><input type="checkbox" name="noconsidTopeit5" value="1" class="form-checkbox"/> No considerar tope.</label>
 					</div>
-					<div class="form-item" id="edit-frec-wrapper">
-						<label class="option" for="edit-frec"><input type="checkbox" name="noMantenerSepit5" id="edit-frec" value="1" class="form-checkbox"/> Canales en operadores que solicitan asignación se pueden mover.</label>
+					<div class="form-item">
+						<label class="option" for="edit-frec"><input type="checkbox" name="noMantenerSepit5" value="1" class="form-checkbox"/> Canales en operadores que solicitan asignación se pueden mover.</label>
 					</div>
-					<div class="form-item" id="edit-numerOperadores-wrapper">
+					<div class="form-item">
 						<label for="edit-numerOperadores">Número de operadores por canal: </label>
-						<input type="text" maxlength="64" name="numerOpeCanalit5" id="edit-numerOperadores" size="30" value="1" class="form-text"/>
+						<input type="text" maxlength="64" name="numerOpeCanalit5" size="30" value="1" class="form-text"/>
 						<div class="description">
-							 Número de operadores por canal (en casos especiales > 1)
+							 Número de operadores por canal (en casos especiales> 1)
 						</div>
 					</div>
 				</div>
@@ -849,22 +847,22 @@ else{
 			<td width="50%" style="text-align:right" bgcolor="#E6DB8E">
 				<div id="it6" style="display:none">
 					<p style='text-align:center; font-size:18px'>
-						 Iteracción 6
+						 Iteración 6
 					</p>
-					<div class="form-item" id="edit-propCostos-wrapper">
-						<label class="option" for="edit-propCostos"><input type="checkbox" name="noSepit6" id="edit-propCostos" value="1" class="form-checkbox"/> No considerar separación.</label>
+					<div class="form-item">
+						<label class="option" for="edit-propCostos"><input type="checkbox" name="noSepit6"  value="1" class="form-checkbox"/> No considerar separación.</label>
 					</div>
-					<div class="form-item" id="edit-restriTec-wrapper">
-						<label class="option" for="edit-restriTec"><input type="checkbox" name="noconsidTopeit6" id="edit-restriTec" value="1" class="form-checkbox"/> No considerar tope.</label>
+					<div class="form-item">
+						<label class="option" for="edit-restriTec"><input type="checkbox" name="noconsidTopeit6" value="1" class="form-checkbox"/> No considerar tope.</label>
 					</div>
-					<div class="form-item" id="edit-frec-wrapper">
-						<label class="option" for="edit-frec"><input type="checkbox" name="noMantenerSepit6" id="edit-frec" value="1" class="form-checkbox"/> Canales en operadores que solicitan asignación se pueden mover.</label>
+					<div class="form-item">
+						<label class="option" for="edit-frec"><input type="checkbox" name="noMantenerSepit6" value="1" class="form-checkbox"/> Canales en operadores que solicitan asignación se pueden mover.</label>
 					</div>
-					<div class="form-item" id="edit-numerOperadores-wrapper">
+					<div class="form-item">
 						<label for="edit-numerOperadores">Número de operadores por canal: </label>
-						<input type="text" maxlength="64" name="numerOpeCanalit6" id="edit-numerOperadores" size="30" value="1" class="form-text"/>
+						<input type="text" maxlength="64" name="numerOpeCanalit6" size="30" value="1" class="form-text"/>
 						<div class="description">
-							 Número de operadores por canal (en casos especiales > 1)
+							 Número de operadores por canal (en casos especiales> 1)
 						</div>
 					</div>
 				</div>

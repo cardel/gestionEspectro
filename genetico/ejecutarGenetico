@@ -1,0 +1,69 @@
+./genetico 
+
+-i archivo entrada
+-o archivo salida
+-t tiempo ejecucion
+-s numero soluciones
+-pb pesoNumeroBloques
+-pn pesoNumeroCanalesInutilizados
+-pd pesoDiferenciaMaxBloqueLibre
+-n numeroDeVecesEjecuta
+-p totalPoblacion
+-ec probabilidadCruce
+-em probabilidadMutacion
+
+./genetico -i input -o output.txt -t 4 -s 3 -pb 33 -pn 33 -pd 33 -n 1 -p 40 -ec 90 -em 2
+
+
+Archivo entrada
+
+TotalDeCanales
+NumeroDeOperadoresPresentes
+NumeroDeOperadoresQueRequierenAsignacion
+NumeroTotalDeOperadores
+NumeroDeOperadoresPresentesQueNoSolicitanAsignacion
+NumeroDeOperadoresPresentesQueSolictanAsignacion
+OperadoresQueSolicitanAsignacion
+RequerimientosDeOperadoresQueSolicitanAsignacion
+Numero de operadores que no están presentes y solicitan asignacion 
+OperadoresPresentesEnLabBanda
+Operadores actuales que no solictan asignacion
+Operadores actuales que si solicitan asignacion
+Operadores que entran y no solicitan asignacion
+Total de operadores que van a ir en la banda
+AsignacionesActuales
+AsignacionesEnSubvisiones
+CanalesReservados
+CanalesInutlizados
+----
+BandaDeFrecuencia
+RangoDeFrecuencia
+Separacion
+Tope
+TipoAsignacionGeografica
+IDAsignacionGeografica
+
+
+10
+4
+2
+5
+3
+1
+1
+2 8 16 22
+8 12
+1 1
+2 8 16 22
+2,8,12,16,22
+2 16 22
+8
+12
+100000000000000001000000000000000001000000000010
+000000000000
+000000000000
+000000000000
+1
+1
+1
+10
