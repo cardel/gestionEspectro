@@ -811,8 +811,6 @@ int main(int argc, char* argv[])
 	fprintf(ArchivoDeSalida,"%s%s%s","\t\t<staticAssignation>","true","</staticAssignation>\n");
 	fprintf(ArchivoDeSalida,"%s%s%s","\t\t<considerSeparation>","true","</considerSeparation>\n");
 	fprintf(ArchivoDeSalida,"%s%d%s","\t\t<numSolutions>",numeroSoluciones,"</numSolutions>\n");
-	fprintf(ArchivoDeSalida,"%s%d%s","\t\t<numSolutions>",numeroSoluciones,"</numSolutions>\n");
-	fprintf(ArchivoDeSalida,"%s%d%s","\t\t<memoryUsage>",0,"</memoryUsage>\n");
 	fprintf(ArchivoDeSalida,"%s%f%s","\t\t<executionTime>",secs,"</executionTime>\n");
 	fprintf(ArchivoDeSalida,"\t</head>\n");
 		
