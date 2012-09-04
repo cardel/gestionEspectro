@@ -6,7 +6,7 @@ if($accion=="operador")
 	$divisionTerritorial = $_POST["selectTerritorialDivision"];
 	$departamento = $_POST["selectDepartaments"];
 	$municipio = $_POST["selectCities"];
-	$operador = $_POST["operador"];
+	$operador = $_POST["operadorSel"];
 		
 	echo $divisionTerritorial."<br/>";
 	echo $departamento."<br/>";

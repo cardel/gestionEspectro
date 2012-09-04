@@ -26,12 +26,12 @@ function ejecutarOperador()
 	}
 	
 	var operador = -1;
-	if($('#operadores').length)
+	if($('#operadoresSelect').length)
 	{
-		operador = $('#operadores').val();
+		operador = $('#operadoresSelect').val();
 	}
 	
-	$.post("gestionEspectro/php/resultadosConsultas.php", { accion: 'operador', selectTerritorialDivision:selectTerritorialDivision,selectDepartaments:selectDepartaments, selectCities:selectCities,operador:operador}, function(data){
+	$.post("gestionEspectro/php/resultadosConsultas.php", { accion: 'operador', selectTerritorialDivision:selectTerritorialDivision,selectDepartaments:selectDepartaments, selectCities:selectCities,operadorSel:operadorSel}, function(data){
 		$("#resultadosOperador").html(data);
 	});	
 	
