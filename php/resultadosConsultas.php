@@ -7,7 +7,7 @@ if($accion=="operador")
 	$departamento = $_POST["selectDepartaments"];
 	$municipio = $_POST["selectCities"];
 	$operador = $_POST["operadorSel"];
-		
+    echo "<table width='100%' id='tabla1' class='tabla' border='1'>\n";		
 	echo "<thead>\n";
 	echo "<tr>\n";
 	echo "<th class='estilo'>Archivo</th>\n";
