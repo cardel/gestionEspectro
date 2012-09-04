@@ -12,6 +12,5 @@ if($accion=="operador")
 	echo $departamento."<br/>";
 	echo $municipio."<br/>";
 	echo $operador."<br/>";
-	echo "ok<br/>";
 }
 ?>
