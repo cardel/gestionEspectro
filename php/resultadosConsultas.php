@@ -16,7 +16,7 @@ if($accion=="operador")
 	echo "</tr>\n";
 	echo "</thead>\n";
 	echo "<tbody>\n";
-	echo "<tr><td>1</td><td>2</td><td>3</td></tr>";
+	echo "<tr><td class='estilo'>1</td><td class='estilo'>2</td><td class='estilo'>3</td></tr>";
 	echo "</tbody>\n";
     echo "</table>\n";	
 	
