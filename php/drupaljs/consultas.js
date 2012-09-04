@@ -1,5 +1,5 @@
 function operadores(){
-	$.post("gestionEspectro/php/consultarGenerales.php", { consulta: 'operadores'}, function(data){
+	$.post("gestionEspectro/php/consultasGenerales.php", { consulta: 'operadores'}, function(data){
 		$("#operadores").html(data);
 	}); 	
 }

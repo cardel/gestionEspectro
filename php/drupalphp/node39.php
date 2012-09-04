@@ -10,6 +10,7 @@
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/syntaxhighlighter/scripts/shCore.js');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/syntaxhighlighter/scripts/shBrushXml.js');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'gestionEspectro/php/drupaljs/generador.js');
+	drupal_add_js(drupal_get_path('module', 'mymodule') . 'gestionEspectro/php/drupaljs/consultas.js');
 	drupal_add_css($path = 'js/syntaxhighlighter/styles/shCore.css', $type = 'module', $media = 'all', $preprocess = TRUE);
 	drupal_add_css($path = 'js/syntaxhighlighter/styles/shThemeDefault.css', $type = 'module', $media = 'all', $preprocess = TRUE);
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/colorBoxU.js');
@@ -24,7 +25,7 @@
 <p class='estilo'>Asignacion por operador en zona</p>
 
 <form action="/site/?q=node/39" method="post">
-	<strong style="font-size:14px; font-weight:bold;"> Selección geográfica</strong>
+	<strong style="font-size:14px; font-weight:bold;">Selección geográfica</strong>
 	<div id="tipoAsignacion" style="font-size:11px; font-weight:bold;">La asignación es a nivel nacional</div>
 	<br/>
 	Usted puede seleccionar en que lugar se va realizar el proceso de asignación del espectro:
@@ -42,7 +43,7 @@
 	<div id="territorialDivision"></div>
 	<div id="departamentos"></div>
 	<div id="municipios"></div>	
-	<strong style="font-size:14px; font-weight:bold;"> 	Selección operador</strong>
+	<strong style="font-size:14px; font-weight:bold;">Selección operador</strong>
 		
 	<div id="operadores"></div>
 	<input type="submit" name="op" id="edit-submit" value="Consultar" class="form-submit"/>
