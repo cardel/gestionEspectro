@@ -7,7 +7,7 @@
 
 	if($tipoConsulta=='operadores')
 	{
-	   echo "<select name=\"operadores\">";
+	   echo "<select id=\"operadores\">";
 	   $query="select \"ID_Operator\" as id, operators_name from operators;";
 	   
 	   $result= $objconexionBD->enviarConsulta($query);
