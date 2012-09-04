@@ -3,9 +3,9 @@ $accion = $_POST["accion"];
 
 if($accion=="operador")
 {
-	$divisionTerritorial = $_POST["selectTerritorialDivisionForm"];
-	$departamento = $_POST["selectDepartamentsForm"];
-	$municipio = $_POST["selectCitiesForm"];
+	$divisionTerritorial = $_POST["selectTerritorialDivision"];
+	$departamento = $_POST["selectDepartaments"];
+	$municipio = $_POST["selectCities"];
 	$operador = $_POST["operador"];
 		
 	echo $divisionTerritorial."<br/>";
