@@ -66,7 +66,7 @@
 	
 	if($status==1 && $accion == "upload")	echo "<script language='javascript'>alert('Archivo almacenado correctamente');</script>";
 	
-    echo "<p class='estilo'>Archivos de entrada en el sistema</p>\n";
+    echo "<p class='estilo'>Archivos de salidas en el sistema</p>\n";
     echo "<table width='100%' id='tabla1' class='tabla' border='1'>\n";
 	echo "<thead>\n";
 	echo "<tr>\n";
