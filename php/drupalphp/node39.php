@@ -47,6 +47,7 @@
 	
 	<input type="hidden" name="accion" value="operador">
 	<div id="operadores"></div>
+	<div id="crearPostParaListas"></div>
 	<input type="submit" name="op" id="edit-submit" value="Consultar" onclick="listas();" class="form-submit"/>
 	
 	</div>
