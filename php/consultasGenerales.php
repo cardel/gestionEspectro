@@ -30,7 +30,6 @@
 	   echo "<input type=\"hidden\"	name=\"selectTerritorialDivisionForm\" value=".$selectTerritorialDivision." />";
 	   echo "<input type=\"hidden\"	name=\"selectDepartamentsForm\" value=".$selectDepartaments." />";
 	   echo "<input type=\"hidden\"	name=\"selectCitiesForm\" value=".$selectCities." />";
-	   
 	}
 		
 	$objconexionBD->cerrarConexion();

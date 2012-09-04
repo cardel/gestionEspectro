@@ -31,4 +31,6 @@ function listas()
 	$.post("gestionEspectro/php/consultasGenerales.php", { consulta: 'crearPostParaListas', selectTerritorialDivision:selectTerritorialDivision,selectDepartaments:selectDepartaments, selectCities:selectCities}, function(data){
 		$("#crearPostParaListas").html(data);
 	});
+	
+	alert('ok');
 }
