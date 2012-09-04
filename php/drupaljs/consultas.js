@@ -32,5 +32,6 @@ function listas()
 		$("#crearPostParaListas").html(data);
 	});
 	
-	alert('ok');
+	alert(selectTerritorialDivision);
+	
 }
