@@ -19,7 +19,7 @@
 	if(!is_dir("/var/www/html/site/gestionEspectro/entradasTemp/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/entradasTemp/".$user->uid, 0755);
 	if(!is_dir("/var/www/html/site/gestionEspectro/salidas/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/salidas/".$user->uid, 0755);
 	if(!is_dir("/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid, 0755);
-	
+	$accion = $_POST["accion"];
 ?>
 <p class='estiloTitulo'>Consultas básicas</p>
 <p class='estilo'>Asignacion por operador en zona</p>
@@ -44,13 +44,27 @@
 	<div id="departamentos"></div>
 	<div id="municipios"></div>	
 	<strong style="font-size:14px; font-weight:bold;">Selección operador</strong>
-		
+	
+	<input type="hidden" name="accion" value="operador">
 	<div id="operadores"></div>
-	<input type="submit" name="op" id="edit-submit" value="Consultar" class="form-submit"/>
+	<input type="submit" name="op" id="edit-submit" value="Consultar" onclick="listas();" class="form-submit"/>
 	
 	</div>
 </form>
-
-
+<?php
+if($accion=="operador")
+{
+	$divisionTerritorial = $_POST["selectTerritorialDivisionForm"];
+	$departamento = $_POST["selectDepartamentsForm"];
+	$municipio = $_POST["selectCitiesForm"];
+	$operador = $_POST["operadores"];
+	
+	echo $divisionTerritorial."<br/>";
+	echo $departamento."<br/>";
+	echo $municipio."<br/>";
+	echo $operador."<br/>";
+	
+}
+?>
 <p class='estilo'>Asignacion en entidad territorial</p>
 <p class='estilo'>Asignación por banda/rango</p>
