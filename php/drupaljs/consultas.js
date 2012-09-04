@@ -30,6 +30,7 @@ function ejecutarOperador()
 	{
 		selectCities = $('#operadores').val();
 	}
+	
 	$.post("gestionEspectro/php/resultadosConsultas.php", { accion: 'operador', selectTerritorialDivision:selectTerritorialDivision,selectDepartaments:selectDepartaments, selectCities:selectCities, operador:operador}, function(data){
 		$("#resultadosOperador").html(data);
 	});	
