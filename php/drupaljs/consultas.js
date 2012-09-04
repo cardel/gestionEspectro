@@ -35,10 +35,6 @@ function ejecutarOperador()
 		$("#resultadosOperador").html(data);
 	});	
 	
-	$('#tabla1').dataTable( {
-            "oLanguage": {
-                "sUrl": "js/spanish.txt"
-            }
-        } );
+
 	
 }

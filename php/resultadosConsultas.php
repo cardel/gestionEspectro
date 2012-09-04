@@ -24,5 +24,11 @@ if($accion=="operador")
 	echo $departamento."<br/>";
 	echo $municipio."<br/>";
 	echo $operador."<br/>";
+	
+	echo "<script>	$('#tabla1').dataTable( {
+            \"oLanguage\": {
+                \"sUrl\": \"js/spanish.txt\"
+            }
+        } );</script>";
 }
 ?>
