@@ -31,8 +31,9 @@
 	   echo "<input type=\"hidden\"	name=\"selectDepartamentsForm\" value=".$selectDepartaments." />";
 	   echo "<input type=\"hidden\"	name=\"selectCitiesForm\" value=".$selectCities." />";
 	   
-	   echo "<script>alert('o');</script>
+	   echo "<script>alert('o');</script>";
 	   
-	}	
+	}
+		
 	$objconexionBD->cerrarConexion();
 ?>
