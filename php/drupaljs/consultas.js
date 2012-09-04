@@ -31,7 +31,7 @@ function ejecutarOperador()
 		operador = $('#operadoresSelect').val();
 	}
 	
-	$.post("gestionEspectro/php/resultadosConsultas.php", { accion: 'operador', selectTerritorialDivision:selectTerritorialDivision,selectDepartaments:selectDepartaments, selectCities:selectCities,operadorSel:operadorSel}, function(data){
+	$.post("gestionEspectro/php/resultadosConsultas.php", { accion: 'operador', selectTerritorialDivision:selectTerritorialDivision,selectDepartaments:selectDepartaments, selectCities:selectCities,operadorSel:operador}, function(data){
 		$("#resultadosOperador").html(data);
 	});	
 	
