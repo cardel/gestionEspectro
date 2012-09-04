@@ -90,7 +90,7 @@
 			echo "<tr>\n";
 			echo "<td class='estilo'>$archivo</td>\n";
 			echo "<td class='estilo'><a href=\"#\" onClick=\"window.open('"."http://avispa.univalle.edu.co/site/gestionEspectro/entradas/".$user->uid."/".$archivo."' ,'_blank ','toolbar=1,menubar=1,width=500,height=600');\"> Ver </a>\n";
-			echo "<td class='estilo'><a href=\gestionEspectro/php/borrarArchivo?archivo=$archivo&&lugar=1 \">Borrar</a></td>\n";
+			echo "<td class='estilo'><a href=\"http://avispa.univalle.edu.co/site/gestionEspectro/php/borrarArchivo.php?archivo=/var/www/html/site/gestionEspectro/entradas/".$user->uid."/".$archivo."&&lugar=1\">Borrar</a></td>\n";
 			echo "</tr>\n";
 		}
 	}	
