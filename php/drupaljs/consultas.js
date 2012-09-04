@@ -7,8 +7,28 @@ operadores();
 
 function listas()
 {
-	$.post("gestionEspectro/php/consultasGenerales.php", { consulta: 'crearPostParaListas', idConsulta: 0, selectBand:selectBand, selectRanks:selectRanks, selectTerritorialDivision:selectTerritorialDivision,selectDepartaments:selectDepartaments, selectCities:selectCities}, function(data){
-		$("#crearPostParaListas").html(data);
+	var selectTerritorialDivision = -1;
+	if($('#selectTerritorialDivision').length)
+	{
+		selectTerritorialDivision = $('#selectTerritorialDivision').val();
+		$('#selectTerritorialDivision').attr('disabled','disabled');
+	}
+	
+	var selectDepartaments=-1;
+	if($('#selectDepartaments').length)
+	{
+		selectDepartaments = $('#selectDepartaments').val();
+		$('#selectDepartaments').attr('disabled','disabled');
+	
+	}	
+	var selectCities = -1;
+	if($('#selectCities').length)
+	{
+		selectCities = $('#selectCities').val();
+		$('#selectCities').attr('disabled','disabled');
 
+	}
+	$.post("gestionEspectro/php/consultasGenerales.php", { consulta: 'crearPostParaListas', selectTerritorialDivision:selectTerritorialDivision,selectDepartaments:selectDepartaments, selectCities:selectCities}, function(data){
+		$("#crearPostParaListas").html(data);
 	});
 }
