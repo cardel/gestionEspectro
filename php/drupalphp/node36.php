@@ -20,8 +20,8 @@
 	
 ?>
 <p class='estiloTitulo'>Aplicación gestión del espectro usando programación por restricciones</p>
+<p style="text-align:center;"><a href="http://avispa.univalle.edu.co/site"><img src="http://avispa.univalle.edu.co/site/gestionEspectro/php/drupalimages/EspectroAPP.png" width="600 height="220"></a></p>
 <p>
-	
 	La aplicación se divide en tres módulos:
 	<ul>
 		<li><a href="http://avispa.univalle.edu.co/site/?q=node/38">Generador de entradas:</a> En este usted puede generar una entrada XML válida para la aplicación de gestión del espectro</li>
