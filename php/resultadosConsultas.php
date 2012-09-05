@@ -42,7 +42,7 @@ if($accion=="operador")
 		{
 			if($municipio==-1)
 			{
-				$tipoAsignacion = "channel_assignations_per_departament";.
+				$tipoAsignacion = "channel_assignations_per_departament";
 				$lugar="departaments";
 			}
 			else
