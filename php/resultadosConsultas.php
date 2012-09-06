@@ -67,7 +67,6 @@ if($accion=="operador")
 	  echo "<td class='estilo'>".$row["frequency_ranks_name"]."</td>";
 	  echo "<td class='estilo'>".$row["channel_description"]."</td>";
 	  echo "</tr>";
-	  print ("$row[channel_separation]");
 	}
 
 	echo "</tbody>\n";
@@ -132,7 +131,6 @@ if($accion=="territorio")
 	}
 	
 	
-	
 	$query = "select channel_number, operators_name, frequency_ranks_name, channel_description from channels_assignations natural join channels natural join frequency_ranks natural join ".$tipoAsignacion." natural join operators where true and ".$lugar." order by \"ID_frequency_ranks\",\"ID_channels\";";
 
 	$result= $objconexionBD->enviarConsulta($query);
@@ -144,12 +142,10 @@ if($accion=="territorio")
 	  echo "<td class='estilo'>".$row["channel_description"]."</td>";
 	  echo "<td class='estilo'>".$row["operators_name"]."</td>";
 	  echo "</tr>";
-	  print ("$row[channel_separation]");
 	}
 
 	echo "</tbody>\n";
-    echo "</table>\n";	
-	
+    echo "</table>\n";		
 
 	
 	//Activar jtables
