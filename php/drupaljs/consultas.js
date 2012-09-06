@@ -68,7 +68,7 @@ function asignacionFrecuencias()
 {
 	var bandas = $('#selectBands').val();
 	var rangos = $('#selectRanks').val();
-	$.post("gestionEspectro/php/resultadosConsultas.php", { accion: 'territorio',bandas:bandas,rangos:rangos}, function(data){
+	$.post("gestionEspectro/php/resultadosConsultas.php", { accion: 'frecuencia',bandas:bandas,rangos:rangos}, function(data){
 		$("#resultadosFrecuencia").html(data);
 	});	
 	
