@@ -7,6 +7,7 @@
 	drupal_set_html_head('<script type="text/javascript" src="https://www.google.com/jsapi"></script>');
 	drupal_add_css($path = 'css/datatable.css', $type = 'module', $media = 'all', $preprocess = TRUE);
 	drupal_add_css($path = 'sites/all/libraries/jquery.ui/themes/default/ui.all.css', $type = 'module', $media = 'all', $preprocess = TRUE);
+	drupal_add_css($path = 'gestionEspectro/php/drupalcss/botonesEspectro.css', $type = 'module', $media = 'all', $preprocess = TRUE);
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/syntaxhighlighter/scripts/shCore.js');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/syntaxhighlighter/scripts/shBrushXml.js');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'gestionEspectro/php/drupaljs/generador.js');
@@ -48,11 +49,11 @@ Usted puede seleccionar en que lugar se va realizar el proceso de asignación de
 			<p class='estilo'>Asignación por operador en zona</p>	
 			<strong style="font-size:14px; font-weight:bold;">Selección operador</strong>
 			<div id="operadores"></div>
-			<input type="button" class="botonamarillo\" value="Consultar por operador" onclick="ejecutarOperador();">
+			<input type="button" class="botonamarillo" value="Consultar por operador" onclick="javascript:ejecutarOperador();">
 		</td >
 		<td width="50%" style="text-align : right;">
 			<p class='estilo'>Asignación en entidad territorial</p>
-			<input type="button" class="botonamarillo\" value="Consultar por entidad" onclick="ejecutarEntidad();">
+			<input type="button" class="botonrojo" value="Consultar por entidad" onclick="javascript:ejecutarEntidad();">
 		</td>
 	</tr>
 	<tr>
