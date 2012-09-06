@@ -58,6 +58,7 @@ if($accion=="operador")
 	
 	$query = "select channel_number, frequency_ranks_name, channel_description from channels_assignations natural join channels natural join frequency_ranks natural join ".$tipoAsignacion." where \"ID_Operator\"=".$operador."  ".$lugar." order by \"ID_frequency_ranks\",\"ID_channels\";";
 
+	echo $query."\n";
 	$result= $objconexionBD->enviarConsulta($query);
 	while ($row =  pg_fetch_array ($result))
 	{
