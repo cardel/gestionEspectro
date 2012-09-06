@@ -42,17 +42,17 @@ Usted puede seleccionar en que lugar se va realizar el proceso de asignación de
 <div id="departamentos"></div>
 <div id="municipios"></div>	
 
-<table width="100%">
+<table border="0" width="100%">
 	<tr>
 		<td width="50%">
 			<p class='estilo'>Asignación por operador en zona</p>	
 			<strong style="font-size:14px; font-weight:bold;">Selección operador</strong>
 			<div id="operadores"></div>
-			<input type="button" class="botonamarillo\" value="Consultar" onclick="ejecutarOperador();">
+			<input type="button" class="botonamarillo\" value="Consultar por operador" onclick="ejecutarOperador();">
 		</td >
-		<td width="50%" style="text-align : rigth;">
+		<td width="50%" style="text-align : right;">
 			<p class='estilo'>Asignación en entidad territorial</p>
-			<input type="button" class="botonamarillo\" value="Consultar" onclick="ejecutarEntidad();">
+			<input type="button" class="botonamarillo\" value="Consultar por entidad" onclick="ejecutarEntidad();">
 		</td>
 	</tr>
 	<tr>
