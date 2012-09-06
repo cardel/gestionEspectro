@@ -172,7 +172,7 @@ if($accion=="territorio")
 
 	pg_free_result($result);
 }
-if($accion=='bandasBD')
+if($accion=="bandasBD")
 {	
    echo "<select id=\"selectBands\" name=\"selectBands\">";
    $query="select * from frequency_bands where \"ID_frequency_bands\" >= 4";
@@ -194,7 +194,7 @@ if($accion=='bandasBD')
 				
 					
 
-if($accion=='bandasBD')
+if($accion=="bandasBD")
 {	
    echo "<select id=\"selectBands\" name=\"selectBands\" >";
    $query="select * from frequency_bands where \"ID_frequency_bands\" >= 4";
