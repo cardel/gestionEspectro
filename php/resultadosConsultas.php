@@ -77,17 +77,7 @@ if($accion=="operador")
 	echo "</tr>\n";
 	echo "</tfoot>\n";
     echo "</table>\n";	
-	
-<tfoot>
-		<tr>
-			<th>Rendering engine</th>
-			<th>Browser</th>
-			<th>Platform(s)</th>
-			<th>Engine version</th>
-			<th>CSS grade</th>
-		</tr>
-	</tfoot>
-	
+
 	//Activar jtables
 	echo "<script>	$('#tabla1').dataTable( {
             \"oLanguage\": {
