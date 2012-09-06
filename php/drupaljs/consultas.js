@@ -66,6 +66,7 @@ function ejecutarEntidad()
 
 function asignacionFrecuencias()
 {
+	alert('ok');
 	var bandas = $('#selectBands').val();
 	var rangos = $('#selectRanks').val();
 	$.post("gestionEspectro/php/resultadosConsultas.php", { accion: 'frecuencia',bandas:bandas,rangos:rangos}, function(data){
