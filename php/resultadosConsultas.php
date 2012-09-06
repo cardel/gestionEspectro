@@ -189,7 +189,7 @@ if($accion=="bandasBD")
 	  print ("</option>\n");		
 	}
 	echo "</select>";
-	echo "<a href='#' onclick=\"javascript:consultarRangosBD();\ >Consultar Rangos</a>";
+	echo "<a href='#' onclick=\"javascript:consultarRangosBD();\" >Consultar Rangos</a>";
 
 	pg_free_result($result);
 }
