@@ -81,3 +81,4 @@ function consultarRangosBD(){
 		$("#rangosBD").html(data);
 	});   
 }
+

@@ -7,7 +7,7 @@
 
 	if($tipoConsulta=='operadores')
 	{
-	   echo "<select id=\"operadoresSelect\">";
+	   echo "<select id=\"operadoresSelect\" onchange=\"javascript:borrarRangos();\">";
 	   $query="select \"ID_Operator\" as id, operators_name from operators;";
 	   
 	   $result= $objconexionBD->enviarConsulta($query);

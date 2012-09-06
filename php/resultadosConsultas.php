@@ -174,7 +174,7 @@ if($accion=="territorio")
 }
 if($accion=="bandasBD")
 {	
-   echo "<select id=\"selectBands\" >";
+   echo "<select id=\"selectBands\" onchange=\"javascript:consultarRangosBD();\">";
    $query="select * from frequency_bands where \"ID_frequency_bands\" >= 4";
    
    print ("<option value=-1>");
@@ -189,8 +189,6 @@ if($accion=="bandasBD")
 	  print ("</option>\n");		
 	}
 	echo "</select>";
-	echo "<a href='#' onclick=\"javascript:consultarRangosBD();\" >Consultar Rangos</a>";
-
 	pg_free_result($result);
 }
 				
