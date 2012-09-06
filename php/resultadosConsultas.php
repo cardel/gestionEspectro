@@ -189,6 +189,7 @@ if($accion=="bandasBD")
 	  print ("</option>\n");		
 	}
 	echo "</select>";
+
 	pg_free_result($result);
 }
 				
