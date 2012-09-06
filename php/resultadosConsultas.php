@@ -37,19 +37,19 @@ if($accion=="operador")
 		if($departamento==-1)
 		{
 			$tipoAsignacion = "channel_assignations_per_territorialdivision";
-			$lugar=" and ID_Territorial_Division=".$divisionTerritorial." ";
+			$lugar=" and \"ID_Territorial_Division\"=".$divisionTerritorial." ";
 		}
 		else
 		{
 			if($municipio==-1)
 			{
 				$tipoAsignacion = "channel_assignations_per_departament";
-				$lugar=" and ID_departament =".$departamento." ";
+				$lugar=" and \"ID_departament\" =".$departamento." ";
 			}
 			else
 			{
 				$tipoAsignacion = "channel_assignations_per_city";
-				$lugar=" and ID_cities=".$municipio." ";
+				$lugar=" and \"ID_cities\"=".$municipio." ";
 			}
 		}		
 	}
