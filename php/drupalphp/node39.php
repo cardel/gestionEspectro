@@ -2,7 +2,7 @@
 	global $user;
 	jquery_ui_add('ui.tabs');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'dataTables/media/js/jquery.dataTables.js');
-	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/jtables.js');
+	//drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/jtables.js');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/tabsAppSum.js');
 	drupal_set_html_head('<script type="text/javascript" src="https://www.google.com/jsapi"></script>');
 	drupal_add_css($path = 'sites/all/libraries/jquery.ui/themes/default/ui.all.css', $type = 'module', $media = 'all', $preprocess = TRUE);

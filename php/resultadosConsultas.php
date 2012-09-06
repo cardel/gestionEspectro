@@ -161,11 +161,13 @@ if($accion=="territorio")
 
 	
 	//Activar jtables
-	echo "<script>	$('#tabla1').dataTable( {
+	 echo "$('#tabla1').dataTable( {
+	    \"sPaginationType\": \"full_numbers\",
             \"oLanguage\": {
                 \"sUrl\": \"js/spanish.txt\"
             }
-        } );</script>";
+        } );";
+
 }
 
 $objconexionBD->cerrarConexion();
