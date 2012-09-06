@@ -79,7 +79,8 @@ if($accion=="operador")
     echo "</table>\n";	
 
 	//Activar jtables
-	echo "<script>	$('#tabla1').dataTable( {
+	 echo "<script>$('#tabla1').dataTable( {
+	    \"sPaginationType\": \"full_numbers\",
             \"oLanguage\": {
                 \"sUrl\": \"js/spanish.txt\"
             }
@@ -161,12 +162,12 @@ if($accion=="territorio")
 
 	
 	//Activar jtables
-	 echo "$('#tabla1').dataTable( {
+	 echo "<script>$('#tabla1').dataTable( {
 	    \"sPaginationType\": \"full_numbers\",
             \"oLanguage\": {
                 \"sUrl\": \"js/spanish.txt\"
             }
-        } );";
+        } );</script>";
 
 }
 
