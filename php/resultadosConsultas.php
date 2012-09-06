@@ -6,6 +6,7 @@ $objconexionBD->abrirConexion();
 
 
 $accion = $_POST["accion"];
+$idConsulta = $_POST["idConsulta"];
 
 if($accion=="operador")
 {
@@ -195,24 +196,25 @@ if($accion=="bandasBD")
 				
 					
 
-if($accion=="rangosBD")
+if($accion=="rangosBD" && $idConsulta>=0)
 {	
-   echo "<select id=\"selectBands\"  >";
-   $query="select * from frequency_bands where \"ID_frequency_bands\" >= 4";
-   
-   print ("<option value=-1>");
-   print ("Seleccionar");
-   print ("</option>\n");					   
-   
-   $result= $objconexionBD->enviarConsulta($query);
-   while ($row =  pg_fetch_array ($result))
-   {
-	  print ("<option value=$row[ID_frequency_bands]>");
-	  print ($row["frequency_bands_name"]." ".$row["frequency_bands_range"]);
+	echo "<select id=\"selectRanks\" name=\"selectRanks\" onchange=\"javascript:mostrarParametros();\">";
+	$query="select * from frequency_ranks where \"ID_frequency_bands\"=".$idConsulta.";";
+	print ("<option value=-1>");
+	print ("Seleccionar");
+	print ("</option>\n");	
+				   
+	$result= $objconexionBD->enviarConsulta($query);
+	while ($row =  pg_fetch_array ($result))
+	{
+	  print ("<option value=$row[ID_frequency_ranks]>");
+	  print ($row["frequency_ranks_name"]);
 	  print ("</option>\n");		
 	}
 	echo "</select>";	
+
+
 	pg_free_result($result);				
-}
+	}
 $objconexionBD->cerrarConexion();
 ?>
