@@ -271,7 +271,8 @@ if($accion=="frecuencia")
             }
         } );</script>";
 	
-	
+	echo "<br/>";
+	echo "<br/>";
 	echo "<strong style=\"font-size:14px; font-weight:bold;\">Asignación territorial/regional</strong>";
 
     echo "<table width='100%' id='tabla3' class='tabla' border='1'>\n";		
@@ -317,7 +318,8 @@ if($accion=="frecuencia")
                 \"sUrl\": \"js/spanish.txt\"
             }
         } );</script>";
-        
+ 	echo "<br/>";
+	echo "<br/>";       
 	echo "<strong style=\"font-size:14px; font-weight:bold;\">Asignación departamental</strong>";
 
     echo "<table width='100%' id='tabla4' class='tabla' border='1'>\n";		
@@ -363,7 +365,8 @@ if($accion=="frecuencia")
                 \"sUrl\": \"js/spanish.txt\"
             }
         } );</script>";
-        
+ 	echo "<br/>";
+	echo "<br/>";       
  	echo "<strong style=\"font-size:14px; font-weight:bold;\">Asignación Municipal</strong>";
 
     echo "<table width='100%' id='tabla5' class='tabla' border='1'>\n";		
