@@ -17,9 +17,9 @@ if($accion=="operador")
     echo "<table width='100%' id='tabla1' class='tabla' border='1'>\n";		
 	echo "<thead>\n";
 	echo "<tr>\n";
-	echo "<th class='estilo'>Banda de frecuencia</th>\n";
-	echo "<th class='estilo'>Rango de frecuencia</th>\n";
 	echo "<th class='estilo'>Canal</th>\n";
+	echo "<th class='estilo'>Rango de frecuencia</th>\n";
+	echo "<th class='estilo'>Descripción canal</th>\n";
 	echo "</tr>\n";
 	echo "</thead>\n";
 	echo "<tbody>\n";
@@ -71,9 +71,9 @@ if($accion=="operador")
 	echo "</tbody>\n";
 	echo "<tfoot>\n";
 	echo "<tr>\n";
-	echo "<th class='estilo'>Banda de frecuencia</th>\n";
-	echo "<th class='estilo'>Rango de frecuencia</th>\n";
 	echo "<th class='estilo'>Canal</th>\n";
+	echo "<th class='estilo'>Rango de frecuencia</th>\n";
+	echo "<th class='estilo'>Descripción canal</th>\n";
 	echo "</tr>\n";
 	echo "</tfoot>\n";
     echo "</table>\n";	
@@ -96,9 +96,9 @@ if($accion=="territorio")
     echo "<table width='100%' id='tabla1' class='tabla' border='1'>\n";		
 	echo "<thead>\n";
 	echo "<tr>\n";
-	echo "<th class='estilo'>Banda de frecuencia</th>\n";
-	echo "<th class='estilo'>Rango de frecuencia</th>\n";
 	echo "<th class='estilo'>Canal</th>\n";
+	echo "<th class='estilo'>Rango de frecuencia</th>\n";
+	echo "<th class='estilo'>Descripción canal</th>\n";
 	echo "<th class='estilo'>Operador</th>\n";
 	echo "</tr>\n";
 	echo "</thead>\n";
@@ -151,9 +151,9 @@ if($accion=="territorio")
 	echo "</tbody>\n";
 	echo "<tfoot>\n";
 	echo "<tr>\n";
-	echo "<th class='estilo'>Banda de frecuencia</th>\n";
-	echo "<th class='estilo'>Rango de frecuencia</th>\n";
 	echo "<th class='estilo'>Canal</th>\n";
+	echo "<th class='estilo'>Rango de frecuencia</th>\n";
+	echo "<th class='estilo'>Descripción canal</th>\n";
 	echo "<th class='estilo'>Operador</th>\n";
 	echo "</tr>\n";
 	echo "</tfoot>\n";
