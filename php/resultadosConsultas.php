@@ -170,6 +170,46 @@ if($accion=="territorio")
         } );</script>";
 
 }
+if($accion=='bandasBD')
+{	
+   echo "<select id=\"selectBands\" name=\"selectBands\"">";
+   $query="select * from frequency_bands where \"ID_frequency_bands\" >= 4";
+   
+   print ("<option value=-1>");
+   print ("Seleccionar");
+   print ("</option>\n");					   
+   
+   $result= $objconexionBD->enviarConsulta($query);
+   while ($row =  pg_fetch_array ($result))
+   {
+	  print ("<option value=$row[ID_frequency_bands]>");
+	  print ($row["frequency_bands_name"]." ".$row["frequency_bands_range"]);
+	  print ("</option>\n");		
+	}
+	echo "</select>";	
+}
+				
+					
 
+if($accion=='bandasBD')
+{	
+   echo "<select id=\"selectBands\" name=\"selectBands\" >";
+   $query="select * from frequency_bands where \"ID_frequency_bands\" >= 4";
+   
+   print ("<option value=-1>");
+   print ("Seleccionar");
+   print ("</option>\n");					   
+   
+   $result= $objconexionBD->enviarConsulta($query);
+   while ($row =  pg_fetch_array ($result))
+   {
+	  print ("<option value=$row[ID_frequency_bands]>");
+	  print ($row["frequency_bands_name"]." ".$row["frequency_bands_range"]);
+	  print ("</option>\n");		
+	}
+	echo "</select>";	
+	echo "<a href='#' onclick=\"javascript:consultarRangosBD();\ >Consultar Rangos</a>";
+	pg_free_result($result);				
+}
 $objconexionBD->cerrarConexion();
 ?>

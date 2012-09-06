@@ -67,7 +67,7 @@ function ejecutarEntidad()
 
 //Esta funcion consulta las bandas de la BD
 function consultarBandasBD(){    
-	$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'bandas', idConsulta: 0 }, function(data){
+	$.post("gestionEspectro/php/resultadosConsultas.php", { accion: 'bandasBD', idConsulta: 0 }, function(data){
 		$("#bandasBD").html(data);
 	});      
 }
@@ -77,7 +77,7 @@ consultarBandasBD();
 //Esta funcion consulta los rangos de frecuencias de la BD
 function consultarRangosBD(){  
 	var selector = $('#selectBands').val();
-	$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'rangos', idConsulta: selector }, function(data){
+	$.post("gestionEspectro/php/resultadosConsultas.php", { accion: 'rangosBD', idConsulta: selector }, function(data){
 		$("#rangosBD").html(data);
 	});   
 }
