@@ -19,7 +19,7 @@ if($accion=="operador")
 	echo "<tr>\n";
 	echo "<th class='estilo'>Banda de frecuencia</th>\n";
 	echo "<th class='estilo'>Rango de frecuencia</th>\n";
-	echo "<th class='estilo'>Canales asignados</th>\n";
+	echo "<th class='estilo'>Canal</th>\n";
 	echo "</tr>\n";
 	echo "</thead>\n";
 	echo "<tbody>\n";
@@ -37,39 +37,42 @@ if($accion=="operador")
 		if($departamento==-1)
 		{
 			$tipoAsignacion = "channel_assignations_per_territorialdivision";
-			$lugar="territorial_divisions";
+			$lugar=" and ID_Territorial_Division=".$divisionTerritorial." ";
 		}
 		else
 		{
 			if($municipio==-1)
 			{
 				$tipoAsignacion = "channel_assignations_per_departament";
-				$lugar="departaments";
+				$lugar=" and ID_departament =".$departamento." ";
 			}
 			else
 			{
 				$tipoAsignacion = "channel_assignations_per_city";
-				$lugar="cities";
+				$lugar=" and ID_cities=".$municipio." ";
 			}
 		}		
 	}
 	
-	echo "<tr><td class='estilo'>1</td><td class='estilo'>2</td><td class='estilo'>3</td></tr>";
 	
-	$query = "";
-	/*
-	 * select * from channels_assignations natural join channel_assignations_national where "ID_Operator"=10;
-	  select * from channels_assignations natural join channel_assignations_per_territorialdivision natural join territorial_divisions where "ID_Operator"=10 and "ID_Territorial_Division"=2;
+	
+	$query = "select channel_number, frequency_ranks_name, channel_description from channels_assignations natural join channels natural join frequency_ranks natural join ".$tipoAsignacion." where \"ID_Operator\"=".$operador."  ".$lugar." order by \"ID_frequency_ranks\",\"ID_channels\";";
 
-	 */
-	
+	$result= $objconexionBD->enviarConsulta($query);
+	while ($row =  pg_fetch_array ($result))
+	{
+	  echo "<tr>";
+	  echo "<td class='estilo'>".$row["channel_number"]."</td>";
+	  echo "<td class='estilo'>".$row["frequency_ranks_name"]."</td>";
+	  echo "<td class='estilo'>".$row["channel_description"]."</td>";
+	  echo "</tr>";
+	  print ("$row[channel_separation]");
+	}
+
 	echo "</tbody>\n";
     echo "</table>\n";	
 	
-	echo $divisionTerritorial."<br/>";
-	echo $departamento."<br/>";
-	echo $municipio."<br/>";
-	echo $operador."<br/>";
+
 	
 	//Activar jtables
 	echo "<script>	$('#tabla1').dataTable( {
