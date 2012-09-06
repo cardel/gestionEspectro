@@ -407,7 +407,7 @@ if($accion=="frecuencia")
                 \"sUrl\": \"js/spanish.txt\"
             }
         } );</script>";
-	pg_free_result($result);
+	//pg_free_result($result);
 }
 
 $objconexionBD->cerrarConexion();
