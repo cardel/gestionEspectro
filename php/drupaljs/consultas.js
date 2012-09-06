@@ -64,6 +64,17 @@ function ejecutarEntidad()
 	
 }
 
+function asignacionFrecuencias()
+{
+	var bandas = $('#selectBands').val();
+	var rangos = $('#selectRanks').val();
+	$.post("gestionEspectro/php/resultadosConsultas.php", { accion: 'territorio',bandas:bandas,rangos:rangos}, function(data){
+		$("#resultadosFrecuencia").html(data);
+	});	
+	
+}
+
+
 
 //Esta funcion consulta las bandas de la BD
 function consultarBandasBD(){    

@@ -173,6 +173,8 @@ if($accion=="territorio")
 
 	pg_free_result($result);
 }
+
+
 if($accion=="bandasBD")
 {	
    echo "<select id=\"selectBands\" onchange=\"javascript:consultarRangosBD();\">";
@@ -212,9 +214,201 @@ if($accion=="rangosBD" && $idConsulta>=0)
 	  print ("</option>\n");		
 	}
 	echo "</select>";	
-
-    echo "<input type=\"button\" class=\"botonazul\" value=\"Consultar por frecuencia\" onclick=\"javascript:\">";
+	echo "<br/>";
+    echo "<input type=\"button\" class=\"botonazul\" value=\"Consultar por frecuencia\" onclick=\"javascript:asignacionFrecuencias();\">";
 	pg_free_result($result);				
+}
+
+
+if($accion=="frecuencia")
+{
+	
+	echo "<strong style=\"font-size:14px; font-weight:bold;\">Asignación nacional</strong>";
+
+    echo "<table width='100%' id='tabla2' class='tabla' border='1'>\n";		
+	echo "<thead>\n";
+	echo "<tr>\n";
+	echo "<th class='estilo'>Canal</th>\n";
+	echo "<th class='estilo'>Descripción canal</th>\n";
+	echo "<th class='estilo'>Operador</th>\n";
+	echo "</tr>\n";
+	echo "</thead>\n";
+	echo "<tbody>\n";
+	
+	/*
+	$query = "select channel_number, operators_name, frequency_ranks_name, channel_description from channels_assignations natural join channels natural join frequency_ranks natural join ".$tipoAsignacion." natural join operators where true ".$lugar." order by \"ID_frequency_ranks\",\"ID_channels\";";
+
+	$result= $objconexionBD->enviarConsulta($query);
+	while ($row =  pg_fetch_array ($result))
+	{
+	  echo "<tr>";
+	  echo "<td class='estilo'>".$row["channel_number"]."</td>";
+	  echo "<td class='estilo'>".$row["frequency_ranks_name"]."</td>";
+	  echo "<td class='estilo'>".$row["channel_description"]."</td>";
+	  echo "<td class='estilo'>".$row["operators_name"]."</td>";
+	  echo "</tr>";
 	}
+	*/
+	echo "</tbody>\n";
+	echo "<tfoot>\n";
+	echo "<tr>\n";
+	echo "<th class='estilo'>Canal</th>\n";
+	echo "<th class='estilo'>Rango de frecuencia</th>\n";
+	echo "<th class='estilo'>Descripción canal</th>\n";
+	echo "<th class='estilo'>Operador</th>\n";
+	echo "</tr>\n";
+	echo "</tfoot>\n";
+    echo "</table>\n";		
+
+	
+	//Activar jtables
+	 echo "<script>$('#tabla2').dataTable( {
+	    \"sPaginationType\": \"full_numbers\",
+         \"oLanguage\": {
+                \"sUrl\": \"js/spanish.txt\"
+            }
+        } );</script>";
+	
+	
+	echo "<strong style=\"font-size:14px; font-weight:bold;\">Asignación territorial/regional</strong>";
+
+    echo "<table width='100%' id='tabla3' class='tabla' border='1'>\n";		
+	echo "<thead>\n";
+	echo "<tr>\n";
+	echo "<th class='estilo'>Canal</th>\n";
+	echo "<th class='estilo'>Descripción canal</th>\n";
+	echo "<th class='estilo'>Operador</th>\n";
+	echo "</tr>\n";
+	echo "</thead>\n";
+	echo "<tbody>\n";
+	
+	/*
+	$query = "select channel_number, operators_name, frequency_ranks_name, channel_description from channels_assignations natural join channels natural join frequency_ranks natural join ".$tipoAsignacion." natural join operators where true ".$lugar." order by \"ID_frequency_ranks\",\"ID_channels\";";
+
+	$result= $objconexionBD->enviarConsulta($query);
+	while ($row =  pg_fetch_array ($result))
+	{
+	  echo "<tr>";
+	  echo "<td class='estilo'>".$row["channel_number"]."</td>";
+	  echo "<td class='estilo'>".$row["frequency_ranks_name"]."</td>";
+	  echo "<td class='estilo'>".$row["channel_description"]."</td>";
+	  echo "<td class='estilo'>".$row["operators_name"]."</td>";
+	  echo "</tr>";
+	}
+	*/
+	echo "</tbody>\n";
+	echo "<tfoot>\n";
+	echo "<tr>\n";
+	echo "<th class='estilo'>Canal</th>\n";
+	echo "<th class='estilo'>Rango de frecuencia</th>\n";
+	echo "<th class='estilo'>Descripción canal</th>\n";
+	echo "<th class='estilo'>Operador</th>\n";
+	echo "</tr>\n";
+	echo "</tfoot>\n";
+    echo "</table>\n";		
+
+	
+	//Activar jtables
+	 echo "<script>$('#tabla3').dataTable( {
+	    \"sPaginationType\": \"full_numbers\",
+         \"oLanguage\": {
+                \"sUrl\": \"js/spanish.txt\"
+            }
+        } );</script>";
+        
+	echo "<strong style=\"font-size:14px; font-weight:bold;\">Asignación departamental</strong>";
+
+    echo "<table width='100%' id='tabla4' class='tabla' border='1'>\n";		
+	echo "<thead>\n";
+	echo "<tr>\n";
+	echo "<th class='estilo'>Canal</th>\n";
+	echo "<th class='estilo'>Descripción canal</th>\n";
+	echo "<th class='estilo'>Operador</th>\n";
+	echo "</tr>\n";
+	echo "</thead>\n";
+	echo "<tbody>\n";
+	
+	/*
+	$query = "select channel_number, operators_name, frequency_ranks_name, channel_description from channels_assignations natural join channels natural join frequency_ranks natural join ".$tipoAsignacion." natural join operators where true ".$lugar." order by \"ID_frequency_ranks\",\"ID_channels\";";
+
+	$result= $objconexionBD->enviarConsulta($query);
+	while ($row =  pg_fetch_array ($result))
+	{
+	  echo "<tr>";
+	  echo "<td class='estilo'>".$row["channel_number"]."</td>";
+	  echo "<td class='estilo'>".$row["frequency_ranks_name"]."</td>";
+	  echo "<td class='estilo'>".$row["channel_description"]."</td>";
+	  echo "<td class='estilo'>".$row["operators_name"]."</td>";
+	  echo "</tr>";
+	}
+	*/
+	echo "</tbody>\n";
+	echo "<tfoot>\n";
+	echo "<tr>\n";
+	echo "<th class='estilo'>Canal</th>\n";
+	echo "<th class='estilo'>Rango de frecuencia</th>\n";
+	echo "<th class='estilo'>Descripción canal</th>\n";
+	echo "<th class='estilo'>Operador</th>\n";
+	echo "</tr>\n";
+	echo "</tfoot>\n";
+    echo "</table>\n";		
+
+	
+	//Activar jtables
+	 echo "<script>$('#tabla4').dataTable( {
+	    \"sPaginationType\": \"full_numbers\",
+         \"oLanguage\": {
+                \"sUrl\": \"js/spanish.txt\"
+            }
+        } );</script>";
+        
+ 	echo "<strong style=\"font-size:14px; font-weight:bold;\">Asignación Municipal</strong>";
+
+    echo "<table width='100%' id='tabla5' class='tabla' border='1'>\n";		
+	echo "<thead>\n";
+	echo "<tr>\n";
+	echo "<th class='estilo'>Canal</th>\n";
+	echo "<th class='estilo'>Descripción canal</th>\n";
+	echo "<th class='estilo'>Operador</th>\n";
+	echo "</tr>\n";
+	echo "</thead>\n";
+	echo "<tbody>\n";
+	
+	/*
+	$query = "select channel_number, operators_name, frequency_ranks_name, channel_description from channels_assignations natural join channels natural join frequency_ranks natural join ".$tipoAsignacion." natural join operators where true ".$lugar." order by \"ID_frequency_ranks\",\"ID_channels\";";
+
+	$result= $objconexionBD->enviarConsulta($query);
+	while ($row =  pg_fetch_array ($result))
+	{
+	  echo "<tr>";
+	  echo "<td class='estilo'>".$row["channel_number"]."</td>";
+	  echo "<td class='estilo'>".$row["frequency_ranks_name"]."</td>";
+	  echo "<td class='estilo'>".$row["channel_description"]."</td>";
+	  echo "<td class='estilo'>".$row["operators_name"]."</td>";
+	  echo "</tr>";
+	}
+	*/
+	echo "</tbody>\n";
+	echo "<tfoot>\n";
+	echo "<tr>\n";
+	echo "<th class='estilo'>Canal</th>\n";
+	echo "<th class='estilo'>Rango de frecuencia</th>\n";
+	echo "<th class='estilo'>Descripción canal</th>\n";
+	echo "<th class='estilo'>Operador</th>\n";
+	echo "</tr>\n";
+	echo "</tfoot>\n";
+    echo "</table>\n";		
+
+	
+	//Activar jtables
+	 echo "<script>$('#tabla5').dataTable( {
+	    \"sPaginationType\": \"full_numbers\",
+         \"oLanguage\": {
+                \"sUrl\": \"js/spanish.txt\"
+            }
+        } );</script>";
+	pg_free_result($result);
+}
+
 $objconexionBD->cerrarConexion();
 ?>
