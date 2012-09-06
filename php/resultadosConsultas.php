@@ -213,7 +213,7 @@ if($accion=="rangosBD" && $idConsulta>=0)
 	}
 	echo "</select>";	
 
-
+    echo "<input type=\"button"\ class=\"botonazul"\ value=\"Consultar por frecuencia\" onclick=\"javascript:\">";
 	pg_free_result($result);				
 	}
 $objconexionBD->cerrarConexion();
