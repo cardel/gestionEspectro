@@ -58,13 +58,7 @@ function ejecutarEntidad()
 		selectCities = $('#selectCities').val();
 	}
 	
-	var operador = -1;
-	if($('#operadoresSelect').length)
-	{
-		operador = $('#operadoresSelect').val();
-	}
-	
-	$.post("gestionEspectro/php/resultadosConsultas.php", { accion: 'operador', selectTerritorialDivision:selectTerritorialDivision,selectDepartaments:selectDepartaments, selectCities:selectCities,operadorSel:operador}, function(data){
+	$.post("gestionEspectro/php/resultadosConsultas.php", { accion: 'territorio', selectTerritorialDivision:selectTerritorialDivision,selectDepartaments:selectDepartaments, selectCities:selectCities}, function(data){
 		$("#resultadosOperador").html(data);
 	});	
 

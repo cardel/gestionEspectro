@@ -23,8 +23,7 @@
 ?>
 <p class='estiloTitulo'>Consultas básicas</p>
 
-<strong style="font-size:14px; font-weight:bold;">Selección geográfica</strong>
-<div id="tipoAsignacion" style="font-size:11px; font-weight:bold;">La asignación es a nivel nacional</div>
+<strong style="font-size:14px; font-weight:bold;">Consulta por entidades territoriales</strong>
 <br/>
 Usted puede seleccionar en que lugar se va realizar el proceso de asignación del espectro:
 
@@ -46,13 +45,13 @@ Usted puede seleccionar en que lugar se va realizar el proceso de asignación de
 <table width="100%">
 	<tr>
 		<td width="50%">
-			<p class='estilo'>Asignacion por operador en zona</p>	
+			<p class='estilo'>Asignación por operador en zona</p>	
 			<strong style="font-size:14px; font-weight:bold;">Selección operador</strong>
 			<div id="operadores"></div>
 			<input type="button" class="botonamarillo\" value="Consultar" onclick="ejecutarOperador();">
 		</td >
 		<td width="50%" style="text-align : rigth;">
-			<p class='estilo'>Asignacion en entidad territorial</p>
+			<p class='estilo'>Asignación en entidad territorial</p>
 			<input type="button" class="botonamarillo\" value="Consultar" onclick="ejecutarEntidad();">
 		</td>
 	</tr>
