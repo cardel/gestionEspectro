@@ -85,6 +85,7 @@ if($accion=="operador")
                 \"sUrl\": \"js/spanish.txt\"
             }
         } );</script>";
+     pg_free_result($result);
 }
 
 
@@ -169,10 +170,11 @@ if($accion=="territorio")
             }
         } );</script>";
 
+	pg_free_result($result);
 }
 if($accion=='bandasBD')
 {	
-   echo "<select id=\"selectBands\" name=\"selectBands\"">";
+   echo "<select id=\"selectBands\" name=\"selectBands\">";
    $query="select * from frequency_bands where \"ID_frequency_bands\" >= 4";
    
    print ("<option value=-1>");
@@ -187,6 +189,7 @@ if($accion=='bandasBD')
 	  print ("</option>\n");		
 	}
 	echo "</select>";	
+	pg_free_result($result);
 }
 				
 					
