@@ -69,9 +69,24 @@ if($accion=="operador")
 	}
 
 	echo "</tbody>\n";
+	echo "<tfoot>\n";
+	echo "<tr>\n";
+	echo "<th class='estilo'>Banda de frecuencia</th>\n";
+	echo "<th class='estilo'>Rango de frecuencia</th>\n";
+	echo "<th class='estilo'>Canal</th>\n";
+	echo "</tr>\n";
+	echo "</tfoot>\n";
     echo "</table>\n";	
 	
-
+<tfoot>
+		<tr>
+			<th>Rendering engine</th>
+			<th>Browser</th>
+			<th>Platform(s)</th>
+			<th>Engine version</th>
+			<th>CSS grade</th>
+		</tr>
+	</tfoot>
 	
 	//Activar jtables
 	echo "<script>	$('#tabla1').dataTable( {
@@ -144,6 +159,14 @@ if($accion=="territorio")
 	}
 
 	echo "</tbody>\n";
+	echo "<tfoot>\n";
+	echo "<tr>\n";
+	echo "<th class='estilo'>Banda de frecuencia</th>\n";
+	echo "<th class='estilo'>Rango de frecuencia</th>\n";
+	echo "<th class='estilo'>Canal</th>\n";
+	echo "<th class='estilo'>Operador</th>\n";
+	echo "</tr>\n";
+	echo "</tfoot>\n";
     echo "</table>\n";		
 
 	

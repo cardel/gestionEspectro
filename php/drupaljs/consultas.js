@@ -61,6 +61,5 @@ function ejecutarEntidad()
 	$.post("gestionEspectro/php/resultadosConsultas.php", { accion: 'territorio', selectTerritorialDivision:selectTerritorialDivision,selectDepartaments:selectDepartaments, selectCities:selectCities}, function(data){
 		$("#resultadosOperador").html(data);
 	});	
-
 	
 }
