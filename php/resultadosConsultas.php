@@ -135,7 +135,7 @@ if($accion=="territorio")
 	}
 	
 	
-	$query = "select channel_number, operators_name, frequency_ranks_name, channel_description from channels_assignations natural join channels natural join frequency_ranks natural join ".$tipoAsignacion." natural join operators where true and ".$lugar." order by \"ID_frequency_ranks\",\"ID_channels\";";
+	$query = "select channel_number, operators_name, frequency_ranks_name, channel_description from channels_assignations natural join channels natural join frequency_ranks natural join ".$tipoAsignacion." natural join operators where true ".$lugar." order by \"ID_frequency_ranks\",\"ID_channels\";";
 
 	$result= $objconexionBD->enviarConsulta($query);
 	while ($row =  pg_fetch_array ($result))
