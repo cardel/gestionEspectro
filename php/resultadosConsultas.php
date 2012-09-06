@@ -8,7 +8,7 @@ $objconexionBD->abrirConexion();
 $accion = $_POST["accion"];
 $idConsulta=1;
 
-if($accion=="rangosBD" || ($accion=="bandasBD") $idConsulta = $_POST["idConsulta"];
+if($accion=="rangosBD" || $accion=="bandasBD") $idConsulta = $_POST["idConsulta"];
 
 if($accion=="operador")
 {
