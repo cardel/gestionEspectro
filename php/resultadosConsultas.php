@@ -293,9 +293,10 @@ if($accion=="frecuencia")
 
 	
 	$result= $objconexionBD->enviarConsulta($query);
-	print_r($result);
+
 	while ($row =  pg_fetch_array ($result))
 	{
+		print_r($row);
 	  echo "<tr>";
 	  echo "<td>".$row["nameT"]."</td>";
 	  echo "<td>".$row["channel_number"]."</td>";
