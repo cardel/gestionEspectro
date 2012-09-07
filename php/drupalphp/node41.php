@@ -10,10 +10,8 @@ else{
 	jquery_ui_add('ui.tabs');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'dataTables/media/js/jquery.dataTables.js');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/jtables.js');
-	drupal_add_js(drupal_get_path('module', 'mymodule') . 'gestionEspectro/php/drupaljs/consultas.js');
+	drupal_add_js(drupal_get_path('module', 'mymodule') . 'gestionEspectro/php/drupaljs/operadores.js');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/tabsAppSum.js');
-	drupal_add_js(drupal_get_path('module', 'mymodule') . 'gestionEspectro/php/drupaljs/generador.js');
-	drupal_add_js(drupal_get_path('module', 'mymodule') . 'gestionEspectro/php/drupaljs/consultas.js');
 	drupal_add_css($path = 'gestionEspectro/php/drupalcss/estilosFormGestion.css', $type = 'module', $media = 'all', $preprocess = TRUE);
 	drupal_set_html_head('<script type="text/javascript" src="https://www.google.com/jsapi"></script>');
 	drupal_add_css($path = 'css/estilos.css', $type = 'module', $media = 'all', $preprocess = TRUE);
@@ -37,7 +35,7 @@ else{
 	<form action="/site/?q=node/41" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">		
 		<div class="form-item" id="edit-pesoNumeroBloques-wrapper">
 			<label for="edit-pesoNumeroBloques">Nombre operador: </label>
-			<input type="text" maxlength="64" name="pesoNumeroBloques" id="edit-pesoNumeroBloques" size="30" value="33" class="form-text"/>
+			<input type="text" maxlength="64" name="pesoNumeroBloques" id="edit-pesoNumeroBloques" size="30" value="Operador" class="form-text"/>
 			<div class="description">
 				Ingrese el nombre del operador
 			</div>			
@@ -85,7 +83,6 @@ else{
 
 <script>consultarOperadores();</script>
 <div id="divOperadores"></div>
-
 
 <?php	
 }
