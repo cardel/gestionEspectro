@@ -88,41 +88,6 @@ if($accion=="operador")
                 \"sUrl\": \"js/spanish.txt\"
             }
         } );
-        
-          $(\"#tabla1\").css({ 
-			  a.paginate_button,
-				a.paginate_active {
-					display: inline-block;
-					background-color: #608995;
-					padding: 2px 6px;
-					margin-left: 2px;
-					cursor: pointer;
-					*cursor: hand;
-				}
-				 
-				a.paginate_active {
-					background-color: transparent;
-					border: 1px solid black;
-				}
-				 
-				a.paginate_button_disabled {
-					color: #3d6672;
-				}
-				.paging_full_numbers a:active {
-					outline: none
-				}
-				.paging_full_numbers a:hover {
-					text-decoration: none;
-				}
-				 
-				div.dataTables_paginate span>a {
-					width: 15px;
-					text-align: center;
-				}
-				 
-				div.dataTables_info {
-					padding: 9px 6px 6px 6px;
-				}});
         </script>";
      pg_free_result($result);
 }
