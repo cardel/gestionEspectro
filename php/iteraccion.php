@@ -17,7 +17,7 @@ foreach($solucionIt->solution as $sol)
 		echo "<p class='estilo'>Solución: ".$id."</p>\n";
 		$costo = $sol->costs;			
 		echo "<p class='estilo'>Costos</p>\n";
-		echo "<table width='100%' class='tabla' border='1'>\n";			
+		echo "<table width='100%' border='1'>\n";			
 		echo "<thead>\n";
 		echo "<tbody>\n";
 		echo "<tr>\n";
@@ -41,11 +41,12 @@ foreach($solucionIt->solution as $sol)
 		echo "<td class='estilo'>Costo total</td>\n";
 		echo "<td class='estilo'>$costo->totalCost</td>\n";
 		echo "</tr>\n";
-		echo "</tbody>\n";				
+		echo "</tbody>\n";	
+					
 		echo "</table>\n<br/>";	
 		
 		echo '<div style="overflow:auto; width: 1000px; height :300px; align:left;">';
-		echo "<table width='100%' class='tabla' border='1'>\n";
+		echo "<table width='100%' class='display' border='1'>\n";
 		
 		echo "<thead>\n";
 		echo "<tr>\n";
