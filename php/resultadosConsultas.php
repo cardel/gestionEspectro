@@ -291,8 +291,9 @@ if($accion=="frecuencia")
 
 	$query = "select channel_number, operators_name, channel_description, \"Territorial_Division_Name\" as nameT from territorial_divisions natural join channels_assignations natural join channels natural join frequency_ranks natural join channel_assignations_per_territorialdivision natural join operators where \"ID_frequency_ranks\"=".$rangos ." order by \"ID_Territorial_Division\", \"ID_channels\";";
 
-
+	
 	$result= $objconexionBD->enviarConsulta($query);
+	print_r($result);
 	while ($row =  pg_fetch_array ($result))
 	{
 	  echo "<tr>";
