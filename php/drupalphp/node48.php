@@ -71,9 +71,9 @@
     echo "<table width='100%' id='tabla1' class='tabla' border='1'>\n";
 	echo "<thead>\n";
 	echo "<tr>\n";
-	echo "<th class='estilo'>Archivo</th>\n";
-	echo "<th class='estilo'>Visualizar</th>\n";
-	echo "<th class='estilo'>Acción</th>\n";
+	echo "<th>Archivo</th>\n";
+	echo "<th>Visualizar</th>\n";
+	echo "<th>Acción</th>\n";
 	echo "</tr>\n";
 	echo "</thead>\n";
 	echo "<tbody>\n";
@@ -89,9 +89,9 @@
 		if(is_file("/var/www/html/site/gestionEspectro/salidas/".$user->uid."/".$archivo))
 		{
 			echo "<tr>\n";
-			echo "<td class='estilo'>$archivo</td>\n";
-			echo "<td class='estilo'><a href=\"#\" onClick=\"window.open('"."http://avispa.univalle.edu.co/site/gestionEspectro/salidas/".$user->uid."/".$archivo."' ,'_blank ','toolbar=1,menubar=1,width=500,height=600');\"> Ver </a>\n";
-			echo "<td class='estilo'><a href=\"http://avispa.univalle.edu.co/site/gestionEspectro/php/borrarArchivo.php?archivo=/var/www/html/site/gestionEspectro/salidas/".$user->uid."/".$archivo."&&lugar=2\">Borrar</a></td>\n";
+			echo "<td>$archivo</td>\n";
+			echo "<td><a href=\"#\" onClick=\"window.open('"."http://avispa.univalle.edu.co/site/gestionEspectro/salidas/".$user->uid."/".$archivo."' ,'_blank ','toolbar=1,menubar=1,width=500,height=600');\"> Ver </a>\n";
+			echo "<td><a href=\"http://avispa.univalle.edu.co/site/gestionEspectro/php/borrarArchivo.php?archivo=/var/www/html/site/gestionEspectro/salidas/".$user->uid."/".$archivo."&&lugar=2\">Borrar</a></td>\n";
 			echo "</tr>\n";
 		}
 	}	
