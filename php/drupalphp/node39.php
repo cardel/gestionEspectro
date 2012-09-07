@@ -1,5 +1,11 @@
 <?php
-	global $user;
+global $user;
+if($user->uid==0)
+{
+	echo "<script>alert('Debe estar autenticado en el sistema para poder ver \xe9sta p\xe1gina');</script>";
+	echo "<script>location.href='http://avispa.univalle.edu.co/site/';</script>";
+}
+else{
 	jquery_ui_add('ui.tabs');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'dataTables/media/js/jquery.dataTables.js');
 	//drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/jtables.js');
@@ -68,3 +74,6 @@ Usted puede seleccionar en que lugar se va realizar el proceso de asignación de
 	<div id="bandasBD"></div>		
 	<div id="rangosBD"></div>	
 	<div id="resultadosFrecuencia"></div>	
+<?php
+}
+?>

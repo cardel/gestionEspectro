@@ -94,3 +94,10 @@ function consultarRangosBD(){
 	});   
 }
 
+//Consulta operadores
+
+function consultarOperadores(){  
+	$.post("gestionEspectro/php/resultadosConsultas.php", { accion: 'operadores' }, function(data){
+		$("#divOperadores").html(data);
+	});   
+}

@@ -427,5 +427,55 @@ if($accion=="frecuencia")
 	pg_free_result($result);
 }
 
+
+if($accion=="operadores")
+{	
+	echo "<select id=\"operadores\" >";
+	$query="select * from operadores;";
+
+    echo "<table width='100%' id='tabla8' border='1'>\n";		
+	echo "<thead>\n";
+	echo "<tr>\n";
+	echo "<th>Operador</th>\n";
+	echo "<th>Edición</th>\n";
+	echo "<th>Servicios</th>\n";
+	echo "</tr>\n";
+	echo "</thead>\n";
+	echo "<tbody>\n";
+				   
+	$result= $objconexionBD->enviarConsulta($query);
+	while ($row =  pg_fetch_array ($result))
+	{
+	  echo "<tr>";
+	  echo "<td>".$row["operators_name"]."</td>";
+	  echo "<td>Editar</td>";
+	  echo "<td>Editar Servicios</td>";
+	  echo "</tr>";	
+	}
+
+	echo "</tbody>\n";
+	echo "<tfoot>\n";
+	echo "<tr>\n";
+	echo "<th>Operador</th>\n";
+	echo "<th>Edición</th>\n";
+	echo "<th>Servicios</th>\n";
+	echo "</tr>\n";
+	echo "</tfoot>\n";
+    echo "</table>\n";		
+
+	
+	//Activar jtables
+	 echo "<script>$('#tabla8').dataTable( {
+	    \"sPaginationType\": \"full_numbers\",
+         \"oLanguage\": {
+                \"sUrl\": \"js/spanish.txt\"
+            }
+        } );
+        
+        </script>";
+    
+	pg_free_result($result);				
+}
+
 $objconexionBD->cerrarConexion();
 ?>
