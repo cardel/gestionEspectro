@@ -226,40 +226,40 @@ if($accion=="rangosBD" && $idConsulta>=0)
 
 if($accion=="frecuencia")
 {
-	
+	$bandas = $_POST["bandas"];
+	$rangos = $_POST["rangos"];
+
 	echo "<strong style=\"font-size:14px; font-weight:bold;\">Asignación nacional</strong>";
 
     echo "<table width='100%' id='tabla2' border='1'>\n";		
 	echo "<thead>\n";
 	echo "<tr>\n";
 	echo "<th>Canal</th>\n";
-	echo "<th>Descripción canal</th>\n";
 	echo "<th>Operador</th>\n";
+	echo "<th>Descripción canal</th>\n";
 	echo "</tr>\n";
 	echo "</thead>\n";
 	echo "<tbody>\n";
 	
-	/*
-	$query = "select channel_number, operators_name, frequency_ranks_name, channel_description from channels_assignations natural join channels natural join frequency_ranks natural join ".$tipoAsignacion." natural join operators where true ".$lugar." order by \"ID_frequency_ranks\",\"ID_channels\";";
+
+	$query = "select channel_number, operators_name, channel_description from channels_assignations natural join channels natural join frequency_ranks natural join channel_assignations_national natural join operators where \"ID_frequency_ranks\"=".$rangos ." order by \"ID_channels\";";
 
 	$result= $objconexionBD->enviarConsulta($query);
 	while ($row =  pg_fetch_array ($result))
 	{
 	  echo "<tr>";
 	  echo "<td>".$row["channel_number"]."</td>";
-	  echo "<td>".$row["frequency_ranks_name"]."</td>";
-	  echo "<td>".$row["channel_description"]."</td>";
 	  echo "<td>".$row["operators_name"]."</td>";
+	  echo "<td>".$row["channel_description"]."</td>";
 	  echo "</tr>";
 	}
-	*/
+	
 	echo "</tbody>\n";
 	echo "<tfoot>\n";
 	echo "<tr>\n";
 	echo "<th>Canal</th>\n";
-	echo "<th>Rango de frecuencia</th>\n";
-	echo "<th>Descripción canal</th>\n";
 	echo "<th>Operador</th>\n";
+	echo "<th>Descripción canal</th>\n";
 	echo "</tr>\n";
 	echo "</tfoot>\n";
     echo "</table>\n";		
@@ -280,34 +280,36 @@ if($accion=="frecuencia")
     echo "<table width='100%' id='tabla3' border='1'>\n";		
 	echo "<thead>\n";
 	echo "<tr>\n";
+	echo "<th>Entidad territorial</th>\n";
 	echo "<th>Canal</th>\n";
-	echo "<th>Descripción canal</th>\n";
 	echo "<th>Operador</th>\n";
+	echo "<th>Descripción canal</th>\n";
 	echo "</tr>\n";
 	echo "</thead>\n";
 	echo "<tbody>\n";
-	
-	/*
-	$query = "select channel_number, operators_name, frequency_ranks_name, channel_description from channels_assignations natural join channels natural join frequency_ranks natural join ".$tipoAsignacion." natural join operators where true ".$lugar." order by \"ID_frequency_ranks\",\"ID_channels\";";
+	pg_free_result($result);
+
+	$query = "select channel_number, operators_name, channel_description, \"Territorial_Division_Name\" as nameT from territorial_divisions natural join channels_assignations natural join channels natural join frequency_ranks natural join channel_assignations_per_territorialdivision natural join operators where \"ID_frequency_ranks\"=".$rangos ." order by \"ID_Territorial_Division\", \"ID_channels\";";
+
 
 	$result= $objconexionBD->enviarConsulta($query);
 	while ($row =  pg_fetch_array ($result))
 	{
 	  echo "<tr>";
+	  echo "<td>".$row["nameT"]."</td>";
 	  echo "<td>".$row["channel_number"]."</td>";
-	  echo "<td>".$row["frequency_ranks_name"]."</td>";
-	  echo "<td>".$row["channel_description"]."</td>";
 	  echo "<td>".$row["operators_name"]."</td>";
+	  echo "<td>".$row["channel_description"]."</td>";
 	  echo "</tr>";
 	}
-	*/
+
 	echo "</tbody>\n";
 	echo "<tfoot>\n";
 	echo "<tr>\n";
+	echo "<th>Entidad territorial</th>\n";
 	echo "<th>Canal</th>\n";
-	echo "<th>Rango de frecuencia</th>\n";
-	echo "<th>Descripción canal</th>\n";
 	echo "<th>Operador</th>\n";
+	echo "<th>Descripción canal</th>\n";
 	echo "</tr>\n";
 	echo "</tfoot>\n";
     echo "</table>\n";		
@@ -327,34 +329,37 @@ if($accion=="frecuencia")
     echo "<table width='100%' id='tabla4' border='1'>\n";		
 	echo "<thead>\n";
 	echo "<tr>\n";
+	echo "<th>Departamento</th>\n";
 	echo "<th>Canal</th>\n";
-	echo "<th>Descripción canal</th>\n";
 	echo "<th>Operador</th>\n";
+	echo "<th>Descripción canal</th>\n";
 	echo "</tr>\n";
 	echo "</thead>\n";
 	echo "<tbody>\n";
-	
-	/*
-	$query = "select channel_number, operators_name, frequency_ranks_name, channel_description from channels_assignations natural join channels natural join frequency_ranks natural join ".$tipoAsignacion." natural join operators where true ".$lugar." order by \"ID_frequency_ranks\",\"ID_channels\";";
+	pg_free_result($result);
+	 
+
+
+	$query = "select channel_number, operators_name, channel_description, departament_name from departaments natural join channels_assignations natural join channels natural join frequency_ranks natural join channel_assignations_per_departament natural join operators where \"ID_frequency_ranks\"=".$rangos ." order by \"ID_departament\", \"ID_channels\";";
 
 	$result= $objconexionBD->enviarConsulta($query);
 	while ($row =  pg_fetch_array ($result))
 	{
 	  echo "<tr>";
+	  echo "<td>".$row["departament_name"]."</td>";
 	  echo "<td>".$row["channel_number"]."</td>";
-	  echo "<td>".$row["frequency_ranks_name"]."</td>";
-	  echo "<td>".$row["channel_description"]."</td>";
 	  echo "<td>".$row["operators_name"]."</td>";
+	  echo "<td>".$row["channel_description"]."</td>";
 	  echo "</tr>";
 	}
-	*/
+
 	echo "</tbody>\n";
 	echo "<tfoot>\n";
 	echo "<tr>\n";
+	echo "<th>Departamento</th>\n";
 	echo "<th>Canal</th>\n";
-	echo "<th>Rango de frecuencia</th>\n";
-	echo "<th>Descripción canal</th>\n";
 	echo "<th>Operador</th>\n";
+	echo "<th>Descripción canal</th>\n";
 	echo "</tr>\n";
 	echo "</tfoot>\n";
     echo "</table>\n";		
@@ -374,34 +379,37 @@ if($accion=="frecuencia")
     echo "<table width='100%' id='tabla5' border='1'>\n";		
 	echo "<thead>\n";
 	echo "<tr>\n";
+	echo "<th>Municipio</th>\n";
 	echo "<th>Canal</th>\n";
-	echo "<th>Descripción canal</th>\n";
 	echo "<th>Operador</th>\n";
+	echo "<th>Descripción canal</th>\n";
 	echo "</tr>\n";
 	echo "</thead>\n";
 	echo "<tbody>\n";
+	pg_free_result($result);
 	
-	/*
-	$query = "select channel_number, operators_name, frequency_ranks_name, channel_description from channels_assignations natural join channels natural join frequency_ranks natural join ".$tipoAsignacion." natural join operators where true ".$lugar." order by \"ID_frequency_ranks\",\"ID_channels\";";
+
+
+	$query = "select channel_number, operators_name, channel_description, city_name from cities natural join channels_assignations natural join channels natural join frequency_ranks natural join channel_assignations_per_city natural join operators where \"ID_frequency_ranks\"=".$rangos ." order by \"ID_cities\", \"ID_channels\";";
 
 	$result= $objconexionBD->enviarConsulta($query);
 	while ($row =  pg_fetch_array ($result))
 	{
 	  echo "<tr>";
+	  echo "<td>".$row["departament_name"]."</td>";
 	  echo "<td>".$row["channel_number"]."</td>";
-	  echo "<td>".$row["frequency_ranks_name"]."</td>";
-	  echo "<td>".$row["channel_description"]."</td>";
 	  echo "<td>".$row["operators_name"]."</td>";
+	  echo "<td>".$row["channel_description"]."</td>";
 	  echo "</tr>";
-	}
-	*/
+	}	
+	
 	echo "</tbody>\n";
 	echo "<tfoot>\n";
 	echo "<tr>\n";
+	echo "<th>Municipio</th>\n";
 	echo "<th>Canal</th>\n";
-	echo "<th>Rango de frecuencia</th>\n";
-	echo "<th>Descripción canal</th>\n";
 	echo "<th>Operador</th>\n";
+	echo "<th>Descripción canal</th>\n";
 	echo "</tr>\n";
 	echo "</tfoot>\n";
     echo "</table>\n";		
@@ -416,7 +424,7 @@ if($accion=="frecuencia")
         } );
         
         </script>";
-	//pg_free_result($result);
+	pg_free_result($result);
 }
 
 $objconexionBD->cerrarConexion();
