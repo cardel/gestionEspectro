@@ -10,7 +10,7 @@ $head = $solucionHead->head;
 echo "<input type=button class=\"botonverde\" onClick=\"window.open('".$fileXML."' ,'_blank ','toolbar=1,menubar=1,width=500,height=600');\" value=\"Descargar XML\" />\n";
 echo "<input type=button class=\"botonamarillo\" value=\"Almacenar XML\" onClick=\"".$botonXML."();\" id=\"".$botonXML."\"/>\n";
 echo "<p class='estilo'>Información</p>\n";
-echo "<table width='100%' class='tabla' border='1'>\n";
+echo "<table width='100%' class='display' border='1'>\n";
 
 echo "<thead>\n";
 echo "<tr>\n";
