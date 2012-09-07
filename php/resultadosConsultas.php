@@ -88,6 +88,7 @@ if($accion=="operador")
                 \"sUrl\": \"js/spanish.txt\"
             }
         } );
+
         </script>";
      pg_free_result($result);
 }
