@@ -523,6 +523,30 @@ if($accion=="servicios")
     
 	pg_free_result($result);				
 }
+if($accion=="serviciosList")
+{	
+	echo "<select id=\"selServicesr\"  class=\"textbox txtFec\">";
+   $query="select * from services;";	
+   
+   print ("<option value=-1>");
+   print ("Seleccionar");
+   print ("</option>\n");	
+				   
+   $result= $objconexionBD->enviarConsulta($query);
+   while ($row =  pg_fetch_array ($result))
+   {
+	  print ("<option value=$row[ID_service]>");
+	  print ("$row[services_name]");
+	  print ("</option>\n");		
+	}
+	echo "</select>";	
+
+
+	pg_free_result($result);
+
+	pg_free_result($result);				
+}
+
 
 $objconexionBD->cerrarConexion();
 ?>

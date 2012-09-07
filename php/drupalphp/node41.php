@@ -1,4 +1,3 @@
-
 <?php
 global $user;
 
@@ -15,6 +14,7 @@ else{
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/tabsAppSum.js');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'gestionEspectro/php/drupaljs/generador.js');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'gestionEspectro/php/drupaljs/consultas.js');
+	drupal_add_css($path = 'gestionEspectro/php/drupalcss/estilosFormGestion.css', $type = 'module', $media = 'all', $preprocess = TRUE);
 	drupal_set_html_head('<script type="text/javascript" src="https://www.google.com/jsapi"></script>');
 	drupal_add_css($path = 'css/estilos.css', $type = 'module', $media = 'all', $preprocess = TRUE);
 	drupal_add_css($path = 'css/datatable.css', $type = 'module', $media = 'all', $preprocess = TRUE);
@@ -31,18 +31,60 @@ else{
 	
 	
 ?>
-<script>consultarServicios();</script>
-<div id="divOperadores"></div>
+<p class='estilo'>Registrar Operador</p>
 
-Acciones
-<br>
-1. Consultar lista operadores
-<br>
-2. Cambiar nombre / Agregar
-<br>
-3. Agregar o quitar servicios
-<br>
-4. No es posible eliminar
+<div id="formularioHTML">
+	<form action="/site/?q=node/41" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">		
+		<div class="form-item" id="edit-pesoNumeroBloques-wrapper">
+			<label for="edit-pesoNumeroBloques">Nombre operador: </label>
+			<input type="text" maxlength="64" name="pesoNumeroBloques" id="edit-pesoNumeroBloques" size="30" value="33" class="form-text"/>
+			<div class="description">
+				Ingrese el nombre del operador
+			</div>			
+		</div>
+	<div id="formulario" >
+		<p class='estilo'>Agregar o quitar servicios</p>
+		<input type="hidden" id="cant_campos" name="cant_campos" value="0" />
+		<input type="hidden" id="enviar" name="enviar" value="1" />
+		<fieldset class="estiloFormFieldset">
+			<legend class="estiloFormLeyenda">Gestión de requerimiento</legend>
+			<div class="top">
+				<label class="estiloFormLabel" for="numeroCanales">Seleccione servicio:</label>
+				<div id="divServicios" class="div_texbox"></div>
+			</div>
+		</fieldset>
+		<div class="button_div">    
+			<input type="button" id="btnAgregar" name="btnAgregar" value="Agregar servicio" class="buttons_aplicar" onclick="agregarFila(document.getElementById('cant_campos'));" />
+		</div>
+		<fieldset class="estiloFormFieldset">
+			<legend class="estiloFormLeyenda">
+				Servicios que presta el operador
+			</legend>
+			<div class="clear"></div>
+			<div id="form3" class="form-horiz">
+				<table width="100%" id="tblDetalle" class="listado">
+					<thead>
+						<tr>
+							<th>Nombre servicio</th>
+						</tr>
+					</thead>
+					<tbody id="tbDetalle">
+					</tbody>
+				</table>
+				<div class="button_div">  
+					<input type="submit" id="btnAgregar" name="btnAgregar" value="Guardar" class="buttons_OK" />
+				</div>
+			</div>    
+		</fieldset>
+		</div>
+	</form>
+</div>
+
+
+<p class='estilo'>Lista de operadores registrados</p>;
+
+<script>consultarOperadores();</script>
+<div id="divOperadores"></div>
 
 
 <?php	

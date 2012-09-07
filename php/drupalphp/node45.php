@@ -33,13 +33,8 @@ else{
 <script>consultarServicios();</script>
 <div id="divOperadores"></div>
 
-Acciones
-<br>
-1. Consultar lista servicios
-<br>
-2. Cambiar nombre / Agregar
-<br>
-3. No es posible eliminar
+
+<p class='estilo'>Lista de operadores registrados</p>;
 
 <div id="divServicios"></div>
 
