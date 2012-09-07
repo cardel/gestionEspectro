@@ -287,9 +287,8 @@ if($accion=="frecuencia")
 	echo "</tr>\n";
 	echo "</thead>\n";
 	echo "<tbody>\n";
-	pg_free_result($result);
 
-	$query = "select channel_number, operators_name, channel_description, \"Territorial_Division_Name\" as nameT from territorial_divisions natural join channels_assignations natural join channels natural join frequency_ranks natural join channel_assignations_per_territorialdivision natural join operators where \"ID_frequency_ranks\"=".$rangos ." order by \"ID_Territorial_Division\", \"ID_channels\";";
+	$query = "select channel_number, operators_name, channel_description, \"Territorial_Division_Name\" as namet from territorial_divisions natural join channels_assignations natural join channels natural join frequency_ranks natural join channel_assignations_per_territorialdivision natural join operators where \"ID_frequency_ranks\"=".$rangos ." order by \"ID_Territorial_Division\", \"ID_channels\";";
 
 	
 	$result= $objconexionBD->enviarConsulta($query);
@@ -298,7 +297,7 @@ if($accion=="frecuencia")
 	{
 		print_r($row);
 	  echo "<tr>";
-	  echo "<td>".$row["nameT"]."</td>";
+	  echo "<td>".$row["namet"]."</td>";
 	  echo "<td>".$row["channel_number"]."</td>";
 	  echo "<td>".$row["operators_name"]."</td>";
 	  echo "<td>".$row["channel_description"]."</td>";
