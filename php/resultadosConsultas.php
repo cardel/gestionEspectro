@@ -20,9 +20,9 @@ if($accion=="operador")
     echo "<table width='100%' id='tabla1' border='1'>\n";		
 	echo "<thead>\n";
 	echo "<tr>\n";
-	echo "<th class='estilo'>Canal</th>\n";
-	echo "<th class='estilo'>Rango de frecuencia</th>\n";
-	echo "<th class='estilo'>Descripción canal</th>\n";
+	echo "<th>Canal</th>\n";
+	echo "<th>Rango de frecuencia</th>\n";
+	echo "<th>Descripción canal</th>\n";
 	echo "</tr>\n";
 	echo "</thead>\n";
 	echo "<tbody>\n";
@@ -65,18 +65,18 @@ if($accion=="operador")
 	while ($row =  pg_fetch_array ($result))
 	{
 	  echo "<tr>";
-	  echo "<td class='estilo'>".$row["channel_number"]."</td>";
-	  echo "<td class='estilo'>".$row["frequency_ranks_name"]."</td>";
-	  echo "<td class='estilo'>".$row["channel_description"]."</td>";
+	  echo "<td>".$row["channel_number"]."</td>";
+	  echo "<td>".$row["frequency_ranks_name"]."</td>";
+	  echo "<td>".$row["channel_description"]."</td>";
 	  echo "</tr>";
 	}
 
 	echo "</tbody>\n";
 	echo "<tfoot>\n";
 	echo "<tr>\n";
-	echo "<th class='estilo'>Canal</th>\n";
-	echo "<th class='estilo'>Rango de frecuencia</th>\n";
-	echo "<th class='estilo'>Descripción canal</th>\n";
+	echo "<th>Canal</th>\n";
+	echo "<th>Rango de frecuencia</th>\n";
+	echo "<th>Descripción canal</th>\n";
 	echo "</tr>\n";
 	echo "</tfoot>\n";
     echo "</table>\n";	
@@ -103,10 +103,10 @@ if($accion=="territorio")
     echo "<table width='100%' id='tabla1' border='1'>\n";		
 	echo "<thead>\n";
 	echo "<tr>\n";
-	echo "<th class='estilo'>Canal</th>\n";
-	echo "<th class='estilo'>Rango de frecuencia</th>\n";
-	echo "<th class='estilo'>Descripción canal</th>\n";
-	echo "<th class='estilo'>Operador</th>\n";
+	echo "<th>Canal</th>\n";
+	echo "<th>Rango de frecuencia</th>\n";
+	echo "<th>Descripción canal</th>\n";
+	echo "<th>Operador</th>\n";
 	echo "</tr>\n";
 	echo "</thead>\n";
 	echo "<tbody>\n";
@@ -148,20 +148,20 @@ if($accion=="territorio")
 	while ($row =  pg_fetch_array ($result))
 	{
 	  echo "<tr>";
-	  echo "<td class='estilo'>".$row["channel_number"]."</td>";
-	  echo "<td class='estilo'>".$row["frequency_ranks_name"]."</td>";
-	  echo "<td class='estilo'>".$row["channel_description"]."</td>";
-	  echo "<td class='estilo'>".$row["operators_name"]."</td>";
+	  echo "<td>".$row["channel_number"]."</td>";
+	  echo "<td>".$row["frequency_ranks_name"]."</td>";
+	  echo "<td>".$row["channel_description"]."</td>";
+	  echo "<td>".$row["operators_name"]."</td>";
 	  echo "</tr>";
 	}
 
 	echo "</tbody>\n";
 	echo "<tfoot>\n";
 	echo "<tr>\n";
-	echo "<th class='estilo'>Canal</th>\n";
-	echo "<th class='estilo'>Rango de frecuencia</th>\n";
-	echo "<th class='estilo'>Descripción canal</th>\n";
-	echo "<th class='estilo'>Operador</th>\n";
+	echo "<th>Canal</th>\n";
+	echo "<th>Rango de frecuencia</th>\n";
+	echo "<th>Descripción canal</th>\n";
+	echo "<th>Operador</th>\n";
 	echo "</tr>\n";
 	echo "</tfoot>\n";
     echo "</table>\n";		
@@ -232,9 +232,9 @@ if($accion=="frecuencia")
     echo "<table width='100%' id='tabla2' border='1'>\n";		
 	echo "<thead>\n";
 	echo "<tr>\n";
-	echo "<th class='estilo'>Canal</th>\n";
-	echo "<th class='estilo'>Descripción canal</th>\n";
-	echo "<th class='estilo'>Operador</th>\n";
+	echo "<th>Canal</th>\n";
+	echo "<th>Descripción canal</th>\n";
+	echo "<th>Operador</th>\n";
 	echo "</tr>\n";
 	echo "</thead>\n";
 	echo "<tbody>\n";
@@ -246,20 +246,20 @@ if($accion=="frecuencia")
 	while ($row =  pg_fetch_array ($result))
 	{
 	  echo "<tr>";
-	  echo "<td class='estilo'>".$row["channel_number"]."</td>";
-	  echo "<td class='estilo'>".$row["frequency_ranks_name"]."</td>";
-	  echo "<td class='estilo'>".$row["channel_description"]."</td>";
-	  echo "<td class='estilo'>".$row["operators_name"]."</td>";
+	  echo "<td>".$row["channel_number"]."</td>";
+	  echo "<td>".$row["frequency_ranks_name"]."</td>";
+	  echo "<td>".$row["channel_description"]."</td>";
+	  echo "<td>".$row["operators_name"]."</td>";
 	  echo "</tr>";
 	}
 	*/
 	echo "</tbody>\n";
 	echo "<tfoot>\n";
 	echo "<tr>\n";
-	echo "<th class='estilo'>Canal</th>\n";
-	echo "<th class='estilo'>Rango de frecuencia</th>\n";
-	echo "<th class='estilo'>Descripción canal</th>\n";
-	echo "<th class='estilo'>Operador</th>\n";
+	echo "<th>Canal</th>\n";
+	echo "<th>Rango de frecuencia</th>\n";
+	echo "<th>Descripción canal</th>\n";
+	echo "<th>Operador</th>\n";
 	echo "</tr>\n";
 	echo "</tfoot>\n";
     echo "</table>\n";		
@@ -280,9 +280,9 @@ if($accion=="frecuencia")
     echo "<table width='100%' id='tabla3' border='1'>\n";		
 	echo "<thead>\n";
 	echo "<tr>\n";
-	echo "<th class='estilo'>Canal</th>\n";
-	echo "<th class='estilo'>Descripción canal</th>\n";
-	echo "<th class='estilo'>Operador</th>\n";
+	echo "<th>Canal</th>\n";
+	echo "<th>Descripción canal</th>\n";
+	echo "<th>Operador</th>\n";
 	echo "</tr>\n";
 	echo "</thead>\n";
 	echo "<tbody>\n";
@@ -294,20 +294,20 @@ if($accion=="frecuencia")
 	while ($row =  pg_fetch_array ($result))
 	{
 	  echo "<tr>";
-	  echo "<td class='estilo'>".$row["channel_number"]."</td>";
-	  echo "<td class='estilo'>".$row["frequency_ranks_name"]."</td>";
-	  echo "<td class='estilo'>".$row["channel_description"]."</td>";
-	  echo "<td class='estilo'>".$row["operators_name"]."</td>";
+	  echo "<td>".$row["channel_number"]."</td>";
+	  echo "<td>".$row["frequency_ranks_name"]."</td>";
+	  echo "<td>".$row["channel_description"]."</td>";
+	  echo "<td>".$row["operators_name"]."</td>";
 	  echo "</tr>";
 	}
 	*/
 	echo "</tbody>\n";
 	echo "<tfoot>\n";
 	echo "<tr>\n";
-	echo "<th class='estilo'>Canal</th>\n";
-	echo "<th class='estilo'>Rango de frecuencia</th>\n";
-	echo "<th class='estilo'>Descripción canal</th>\n";
-	echo "<th class='estilo'>Operador</th>\n";
+	echo "<th>Canal</th>\n";
+	echo "<th>Rango de frecuencia</th>\n";
+	echo "<th>Descripción canal</th>\n";
+	echo "<th>Operador</th>\n";
 	echo "</tr>\n";
 	echo "</tfoot>\n";
     echo "</table>\n";		
@@ -327,9 +327,9 @@ if($accion=="frecuencia")
     echo "<table width='100%' id='tabla4' border='1'>\n";		
 	echo "<thead>\n";
 	echo "<tr>\n";
-	echo "<th class='estilo'>Canal</th>\n";
-	echo "<th class='estilo'>Descripción canal</th>\n";
-	echo "<th class='estilo'>Operador</th>\n";
+	echo "<th>Canal</th>\n";
+	echo "<th>Descripción canal</th>\n";
+	echo "<th>Operador</th>\n";
 	echo "</tr>\n";
 	echo "</thead>\n";
 	echo "<tbody>\n";
@@ -341,20 +341,20 @@ if($accion=="frecuencia")
 	while ($row =  pg_fetch_array ($result))
 	{
 	  echo "<tr>";
-	  echo "<td class='estilo'>".$row["channel_number"]."</td>";
-	  echo "<td class='estilo'>".$row["frequency_ranks_name"]."</td>";
-	  echo "<td class='estilo'>".$row["channel_description"]."</td>";
-	  echo "<td class='estilo'>".$row["operators_name"]."</td>";
+	  echo "<td>".$row["channel_number"]."</td>";
+	  echo "<td>".$row["frequency_ranks_name"]."</td>";
+	  echo "<td>".$row["channel_description"]."</td>";
+	  echo "<td>".$row["operators_name"]."</td>";
 	  echo "</tr>";
 	}
 	*/
 	echo "</tbody>\n";
 	echo "<tfoot>\n";
 	echo "<tr>\n";
-	echo "<th class='estilo'>Canal</th>\n";
-	echo "<th class='estilo'>Rango de frecuencia</th>\n";
-	echo "<th class='estilo'>Descripción canal</th>\n";
-	echo "<th class='estilo'>Operador</th>\n";
+	echo "<th>Canal</th>\n";
+	echo "<th>Rango de frecuencia</th>\n";
+	echo "<th>Descripción canal</th>\n";
+	echo "<th>Operador</th>\n";
 	echo "</tr>\n";
 	echo "</tfoot>\n";
     echo "</table>\n";		
@@ -374,9 +374,9 @@ if($accion=="frecuencia")
     echo "<table width='100%' id='tabla5' border='1'>\n";		
 	echo "<thead>\n";
 	echo "<tr>\n";
-	echo "<th class='estilo'>Canal</th>\n";
-	echo "<th class='estilo'>Descripción canal</th>\n";
-	echo "<th class='estilo'>Operador</th>\n";
+	echo "<th>Canal</th>\n";
+	echo "<th>Descripción canal</th>\n";
+	echo "<th>Operador</th>\n";
 	echo "</tr>\n";
 	echo "</thead>\n";
 	echo "<tbody>\n";
@@ -388,20 +388,20 @@ if($accion=="frecuencia")
 	while ($row =  pg_fetch_array ($result))
 	{
 	  echo "<tr>";
-	  echo "<td class='estilo'>".$row["channel_number"]."</td>";
-	  echo "<td class='estilo'>".$row["frequency_ranks_name"]."</td>";
-	  echo "<td class='estilo'>".$row["channel_description"]."</td>";
-	  echo "<td class='estilo'>".$row["operators_name"]."</td>";
+	  echo "<td>".$row["channel_number"]."</td>";
+	  echo "<td>".$row["frequency_ranks_name"]."</td>";
+	  echo "<td>".$row["channel_description"]."</td>";
+	  echo "<td>".$row["operators_name"]."</td>";
 	  echo "</tr>";
 	}
 	*/
 	echo "</tbody>\n";
 	echo "<tfoot>\n";
 	echo "<tr>\n";
-	echo "<th class='estilo'>Canal</th>\n";
-	echo "<th class='estilo'>Rango de frecuencia</th>\n";
-	echo "<th class='estilo'>Descripción canal</th>\n";
-	echo "<th class='estilo'>Operador</th>\n";
+	echo "<th>Canal</th>\n";
+	echo "<th>Rango de frecuencia</th>\n";
+	echo "<th>Descripción canal</th>\n";
+	echo "<th>Operador</th>\n";
 	echo "</tr>\n";
 	echo "</tfoot>\n";
     echo "</table>\n";		
