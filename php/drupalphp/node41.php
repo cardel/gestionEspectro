@@ -88,6 +88,7 @@ else{
 <script>consultarOperadores();</script>
 <div id="divOperadores"></div>
 
+
 <?php	
 }
 ?>
