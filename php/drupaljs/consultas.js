@@ -101,3 +101,9 @@ function consultarOperadores(){
 		$("#divOperadores").html(data);
 	});   
 }
+
+function consultarServicios(){  
+	$.post("gestionEspectro/php/resultadosConsultas.php", { accion: 'servicios' }, function(data){
+		$("#divServicios").html(data);
+	});   
+}

@@ -476,5 +476,52 @@ if($accion=="operadores")
 	pg_free_result($result);				
 }
 
+if($accion=="servicios")
+{	
+	$query="select * from services;";
+
+    echo "<table width='100%' id='tabla9' border='1'>\n";		
+	echo "<thead>\n";
+	echo "<tr>\n";
+	echo "<th>Nombre servicio</th>\n";
+	echo "<th>Descripción</th>\n";
+	echo "</tr>\n";
+	echo "</thead>\n";
+	echo "<tbody>\n";
+				   
+	$result= $objconexionBD->enviarConsulta($query);
+	while ($row =  pg_fetch_array ($result))
+	{
+	  echo "<tr>";
+	  echo "<td>".$row["services_name"]."</td>";
+	  echo "<td>".$row["services_description"]."</td>";
+	  echo "<td>Editar Servicio</td>";
+	  echo "</tr>";	
+	}
+
+	echo "</tbody>\n";
+	echo "<tfoot>\n";
+	echo "<tr>\n";
+	echo "<th>Operador</th>\n";
+	echo "<th>Edición</th>\n";
+	echo "<th>Servicios</th>\n";
+	echo "</tr>\n";
+	echo "</tfoot>\n";
+    echo "</table>\n";		
+
+	
+	//Activar jtables
+	 echo "<script>$('#tabla9').dataTable( {
+	    \"sPaginationType\": \"full_numbers\",
+         \"oLanguage\": {
+                \"sUrl\": \"js/spanish.txt\"
+            }
+        } );
+        
+        </script>";
+    
+	pg_free_result($result);				
+}
+
 $objconexionBD->cerrarConexion();
 ?>

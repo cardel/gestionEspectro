@@ -31,7 +31,7 @@ else{
 	
 	
 ?>
-<script>consultarOperadores();</script>
+<script>consultarServicios();</script>
 <div id="divOperadores"></div>
 
 Acciones
@@ -43,7 +43,6 @@ Acciones
 3. Agregar o quitar servicios
 <br>
 4. No es posible eliminar
-
 
 
 <?php	
