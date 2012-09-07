@@ -17,7 +17,7 @@ if($accion=="operador")
 	$municipio = $_POST["selectCities"];
 	$operador = $_POST["operadorSel"];
 	
-    echo "<table width='100%' id='tabla1' class='tabla' border='1'>\n";		
+    echo "<table width='100%' id='tabla1' border='1'>\n";		
 	echo "<thead>\n";
 	echo "<tr>\n";
 	echo "<th class='estilo'>Canal</th>\n";
@@ -98,7 +98,7 @@ if($accion=="territorio")
 	$departamento = $_POST["selectDepartaments"];
 	$municipio = $_POST["selectCities"];
 	
-    echo "<table width='100%' id='tabla1' class='tabla' border='1'>\n";		
+    echo "<table width='100%' id='tabla1' border='1'>\n";		
 	echo "<thead>\n";
 	echo "<tr>\n";
 	echo "<th class='estilo'>Canal</th>\n";
@@ -227,7 +227,7 @@ if($accion=="frecuencia")
 	
 	echo "<strong style=\"font-size:14px; font-weight:bold;\">Asignación nacional</strong>";
 
-    echo "<table width='100%' id='tabla2' class='tabla' border='1'>\n";		
+    echo "<table width='100%' id='tabla2' border='1'>\n";		
 	echo "<thead>\n";
 	echo "<tr>\n";
 	echo "<th class='estilo'>Canal</th>\n";
@@ -275,7 +275,7 @@ if($accion=="frecuencia")
 	echo "<br/>";
 	echo "<strong style=\"font-size:14px; font-weight:bold;\">Asignación territorial/regional</strong>";
 
-    echo "<table width='100%' id='tabla3' class='tabla' border='1'>\n";		
+    echo "<table width='100%' id='tabla3' border='1'>\n";		
 	echo "<thead>\n";
 	echo "<tr>\n";
 	echo "<th class='estilo'>Canal</th>\n";
@@ -322,7 +322,7 @@ if($accion=="frecuencia")
 	echo "<br/>";       
 	echo "<strong style=\"font-size:14px; font-weight:bold;\">Asignación departamental</strong>";
 
-    echo "<table width='100%' id='tabla4' class='tabla' border='1'>\n";		
+    echo "<table width='100%' id='tabla4' border='1'>\n";		
 	echo "<thead>\n";
 	echo "<tr>\n";
 	echo "<th class='estilo'>Canal</th>\n";
@@ -369,7 +369,7 @@ if($accion=="frecuencia")
 	echo "<br/>";       
  	echo "<strong style=\"font-size:14px; font-weight:bold;\">Asignación Municipal</strong>";
 
-    echo "<table width='100%' id='tabla5' class='tabla' border='1'>\n";		
+    echo "<table width='100%' id='tabla5' border='1'>\n";		
 	echo "<thead>\n";
 	echo "<tr>\n";
 	echo "<th class='estilo'>Canal</th>\n";
