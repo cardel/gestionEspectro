@@ -430,7 +430,6 @@ if($accion=="frecuencia")
 
 if($accion=="operadores")
 {	
-	echo "<select id=\"operadores\" >";
 	$query="select * from operadores;";
 
     echo "<table width='100%' id='tabla8' border='1'>\n";		
