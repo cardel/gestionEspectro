@@ -47,7 +47,7 @@ else{
 		<input type="hidden" id="cant_campos" name="cant_campos" value="0" />
 		<input type="hidden" id="enviar" name="enviar" value="1" />
 		<fieldset class="estiloFormFieldset">
-			<legend class="estiloFormLeyenda">Gestión de requerimiento</legend>
+			<legend class="estiloFormLeyenda">Gestión de servicios</legend>
 			<div class="top">
 				<label class="estiloFormLabel" for="numeroCanales">Seleccione servicio:</label>
 				<div id="divServicios" class="div_texbox"></div>
