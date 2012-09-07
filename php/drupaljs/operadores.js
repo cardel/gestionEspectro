@@ -62,9 +62,8 @@ function crearRequerimiento()
 function agregarFila(obj){
 
 	var operador = $("#selServices").val();
-	var esNumero = isNaN(numeroCanales);
-	
-	if(operador>=1 && !esNumero)
+
+	if(operador>=1)
 	{
 		var textoOperador = $("#selOperador option:selected").text();
 		var oId = $("#cant_campos").val();

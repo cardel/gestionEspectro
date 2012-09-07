@@ -164,6 +164,8 @@ function agregarFila(obj){
 		strHtml3 += '<input type="hidden" id="hdnIdCampos_' + oId +'" name="hdnIdCampos[]" value="' + oId + '" /></td>';
 		var strHtmlTr = "<tr id='rowDetalle_" + oId + "'></tr>";
 		var strHtmlFinal = strHtml1 + strHtml2 + strHtml3;
+		//tambien se puede agregar todo el HTML de una sola vez.
+		//var strHtmlTr = "<tr id='rowDetalle_" + oId + "'>" + strHtml1 + strHtml2 + "</tr>";
 		$("#tbDetalle").append(strHtmlTr);
 		//si se agrega el HTML de una sola vez se debe comentar la linea siguiente.
 		$("#rowDetalle_" + oId).html(strHtmlFinal);	
