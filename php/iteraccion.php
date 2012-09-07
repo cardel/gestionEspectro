@@ -45,7 +45,7 @@ foreach($solucionIt->solution as $sol)
 					
 		echo "</table>\n<br/>";	
 		
-		echo '<div style="overflow:auto; width: 100%; height :300px; align:left;">';
+		echo '<div style="overflow:auto; width: 1200px; height :300px; align:center;">';
 		echo "<table width='100%' class='display' border='1'>\n";
 		
 		echo "<thead>\n";
