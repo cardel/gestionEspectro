@@ -525,7 +525,7 @@ if($accion=="servicios")
 }
 if($accion=="serviciosList")
 {	
-	echo "<select id=\"selServicesr\"  class=\"textbox txtFec\">";
+	echo "<select id=\"selServices\"  class=\"textbox txtFec\">";
    $query="select * from services;";	
    
    print ("<option value=-1>");
