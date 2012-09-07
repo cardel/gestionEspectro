@@ -17,7 +17,7 @@ if($accion=="operador")
 	$municipio = $_POST["selectCities"];
 	$operador = $_POST["operadorSel"];
 	
-    echo "<table width='100%' id='tabla1' border='1'>\n";		
+    echo "<table width='100%' id='tabla1' class='display' border='1'>\n";		
 	echo "<thead>\n";
 	echo "<tr>\n";
 	echo "<th class='estilo'>Canal</th>\n";
@@ -99,7 +99,7 @@ if($accion=="territorio")
 	$departamento = $_POST["selectDepartaments"];
 	$municipio = $_POST["selectCities"];
 	
-    echo "<table width='100%' id='tabla1' border='1'>\n";		
+    echo "<table width='100%' id='tabla1' class='display' border='1'>\n";		
 	echo "<thead>\n";
 	echo "<tr>\n";
 	echo "<th class='estilo'>Canal</th>\n";
