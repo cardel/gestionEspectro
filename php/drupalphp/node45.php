@@ -30,7 +30,7 @@ else{
 	
 	
 ?>
-<script>consultarServices();</script>
+<script>consultarServicios();</script>
 <div id="divOperadores"></div>
 
 Acciones
@@ -41,6 +41,7 @@ Acciones
 <br>
 3. No es posible eliminar
 
+<div id="divServicios"></div>
 
 
 <?php	

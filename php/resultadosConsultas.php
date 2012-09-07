@@ -494,7 +494,8 @@ if($accion=="servicios")
 	{
 	  echo "<tr>";
 	  echo "<td>".$row["services_name"]."</td>";
-	  echo "<td>".$row["services_description"]."</td>";
+	  //echo "<td>".$row["services_description"]."</td>";
+	  echo "<td>Editar Servicio</td>";
 	  echo "<td>Editar Servicio</td>";
 	  echo "</tr>";	
 	}
