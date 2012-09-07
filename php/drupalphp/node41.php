@@ -66,7 +66,9 @@ else{
 					<thead>
 						<tr>
 							<th>Nombre servicio</th>
+							<th>Acción</th>
 						</tr>
+
 					</thead>
 					<tbody id="tbDetalle">
 					</tbody>

@@ -65,7 +65,7 @@ function agregarFila(obj){
 
 	if(operador>=1)
 	{
-		var textoOperador = $("#selOperador option:selected").text();
+		var textoOperador = $("#selServices option:selected").text();
 		var oId = $("#cant_campos").val();
 		$("#cant_campos").val(parseInt($("#cant_campos").val()) + 1);
 
@@ -87,7 +87,7 @@ function agregarFila(obj){
 	}
 	else
 	{
-		alert("Debe seleccionar un operador e ingresar un n\xfamero v\xe1lido para los requerimientos");
+		alert("Debe seleccionar un servicio");
 	}	
 
 	return false;
