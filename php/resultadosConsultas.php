@@ -295,7 +295,6 @@ if($accion=="frecuencia")
 
 	while ($row =  pg_fetch_array ($result))
 	{
-		print_r($row);
 	  echo "<tr>";
 	  echo "<td>".$row["namet"]."</td>";
 	  echo "<td>".$row["channel_number"]."</td>";
@@ -397,7 +396,7 @@ if($accion=="frecuencia")
 	while ($row =  pg_fetch_array ($result))
 	{
 	  echo "<tr>";
-	  echo "<td>".$row["departament_name"]."</td>";
+	  echo "<td>".$row["city_name"]."</td>";
 	  echo "<td>".$row["channel_number"]."</td>";
 	  echo "<td>".$row["operators_name"]."</td>";
 	  echo "<td>".$row["channel_description"]."</td>";
