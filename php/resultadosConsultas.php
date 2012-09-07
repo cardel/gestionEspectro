@@ -485,6 +485,7 @@ if($accion=="servicios")
 	echo "<tr>\n";
 	echo "<th>Nombre servicio</th>\n";
 	echo "<th>Descripción</th>\n";
+	echo "<th>Acciones</th>\n";
 	echo "</tr>\n";
 	echo "</thead>\n";
 	echo "<tbody>\n";
@@ -494,8 +495,7 @@ if($accion=="servicios")
 	{
 	  echo "<tr>";
 	  echo "<td>".$row["services_name"]."</td>";
-	  //echo "<td>".$row["services_description"]."</td>";
-	  echo "<td>Editar Servicio</td>";
+	  echo "<td>".$row["services_description"]."</td>";
 	  echo "<td>Editar Servicio</td>";
 	  echo "</tr>";	
 	}
@@ -503,9 +503,9 @@ if($accion=="servicios")
 	echo "</tbody>\n";
 	echo "<tfoot>\n";
 	echo "<tr>\n";
-	echo "<th>Operador</th>\n";
-	echo "<th>Edición</th>\n";
-	echo "<th>Servicios</th>\n";
+	echo "<th>Nombre servicio</th>\n";
+	echo "<th>Descripción</th>\n";
+	echo "<th>Acciones</th>\n";
 	echo "</tr>\n";
 	echo "</tfoot>\n";
     echo "</table>\n";		
