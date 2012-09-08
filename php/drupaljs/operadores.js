@@ -95,7 +95,8 @@ function agregarFila(obj){
 //Funcion para borrar filas en la tabla
 
 function eliminarFila(oId){
-	$("#rowDetalle_" + oId).remove();	
-	$("#selServices option[value="+oId+"]").attr('disabled', false);
+	$("#rowDetalle_" + oId).remove();
+	$("#selServices").find("option[value="+oId+"]").attr('disabled', false);
+	
 	return false;
 }  
