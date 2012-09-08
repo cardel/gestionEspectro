@@ -96,8 +96,7 @@ function agregarFila(obj){
 
 function eliminarFila(oId){
 	$("#rowDetalle_" + oId).remove();
-	$("#selServices option[value="+oId+"]").attr("disabled",false);
-
+	$("#selServices option[value="+oId+"]").attr('disabled','');
 	
 	return false;
 }  
