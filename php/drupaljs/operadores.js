@@ -73,7 +73,7 @@ function agregarFila(obj){
 		$("#selServices").find("option:selected").attr('selected', false);
 		$("#selServices option[value=-1]").attr("selected",true);
 		
-		var strHtml1 = "<td>" + textoOperador +'<input type="hidden" id="operador_' + oId + '" name="operador_' + oId + '" value="' + operador + '"/></td>';
+		var strHtml1 = "<td>" + textoOperador +'<input type="hidden" id="servicio_' + oId + '" name="servicio_' + oId + '" value="' + operador + '"/></td>';
 		var strHtml2 = '<td><img src="gestionEspectro/php/drupalimages/delete.png" width="16" height="16" alt="Eliminar" onclick="if(confirm(\'Realmente desea eliminar este servicio?\')){eliminarFila(' + oId + ');}"/>';
 		strHtml2+= '<input type="hidden" id="hdnIdCampos_' + oId +'" name="hdnIdCampos[]" value="' + oId + '" /></td>';
 		var strHtmlTr = "<tr id='rowDetalle_" + oId + "'></tr>";

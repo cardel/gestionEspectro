@@ -97,11 +97,13 @@ else{
 		$nombreOperador = $_POST["nombreOperador"];
 		$servicios = array();
 		
-		for(int i=0; i<$cant_campos; i++)
+		for($i=0; $i<$cant_campos; $i++)
 		{
-				$servicios[i]=$_POST["
+				$servicios[$i]=$_POST["servicio_".$i];
 		}
-		
+		echo "\n";
+		print_r($servicios);
+		echo $nombreOperador;
 		
 	}
 	else
