@@ -89,7 +89,18 @@ else{
 <div id="divOperadores"></div>
 
 
-<?php	
+<?php
+	$cant_campos=$_POST["cant_campos"];
+	$btnAgregar=$_POST["btnAgregar"];
+	if($cant_campos>0 && $btnAgregar=="Guardar")
+	{
+		echo "oks";
+	}
+	else
+	{
+		echo "nooks";
+	}
+	
 }
 ?>
 
