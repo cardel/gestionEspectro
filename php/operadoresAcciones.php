@@ -24,11 +24,23 @@ function nuevoOperador($nombre, $servicios)
 	
 	$idNuevo++;
 	
-	return $idNuevo;
 	//Insertar nuevo operador
 	
+	$query= "insert into operators (operators_name) values (".$nombre.");";
+	$result= $objconexionBD->enviarConsulta($query);
+	pg_free_result($result);
+		
 	//Insertar nuevos servicios del operador
+	
+	foreach ($servicios as $ser)
+	{
+		$query= "insert into services_by_operator (\"ID_Operator\", \"ID_service\") values (".$idNuevo.",".$ser.");";
+		$result= $objconexionBD->enviarConsulta($query);
+		pg_free_result($result);
+	}
 	$objconexionBD->cerrarConexion();
+
+	return "<script>alert('Operador ingresado con éxito')</script>";
 	
 }
 
