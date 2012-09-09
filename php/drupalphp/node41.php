@@ -40,7 +40,7 @@ else{
 			<label for="edit-pesoNumeroBloques">Nombre operador: </label>
 			<input type="text" maxlength="64" name="nombreOperador" size="30" value="Operador" class="form-text"/>
 			<div class="description">
-				Ingrese el nombre del operador
+				Ingrese el nombre del operador, recuerde en no insertar un operador con nombre ya existente para evitar confusiones.
 			</div>			
 		</div>
 	<div id="formulario" >
@@ -108,7 +108,8 @@ else{
 	}
 	else
 	{
-		echo "nooks";
+		if($cant_campos>0) 	echo "<script>alert('Ingrese al menos un servicio')</script>";
+
 	}
 	
 }
