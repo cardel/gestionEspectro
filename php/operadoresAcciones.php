@@ -26,7 +26,7 @@ function nuevoOperador($nombre, $servicios)
 	
 	//Insertar nuevo operador
 	
-	$query= "insert into operators (\"ID_Operator\",operators_name) values ('".$idNuevo.",".$nombre."');";
+	$query= "insert into operators (\"ID_Operator\",operators_name) values (".$idNuevo.",'".$nombre."');";
 	$objconexionBD->enviarConsulta($query);
 		
 	//Insertar nuevos servicios del operador
