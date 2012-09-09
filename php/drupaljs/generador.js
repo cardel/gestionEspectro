@@ -144,38 +144,30 @@ function crearRequerimiento()
 //Funcion para agregar filas en la tabla
 function agregarFila(obj){
 
-	var numeroCanales = $("#numeroCanales").val();
-	var operador = $("#selOperador").val();
+	var nombreOperador = $("#nombreOperador").val();
+	var servicio = $("#selOperador").val();
 	var esNumero = isNaN(numeroCanales);
-	
-	if(operador>=1 && !esNumero && numeroCanales>0)
-	{
-		var textoOperador = $("#selOperador option:selected").text();
-		var oId = $("#cant_campos").val();
-		$("#cant_campos").val(parseInt($("#cant_campos").val()) + 1);
 
-		$("#selOperador").find("option:selected").attr('disabled', true);
-		$("#selOperador").find("option:selected").attr('selected', false);
-		$("#selOperador option[value=-1]").attr("selected",true);
-		
-		var strHtml1 = "<td>" + textoOperador + '<input type="hidden" id="operador_' + oId + '" name="operador_' + oId + '" value="' + operador + '"/></td>';
-		var strHtml2 = "<td>" + numeroCanales + '<input type="hidden" id="numRequerido_' + oId + '" name="numRequerido_' + oId + '" value="' + numeroCanales + '"/></td>' ;
-		var strHtml3 = '<td><img src="gestionEspectro/php/drupalimages/delete.png" width="16" height="16" alt="Eliminar" onclick="if(confirm(\'Realmente desea eliminar este requerimiento?\')){eliminarFila(' + oId + ');}"/>';
-		strHtml3 += '<input type="hidden" id="hdnIdCampos_' + oId +'" name="hdnIdCampos[]" value="' + oId + '" /></td>';
-		var strHtmlTr = "<tr id='rowDetalle_" + oId + "'></tr>";
-		var strHtmlFinal = strHtml1 + strHtml2 + strHtml3;
-		//tambien se puede agregar todo el HTML de una sola vez.
-		//var strHtmlTr = "<tr id='rowDetalle_" + oId + "'>" + strHtml1 + strHtml2 + "</tr>";
-		$("#tbDetalle").append(strHtmlTr);
-		//si se agrega el HTML de una sola vez se debe comentar la linea siguiente.
-		$("#rowDetalle_" + oId).html(strHtmlFinal);	
-		$("#numeroCanales").val(0);	
-		
-	}
-	else
-	{
-		alert("Debe seleccionar un operador e ingresar un n\xfamero v\xe1lido para los requerimientos");
-	}	
+	var textoServicio = $("#selOperador option:selected").text();
+	var oId = $("#cant_campos").val();
+	$("#cant_campos").val(parseInt($("#cant_campos").val()) + 1);
+
+	$("#selOperador").find("option:selected").attr('disabled', true);
+	$("#selOperador").find("option:selected").attr('selected', false);
+	$("#selOperador option[value=-1]").attr("selected",true);
+	
+	var strHtml1 = "<td>" + textoServicio + '<input type="hidden" id="servicio_' + oId + '" name="servicio_' + oId + '" value="' + servicio + '"/></td>';
+	var strHtml2 = '<td><img src="gestionEspectro/php/drupalimages/delete.png" width="16" height="16" alt="Eliminar" onclick="if(confirm(\'Realmente desea eliminar este requerimiento?\')){eliminarFila(' + oId + ');}"/>';
+	strHtml3 += '<input type="hidden" id="hdnIdCampos_' + oId +'" name="hdnIdCampos[]" value="' + oId + '" /></td>';
+	var strHtmlTr = "<tr id='rowDetalle_" + oId + "'></tr>";
+	var strHtmlFinal = strHtml1 + strHtml2;
+	//tambien se puede agregar todo el HTML de una sola vez.
+	//var strHtmlTr = "<tr id='rowDetalle_" + oId + "'>" + strHtml1 + strHtml2 + "</tr>";
+	$("#tbDetalle").append(strHtmlTr);
+	//si se agrega el HTML de una sola vez se debe comentar la linea siguiente.
+	$("#rowDetalle_" + oId).html(strHtmlFinal);	
+	
+	
 
 	return false;
 }

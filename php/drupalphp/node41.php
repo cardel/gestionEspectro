@@ -37,7 +37,7 @@ else{
 	<form action="/site/?q=node/41" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">		
 		<div class="form-item" id="edit-pesoNumeroBloques-wrapper">
 			<label for="edit-pesoNumeroBloques">Nombre operador: </label>
-			<input type="text" maxlength="64" name="pesoNumeroBloques" id="edit-pesoNumeroBloques" size="30" value="Operador" class="form-text"/>
+			<input type="text" maxlength="64" name="nombreOperador" size="30" value="Operador" class="form-text"/>
 			<div class="description">
 				Ingrese el nombre del operador
 			</div>			
@@ -49,7 +49,7 @@ else{
 		<fieldset class="estiloFormFieldset">
 			<legend class="estiloFormLeyenda">Gestión de servicios</legend>
 			<div class="top">
-				<label class="estiloFormLabel" for="numeroCanales">Seleccione servicio:</label>
+				<label class="estiloFormLabel" for="nombreOperador">Seleccione servicio:</label>
 				<div id="divServicios" class="div_texbox"></div>
 			</div>
 		</fieldset>
@@ -94,7 +94,15 @@ else{
 	$btnAgregar=$_POST["btnAgregar"];
 	if($cant_campos>0 && $btnAgregar=="Guardar")
 	{
-		echo "oks";
+		$nombreOperador = $_POST["nombreOperador"];
+		$servicios = array();
+		
+		for(int i=0; i<$cant_campos; i++)
+		{
+				$servicios[i]=$_POST["
+		}
+		
+		
 	}
 	else
 	{
