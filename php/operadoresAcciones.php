@@ -1,13 +1,14 @@
 <?php
 require ("/var/www/html/site/gestionEspectro/php/consultasAplicacion.php");
 
-$objconexionBD = new conexionBD();
-$objconexionBD->abrirConexion();
+
 
 //Esta función inserta un nuevo operador con sus servicios
 
 function nuevoOperador($nombre, $servicios)
 {
+	$objconexionBD = new conexionBD();
+	$objconexionBD->abrirConexion();
 	//Obtener ID
 	$idNuevo = 0;
 	
@@ -27,10 +28,11 @@ function nuevoOperador($nombre, $servicios)
 	//Insertar nuevo operador
 	
 	//Insertar nuevos servicios del operador
+	$objconexionBD->cerrarConexion();
 	
 }
 
 
-$objconexionBD->cerrarConexion();
+
 
 ?>
