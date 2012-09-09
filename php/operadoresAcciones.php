@@ -17,7 +17,7 @@ function nuevoOperador($nombre, $servicios)
 	
 	while ($row =  pg_fetch_array ($result))
 	{
-	  $idNuevo = parseint($row["idmax"]);
+	  $idNuevo = $row["idmax"];
 	}
 		
 	pg_free_result($result);
