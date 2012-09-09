@@ -102,7 +102,8 @@ else{
 		{
 				$servicios[$i]=$_POST["servicio_".$i];
 		}
-		
+		echo "<br/>";
+		echo "<br/>";
 		echo nuevoOperador($nombreOperador, $servicios);
 	}
 	else
