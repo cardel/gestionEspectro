@@ -27,14 +27,14 @@ function nuevoOperador($nombre, $servicios)
 	//Insertar nuevo operador
 	
 	$query= "insert into operators (operators_name) values (\"".$nombre."\");";
-	$objconexionBD->ejecutarSentencia($query);
+	$objconexionBD->enviarConsulta($query);
 		
 	//Insertar nuevos servicios del operador
 	
 	foreach ($servicios as $ser)
 	{
 		$query= "insert into services_by_operator (\"ID_Operator\", \"ID_service\") values (".$idNuevo.",".$ser.");";
-		$objconexionBD->ejecutarSentencia($query);
+		$objconexionBD->enviarConsulta($query);
 	}
 	$objconexionBD->cerrarConexion();
 
