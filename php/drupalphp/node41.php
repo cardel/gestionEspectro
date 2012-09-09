@@ -1,4 +1,5 @@
 <?php
+require ("/var/www/html/site/gestionEspectro/php/operadoresAcciones.php");
 global $user;
 
 if($user->uid==0)
@@ -101,10 +102,8 @@ else{
 		{
 				$servicios[$i]=$_POST["servicio_".$i];
 		}
-		echo "\n";
-		print_r($servicios);
-		echo $nombreOperador;
 		
+		echo nuevoOperador($nombreOperador, $servicios);
 	}
 	else
 	{
