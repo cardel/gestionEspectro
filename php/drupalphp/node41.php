@@ -8,19 +8,14 @@ if($user->uid==0)
 	echo "<script>location.href='http://avispa.univalle.edu.co/site/';</script>";
 }
 else{
+	jquery_ui_add('ui.tabs');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'dataTables/media/js/jquery.dataTables.js');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/jtables.js');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'gestionEspectro/php/drupaljs/operadores.js');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'gestionEspectro/php/drupaljs/consultas.js');
-	
-	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/jquery-ui/js/jquery-ui-1.7.3.custom.min.js');
-	drupal_add_js(drupal_get_path('module', 'mymodule') . 'gestionEspectro/php/drupaljs/node41.js');
 
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/tabsAppSum.js');
-	
 	drupal_add_css($path = 'gestionEspectro/php/drupalcss/estilosFormGestion.css', $type = 'module', $media = 'all', $preprocess = TRUE);
-	drupal_add_css($path = 'gestionEspectro/php/drupalcss/node41.css', $type = 'module', $media = 'all', $preprocess = TRUE);
-	
 	drupal_set_html_head('<script type="text/javascript" src="https://www.google.com/jsapi"></script>');
 	drupal_add_css($path = 'css/estilos.css', $type = 'module', $media = 'all', $preprocess = TRUE);
 	drupal_add_css($path = 'css/datatable.css', $type = 'module', $media = 'all', $preprocess = TRUE);
@@ -89,8 +84,7 @@ else{
 </div>
 
 
-<p class='estilo'>Lista de operadores registrados</p>;
-
+<p class='estilo'>Lista de operadores registrados</p>
 <script>consultarOperadores();</script>
 <div id="divOperadores"></div>
 
@@ -119,49 +113,4 @@ else{
 	
 }
 ?>
-<div class="demo">
 
-<div id="dialog-form" title="Create new user">
-	<p class="validateTips">All form fields are required.</p>
-
-	<form>
-	<fieldset>
-		<label for="name">Name</label>
-		<input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" />
-		<label for="email">Email</label>
-		<input type="text" name="email" id="email" value="" class="text ui-widget-content ui-corner-all" />
-		<label for="password">Password</label>
-		<input type="password" name="password" id="password" value="" class="text ui-widget-content ui-corner-all" />
-	</fieldset>
-	</form>
-</div>
-
-
-<div id="users-contain" class="ui-widget">
-	<h1>Existing Users:</h1>
-	<table id="users" class="ui-widget ui-widget-content">
-		<thead>
-			<tr class="ui-widget-header ">
-				<th>Name</th>
-				<th>Email</th>
-				<th>Password</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>John Doe</td>
-				<td>john.doe@example.com</td>
-				<td>johndoe1</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
-<button id="create-user">Create new user</button>
-
-</div><!-- End demo -->
-
-
-
-<div class="demo-description">
-<p>Use a modal dialog to require that the user enter data during a multi-step process.  Embed form markup in the content area, set the <code>modal</code> option to true, and specify primary and secondary user actions with the <code>buttons</code> option.</p>
-</div><!-- End demo-description -->
