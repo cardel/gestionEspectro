@@ -446,8 +446,7 @@ if($accion=="operadores")
 	{
 	  echo "<tr>";
 	  echo "<td>".$row["operators_name"]."</td>";
-	  echo "<td><a href=\"?q=node/41?idOperador=".$row["ID_Operator"]."\">Editar</a></td>";
-	  echo "<td>Editar Servicios</td>";
+	  echo "<td><a href=\"?q=node/41&&idOperador=".$row["ID_Operator"]."\">Editar</a></td>";
 	  echo "</tr>";	
 	}
 
