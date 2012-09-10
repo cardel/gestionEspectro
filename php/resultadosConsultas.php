@@ -480,6 +480,7 @@ if($accion=="servicios")
 {	
 	$query="select * from services;";
 
+	
     echo "<table width='100%' id='tabla9' border='1'>\n";		
 	echo "<thead>\n";
 	echo "<tr>\n";
@@ -489,7 +490,7 @@ if($accion=="servicios")
 	echo "</tr>\n";
 	echo "</thead>\n";
 	echo "<tbody>\n";
-				   
+					   
 	$result= $objconexionBD->enviarConsulta($query);
 	while ($row =  pg_fetch_array ($result))
 	{
