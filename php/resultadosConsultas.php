@@ -436,8 +436,7 @@ if($accion=="operadores")
 	echo "<thead>\n";
 	echo "<tr>\n";
 	echo "<th>Operador</th>\n";
-	echo "<th>Edición</th>\n";
-	echo "<th>Servicios</th>\n";
+	echo "<th>Acción</th>\n";
 	echo "</tr>\n";
 	echo "</thead>\n";
 	echo "<tbody>\n";
@@ -447,7 +446,7 @@ if($accion=="operadores")
 	{
 	  echo "<tr>";
 	  echo "<td>".$row["operators_name"]."</td>";
-	  echo "<td>Editar</td>";
+	  echo "<td><a href=\"node/49.php?idOperador=".$row["ID_Operator"]."\">Editar</a></td>";
 	  echo "<td>Editar Servicios</td>";
 	  echo "</tr>";	
 	}
@@ -456,8 +455,7 @@ if($accion=="operadores")
 	echo "<tfoot>\n";
 	echo "<tr>\n";
 	echo "<th>Operador</th>\n";
-	echo "<th>Edición</th>\n";
-	echo "<th>Servicios</th>\n";
+	echo "<th>Acción</th>\n";
 	echo "</tr>\n";
 	echo "</tfoot>\n";
     echo "</table>\n";		
