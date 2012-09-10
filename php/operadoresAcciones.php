@@ -42,6 +42,26 @@ function nuevoOperador($nombre, $servicios)
 	
 }
 
+function obtenerNombre($id)
+{
+	$res ="";
+	$objconexionBD = new conexionBD();
+	$objconexionBD->abrirConexion();
+	
+	$query= "select \"ID_Operator\" as idOp from operators where \"ID_Operator\"=".$id.";";
+	$result= $objconexionBD->enviarConsulta($query);
+	
+	while ($row =  pg_fetch_array ($result))
+	{
+	  $res = $row["idOp"];
+	}
+		
+	pg_free_result($result);
+	$objconexionBD->cerrarConexion();
+	return $res;
+	
+	
+}
 
 
 
