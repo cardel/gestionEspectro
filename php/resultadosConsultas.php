@@ -521,6 +521,8 @@ if($accion=="servicios")
     
 	pg_free_result($result);				
 }
+
+
 if($accion=="serviciosList")
 {	
 	echo "<select id=\"selServices\"  class=\"textbox txtFec\">";
@@ -542,6 +544,8 @@ if($accion=="serviciosList")
 
 	pg_free_result($result);
 }
+
+
 
 
 $objconexionBD->cerrarConexion();

@@ -29,11 +29,16 @@ else{
 	drupal_add_css($path = 'js/syntaxhighlighter/styles/shCore.css', $type = 'module', $media = 'all', $preprocess = TRUE);
 	drupal_add_css($path = 'js/syntaxhighlighter/styles/shThemeDefault.css', $type = 'module', $media = 'all', $preprocess = TRUE);
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/colorBoxU.js');
-	echo "<p class='estiloTitulo'>Editar de operador</p>\n";
-	echo "<p class='estilo'>Editar ".obtenerNombre($id)."</p>\n";
+	echo "<p class='estiloTitulo'>Edición de operador</p>\n";
+	
+	if($id==null) $id=1;
+	
+	echo "<p class='estilo'>Editar operador ".obtenerNombre($id)."</p>\n";
 ?>
 
 <p class='estilo'>Servicios del operador </p>;
+
+
 
 <div id="listaServicios"></div>
 
