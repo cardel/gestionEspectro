@@ -48,12 +48,12 @@ function obtenerNombre($id)
 	$objconexionBD = new conexionBD();
 	$objconexionBD->abrirConexion();
 	
-	$query= "select \"ID_Operator\" as idOp from operators where \"ID_Operator\"=".$id.";";
+	$query= "select operators_name from operators where \"ID_Operator\"=".$id.";";
 	$result= $objconexionBD->enviarConsulta($query);
 	
 	while ($row =  pg_fetch_array ($result))
 	{
-	  $res = $row["idOp"];
+	  $res = $row["operators_name"];
 	}
 		
 	pg_free_result($result);

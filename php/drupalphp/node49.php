@@ -33,7 +33,7 @@ else{
 	echo "<p class='estilo'>Editar ".obtenerNombre($id)."</p>\n";
 ?>
 
-echo "<p class='estilo'>Servicios del operador </p>\n";
+<p class='estilo'>Servicios del operador </p>;
 
 <div id="listaServicios"></div>
 
