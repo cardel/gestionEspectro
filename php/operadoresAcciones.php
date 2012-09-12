@@ -63,6 +63,56 @@ function obtenerNombre($id)
 	
 }
 
+function obtenerServiciosOperador($id)
+{
+	$res = "";
+	$res.= "<table width='100%' id='tabla9' border='1'>\n";		
+	$res.= "<thead>\n";
+	$res.= "<tr>\n";
+	$res.= "<th>Nombre servicio</th>\n";
+	$res.= "<th>Descripción</th>\n";
+	$res.= "<th>Acciones</th>\n";
+	$res.= "</tr>\n";
+	$res.= "</thead>\n";
+	$res.= "<tbody>\n";
+   	
+	$query="select * from services;";					   
+	$result= $objconexionBD->enviarConsulta($query);
+	   
+	while ($row =  pg_fetch_array ($result))
+	{
+	$res.= "<option value=$row[ID_service]>");
+	$res.= "$row[services_name]");
+	$res.= "</option>\n");		
+	}
+	$res.= "</select>";	
+
+	$res.= "</tbody>\n";
+	$res.= "<tfoot>\n";
+	$res.= "<tr>\n";
+	$res.= "<th>Nombre servicio</th>\n";
+	$res.= "<th>Descripción</th>\n";
+	$res.= "<th>Acciones</th>\n";
+	$res.= "</tr>\n";
+	$res.= "</tfoot>\n";
+    $res.= "</table>\n";		
+
+	
+	//Activar jtables
+	 echo "<script>$('#tabla9').dataTable( {
+	    \"sPaginationType\": \"full_numbers\",
+         \"oLanguage\": {
+                \"sUrl\": \"js/spanish.txt\"
+            }
+        } );
+        
+        </script>";
+    
+	pg_free_result($result);
+		
+	return $res;
+	
+}
 
 
 ?>
