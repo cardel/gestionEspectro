@@ -120,7 +120,7 @@ function obtenerServiciosNoOperador($id)
 	$objconexionBD = new conexionBD();
 	$objconexionBD->abrirConexion();
 	$res = "";
-	$res.= "<select id=\"selServices\" name=\"services\" class=\"textbox txtFec\">";
+	$res.= "<select id=\"selServices\" name=\"servicesOp\" class=\"textbox txtFec\">";
 	   	
 	$query="select \"ID_service\", services_name from services where \"ID_service\" not in (select distinct(\"ID_service\") from services_by_operator where \"ID_Operator\"=".$id.") order by services_name;";
 					   

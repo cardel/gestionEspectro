@@ -38,7 +38,7 @@ else{
 
 
 <div id="formularioHTML">
-	<form action="/site/?q=node/41" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">		
+	<form action="/site/gestionEspectro/php/editarOperadores.php" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">		
 		<div class="form-item" id="edit-pesoNumeroBloques-wrapper">
 			<label for="edit-pesoNumeroBloques">Nombre operador: </label>
 			<input type="text" maxlength="64" name="nombreOperador" size="30" value="<?echo obtenerNombre($id);?>" class="form-text"/>
@@ -46,6 +46,10 @@ else{
 				Ingrese el nombre del operador, recuerde en no cambiar el nombre por una ya existente.
 			</div>			
 		</div>	
+		<input type="hidden" name="nodo" value="49" />
+		<input type="hidden"  name="tipo" value="cambiarNombreOperador" />
+		<input type="hidden"  name="operador" value="<?echo $id;?>" />
+
 		<div>  
 			<input type="submit" id="btnAgregar" name="btnAgregar" value="Guardar" class="buttons_OK" />
 		</div>
@@ -53,11 +57,12 @@ else{
 </div>
 
 <div id="formularioHTML">
-	<form action="/site/?q=node/49" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">		
+	<form action="/site/gestionEspectro/php/editarOperadores.php" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">		
 	<div id="formulario" >
 		<p class='estilo'>Agregar o quitar servicios</p>
-		<input type="hidden" id="cant_campos" name="cant_campos" value="0" />
-		<input type="hidden" id="enviar" name="enviar" value="1" />
+		<input type="hidden" name="nodo" value="49" />
+		<input type="hidden"  name="tipo" value="agregarServicio" />
+		<input type="hidden"  name="operador" value="<?echo $id;?>" />
 		<fieldset class="estiloFormFieldset">
 			<legend class="estiloFormLeyenda">Gestión de servicios</legend>
 			<div class="top">
