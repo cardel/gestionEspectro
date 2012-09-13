@@ -72,7 +72,6 @@ function obtenerServiciosOperador($id)
 	$res.= "<thead>\n";
 	$res.= "<tr>\n";
 	$res.= "<th>Nombre servicio</th>\n";
-	$res.= "<th>Descripción</th>\n";
 	$res.= "<th>Acciones</th>\n";
 	$res.= "</tr>\n";
 	$res.= "</thead>\n";
@@ -83,9 +82,10 @@ function obtenerServiciosOperador($id)
 	   
 	while ($row =  pg_fetch_array ($result))
 	{
-	$res.= "<option value=$row[ID_service]>";
-	$res.= "$row[services_name]";
-	$res.= "</option>\n";		
+		$res.= "<tr>"; 
+		$res.= "<td>".$row[services_name]."</td>";
+		$res.= "<td>".$row[ID_service]."</td>";
+		$res.= "</tr>";	
 	}
 	$res.= "</select>";	
 
@@ -93,7 +93,6 @@ function obtenerServiciosOperador($id)
 	$res.= "<tfoot>\n";
 	$res.= "<tr>\n";
 	$res.= "<th>Nombre servicio</th>\n";
-	$res.= "<th>Descripción</th>\n";
 	$res.= "<th>Acciones</th>\n";
 	$res.= "</tr>\n";
 	$res.= "</tfoot>\n";
