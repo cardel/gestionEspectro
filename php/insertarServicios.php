@@ -14,7 +14,6 @@
 	
 	if($nodo==45)
 	{
-		echo "<script>alert('".$query."');</script>";
 		echo "<script>alert('Procedimiento realizado con exito');</script>";
 		echo "<script>window.location=\"http://avispa.univalle.edu.co/site/?q=node/45\";</script>";
 	}
