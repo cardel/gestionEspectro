@@ -44,7 +44,7 @@ else{
 			</div>			
 		</div>
 	<div id="formulario" >
-		<p class='estilo'>Agregar o quitar servicios</p>
+		<p>Agregar o quitar servicios</p>
 		<input type="hidden" id="cant_campos" name="cant_campos" value="0" />
 		<input type="hidden" id="enviar" name="enviar" value="1" />
 		<fieldset class="estiloFormFieldset">

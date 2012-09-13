@@ -33,15 +33,15 @@ else{
 	
 	if($id==null) $id=1;
 	
-	echo "<p class='estilo'>Editar operador ".obtenerNombre($id)."</p>\n";
+	echo "<p class='estilo'>Editar operador: ".obtenerNombre($id)."</p>\n";
 ?>
 
 
 <div id="formularioHTML">
 	<form action="/site/gestionEspectro/php/editarOperadores.php" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">		
 		<div class="form-item" id="edit-pesoNumeroBloques-wrapper">
-			<label for="edit-pesoNumeroBloques">Nombre operador: </label>
-			<input type="text" maxlength="64" name="nombreOperador" size="30" value="<?echo obtenerNombre($id);?>" class="form-text"/>
+			<label>Nombre operador: </label>
+			<input type="text" size="64" name="nombreOperador" value="<?echo obtenerNombre($id);?>" class="form-text"/>
 			<div class="description">
 				Ingrese el nombre del operador, recuerde en no cambiar el nombre por una ya existente.
 			</div>			
@@ -49,9 +49,8 @@ else{
 		<input type="hidden" name="nodo" value="49" />
 		<input type="hidden"  name="tipo" value="cambiarNombreOperador" />
 		<input type="hidden"  name="operador" value="<?echo $id;?>" />
-
 		<div>  
-			<input type="submit" id="btnAgregar" name="btnAgregar" value="Guardar" class="buttons_OK" />
+			<input type="submit" value="Guardar" class="buttons_OK" />
 		</div>
 	</form>
 </div>
@@ -69,7 +68,7 @@ else{
 				<label class="estiloFormLabel" for="nombreOperador">Seleccione servicio:</label>
 				<? echo obtenerServiciosNoOperador($id);?>
 			</div>
-		<input type="submit" id="btnAgregar" name="btnAgregar" value="Agregar" class="buttons_OK" />
+		<input type="submit" value="Agregar" class="buttons_OK" />
 		</fieldset>
 	</div>
 	</form>
