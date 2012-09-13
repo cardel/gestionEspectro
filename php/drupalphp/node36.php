@@ -1,5 +1,4 @@
 <?php
-
 	jquery_ui_add('ui.tabs');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'dataTables/media/js/jquery.dataTables.js');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/jtables.js');
