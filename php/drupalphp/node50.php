@@ -1,4 +1,6 @@
 <?php
+	require ("/var/www/html/site/gestionEspectro/php/serviciosAcciones.php");
+
 	$idServicio=$GET_["id"];
 ?>
 <div id="formularioHTML">

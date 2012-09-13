@@ -7,7 +7,7 @@
 	{
 		$objconexionBD = new conexionBD();
 		$objconexionBD->abrirConexion();
-		
+		$res ="";
 		$query= "select * from services where \"ID_service\"=".$idServicio.";";
 		$result= $objconexionBD->enviarConsulta($query);
 	
@@ -18,6 +18,7 @@
 		pg_free_result($result);
 		
 		$objconexionBD->cerrarConexion();
+		return $res;
 		
 	}
 	/*
@@ -27,7 +28,7 @@
 	{
 		$objconexionBD = new conexionBD();
 		$objconexionBD->abrirConexion();
-		
+		$res ="";
 		$query= "select * from services where \"ID_service\"=".$idServicio.";";
 		$result= $objconexionBD->enviarConsulta($query);
 	
@@ -37,7 +38,8 @@
 		}
 		pg_free_result($result);
 		
-		$objconexionBD->cerrarConexion();		
+		$objconexionBD->cerrarConexion();
+		return $res;		
 		
 	}
 ?>
