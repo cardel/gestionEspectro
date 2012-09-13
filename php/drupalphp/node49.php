@@ -52,7 +52,25 @@ else{
 	</form>
 </div>
 
-<p class='estilo'>Servicios del operador </p>;
+<div id="formularioHTML">
+	<form action="/site/?q=node/49" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">		
+	<div id="formulario" >
+		<p class='estilo'>Agregar o quitar servicios</p>
+		<input type="hidden" id="cant_campos" name="cant_campos" value="0" />
+		<input type="hidden" id="enviar" name="enviar" value="1" />
+		<fieldset class="estiloFormFieldset">
+			<legend class="estiloFormLeyenda">Gestión de servicios</legend>
+			<div class="top">
+				<label class="estiloFormLabel" for="nombreOperador">Seleccione servicio:</label>
+				<? echo obtenerServiciosNoOperador($id);?>
+			</div>
+		<input type="submit" id="btnAgregar" name="btnAgregar" value="Agregar" class="buttons_OK" />
+		</fieldset>
+	</div>
+	</form>
+</div>
+
+<p class='estilo'>Servicios del operador </p>
 
 <?php
 	echo obtenerServiciosOperador($id);

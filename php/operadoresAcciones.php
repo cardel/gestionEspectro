@@ -88,7 +88,6 @@ function obtenerServiciosOperador($id)
 		$res.= "<td><a href=\"#\" >".$row[ID_service]."</a></td>";
 		$res.= "</tr>";	
 	}
-	$res.= "</select>";	
 
 	$res.= "</tbody>\n";
 	$res.= "<tfoot>\n";
@@ -116,5 +115,30 @@ function obtenerServiciosOperador($id)
 	
 }
 
+function obtenerServiciosNoOperador($id)
+{
+	$objconexionBD = new conexionBD();
+	$objconexionBD->abrirConexion();
+	$res = "";
+	$res.= "<select id=\"selServices\" name=\"services\" class=\"textbox txtFec\">";
+	   	
+	$query="select \"ID_service\", services_name from services where \"ID_service\" not in (select distinct(\"ID_service\") from services_by_operator where \"ID_Operator\"=".$id.") order by services_name;";
+					   
+	$result= $objconexionBD->enviarConsulta($query);
+	   
+	while ($row =  pg_fetch_array ($result))
+	{
+		  $res.= ("<option value=$row[ID_service]>");
+		  $res.= ("$row[services_name]");
+		  $res.= ("</option>\n");		
+	}
+	$res.= "</select>";	
+    
+	pg_free_result($result);
+	$objconexionBD->cerrarConexion();
+	
+	return $res;
+	
+}
 
 ?>
