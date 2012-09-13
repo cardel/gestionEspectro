@@ -54,10 +54,7 @@ else{
 
 <p class='estilo'>Servicios del operador </p>;
 
-
-
-<div id="listaServicios"></div>
-
-<?php	
+<?php
+	echo obtenerServiciosOperador($id);
 }
 ?>

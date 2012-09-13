@@ -99,7 +99,7 @@ function obtenerServiciosOperador($id)
 
 	
 	//Activar jtables
-	 echo "<script>$('#tabla9').dataTable( {
+	 $res.=  "<script>$('#tabla9').dataTable( {
 	    \"sPaginationType\": \"full_numbers\",
          \"oLanguage\": {
                 \"sUrl\": \"js/spanish.txt\"
