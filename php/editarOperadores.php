@@ -27,7 +27,7 @@
 	if($nodo==49)
 	{
 		echo "<script>alert('Procedimiento realizado con exito');</script>";
-		echo "<script>window.locationf=\"http:/http://avispa.univalle.edu.co/site/?q=node/49&&idOperador=".$operador.";</script>";
+		echo "<script>window.location=\"http:/http://avispa.univalle.edu.co/site/?q=node/49&&idOperador=".$operador.";</script>";
 	}
 	
 ?>
