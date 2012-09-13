@@ -472,7 +472,9 @@ if($accion=="operadores")
     
 	pg_free_result($result);				
 }
-
+/*
+ * Se consultan los servicios en una tabla con la opción de editarlos
+ */
 if($accion=="servicios")
 {	
 	$query="select * from services;";
@@ -494,7 +496,7 @@ if($accion=="servicios")
 	  echo "<tr>";
 	  echo "<td>".$row["services_name"]."</td>";
 	  echo "<td>".$row["services_description"]."</td>";
-	  echo "<td>Editar Servicio</td>";
+	  echo "<td><a href=\"/site/?q=node/50s.php&&id=".$row["ID_Service"]."\" >Editar</a></td>";
 	  echo "</tr>";	
 	}
 
