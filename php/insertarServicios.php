@@ -7,16 +7,14 @@
 	$objconexionBD = new conexionBD();
 	$objconexionBD->abrirConexion();
 
-
-	$servicio = $_POST["servicesOp"];
 	$query= "insert into services (services_name, services_description) values (\"".$nombreServicio."\",\"".$descripcionServicio."\");";
 	$objconexionBD->enviarConsulta($query);		
-		
 
 	$objconexionBD->cerrarConexion();
 	
 	if($nodo==45)
 	{
+		echo "<script>alert('".$query."');</script>";
 		echo "<script>alert('Procedimiento realizado con exito');</script>";
 		echo "<script>window.location=\"http://avispa.univalle.edu.co/site/?q=node/45\";</script>";
 	}
