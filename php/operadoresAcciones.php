@@ -77,14 +77,15 @@ function obtenerServiciosOperador($id)
 	$res.= "</thead>\n";
 	$res.= "<tbody>\n";
    	
-	$query="select * from services;";					   
+	$query="select \"ID_service\", services_name from services where \"ID_service\" in (select distinct(\"ID_service\") from services_by_operator where \"ID_Operator\"=".$id.") order by services_name;";
+					   
 	$result= $objconexionBD->enviarConsulta($query);
 	   
 	while ($row =  pg_fetch_array ($result))
 	{
 		$res.= "<tr>"; 
 		$res.= "<td>".$row[services_name]."</td>";
-		$res.= "<td>".$row[ID_service]."</td>";
+		$res.= "<td><a href=\"#\" >".$row[ID_service]."</a></td>";
 		$res.= "</tr>";	
 	}
 	$res.= "</select>";	
