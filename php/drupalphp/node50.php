@@ -1,3 +1,3 @@
 <?php
-	echo $POST_["id"];
+	echo $GET_["id"];
 ?>

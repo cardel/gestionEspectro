@@ -15,10 +15,10 @@
 
 	$objconexionBD->cerrarConexion();
 	
-	if($nodo==49)
+	if($nodo==45)
 	{
 		echo "<script>alert('Procedimiento realizado con exito');</script>";
-		echo "<script>window.location=\"http://avispa.univalle.edu.co/site/?q=node/49&&idOperador=".$operador."\";</script>";
+		echo "<script>window.location=\"http://avispa.univalle.edu.co/site/?q=node/45\";</script>";
 	}
 	
 ?>

@@ -49,7 +49,7 @@ else{
 				Ingrese la descripción del nuevo servicio
 			</div>			
 		</div>	
-		<input type="hidden" name="nodo" value="49"/>
+		<input type="hidden" name="nodo" value="45"/>
 		<div>  
 			<input type="submit" value="Guardar" class="buttons_OK" />
 		</div>
