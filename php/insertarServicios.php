@@ -7,7 +7,7 @@
 	$objconexionBD = new conexionBD();
 	$objconexionBD->abrirConexion();
 
-	$query= "insert into services (services_name, services_description) values (\"".$nombreServicio."\",\"".$descripcionServicio."\");";
+	$query= "insert into services (services_name, services_description) values ('".$nombreServicio."','".$descripcionServicio."');";
 	$objconexionBD->enviarConsulta($query);		
 
 	$objconexionBD->cerrarConexion();
