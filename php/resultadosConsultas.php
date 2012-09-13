@@ -496,7 +496,7 @@ if($accion=="servicios")
 	  echo "<tr>";
 	  echo "<td>".$row["services_name"]."</td>";
 	  echo "<td>".$row["services_description"]."</td>";
-	  echo "<td><a href=\"/site/?q=node/50&&id=".$row["ID_Service"]."\" >Editar</a></td>";
+	  echo "<td><a href=\"/site/?q=node/50&&id=".$row["ID_service"]."\" >Editar</a></td>";
 	  echo "</tr>";	
 	}
 
