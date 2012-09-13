@@ -85,7 +85,7 @@ function obtenerServiciosOperador($id)
 	{
 		$res.= "<tr>"; 
 		$res.= "<td>".$row[services_name]."</td>";
-		$res.= "<td><a href=\"/site/gestionEspectro/php/eliminarServicios.php?nodo=49&&tipo=eliminarServicio&&operador=".$id."&&servicio=".$row[ID_service]."\" >Editar</a></td>";
+		$res.= "<td><a href=\"/site/gestionEspectro/php/eliminarServicios.php?nodo=49&&tipo=eliminarServicio&&operador=".$id."&&servicio=".$row[ID_service]."\" >Eliminar</a></td>";
 		$res.= "</tr>";	
 	}
 
