@@ -1,5 +1,5 @@
 <?php
-require ("/var/www/html/site/gestionEspectro/php/consultasAplicacion.php");
+require ("/var/www/html/site/gestionEspectro/php/conexionBD.php");
 
 
 
