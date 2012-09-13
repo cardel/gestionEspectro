@@ -1,4 +1,6 @@
 <?php
+	require ("/var/www/html/site/gestionEspectro/php/conexionBD.php");
+
 	$nodo = $_POST["nodo"];
 	$tipo = $_POST["tipo"];
 	$operador = $_POST["operador"];
