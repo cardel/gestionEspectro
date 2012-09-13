@@ -1,10 +1,10 @@
 <?php
 	require ("/var/www/html/site/gestionEspectro/php/serviciosAcciones.php");
 
-	$idServicio=$GET_["id"];
+	$idServicio=$_GET["id"];	
 ?>
 <div id="formularioHTML">
-	<form action="#" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">		
+	<form action="/site/gestionEspectro/php/editarServicios.php" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">		
 		<div class="form-item" id="edit-pesoNumeroBloques-wrapper">
 			<label>Nombre servicio: </label>
 			<input type="text" size="64" name="nombreServicio" value="<?php echo consultarNombreServicio($idServicio);?>" class="form-text"/>
@@ -19,7 +19,9 @@
 				Edite la descripción del nuevo servicio
 			</div>			
 		</div>	
-		<input type="hidden" name="nodo" value="45"/>
+		<input type="hidden" name="nodo" value="50"/>
+		<input type="hidden" name="idServicio" value="<?php echo $idServicio;?>"/>
+
 		<div>  
 			<input type="submit" value="Guardar" class="buttons_OK" />
 		</div>
