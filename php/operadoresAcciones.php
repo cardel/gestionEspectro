@@ -65,6 +65,8 @@ function obtenerNombre($id)
 
 function obtenerServiciosOperador($id)
 {
+	$objconexionBD = new conexionBD();
+	$objconexionBD->abrirConexion();
 	$res = "";
 	$res.= "<table width='100%' id='tabla9' border='1'>\n";		
 	$res.= "<thead>\n";
@@ -109,7 +111,7 @@ function obtenerServiciosOperador($id)
         </script>";
     
 	pg_free_result($result);
-		
+	$objconexionBD->cerrarConexion();
 	return $res;
 	
 }
