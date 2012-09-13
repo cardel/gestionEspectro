@@ -81,9 +81,9 @@ function obtenerServiciosOperador($id)
 	   
 	while ($row =  pg_fetch_array ($result))
 	{
-	$res.= "<option value=$row[ID_service]>");
-	$res.= "$row[services_name]");
-	$res.= "</option>\n");		
+	$res.= "<option value=$row[ID_service]>";
+	$res.= "$row[services_name]";
+	$res.= "</option>\n";		
 	}
 	$res.= "</select>";	
 
