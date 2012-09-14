@@ -10,7 +10,7 @@
 		$objconexionBD->abrirConexion();
 
 	    $res="";
-		$res.= "<select id=\"selectBands\" name=\"selectBands\"\">";
+		$res.= "<select name=\"selectBands\"\">";
 	    $query="select * from frequency_bands where \"ID_frequency_bands\" >= 4";  
 				   
 	   

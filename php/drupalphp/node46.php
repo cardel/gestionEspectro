@@ -1,4 +1,5 @@
 <?php
+require ("/var/www/html/site/gestionEspectro/php/rangosFrecuenciaAcciones.php");
 
 global $user;
 
@@ -12,7 +13,7 @@ else{
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'dataTables/media/js/jquery.dataTables.js');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/jtables.js');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/tabsAppSum.js');
-	drupal_add_js(drupal_get_path('module', 'mymodule') . 'gestionEspectro/php/drupaljs/rangosFrecuencia.js');
+	//drupal_add_js(drupal_get_path('module', 'mymodule') . 'gestionEspectro/php/drupaljs/rangosFrecuencia.js');
 	drupal_set_html_head('<script type="text/javascript" src="https://www.google.com/jsapi"></script>');
 	drupal_add_css($path = 'css/estilos.css', $type = 'module', $media = 'all', $preprocess = TRUE);
 	drupal_add_css($path = 'css/datatable.css', $type = 'module', $media = 'all', $preprocess = TRUE);
@@ -31,23 +32,37 @@ else{
 
 <p class='estilo'>Seleccione banda</p>
 
+<div id="formularioHTML">
+	<form action="/site/?q=node/46" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">		
+		<div class="form-item" id="edit-pesoNumeroBloques-wrapper">
+			<label>Seleccione banda: </label>
+			<?php echo listarBandas(); ?>
+			<div class="description">
+				Seleccione una banda de frecuencia para listar sus rangos asociados
+			</div>	
+			<input type="hidden" name="accion" value="enviar"/>		
+		</div>	
+		<div>  
+			<input type="submit" id="botonSeleccionar" value="Seleccionar" class="buttons_OK" />
+		</div>
+	</form>
+</div>
+
 <?php
-	echo listarBandas();
-?>
+	$accion = $_POST["accion"];
+	$selectBands = $_POST["selectBands"];
+	
+	if($accion=="enviar")
+	{
+		echo "<p class='estilo'>Rangos de frecuencia asociados a banda: </p>";		
+	
+		echo "<p class='estilo'>Añadir rango de frecuencia</p>";
+		
+		echo "<div id=\"editarRangos\"></div>";
+	
+		echo "<p class='estilo'>Lista de frecuencias registradas</p>";	
 
--- Boton seleccionar
-
---Mostrar esto de abajo
-
-<div id="editarRangos"></div>
-
-<p class='estilo'>Añadir frecuencia</p>
-
----- Para editar
-
-<p class='estilo'>Lista de frecuencias registradas</p>
-
-
-<?php	
+	
+	}
 }
 ?>
