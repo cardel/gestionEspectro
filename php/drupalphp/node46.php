@@ -54,13 +54,13 @@ else{
 	
 	if($accion=="enviar")
 	{
-		echo "<p class='estilo'>Rangos de frecuencia asociados a banda: </p>";		
+		echo "<p class='estilo'>Rangos de frecuencia asociados a banda: "+nombreBanda($selectBands)+"</p>";		
 	
-		echo "<p class='estilo'>Añadir rango de frecuencia</p>";
+		echo "<p class='estilo'>Añadir rango de frecuencia</p>";		
+
+		echo "<p class='estilo'>Lista de frecuencias registradas</p>";
 		
-		echo "<div id=\"editarRangos\"></div>";
-	
-		echo "<p class='estilo'>Lista de frecuencias registradas</p>";	
+		echo obtenerBandasPorOperador($selectBands);
 
 	
 	}
