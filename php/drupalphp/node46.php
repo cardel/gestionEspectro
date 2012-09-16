@@ -54,16 +54,68 @@ else{
 	
 	if($accion=="enviar")
 	{
-		echo "<p class='estilo'>Rangos de frecuencia asociados a banda: ";
-		echo nombreBanda($selectBands);
-		echo "</p>";		
+		echo "<p class='estilo'>Rangos de frecuencia asociados a banda: ".nombreBanda($selectBands)."</p>";		
 	
-		echo "<p class='estilo'>Añadir rango de frecuencia</p>";		
+		echo "<p class='estilo'>Añadir rango de frecuencia</p>";	
+		
+		?>
+		<div id="formularioHTML">
+			<form action="/site/gestionEspectro/php/insert" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">		
+				<div class="form-item" id="edit-pesoNumeroBloques-wrapper">
+					<label>Rango de frecuencias: </label>
+					<input type="text" size="64" name="nombreServicio" value="servicio" class="form-text"/>
+					<div class="description">
+						Ingrese el nombre del servicio, recuerde en no usar uno ya existente.
+					</div>			
+				</div>	
+				<div class="form-item" id="edit-pesoNumeroBloques-wrapper">
+					<label>Máximo número de canales por operador: </label>
+					<input type="text" size="64" name="nombreServicio" value="servicio" class="form-text"/>
+					<div class="description">
+						Ingrese el nombre del servicio, recuerde en no usar uno ya existente.
+					</div>			
+				</div>	
+				<div class="form-item" id="edit-pesoNumeroBloques-wrapper">
+					<label>Frecuencia inicial (Hz): </label>
+					<input type="text" size="64" name="nombreServicio" value="servicio" class="form-text"/>
+					<div class="description">
+						Ingrese el nombre del servicio, recuerde en no usar uno ya existente.
+					</div>			
+				</div>	
+				<div class="form-item" id="edit-pesoNumeroBloques-wrapper">
+					<label>Frecuencia final (Hz): </label>
+					<input type="text" size="64" name="nombreServicio" value="servicio" class="form-text"/>
+					<div class="description">
+						Ingrese el nombre del servicio, recuerde en no usar uno ya existente.
+					</div>			
+				</div>	
+				<div class="form-item" id="edit-pesoNumeroBloques-wrapper">
+					<label>Separación mínima: </label>
+					<input type="text" size="64" name="nombreServicio" value="servicio" class="form-text"/>
+					<div class="description">
+						Ingrese el nombre del servicio, recuerde en no usar uno ya existente.
+					</div>			
+				</div>	
+
+				<div class="form-item" id="edit-pesoNumeroBloques-wrapper">
+					<label>Descripción rango de frecuencia: </label>
+					<textarea cols="64" rows="10" name="descripcionServicio" >Ingrese descripción servicio</textarea>
+					<div class="description">
+						Ingrese la descripción del nuevo servicio
+					</div>			
+				</div>
+				<input type="hidden" name="nodo" value="45"/>
+				<div>  
+					<input type="submit" value="Guardar" class="buttons_OK" />
+				</div>
+			</form>
+		</div>
+
+		<?	
 
 		echo "<p class='estilo'>Lista de frecuencias registradas</p>";
 		
 		echo obtenerBandasPorOperador($selectBands);
-
 	
 	}
 }
