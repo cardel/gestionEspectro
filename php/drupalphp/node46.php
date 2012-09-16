@@ -54,7 +54,7 @@ else{
 	
 	if($accion=="enviar")
 	{
-		echo "<p class='estilo'>Rangos de frecuencia asociados a banda: "+nombreBanda($selectBands)+"</p>";		
+		echo "<p class='estilo'>Rangos de frecuencia asociados a banda: ".nombreBanda($selectBands)."</p>";		
 	
 		echo "<p class='estilo'>Añadir rango de frecuencia</p>";		
 

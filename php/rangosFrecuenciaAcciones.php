@@ -86,7 +86,7 @@
 	$res.= "<th>Frecuencia inicial (Hz)</th>\n";
 	$res.= "<th>Frecuencia final (Hz)</th>\n";
 	$res.= "<th>Número de canales</th>\n";
-	$res.= "<th>Seperación mínima</th>\n";
+	$res.= "<th>Separación mínima</th>\n";
 	$res.= "<th>Descripción</th>\n";
 	$res.= "<th>Acciones</th>\n";
 	$res.= "</tr>\n";
@@ -118,7 +118,7 @@
 	$res.= "<th>Máximo número de canales por operador</th>\n";
 	$res.= "<th>Frecuencia inicial (Hz)</th>\n";
 	$res.= "<th>Frecuencia final (Hz)</th>\n";
-	$res.= "<th>Seperación mínima</th>\n";
+	$res.= "<th>Separación mínima</th>\n";
 	$res.= "<th>Descripción</th>\n";
 	$res.= "<th>Acciones</th>\n";
 	$res.= "</tr>\n";
