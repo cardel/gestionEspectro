@@ -59,64 +59,74 @@ else{
 		echo "<p class='estilo'>Añadir rango de frecuencia</p>";	
 		
 		?>
-		<div id="formularioHTML">
-			<form action="/site/gestionEspectro/php/insert" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">		
-				<div class="form-item" id="edit-pesoNumeroBloques-wrapper">
-					<label>Rango de frecuencias: </label>
-					<input type="text" size="64" name="nombreServicio" value="servicio" class="form-text"/>
-					<div class="description">
-						Ingrese el nombre del servicio, recuerde en no usar uno ya existente.
-					</div>			
-				</div>	
-				<div class="form-item" id="edit-pesoNumeroBloques-wrapper">
-					<label>Máximo número de canales por operador: </label>
-					<input type="text" size="64" name="nombreServicio" value="servicio" class="form-text"/>
-					<div class="description">
-						Ingrese el nombre del servicio, recuerde en no usar uno ya existente.
-					</div>			
-				</div>	
-				<div class="form-item" id="edit-pesoNumeroBloques-wrapper">
-					<label>Frecuencia inicial (Hz): </label>
-					<input type="text" size="64" name="nombreServicio" value="servicio" class="form-text"/>
-					<div class="description">
-						Ingrese el nombre del servicio, recuerde en no usar uno ya existente.
-					</div>			
-				</div>	
-				<div class="form-item" id="edit-pesoNumeroBloques-wrapper">
-					<label>Frecuencia final (Hz): </label>
-					<input type="text" size="64" name="nombreServicio" value="servicio" class="form-text"/>
-					<div class="description">
-						Ingrese el nombre del servicio, recuerde en no usar uno ya existente.
-					</div>			
-				</div>	
-				<div class="form-item" id="edit-pesoNumeroBloques-wrapper">
-					<label>Separación mínima: </label>
-					<input type="text" size="64" name="nombreServicio" value="servicio" class="form-text"/>
-					<div class="description">
-						Ingrese el nombre del servicio, recuerde en no usar uno ya existente.
-					</div>			
-				</div>	
-
-				<div class="form-item" id="edit-pesoNumeroBloques-wrapper">
-					<label>Descripción rango de frecuencia: </label>
-					<textarea cols="64" rows="10" name="descripcionServicio" >Ingrese descripción servicio</textarea>
-					<div class="description">
-						Ingrese la descripción del nuevo servicio
-					</div>			
-				</div>
-				<input type="hidden" name="nodo" value="45"/>
-				<div>  
-					<input type="submit" value="Guardar" class="buttons_OK" />
-				</div>
-			</form>
+		<div id="agregarRango">
+			<div id="formularioHTML">
+				<form action="/site/gestionEspectro/php/insert" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">		
+					<div class="form-item">
+						<label>Rango de frecuencias: </label>
+						<input type="text" size="64" name="rangoFrecuencias" value="Rango" class="form-text"/>
+						<div class="description">
+							Indique el rango de frecuencias de la nueva banda. Ejemplo: 10kHz - 20kHz.
+						</div>			
+					</div>	
+					<div class="form-item">
+						<label>Máximo número de canales por operador: </label>
+						<input type="text" size="64" name="maxCanalesOperador" value="0" class="form-text"/>
+						<div class="description">
+							Máximo número de canales permitido por operador en la banda, debe ser mayor que 0.
+						</div>			
+					</div>	
+					<div class="form-item" >
+						<label>Frecuencia inicial (Hz): </label>
+						<input type="text" size="64" name="frecuenciaInicial" value="0" class="form-text"/>
+						<div class="description">
+							Ingrese la frecuencia inicial de la banda en Hz. Debe ser menor que la frecuencia final y mayor que 0.
+						</div>			
+					</div>	
+					<div class="form-item">
+						<label>Frecuencia final (Hz): </label>
+						<input type="text" size="64" name="frecuenciaFinal" value="0" class="form-text"/>
+						<div class="description">
+							Ingrese la frecuencia final de la banda en Hz. Debe ser mayor que la frecuencia inicial.
+						</div>			
+					</div>	
+					<div class="form-item" >
+						<label>Número de canales: </label>
+						<input type="text" size="64" name="numeroCanales" value="0" class="form-text"/>
+						<div class="description">
+							Ingrese el número de canales en el rango de frecuencias, una vez creada la banda podrá editarlos.
+						</div>			
+					</div>	
+					<div class="form-item">
+						<label>Separación mínima: </label>
+						<input type="text" size="64" name="seperacion" value="0" class="form-text"/>
+						<div class="description">
+							Indique la seperación mínima entre canales de operadores diferentes.
+						</div>			
+					</div>	
+					<div class="form-item">
+						<label>Descripción rango de frecuencia: </label>
+						<textarea cols="64" rows="10" name="descripcioNRango" >Ingrese descripción rango de frecuencia</textarea>
+						<div class="description">
+							Ingrese la descripción del nuevo rango de frecuencia
+						</div>			
+					</div>
+					<input type="hidden" name="nodo" value="46"/>
+					<div>  
+						<input type="submit" value="Guardar" class="buttons_OK" />
+					</div>
+				</form>
+			</div>
 		</div>
-
-		<?	
-
+		<?php
 		echo "<p class='estilo'>Lista de frecuencias registradas</p>";
-		
+		?>
+		<div id="listaRangos">
+		<?php
 		echo obtenerBandasPorOperador($selectBands);
-	
+		?>
+		</div>
+		<?php
 	}
 }
 ?>
