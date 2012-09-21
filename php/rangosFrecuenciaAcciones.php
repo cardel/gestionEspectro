@@ -63,7 +63,7 @@
 	    $result= $objconexionBD->enviarConsulta($query);
 	    while ($row =  pg_fetch_array ($result))
 	    {
-		  $res.= $row["frequency_bands_name"];
+		  $res = $row["frequency_bands_name"];
 	 	}
 		pg_free_result($result);
 		$objconexionBD->cerrarConexion();	
