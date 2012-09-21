@@ -107,7 +107,7 @@
 		$res.= "<td>".$row[channels_number]."</td>";
 		$res.= "<td>".$row[channel_separation]."</td>";
 		$res.= "<td>".$row[frequency_ranks_description]."</td>";
-		$res.= "<td><a href=\"/site/?q=node/46&&idRango=".$row["ID_frequency_bands"]."\" >Editar</a></td>";
+		$res.= "<td><a href=\"/site/?q=node/51&&idRango=".$row["ID_frequency_bands"]."\" >Editar</a></td>";
 		$res.= "</tr>";	
 	}
 
