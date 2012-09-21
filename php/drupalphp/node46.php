@@ -111,6 +111,13 @@ else{
 							Ingrese la descripción del nuevo rango de frecuencia
 						</div>			
 					</div>
+					<div class="form-item">
+						<label>Descripción de canales rango de frecuencia: </label>
+						<textarea cols="64" rows="10" name="descripcioNCanal" >Ingrese descripción de los canales</textarea>
+						<div class="description">
+							Ingrese la descripción de los canales del rango, esto aplica para todos los canales pero puede ser editado posteriormente.
+						</div>			
+					</div>
 					<input type="hidden" name="nodo" value="46"/>
 					<div>  
 						<input type="submit" value="Guardar" class="buttons_OK" />
