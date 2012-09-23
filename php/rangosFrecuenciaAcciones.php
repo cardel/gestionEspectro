@@ -194,8 +194,8 @@
 			$res.= "<tr>"; 
 			$res.= "<td>".$row["channel_number"]."</td>";
 			$res.= "<td>".$row["channel_description"]."</td>";
-			$res.= "<td>".$row["frequency_begin_Hz"]."</td>";
-			$res.= "<td>".$row["frequency_end_Hz"]."</td>";
+			$res.= "<td>".$row["TxFrequency"]."</td>";
+			$res.= "<td>".$row["RxFrequency"]."</td>";
 			$res.= "<td>".$row["reserved"]."</td>";
 			$res.= "<td>".$row["disabled"]."</td>";
 			$res.= "<td><a href=\"#&&idChannel=".$row["ID_channels"]."\" >Editar</a></td>";
