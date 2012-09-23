@@ -180,6 +180,7 @@
 		$res.= "<th>Frecuencia de recepción (Hz)</th>\n";
 		$res.= "<th>¿Está reservado?</th>\n";
 		$res.= "<th>¿Está deshabilitado?</th>\n";
+		$res.= "<th>Acciones</th>\n";
 		$res.= "</tr>\n";
 		$res.= "</thead>\n";
 		$res.= "<tbody>\n";
@@ -210,6 +211,7 @@
 		$res.= "<th>Frecuencia de recepción</th>\n";
 		$res.= "<th>¿Está reservado?</th>\n";
 		$res.= "<th>¿Está deshabilitado?</th>\n";
+		$res.= "<th>Acciones</th>\n";
 		$res.= "</tr>\n";
 		$res.= "</tfoot>\n";
 		$res.= "</table>\n";		
