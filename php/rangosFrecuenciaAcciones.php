@@ -141,7 +141,10 @@
 		return $res;
 	}
 	
-	function datosEditarBandaFrecuencia($idFrecuencia)
+	/*
+	 * Obtener datos de un rango específico.
+	 */ 
+	function datosEditarRangoFrecuencia($idFrecuencia)
 	{
 		$res = "";
 		$objconexionBD = new conexionBD();
@@ -156,6 +159,74 @@
 			$res = $row;
 		}
 		
+		return $res;
+	}
+	
+	/*
+	 * Obtener canales asociados a un rango
+	 */
+	 
+	function obtenerCanalesPorRango($idRango)
+	{
+		$objconexionBD = new conexionBD();
+		$objconexionBD->abrirConexion();
+		$res = "";
+		$res.= "<table width='100%' id='tabla9' border='1'>\n";		
+		$res.= "<thead>\n";
+		$res.= "<tr>\n";
+		$res.= "<th>Número de canal</th>\n";
+		$res.= "<th>Descripción del canal</th>\n";
+		$res.= "<th>Frecuencia de transmisión (Hz)</th>\n";
+		$res.= "<th>Frecuencia de recepción (Hz)</th>\n";
+		$res.= "<th>¿Está reservado?</th>\n";
+		$res.= "<th>¿Está deshabilitado?</th>\n";
+		$res.= "</tr>\n";
+		$res.= "</thead>\n";
+		$res.= "<tbody>\n";
+		
+		$query="select * from channels where \"ID_frequency_ranks\"=".$idRango.";";
+						   
+		$result= $objconexionBD->enviarConsulta($query);
+		   
+		while ($row =  pg_fetch_array ($result))
+		{
+			$res.= "<tr>"; 
+			$res.= "<td>".$row["channel_number"]."</td>";
+			$res.= "<td>".$row["channel_description"]."</td>";
+			$res.= "<td>".$row["frequency_begin_Hz"]."</td>";
+			$res.= "<td>".$row["frequency_end_Hz"]."</td>";
+			$res.= "<td>".$row["reserved"]."</td>";
+			$res.= "<td>".$row["disabled"]."</td>";
+			$res.= "<td><a href=\"#&&idChannel=".$row["ID_channels"]."\" >Editar</a></td>";
+			$res.= "</tr>";	
+		}
+
+		$res.= "</tbody>\n";
+		$res.= "<tfoot>\n";
+		$res.= "<tr>\n";
+		$res.= "<th>Número de canal</th>\n";
+		$res.= "<th>Descripción del canal</th>\n";
+		$res.= "<th>Frecuencia de transmisión</th>\n";
+		$res.= "<th>Frecuencia de recepción</th>\n";
+		$res.= "<th>¿Está reservado?</th>\n";
+		$res.= "<th>¿Está deshabilitado?</th>\n";
+		$res.= "</tr>\n";
+		$res.= "</tfoot>\n";
+		$res.= "</table>\n";		
+
+		
+		//Activar jtables
+		 $res.=  "<script>$('#tabla9').dataTable( {
+			\"sPaginationType\": \"full_numbers\",
+			 \"oLanguage\": {
+					\"sUrl\": \"js/spanish.txt\"
+				}
+			} );
+			
+			</script>";
+		
+		pg_free_result($result);
+		$objconexionBD->cerrarConexion();
 		return $res;
 	}
 ?>

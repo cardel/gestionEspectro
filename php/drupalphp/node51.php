@@ -27,7 +27,8 @@ else{
 	echo "<p class='estiloTitulo'>Administración de Rangos de frecuencia</p>\n";
 	echo '<p style="text-align:left";><a class="iframe" href="http://avispa.univalle.edu.co/~cardel/proyInv/ayudaSecuenciamientoAviones/ayuda.php"><img border="0" src="files/HelpIcon.gif" width="50" height="50"><br/>Ayuda</a></p>';
 	
-	
+	$idRango = $_GET["idRango"];
+	$datosBanda = datosEditarRangoFrecuencia($idRango);
 ?>
 
 <div id="editarRango">
@@ -35,61 +36,54 @@ else{
 		<form action="/site/gestionEspectro/php/editar" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">		
 			<div class="form-item">
 				<label>Rango de frecuencias: </label>
-				<input type="text" size="64" name="rangoFrecuencias" value="Rango" class="form-text"/>
-				<div class="description">
-					Indique el rango de frecuencias de la nueva banda. Ejemplo: 10kHz - 20kHz.
-				</div>			
-			</div>	
-			<div class="form-item">
-				<label>Máximo número de canales por operador: </label>
-				<input type="text" size="64" name="maxCanalesOperador" value="0" class="form-text"/>
+				<input type="text" size="64" name="rangoFrecuencias" value="<?php echo $datosBanda["frequency_ranks_name"]; ?>" class="form-text"/>
 				<div class="description">
 					Máximo número de canales permitido por operador en la banda, debe ser mayor que 0.
 				</div>			
 			</div>	
+			<div class="form-item">
+				<label>Máximo número de canales por operador: </label>
+				<input type="text" size="64" name="maxCanalesOperador" value="<?php echo $datosBanda["max_channels_per_operator"]; ?>" class="form-text"/>
+				<div class="description">
+					Ingrese la frecuencia inicial de la banda en Hz. Debe ser menor que la frecuencia final y mayor que 0.
+				</div>			
+			</div>	
 			<div class="form-item" >
 				<label>Frecuencia inicial (Hz): </label>
-				<input type="text" size="64" name="frecuenciaInicial" value="0" class="form-text"/>
+				<input type="text" size="64" name="frecuenciaInicial" value="<?php echo $datosBanda["frequency_begin_Hz"]; ?>" class="form-text"/>
 				<div class="description">
 					Ingrese la frecuencia inicial de la banda en Hz. Debe ser menor que la frecuencia final y mayor que 0.
 				</div>			
 			</div>	
 			<div class="form-item">
 				<label>Frecuencia final (Hz): </label>
-				<input type="text" size="64" name="frecuenciaFinal" value="0" class="form-text"/>
+				<input type="text" size="64" name="frecuenciaFinal" value="<?php echo $datosBanda["frequency_end_Hz"]; ?>" class="form-text"/>
 				<div class="description">
 					Ingrese la frecuencia final de la banda en Hz. Debe ser mayor que la frecuencia inicial.
 				</div>			
 			</div>	
 			<div class="form-item" >
 				<label>Número de canales: </label>
-				<input type="text" size="64" name="numeroCanales" value="0" class="form-text"/>
+				<input type="text" size="64" name="numeroCanales"  value="<?php echo $datosBanda["channels_number"]; ?>" class="form-text"/>
 				<div class="description">
 					Ingrese el número de canales en el rango de frecuencias, una vez creada la banda podrá editarlos.
 				</div>			
 			</div>	
 			<div class="form-item">
 				<label>Separación mínima: </label>
-				<input type="text" size="64" name="seperacion" value="0" class="form-text"/>
+				<input type="text" size="64" name="seperacion" value="<?php echo $datosBanda["channel_separation"]; ?>" class="form-text"/>
 				<div class="description">
 					Indique la seperación mínima entre canales de operadores diferentes.
 				</div>			
 			</div>	
 			<div class="form-item">
 				<label>Descripción rango de frecuencia: </label>
-				<textarea cols="64" rows="10" name="descripcioNRango" >Ingrese descripción rango de frecuencia</textarea>
+				<textarea cols="64" rows="10" name="descripcioNRango" ><?php echo $datosBanda["frequency_ranks_description"]; ?></textarea>
 				<div class="description">
 					Ingrese la descripción del nuevo rango de frecuencia
 				</div>			
 			</div>
-			<div class="form-item">
-				<label>Descripción de canales rango de frecuencia: </label>
-				<textarea cols="64" rows="10" name="descripcioNCanal" >Ingrese descripción de los canales</textarea>
-				<div class="description">
-					Ingrese la descripción de los canales del rango, esto aplica para todos los canales pero puede ser editado posteriormente.
-				</div>			
-			</div>
-			<input type="hidden" name="nodo" value="46"/>
+			<input type="hidden" name="nodo" value="51"/>
 			<div>  
 				<input type="submit" value="Guardar" class="buttons_OK" />
 			</div>
@@ -99,5 +93,6 @@ else{
 
 <p class='estilo'>Lista de canales registrados</p>
 <?php
+	echo obtenerCanalesPorRango($idRango);
 }
 ?>
