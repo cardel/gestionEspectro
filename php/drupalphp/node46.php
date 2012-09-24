@@ -64,8 +64,10 @@
 		
 			echo "<p class='estilo'>Añadir rango de frecuencia</p>";	
 			
+			echo "<input type=button class=\"botonrojo\" onClick=\"$('#agregarRango').toggle(100);\" value=\"Mostrar/Ocultar Formulario\" />\n";
+
 			?>
-			<div id="agregarRango">
+			<div id="agregarRango" style="display: none;">
 				<div id="formularioHTML">
 					<form action="/site/gestionEspectro/php/insert" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">		
 						<div class="form-item">
@@ -143,8 +145,12 @@
 			</div>
 			<?php
 			echo "<p class='estilo'>Lista de frecuencias registradas</p>";
+			echo "<input type=button class=\"botonazul\" onClick=\"$('#listaRangos').toggle(100);\" value=\"Mostrar/Ocultar Lista\" />\n";
+
 			?>
-			<div id="listaRangos">
+			
+
+			<div id="listaRangos" style="display: none;">
 			<?php
 			echo obtenerBandasPorOperador($selectBands);
 			?>
