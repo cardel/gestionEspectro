@@ -239,7 +239,7 @@
 		$objconexionBD = new conexionBD();
 		$objconexionBD->abrirConexion();
 		
-		
+		$res="";
 		$query="select * from channels where \"ID_channels\"=".$idChannel.";";
 						   
 		$result= $objconexionBD->enviarConsulta($query);

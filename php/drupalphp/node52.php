@@ -28,7 +28,7 @@ else{
 	echo '<p style="text-align:left";><a class="iframe" href="http://avispa.univalle.edu.co/~cardel/proyInv/ayudaSecuenciamientoAviones/ayuda.php"><img border="0" src="files/HelpIcon.gif" width="50" height="50"><br/>Ayuda</a></p>';
 	
 	$idRango = $_GET["idRango"];
-	$idChannel= $_GET["&&idChannel"];
+	$idChannel= $_GET["idChannel"];
 	
 	$canal=obtenerInformacionCanal($idChannel);
 	echo "<input type=button class=\"botonverde\" onClick=\"window.open('http://avispa.univalle.edu.co/site/?q=node/51&&idRango=".$idRango."' ,'_top' );\" value=\"Regresar\" />\n";
