@@ -28,7 +28,10 @@ else{
 	echo '<p style="text-align:left";><a class="iframe" href="http://avispa.univalle.edu.co/~cardel/proyInv/ayudaSecuenciamientoAviones/ayuda.php"><img border="0" src="files/HelpIcon.gif" width="50" height="50"><br/>Ayuda</a></p>';
 	
 	$idRango = $_GET["idRango"];
-	echo "<input type=button class=\"botonverde\" onClick=\"window.open('http://avispa.univalle.edu.co/site/?q=node/51' ,'_top' );\" value=\"Regresar\" />\n";
+	$idChannel= $_GET["&&idChannel"];
+	
+	$canal=obtenerInformacionCanal($idChannel);
+	echo "<input type=button class=\"botonverde\" onClick=\"window.open('http://avispa.univalle.edu.co/site/?q=node/51&&idRango=".$idRango."' ,'_top' );\" value=\"Regresar\" />\n";
 
 ?>
 
@@ -37,35 +40,35 @@ else{
 		<form action="/site/gestionEspectro/php/editar" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">		
 			<div class="form-item">
 				<label>Frecuencia transmisión (Hz): </label>
-				<input type="text" size="64" name="frecuenciaTX" value="<?php echo $datosBanda["channel_separation"]; ?>" class="form-text"/>
+				<input type="text" size="64" name="frecuenciaTX" value="<?php echo $canal["TxFrequency"]; ?>" class="form-text"/>
 				<div class="description">
 					Indique la frecuencia de transmisión del canal
 				</div>			
 			</div>	
 			<div class="form-item">
 				<label>Frecuencia recepción (Hz): </label>
-				<input type="text" size="64" name="frecuenciaRX" value="<?php echo $datosBanda["channel_separation"]; ?>" class="form-text"/>
+				<input type="text" size="64" name="frecuenciaRX" value="<?php echo $canal["RxFrequency"]; ?>" class="form-text"/>
 				<div class="description">
 					Indique la frecuencia de transmisión del canal
 				</div>			
 			</div>	
 			<div class="form-item">
 				<label>¿Está reservado? </label>
-				<input type="checkbox" size="64" name="reservado" value="1" class="form-text"/>
+				<input type="checkbox" size="64" name="reservado" value="<?php echo $canal["reserved"]; ?>" class="form-text"/>
 				<div class="description">
 					Indique si el canal está reservado.
 				</div>			
 			</div>
 				<div class="form-item">
 				<label>¿Está deshabilitado? </label>
-				<input type="checkbox" size="64" name="deshabilidado" value="1" class="form-text"/>
+				<input type="checkbox" size="64" name="deshabilidado" value="<?php echo $canal["disabled"]; ?>" class="form-text"/>
 				<div class="description">
 					Indique si el canal está reservado.
 				</div>			
 			</div>
 			<div class="form-item">
 				<label>Descripción canal: </label>
-				<textarea cols="64" rows="10" name="descripcionCanal" ></textarea>
+				<textarea cols="64" rows="10" name="descripcionCanal" ><?php echo $canal["channel_description"]; ?></textarea>
 				<div class="description">
 					Ingrese la descripción del canal
 				</div>			

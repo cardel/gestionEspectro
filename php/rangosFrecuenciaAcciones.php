@@ -231,4 +231,27 @@
 		$objconexionBD->cerrarConexion();
 		return $res;
 	}
+	/*
+	 * Obtener información por canal
+	 */
+	function obtenerInformacionCanal($idChannel)
+	{
+		$objconexionBD = new conexionBD();
+		$objconexionBD->abrirConexion();
+		
+		
+		$query="select * from channels where \"ID_channels\"=".$idChannel.";";
+						   
+		$result= $objconexionBD->enviarConsulta($query);
+		   
+		while ($row =  pg_fetch_array ($result))
+		{
+			$res = row;
+		}
+	
+		
+		pg_free_result($result);
+		$objconexionBD->cerrarConexion();
+		return $res;
+	}
 ?>
