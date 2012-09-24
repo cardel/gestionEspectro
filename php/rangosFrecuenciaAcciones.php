@@ -198,7 +198,7 @@
 			$res.= "<td>".$row["RxFrequency"]."</td>";
 			$res.= "<td>".$row["reserved"]."</td>";
 			$res.= "<td>".$row["disabled"]."</td>";
-			$res.= "<td><a href=\"#&&idChannel=".$row["ID_channels"]."\" >Editar</a></td>";
+			$res.= "<td><a href=\"/site/?q=node/52&&idChannel=".$row["ID_channels"]."&&idRango=".$idRango."\" >Editar</a></td>";
 			$res.= "</tr>";	
 		}
 
