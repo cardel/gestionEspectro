@@ -246,7 +246,7 @@
 		   
 		while ($row =  pg_fetch_array ($result))
 		{
-			$res = row;
+			$res = $row;
 		}
 	
 		
