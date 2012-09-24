@@ -54,14 +54,14 @@ else{
 			</div>	
 			<div class="form-item">
 				<label>¿Está reservado? </label>
-				<input type="checkbox" size="64" name="reservado" value="<?php echo $canal["reserved"]; ?>" class="form-text"/>
+				<input type="checkbox" size="64" name="reservado" value="1" <?php if($canal["reserved"]!='f') echo "checked=\"checked\""; ?> class="form-text"/>
 				<div class="description">
 					Indique si el canal está reservado.
 				</div>			
 			</div>
 				<div class="form-item">
 				<label>¿Está deshabilitado? </label>
-				<input type="checkbox" size="64" name="deshabilidado" value="<?php echo $canal["disabled"]; ?>" class="form-text"/>
+				<input type="checkbox" size="64" name="deshabilidado" value="1"  <?php if($canal["disabled"]!='f') echo "checked=\"checked\""; ?> class="form-text"/>
 				<div class="description">
 					Indique si el canal está reservado.
 				</div>			

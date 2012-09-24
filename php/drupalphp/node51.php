@@ -29,7 +29,7 @@ else{
 	
 	$idRango = $_GET["idRango"];
 	$datosBanda = datosEditarRangoFrecuencia($idRango);
-	echo "<input type=button class=\"botonverde\" onClick=\"window.open('http://avispa.univalle.edu.co/site/?q=node/46' ,'_top' );\" value=\"Regresar\" />\n";
+	echo "<input type=button class=\"botonverde\" onClick=\"window.open('http://avispa.univalle.edu.co/site/?q=node/46&&idRango=".$idRango."' ,'_top' );\" value=\"Regresar\" />\n";
 
 ?>
 
