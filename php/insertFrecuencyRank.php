@@ -59,8 +59,7 @@
 	 pg_free_result($result);		 
 	 //Insertar rango de frecuencia
 	 $query= "insert into frequency_ranks (\"ID_frequency_ranks\", frequency_ranks_name, \"ID_frequency_bands\", frequency_ranks_description, max_channels_per_operator, \"frequency_begin_Hz\", \"frequency_end_Hz\", channels_number, channel_separation) values (".$IdActual.",'".$rangoFrecuencias."',".$idBanda.",'".$descripcioNRango."',".$maxCanalesOperador.",".$frecuenciaInicial.",".$frecuenciaFinal.",".$separacion.",".$numeroCanales.");";
-	 //$objconexionBD->enviarConsulta($query);
-	echo $query."<br/>";
+	 $objconexionBD->enviarConsulta($query);
 	 
 	 for($i=0; $i<$numeroCanales; $i++)
 	 {
@@ -69,7 +68,7 @@
 		$frecuenciaRx = $multiplicador1Rx*$frecuenciaBaseTx/$divisor1Rx + $n*$mutiplicador2Rx*$frecuenciaCorrimientoRx/$divisor2Rx;
 				 
 		$query="insert into channels (\"ID_channels\", \"ID_frequency_ranks\", channel_description, channel_number, \"TxFrequency\", \"RxFrequency\", reserved, disabled) values (".$IdChannel.",".$IdActual.",'".$descripcioNCanal."',".$n.",".$frecuenciaTx.",".$frecuenciaRx.",'f','f');";	   
-		//$objconexionBD->enviarConsulta($query); 
+		$objconexionBD->enviarConsulta($query); 
 		
 		$IdChannel++;
 		
@@ -82,7 +81,7 @@
 	 if($nodo==46)
 	 {
 		echo "<script>alert('Procedimiento realizado con exito');</script>";
-		//echo "<script>window.location=\"http://avispa.univalle.edu.co/site/?q=node/46&&idRango=".$idRango."\";</script>";
+		echo "<script>window.location=\"http://avispa.univalle.edu.co/site/?q=node/46&&idRango=".$idRango."\";</script>";
 	 }	 
 ?>
 
