@@ -51,13 +51,13 @@ Por favor seleccione una banda de frecuencia y haga clic en seleccionar.
 </div>
 
 <?php
-	$idRango = $_GET["idRango"];
+	$idBanda = $_GET["idRango"];
 	$accion = $_POST["accion"];
 	$selectBands = $_POST["selectBands"];
 	
-	if(!(empty($idRango))){
+	if(!(empty($idBanda))){
 		$accion="enviar";
-		$selectBands=$idRango;
+		$selectBands=$idBanda;
 	}	
 	
 	if($accion=="enviar")
@@ -74,7 +74,7 @@ Por favor seleccione una banda de frecuencia y haga clic en seleccionar.
 		<div id="agregarRango" style="display: none;">
 			<div id="formularioHTML">
 				<form action="/site/gestionEspectro/php/insertFrecuencyRank.php" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">		
-					<input type="hidden" name="idBanda" value="<?echo $idRango?>" >
+					<input type="hidden" name="idBanda" value="<?echo $selectBands?>" >
 					<div class="form-item">
 						<label>Rango de frecuencias: </label>
 						<input type="text" size="64" name="rangoFrecuencias" value="Rango" class="form-text"/>

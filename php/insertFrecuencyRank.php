@@ -56,7 +56,7 @@
 		$frecuenciaTx = $frecuenciaBaseTx + $n*$mutiplicadorTx/$divisorTx;
 		$frecuenciaRx = $multiplicador1Rx*$frecuenciaBaseTx/$divisor1Rx + $n*$mutiplicador2Rx*$frecuenciaCorrimientoRx/$divisor2Rx;
 				 
-		$query="insert into channels (\"ID_frequency_ranks\", channel_description, channel_number, TxFrequency, RxFrequency, reserved, disabled) values (".$IdActual.",'".$descripcioNCanal."',".$n.",".$frecuenciaTX.",".$frecuenciaRx.",f,f);";	   
+		$query="insert into channels (\"ID_frequency_ranks\", channel_description, channel_number, TxFrequency, RxFrequency, reserved, disabled) values (".$IdActual.",'".$descripcioNCanal."',".$n.",".$frecuenciaTx.",".$frecuenciaRx.",f,f);";	   
 		//$objconexionBD->enviarConsulta($query); 
 		echo $query."<br/>";
 	 } 
