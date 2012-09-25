@@ -46,7 +46,7 @@
 	 $IdActual++;
 	 		 
 	 //Insertar rango de frecuencia
-	 $query= "insert into frequency_ranks (\"ID_frequency_ranks\", frequency_ranks_name, \"ID_frequency_bands\", frequency_ranks_description, max_channels_per_operator, frequency_begin_Hz, frequency_end_Hz, channels_number, channel_separation) values (".$IdActual.",'".$descripcioNRango."',".$idBanda.",".$maxCanalesOperador.",".$frecuenciaInicial.",".$frecuenciaFinal.",".$separacion.",".$numeroCanales.");";
+	 $query= "insert into frequency_ranks (\"ID_frequency_ranks\", frequency_ranks_name, \"ID_frequency_bands\", frequency_ranks_description, max_channels_per_operator, \"frequency_begin_Hz\", \"frequency_end_Hz\", channels_number, channel_separation) values (".$IdActual.",'".$descripcioNRango."',".$idBanda.",".$maxCanalesOperador.",".$frecuenciaInicial.",".$frecuenciaFinal.",".$separacion.",".$numeroCanales.");";
 	 //$objconexionBD->enviarConsulta($query);
 	echo $query."<br/>";
 	 
@@ -56,7 +56,7 @@
 		$frecuenciaTx = $frecuenciaBaseTx + $n*$mutiplicadorTx/$divisorTx;
 		$frecuenciaRx = $multiplicador1Rx*$frecuenciaBaseTx/$divisor1Rx + $n*$mutiplicador2Rx*$frecuenciaCorrimientoRx/$divisor2Rx;
 				 
-		$query="insert into channels (\"ID_frequency_ranks\", channel_description, channel_number, TxFrequency, RxFrequency, reserved, disabled) values (".$IdActual.",'".$descripcioNCanal."',".$n.",".$frecuenciaTx.",".$frecuenciaRx.",f,f);";	   
+		$query="insert into channels (\"ID_frequency_ranks\", channel_description, channel_number, \"TxFrequency\", \"RxFrequency\", reserved, disabled) values (".$IdActual.",'".$descripcioNCanal."',".$n.",".$frecuenciaTx.",".$frecuenciaRx.",f,f);";	   
 		//$objconexionBD->enviarConsulta($query); 
 		echo $query."<br/>";
 	 } 
