@@ -48,7 +48,7 @@
 	 //Insertar rango de frecuencia
 	 $query= "insert into services (\"ID_frequency_ranks\", frequency_ranks_name, \"ID_frequency_bands\", frequency_ranks_description, max_channels_per_operator, frequency_begin_Hz, frequency_end_Hz, channels_number, channel_separation) values (".$IdActual.",'".$descripcioNRango."',".$idBanda.",".$maxCanalesOperador.",".$frecuenciaInicial.",".$frecuenciaFinal.",".$separacion.",".$numeroCanales.");";
 	 //$objconexionBD->enviarConsulta($query);
-		echo $query."<br/>";
+	echo $query."<br/>";
 	 
 	 for($i=0; $i<$numeroCanales; $i++)
 	 {
