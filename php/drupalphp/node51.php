@@ -27,7 +27,7 @@ else{
 	echo "<p class='estiloTitulo'>Administración de Rangos de frecuencia</p>\n";
 	echo '<p style="text-align:left";><a class="iframe" href="http://avispa.univalle.edu.co/~cardel/proyInv/ayudaSecuenciamientoAviones/ayuda.php"><img border="0" src="files/HelpIcon.gif" width="50" height="50"><br/>Ayuda</a></p>';
 	
-	$idRango = $_GET["idRango"];
+	$idBanda = $_GET["idRango"];
 	$datosBanda = datosEditarRangoFrecuencia($idRango);
 	echo "<input type=button class=\"botonverde\" onClick=\"window.open('http://avispa.univalle.edu.co/site/?q=node/46&&idRango=".$idRango."' ,'_top' );\" value=\"Regresar\" />\n";
 
@@ -35,7 +35,7 @@ else{
 
 <div id="editarRango">
 	<div id="formularioHTML">
-		<form action="/site/gestionEspectro/php/editar" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">		
+		<form action="/site/gestionEspectro/php/editFrequencyRanks.php" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">		
 			<div class="form-item">
 				<label>Rango de frecuencias: </label>
 				<input type="text" size="64" name="rangoFrecuencias" value="<?php echo $datosBanda["frequency_ranks_name"]; ?>" class="form-text"/>
@@ -73,7 +73,7 @@ else{
 			</div>	
 			<div class="form-item">
 				<label>Separación mínima: </label>
-				<input type="text" size="64" name="seperacion" value="<?php echo $datosBanda["channel_separation"]; ?>" class="form-text"/>
+				<input type="text" size="64" name="separacion" value="<?php echo $datosBanda["channel_separation"]; ?>" class="form-text"/>
 				<div class="description">
 					Indique la seperación mínima entre canales de operadores diferentes.
 				</div>			
@@ -86,6 +86,7 @@ else{
 				</div>			
 			</div>
 			<input type="hidden" name="nodo" value="51"/>
+			<input type="hidden" name="idBanda" value="<?php echo $idBanda;?>"/>
 			<div>  
 				<input type="submit" value="Guardar" class="buttons_OK" />
 			</div>
