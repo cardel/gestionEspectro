@@ -24,9 +24,11 @@ else{
 	if(!is_dir("/var/www/html/site/gestionEspectro/entradasTemp/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/entradasTemp/".$user->uid, 0755);
 	if(!is_dir("/var/www/html/site/gestionEspectro/salidas/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/salidas/".$user->uid, 0755);
 	if(!is_dir("/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid, 0755);
-	
+	echo "<p class='estiloTitulo'>Gestión de salidas XML</p>";
+	echo '<p style="text-align:left";><a class="iframe" href="http://avispa.univalle.edu.co/~cardel/proyInv/ayudaSecuenciamientoAviones/ayuda.php"><img border="0" src="files/HelpIcon.gif" width="50" height="50"><br/>Ayuda</a></p>';
+
 ?>
-<p class='estiloTitulo'>Gestión de salidas XML</p>
+
 
 <div id="formularioHTML">
 	<form action="/site/?q=node/47" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">
