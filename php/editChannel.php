@@ -24,7 +24,7 @@
 	$objconexionBD = new conexionBD();
 	$objconexionBD->abrirConexion();
 
-	$query = "UPDATE channels SET channel_description='".$descripcionCanal."', \"TxFrequency\"=".$frecuenciaTX.", \"RxFrequency\"=".$frecuenciaRX.", max_channels_per_operator=".$maxCanalesOperador.", reserved='".$reservado."' , disabled ='".$deshabilidado."' where \"ID_channels\"=".$idChannel.";";
+	$query = "UPDATE channels SET channel_description='".$descripcionCanal."', \"TxFrequency\"=".$frecuenciaTX.", \"RxFrequency\"=".$frecuenciaRX.", reserved='".$reservado."' , disabled ='".$deshabilidado."' where \"ID_channels\"=".$idChannel.";";
 	
 	$objconexionBD->enviarConsulta($query);		
 
