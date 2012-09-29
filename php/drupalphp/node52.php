@@ -28,16 +28,17 @@ else{
 	echo '<p style="text-align:left";><a class="iframe" href="http://avispa.univalle.edu.co/~cardel/proyInv/ayudaSecuenciamientoAviones/ayuda.php"><img border="0" src="files/HelpIcon.gif" width="50" height="50"><br/>Ayuda</a></p>';
 	
 	$idRango = $_GET["idRango"];
+	$idBanda = $_GET["idBanda"];
 	$idChannel= $_GET["idChannel"];
 	
 	$canal=obtenerInformacionCanal($idChannel);
-	echo "<input type=button class=\"botonverde\" onClick=\"window.open('http://avispa.univalle.edu.co/site/?q=node/51&&idRango=".$idRango."' ,'_top' );\" value=\"Regresar\" />\n";
+	echo "<input type=button class=\"botonverde\" onClick=\"window.open('http://avispa.univalle.edu.co/site/?q=node/51&&idRango=".$idRango."&&idBanda=".$idBanda."' ,'_top' );\" value=\"Regresar\" />\n";
 
 ?>
 
 <div id="editarRango">
 	<div id="formularioHTML">
-		<form action="/site/gestionEspectro/php/editar" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">		
+		<form action="/site/gestionEspectro/php/editChannel.php" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">		
 			<div class="form-item">
 				<label>Frecuencia transmisión (Hz): </label>
 				<input type="text" size="64" name="frecuenciaTX" value="<?php echo $canal["TxFrequency"]; ?>" class="form-text"/>
@@ -74,6 +75,9 @@ else{
 				</div>			
 			</div>
 			<input type="hidden" name="nodo" value="52"/>
+			<input type="hidden" name="idBanda" value="<?echo $idBanda;?>"/>
+			<input type="hidden" name="idRango" value="<?echo $idRango;?>"/>
+			<input type="hidden" name="idChannel" value="<?echo $idChannel;?>"/>
 			<div>  
 				<input type="submit" value="Guardar" class="buttons_OK" />
 			</div>
