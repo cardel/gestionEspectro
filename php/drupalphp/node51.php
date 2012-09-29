@@ -81,6 +81,7 @@ else{
 			</div>
 			<input type="hidden" name="nodo" value="51"/>
 			<input type="hidden" name="idRango" value="<?php echo $idRango;?>"/>
+			<input type="hidden" name="idBanda" value="<?php echo $idBanda;?>"/>
 			<div>  
 				<input type="submit" value="Guardar" class="buttons_OK" />
 			</div>

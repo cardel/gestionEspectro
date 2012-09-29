@@ -22,6 +22,6 @@
 	if($nodo==51)
 	{
 		echo "<script>alert('Procedimiento realizado con exito');</script>";
-		echo "<script>window.location=\"http://avispa.univalle.edu.co/site/?q=node/51&&idRango=".$idRango."\";</script>";
+		echo "<script>window.location=\"http://avispa.univalle.edu.co/site/?q=node/51&&idRango=".$idRango."&&idBanda=".$idBanda."\";</script>";
 	}
 ?>
