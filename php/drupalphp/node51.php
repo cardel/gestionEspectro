@@ -28,7 +28,7 @@ else{
 	echo '<p style="text-align:left";><a class="iframe" href="http://avispa.univalle.edu.co/~cardel/proyInv/ayudaSecuenciamientoAviones/ayuda.php"><img border="0" src="files/HelpIcon.gif" width="50" height="50"><br/>Ayuda</a></p>';
 	
 	$idBanda = $_GET["idRango"];
-	$datosBanda = datosEditarRangoFrecuencia($idRango);
+	$datosBanda = datosEditarRangoFrecuencia($idBanda);
 	echo "<input type=button class=\"botonverde\" onClick=\"window.open('http://avispa.univalle.edu.co/site/?q=node/46&&idRango=".$idRango."' ,'_top' );\" value=\"Regresar\" />\n";
 
 ?>
@@ -64,13 +64,6 @@ else{
 					Ingrese la frecuencia final de la banda en Hz. Debe ser mayor que la frecuencia inicial.
 				</div>			
 			</div>	
-			<div class="form-item" >
-				<label>Número de canales: </label>
-				<input type="text" size="64" name="numeroCanales"  value="<?php echo $datosBanda["channels_number"]; ?>" class="form-text"/>
-				<div class="description">
-					Ingrese el número de canales en el rango de frecuencias, una vez creada la banda podrá editarlos.
-				</div>			
-			</div>	
 			<div class="form-item">
 				<label>Separación mínima: </label>
 				<input type="text" size="64" name="separacion" value="<?php echo $datosBanda["channel_separation"]; ?>" class="form-text"/>
@@ -96,6 +89,6 @@ else{
 
 <p class='estilo'>Lista de canales registrados</p>
 <?php
-	echo obtenerCanalesPorRango($idRango);
+	echo obtenerCanalesPorRango($idBanda);
 }
 ?>
