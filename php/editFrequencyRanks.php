@@ -13,7 +13,7 @@
 	$objconexionBD = new conexionBD();
 	$objconexionBD->abrirConexion();
 
-	$query = "UPDATE frequency_ranks SET frequency_ranks_name='".$rangoFrecuencias."', frequency_ranks_description='".$descripcioNRango."', frequency_begin_Hz=".$frecuenciaInicial.", frequency_end_Hz=".$frecuenciaFinal.", max_channels_per_operator=".$maxCanalesOperador.", channel_separation=".$separacion." where \"ID_frequency_ranks\"=".$idBanda.";";
+	$query = "UPDATE frequency_ranks SET frequency_ranks_name='".$rangoFrecuencias."', frequency_ranks_description='".$descripcioNRango."', \"frequency_begin_Hz\"=".$frecuenciaInicial.", \"frequency_end_Hz\"=".$frecuenciaFinal.", max_channels_per_operator=".$maxCanalesOperador.", channel_separation=".$separacion." where \"ID_frequency_ranks\"=".$idBanda.";";
 	
 	$objconexionBD->enviarConsulta($query);		
 
