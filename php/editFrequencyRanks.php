@@ -3,6 +3,7 @@
 	require ("/var/www/html/site/gestionEspectro/php/conexionBD.php");
 	$nodo = $_POST["nodo"];
 	$idRango = $_POST["idRango"];
+	$idBanda = $_POST["idBanda"];
 	$rangoFrecuencias = $_POST["rangoFrecuencias"];
 	$maxCanalesOperador = $_POST["maxCanalesOperador"];
 	$frecuenciaInicial = $_POST["frecuenciaInicial"];
