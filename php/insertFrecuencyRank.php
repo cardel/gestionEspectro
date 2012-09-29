@@ -70,9 +70,7 @@
 		$query="insert into channels (\"ID_channels\", \"ID_frequency_ranks\", channel_description, channel_number, \"TxFrequency\", \"RxFrequency\", reserved, disabled) values (".$IdChannel.",".$IdActual.",'".$descripcioNCanal."',".$n.",".$frecuenciaTx.",".$frecuenciaRx.",'f','f');";	   
 		$objconexionBD->enviarConsulta($query); 
 		
-		$IdChannel++;
-		
-		echo $query."<br/>";
+		$IdChannel++;		
 	 } 
 	 
 	 	 
