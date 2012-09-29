@@ -191,13 +191,18 @@
 		   
 		while ($row =  pg_fetch_array ($result))
 		{
+			$reservado='Si';
+			if($row["reserved"]=='f') $reservado='No';
+			$deshabilidado='Si';
+			if($row["disabled"]=='f') $deshabilidado='No';
+						
 			$res.= "<tr>"; 
 			$res.= "<td>".$row["channel_number"]."</td>";
 			$res.= "<td>".$row["channel_description"]."</td>";
 			$res.= "<td>".$row["TxFrequency"]."</td>";
 			$res.= "<td>".$row["RxFrequency"]."</td>";
-			$res.= "<td>".$row["reserved"]."</td>";
-			$res.= "<td>".$row["disabled"]."</td>";
+			$res.= "<td>".$reservado."</td>";
+			$res.= "<td>". $deshabilidado."</td>";
 			$res.= "<td><a href=\"/site/?q=node/52&&idChannel=".$row["ID_channels"]."&&idRango=".$idRango."&&idBanda=".$idBanda."\" >Editar</a></td>";
 			$res.= "</tr>";	
 		}
