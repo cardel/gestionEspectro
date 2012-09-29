@@ -27,9 +27,10 @@ else{
 	echo "<p class='estiloTitulo'>Administración de Rangos de frecuencia</p>\n";
 	echo '<p style="text-align:left";><a class="iframe" href="http://avispa.univalle.edu.co/~cardel/proyInv/ayudaSecuenciamientoAviones/ayuda.php"><img border="0" src="files/HelpIcon.gif" width="50" height="50"><br/>Ayuda</a></p>';
 	
-	$idBanda = $_GET["idRango"];
-	$datosBanda = datosEditarRangoFrecuencia($idBanda);
-	echo "<input type=button class=\"botonverde\" onClick=\"window.open('http://avispa.univalle.edu.co/site/?q=node/46&&idRango=".$idRango."' ,'_top' );\" value=\"Regresar\" />\n";
+	$idRango = $_GET["idRango"];
+	$idBanda = $_GET["idBanda"];
+	$datosBanda = datosEditarRangoFrecuencia($idRango);
+	echo "<input type=button class=\"botonverde\" onClick=\"window.open('http://avispa.univalle.edu.co/site/?q=node/46&&idBanda=".$idBanda."' ,'_top' );\" value=\"Regresar\" />\n";
 
 ?>
 
@@ -79,7 +80,7 @@ else{
 				</div>			
 			</div>
 			<input type="hidden" name="nodo" value="51"/>
-			<input type="hidden" name="idBanda" value="<?php echo $idBanda;?>"/>
+			<input type="hidden" name="idRango" value="<?php echo $idRango;?>"/>
 			<div>  
 				<input type="submit" value="Guardar" class="buttons_OK" />
 			</div>
@@ -89,6 +90,6 @@ else{
 
 <p class='estilo'>Lista de canales registrados</p>
 <?php
-	echo obtenerCanalesPorRango($idBanda);
+	echo obtenerCanalesPorRango($idRango);
 }
 ?>

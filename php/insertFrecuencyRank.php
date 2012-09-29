@@ -81,7 +81,7 @@
 	 if($nodo==46)
 	 {
 		echo "<script>alert('Procedimiento realizado con exito');</script>";
-		echo "<script>window.location=\"http://avispa.univalle.edu.co/site/?q=node/46&&idRango=".$idRango."\";</script>";
+		echo "<script>window.location=\"http://avispa.univalle.edu.co/site/?q=node/46&&idBanda=".$idBanda."\";</script>";
 	 }	 
 ?>
 

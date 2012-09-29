@@ -51,7 +51,7 @@ Por favor seleccione una banda de frecuencia y haga clic en seleccionar.
 </div>
 
 <?php
-	$idBanda = $_GET["idRango"];
+	$idBanda = $_GET["idBanda"];
 	$accion = $_POST["accion"];
 	$selectBands = $_POST["selectBands"];
 	
