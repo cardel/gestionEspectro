@@ -91,6 +91,6 @@ else{
 
 <p class='estilo'>Lista de canales registrados</p>
 <?php
-	echo obtenerCanalesPorRango($idRango);
+	echo obtenerCanalesPorRango($idBanda, $idRango);
 }
 ?>
