@@ -107,7 +107,7 @@
 			$res.= "<td>".$row[channels_number]."</td>";
 			$res.= "<td>".$row[channel_separation]."</td>";
 			$res.= "<td>".$row[frequency_ranks_description]."</td>";
-			$res.= "<td><a href=\"/site/?q=node/51&&idRango=".$row["ID_frequency_ranks"]."\" >Editar</a></td>";
+			$res.= "<td><a href=\"/site/?q=node/51&&idRango=".$row["ID_frequency_ranks"]."&&idBanda=".$idBanda."\" >Editar</a></td>";
 			$res.= "</tr>";	
 		}
 
@@ -166,7 +166,7 @@
 	 * Obtener canales asociados a un rango
 	 */
 	 
-	function obtenerCanalesPorRango($idBanda,$idRango)
+	function obtenerCanalesPorRango($idRango)
 	{
 		$objconexionBD = new conexionBD();
 		$objconexionBD->abrirConexion();
@@ -198,7 +198,7 @@
 			$res.= "<td>".$row["RxFrequency"]."</td>";
 			$res.= "<td>".$row["reserved"]."</td>";
 			$res.= "<td>".$row["disabled"]."</td>";
-			$res.= "<td><a href=\"/site/?q=node/52&&idChannel=".$row["ID_channels"]."&&idRango=".$idRango."\"&&idBanda=".$idBanda."\" >Editar</a></td>";
+			$res.= "<td><a href=\"/site/?q=node/52&&idChannel=".$row["ID_channels"]."&&idRango=".$idRango."\" >Editar</a></td>";
 			$res.= "</tr>";	
 		}
 

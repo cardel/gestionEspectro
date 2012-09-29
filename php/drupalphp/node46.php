@@ -223,7 +223,7 @@ Por favor seleccione una banda de frecuencia y haga clic en seleccionar.
 
 		<div id="listaRangos" style="display: none;">
 		<?php
-		echo obtenerBandasPorOperador($idBanda, $selectBands);
+		echo obtenerBandasPorOperador($selectBands);
 		?>
 		</div>
 		<?php
