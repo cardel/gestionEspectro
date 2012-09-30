@@ -17,6 +17,7 @@ else{
 	drupal_add_css($path = 'css/datatable.css', $type = 'module', $media = 'all', $preprocess = TRUE);
 	drupal_add_css($path = 'gestionEspectro/php/drupalcss/botonesEspectro.css', $type = 'module', $media = 'all', $preprocess = TRUE);
 	drupal_add_css($path = 'sites/all/libraries/jquery.ui/themes/default/ui.all.css', $type = 'module', $media = 'all', $preprocess = TRUE);
+	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/colorBoxU.js');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/syntaxhighlighter/scripts/shCore.js');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/syntaxhighlighter/scripts/shBrushXml.js');
 	drupal_add_css($path = 'js/syntaxhighlighter/styles/shCore.css', $type = 'module', $media = 'all', $preprocess = TRUE);
@@ -80,10 +81,32 @@ else{
 	}	
 	if($accion=="upload")
 	{	
-		$solucionHead = simplexml_load_file($file);
-		echo "ok";
+		$solucion = simplexml_load_file($file);
+
 		//Insertar debe ser
+		$head = $solucion->head;
 		
+		//Datos básicos
+		$tipoGeografico=$head->geograficAssignationType;
+		$idGeografico= $head->geograficAssignationID;
+		$rangoDeFrecuencia = $head->especificBand;
+		$numeroDeSoluciones = $head->numSolutions;	
+		
+		$soluciones = $solucion->solution;			
+		
+		echo "<p>A continuación usted podrá elegir una de las soluciones que contiene el archivo para que ésta sea insertada en la base de datos</p>";
+		echo "<p class='estilo'>Elección  de solución</p>\n";	
+		
+		echo "<select id=\"soluciones\">";
+		for($i=0; $i<$numeroDeSoluciones; $i++)
+		{
+			echo "<option value=\"".$i."\">Solución #".$i."</option>";
+		}
+		echo "</select>";	
+		echo "<p><a href=\"#\" onclick=\"javascript:soluciones();\"> Ver solución </a>";	
+		echo "<a href=\"#\" onclick=\"javascript:soluciones();\"> Almacenar solución en Base de datos </a></p>";
+
+		echo "<p><strong style='text-heigth:bold;'>Importante: </strong> Si existe una asignación actual esta será sobreescrita por la especificada en el archivo</p>";
 		/*
 		 * Por cada operador
 		 * Depende del tipo de asignación
