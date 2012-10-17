@@ -25,20 +25,21 @@ $numeroDeSoluciones = $head->numSolutions;
 
 $soluciones = $solucion->solution;		
 
-foreach($soluciones->solution as $sol)
+foreach($soluciones as $sol)
 {
 	$id = (int) $sol->attributes()->id;	
 	if($solucionInteres==$id)
 	{	
+				echo "ok";
+		print_r($sol);
 		if($tipoGeografico==0)
 		{
 			
 				
 		}
-		echo "ok";
-		print_r($sol);
+
 	}
-	echo "ok";	
+
 }
 
 /*
