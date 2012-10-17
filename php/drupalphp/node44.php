@@ -102,11 +102,25 @@ else{
 		{
 			echo "<option value=\"".$i."\">Solución #".$i."</option>";
 		}
-		echo "</select>";	
-		echo "<p><a href=\"#\" onclick=\"javascript:soluciones();\"> Ver solución </a>";	
-		echo "<a href=\"#\" onclick=\"javascript:soluciones();\"> Almacenar solución en Base de datos </a></p>";
+		echo "</select>";
+		echo "<input type=button class=\"botonverde\" onclick=\"javascript:mostrarSolucion();\" value=\"Ver solución\" />\n";
+		echo "<input type=button class=\"botonrojo\" onclick=\"javascript:soluciones();\" value=\"Almacenar solución en Base de datos\" />\n";
 
 		echo "<p><strong style='text-heigth:bold;'>Importante: </strong> Si existe una asignación actual esta será sobreescrita por la especificada en el archivo</p>";
+		
+		echo "<script language=\"javascript\">
+		function mostrarSolucion(){    
+			var selector = $('#soluciones').val();
+			var file = '".$file."';
+			$.post(\"gestionEspectro/php/iteraccion.php\", { opcSelec: selector, file: file }, function(data){
+				$(\"#verSolucion\").html(data);
+			});
+			$.post(\"gestionEspectro/php/encabezado.php\", { file: file, fileXML: 'ninguno', botonXML: 'ninguno' }, function(data){
+				$(\"#verEncabezado\").html(data);
+			});           
+		}
+		</script>";
+
 		/*
 		 * Por cada operador
 		 * Depende del tipo de asignación
@@ -120,6 +134,10 @@ else{
 		 */
 		
 	}
+	?>
+	<div id="verEncabezado"></div>
+	<div id="verSolucion"></div>
+	<?php
 	
 }
 ?>
