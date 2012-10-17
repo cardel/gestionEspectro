@@ -56,6 +56,7 @@ foreach($soluciones as $sol)
 
 		if($tipoGeografico==1)
 		{
+			//$idGeografico
 			echo "<p style='font-size: 12pt;' >La asignación es a nivel territorial</p>\n";
 				
 		}
@@ -63,12 +64,14 @@ foreach($soluciones as $sol)
 
 		if($tipoGeografico==2)
 		{
+			//$idGeografico
 			echo "<p style='font-size: 12pt;' >La asignación es a nivel departamental</p>\n";
 				
 		}
 		
 		if($tipoGeografico==3)
 		{
+			//$idGeografico
 			echo "<p style='font-size: 12pt;' >La asignación es a nivel municipal</p>\n";
 				
 		}
