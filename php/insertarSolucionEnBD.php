@@ -30,11 +30,29 @@ foreach($soluciones as $sol)
 	$id = (int) $sol->attributes()->id;	
 	if($solucionInteres==$id)
 	{	
-		echo "ok";
-		print_r($sol);
+		echo "<p class='estilo'>Ingresar información en BD</p>\n";
 		if($tipoGeografico==0)
 		{
-			
+			echo "<p style='font-size: 16pt;' >La asignación es a nivel nacional</p>\n";
+				
+		}
+
+		if($tipoGeografico==1)
+		{
+			echo "<p style='font-size: 16pt;' >La asignación es a nivel territorial</p>\n";
+				
+		}
+		
+
+		if($tipoGeografico==2)
+		{
+			echo "<p style='font-size: 16pt;' >La asignación es a nivel departamental</p>\n";
+				
+		}
+		
+		if($tipoGeografico==3)
+		{
+			echo "<p style='font-size: 16pt;' >La asignación es a nivel municipal</p>\n";
 				
 		}
 
