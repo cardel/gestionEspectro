@@ -33,26 +33,38 @@ foreach($soluciones as $sol)
 		echo "<p class='estilo'>Ingresar información en BD</p>\n";
 		if($tipoGeografico==0)
 		{
-			echo "<p style='font-size: 16pt;' >La asignación es a nivel nacional</p>\n";
-				
-		}
+			echo "<p style='font-size: 12pt;' >La asignación es a nivel nacional</p>\n";
+			$report = $sol->report;
+					
+				foreach($report->operator as $operator)
+				{
+					echo "Operador: ".consultarOperador($operator->attributes()->name)."\n";
+
+					$channels = $operator->channels;
+					foreach($channels->channel as $numero->$channel) 
+					{
+						echo $numero."\t".$channel;						
+
+					}
+				}			
+			}	
 
 		if($tipoGeografico==1)
 		{
-			echo "<p style='font-size: 16pt;' >La asignación es a nivel territorial</p>\n";
+			echo "<p style='font-size: 12pt;' >La asignación es a nivel territorial</p>\n";
 				
 		}
 		
 
 		if($tipoGeografico==2)
 		{
-			echo "<p style='font-size: 16pt;' >La asignación es a nivel departamental</p>\n";
+			echo "<p style='font-size: 12pt;' >La asignación es a nivel departamental</p>\n";
 				
 		}
 		
 		if($tipoGeografico==3)
 		{
-			echo "<p style='font-size: 16pt;' >La asignación es a nivel municipal</p>\n";
+			echo "<p style='font-size: 12pt;' >La asignación es a nivel municipal</p>\n";
 				
 		}
 
