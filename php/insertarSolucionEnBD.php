@@ -9,7 +9,7 @@ $objconexionBD = new conexionBD();
 $objconexionBD->abrirConexion();
 
 $file = $_POST['file'];
-$solucionInteres = $_POST['solucion'];
+$solucionInteres = (int)$_POST['solucion'];
 
 echo "<p class='estilo'>Insertar salida en Base de datos</p>\n";
 
@@ -27,7 +27,7 @@ $soluciones = $solucion->solution;
 
 foreach($soluciones->solution as $sol)
 {
-	$id= (int) $sol->attributes()->id;	
+	$id = (int) $sol->attributes()->id;	
 	if($solucionInteres==$id)
 	{	
 		if($tipoGeografico==0)
