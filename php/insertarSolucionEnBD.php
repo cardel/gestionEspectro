@@ -20,7 +20,7 @@ $head = $solucion->head;
 //Datos básicos
 $tipoGeografico=$head->geograficAssignationType;
 $idGeografico= $head->geograficAssignationID;
-$rangoDeFrecuencia = $head->especificBand;
+$rangoDeFrecuencia = $head->frequencyRank;
 $numeroDeSoluciones = $head->numSolutions;	
 
 $soluciones = $solucion->solution;		
