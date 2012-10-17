@@ -38,7 +38,7 @@ foreach($soluciones as $sol)
 					
 			//Borrar tablas nacionales	
 			echo $rangoDeFrecuencia."<br/>";
-			
+			echo $idGeografico."<br/>";
 			//Insertar en tablas nacionales
 			foreach($report->operator as $operator)
 			{
