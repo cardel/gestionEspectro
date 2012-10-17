@@ -41,9 +41,9 @@ foreach($soluciones as $sol)
 					echo "Operador: ".consultarOperador($operator->attributes()->name)."\n";
 
 					$channels = $operator->channels;
-					foreach($channels->channel as $numero->$channel) 
+					foreach($channels->channel as $channel) 
 					{
-						echo $numero."\t".$channel;						
+						echo $channel."\n";						
 
 					}
 				}			
