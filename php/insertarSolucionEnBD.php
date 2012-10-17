@@ -42,7 +42,7 @@ foreach($soluciones as $sol)
 			$result= $objconexionBD->enviarConsulta($query);
 			while ($row =  pg_fetch_array ($result))
 			{
-					echo $row[id_channels_assignations]."<br/>";
+					echo $row['id_channels_assignations']."<br/>";
 			}
 			pg_free_result($result);	
 			
