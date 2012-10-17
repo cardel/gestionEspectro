@@ -38,8 +38,9 @@ foreach($soluciones->solution as $sol)
 		echo "ok";
 		print_r($sol);
 	}
-	
+	echo "ok";	
 }
+
 /*
  * Por cada operador
  * Depende del tipo de asignación
