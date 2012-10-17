@@ -30,7 +30,7 @@ foreach($soluciones as $sol)
 	$id = (int) $sol->attributes()->id;	
 	if($solucionInteres==$id)
 	{	
-				echo "ok";
+		echo "ok";
 		print_r($sol);
 		if($tipoGeografico==0)
 		{

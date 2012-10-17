@@ -118,7 +118,8 @@ else{
 			});
 			$.post(\"gestionEspectro/php/encabezado.php\", { file: file, fileXML: 'ninguno', botonXML: 'ninguno' }, function(data){
 				$(\"#verEncabezado\").html(data);
-			});           
+			}); 
+			$(\"#informacion\").html(\"\");           
 		}
 		</script>";
 
