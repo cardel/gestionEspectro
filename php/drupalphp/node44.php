@@ -128,25 +128,13 @@ else{
 			var file = '".$file."';
 			$(\"#verSolucion\").html(\"\");
 			$(\"#verEncabezado\").html(\"\"); 
-			$.post(\"gestionEspectro/php/insertarArchivoEnBD.php\", { file: file, solucion: selector }, function(data){
+			$.post(\"gestionEspectro/php/insertarSolucionEnBD.php\", { file: file, solucion: selector }, function(data){
 				$(\"#informacion\").html(data);
 			});         
 		}
-		</script>";
-		
+		</script>";		
 
-		/*
-		 * Por cada operador
-		 * Depende del tipo de asignación
-		 * 
-		 * 1. Nacionales
-		 * 2. Territorial
-		 * 3. Departamental
-		 * 4. Municipal
-		 * 
-		 * << Necesario consultar IDs de cada caso>>
-		 */
-		 
+		 //Mostrar información relativa a inserción en BD
 		 echo "<div id=\"informacion\"></div>";
 		
 	}
