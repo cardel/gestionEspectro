@@ -25,7 +25,18 @@ $numeroDeSoluciones = $head->numSolutions;
 
 $soluciones = $solucion->solution;		
 
-print_r($soluciones[$solucionInteres]);
+foreach($soluciones->solution as $sol)
+{
+	$id= (int) $sol->attributes()->id;	.
+	if($solucionInteres==$id)
+	{	
+		if($tipoGeografico==0)
+		{
+				print_r($sol);
+		}
+	}
+	
+}
 /*
  * Por cada operador
  * Depende del tipo de asignación
