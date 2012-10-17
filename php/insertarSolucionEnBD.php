@@ -36,22 +36,24 @@ foreach($soluciones as $sol)
 			echo "<p style='font-size: 12pt;' >La asignación es a nivel nacional</p>\n";
 			$report = $sol->report;
 					
-				//Borrar tablas nacionales	
-				echo $rangoDeFrecuencia."<br/>";
+			//Borrar tablas nacionales	
+			echo $rangoDeFrecuencia."<br/>";
+			
+			//Insertar en tablas nacionales
+			foreach($report->operator as $operator)
+			{
+				echo "Operador: ".consultarOperador($operator->attributes()->name)."\n";
 				
-				//Insertar en tablas nacionales
-				foreach($report->operator as $operator)
+				//Averiguar id channel
+				
+				$channels = $operator->channels;
+				foreach($channels->channel as $channel) 
 				{
-					echo "Operador: ".consultarOperador($operator->attributes()->name)."\n";
+					echo $channel."\n";						
 
-					$channels = $operator->channels;
-					foreach($channels->channel as $channel) 
-					{
-						echo $channel."\n";						
-
-					}
-					echo "<br/>";
-				}			
+				}
+				echo "<br/>";
+			}			
 			}	
 
 		if($tipoGeografico==1)
