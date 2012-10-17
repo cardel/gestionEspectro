@@ -33,8 +33,9 @@ foreach($soluciones->solution as $sol)
 		if($tipoGeografico==0)
 		{
 			echo "ok";
-				print_r($sol);
+				
 		}
+		print_r($sol);
 	}
 	
 }
