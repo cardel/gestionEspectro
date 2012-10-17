@@ -27,7 +27,7 @@ $soluciones = $solucion->solution;
 
 foreach($soluciones->solution as $sol)
 {
-	$id= (int) $sol->attributes()->id;	.
+	$id= (int) $sol->attributes()->id;	
 	if($solucionInteres==$id)
 	{	
 		if($tipoGeografico==0)
