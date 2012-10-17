@@ -50,7 +50,7 @@ foreach($soluciones as $sol)
 						echo $channel."\n";						
 
 					}
-					echo "<br/>
+					echo "<br/>";
 				}			
 			}	
 
