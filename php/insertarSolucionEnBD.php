@@ -37,7 +37,7 @@ foreach($soluciones as $sol)
 			$report = $sol->report;
 			
 			//select id_channels_assignations from channel_assignations_national where id_channels_assignations in (select id_channels_assignations from channels_assignations where "ID_channels" in (select "ID_channels" from channels where "ID_frequency_ranks"=36))
-			$query="select id_channels_assignations from channel_assignations_national where id_channels_assignations in (select id_channels_assignations from channels_assignations where  \"ID_channels\" in (select \ID_channels\" from channels where \"ID_frequency_ranks\"=36));";
+			$query="select id_channels_assignations from channel_assignations_national where id_channels_assignations in (select id_channels_assignations from channels_assignations where  \"ID_channels\" in (select \ID_channels\" from channels where \"ID_frequency_ranks\"=".$rangoDeFrecuencia."));";
 				
 			$result= $objconexionBD->enviarConsulta($query);
 			while ($row =  pg_fetch_array ($result))
@@ -59,7 +59,7 @@ foreach($soluciones as $sol)
 				$channels = $operator->channels;
 				foreach($channels->channel as $channel) 
 				{
-					echo $channel."\n";						
+					//echo $channel."\n";						
 
 				}
 				echo "<br/>";
