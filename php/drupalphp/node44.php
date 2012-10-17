@@ -27,7 +27,7 @@ else{
 	if(!is_dir("/var/www/html/site/gestionEspectro/entradasTemp/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/entradasTemp/".$user->uid, 0755);
 	if(!is_dir("/var/www/html/site/gestionEspectro/salidas/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/salidas/".$user->uid, 0755);
 	if(!is_dir("/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid)) mkdir("/var/www/html/site/gestionEspectro/salidasTemp/".$user->uid, 0755);
-		echo "<p class='estiloTitulo'>Aplicación gestión del espectro usando programación por restricciones</p>\n";
+	echo "<p class='estiloTitulo'>Aplicación gestión del espectro usando programación por restricciones</p>\n";
 	echo "<p class='estilo'>Ingresar salidas XML a base de datos</p>\n";
 
 	echo '<p style="text-align:left";><a class="iframe" href="http://avispa.univalle.edu.co/~cardel/proyInv/ayudaSecuenciamientoAviones/ayuda.php"><img border="0" src="files/HelpIcon.gif" width="50" height="50"><br/>Ayuda</a></p>';
@@ -92,7 +92,8 @@ else{
 		$rangoDeFrecuencia = $head->especificBand;
 		$numeroDeSoluciones = $head->numSolutions;	
 		
-		$soluciones = $solucion->solution;			
+		$soluciones = $solucion->solution;		
+		$tipoInsercion=0;	
 		
 		echo "<p>A continuación usted podrá elegir una de las soluciones que contiene el archivo para que ésta sea insertada en la base de datos</p>";
 		echo "<p class='estilo'>Elección  de solución</p>\n";	
@@ -104,7 +105,7 @@ else{
 		}
 		echo "</select>";
 		echo "<input type=button class=\"botonverde\" onclick=\"javascript:mostrarSolucion();\" value=\"Ver solución\" />\n";
-		echo "<input type=button class=\"botonrojo\" onclick=\"javascript:soluciones();\" value=\"Almacenar solución en Base de datos\" />\n";
+		echo "<input type=button class=\"botonrojo\" onclick=\"javascript:almacenarSolucion();\" value=\"Almacenar solución en Base de datos\" />\n";
 
 		echo "<p><strong style='text-heigth:bold;'>Importante: </strong> Si existe una asignación actual esta será sobreescrita por la especificada en el archivo</p>";
 		
@@ -121,17 +122,32 @@ else{
 		}
 		</script>";
 
+		echo "<script language=\"javascript\">
+		function almacenarSolucion(){
+			var selector = $('#soluciones').val();
+			var file = '".$file."';
+			$(\"#verSolucion\").html(\"\");
+			$(\"#verEncabezado\").html(\"\"); 
+			$.post(\"gestionEspectro/php/insertarArchivoEnBD.php\", { file: file, solucion: selector }, function(data){
+				$(\"#informacion\").html(data);
+			});         
+		}
+		</script>";
+		
+
 		/*
 		 * Por cada operador
 		 * Depende del tipo de asignación
 		 * 
 		 * 1. Nacionales
-		 * 2. Terrtorial
+		 * 2. Territorial
 		 * 3. Departamental
 		 * 4. Municipal
 		 * 
 		 * << Necesario consultar IDs de cada caso>>
 		 */
+		 
+		 echo "<div id=\"informacion\"></div>";
 		
 	}
 	?>
