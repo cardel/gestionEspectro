@@ -9,7 +9,7 @@ $objconexionBD = new conexionBD();
 $objconexionBD->abrirConexion();
 
 $file = $_POST['file'];
-$solucion = $_POST['solucion'];
+$solucionInteres = $_POST['solucion'];
 
 echo "<p class='estilo'>Insertar salida en Base de datos</p>\n";
 
@@ -25,9 +25,7 @@ $numeroDeSoluciones = $head->numSolutions;
 
 $soluciones = $solucion->solution;		
 
-$solucionInteres=0;
-
-print_r($soluciones);
+print_r($soluciones[$solucionInteres]);
 /*
  * Por cada operador
  * Depende del tipo de asignación
