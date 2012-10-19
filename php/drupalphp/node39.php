@@ -71,7 +71,7 @@ Usted puede seleccionar en que lugar se va realizar el proceso de asignación de
 		</td>
 	</tr>
 </table>
-<p class='estilo'>Asignación por banda/rango</p>
+<p class='estiloTitulo'>Asignación por banda/rango</p>
 	Por favor seleccione una banda y posteriormente un rango donde desea realizar la consulta
 	<div id="bandasBD"></div>		
 	<div id="rangosBD"></div>	
