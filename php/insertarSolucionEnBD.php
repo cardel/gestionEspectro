@@ -68,8 +68,6 @@ foreach($soluciones as $sol)
 			
 			//Crear nueva asignación
 			echo "<p style='font-size: 12pt;' >Creando nueva asignación</p>\n";
-			echo $rangoDeFrecuencia."<br/>";
-			echo $idGeografico."<br/>";
 			
 			//Insertar en tablas nacionales
 			foreach($report->operator as $operator)
@@ -108,14 +106,32 @@ foreach($soluciones as $sol)
 					}	
 
 				}
-				echo "<p style='font-size: 12pt;' >Operación concluida</p>\n";
-			}			
+				
+			}
+			echo "<p style='font-size: 12pt;' >Operación concluida</p>\n";			
 		}	
 
 		if($tipoGeografico==1)
 		{
 			//$idGeografico
 			echo "<p style='font-size: 12pt;' >La asignación es a nivel territorial</p>\n";
+			
+			$query="select id_channels_assignations, id_channels_assignations_per_territorialdivision from channel_assignations_per_territorialdivision where id_channels_assignations in (select id_channels_assignations from channels_assignations where  \"ID_channels\" in (select \"ID_channels\" from channels where \"ID_frequency_ranks\"=".$rangoDeFrecuencia."));";
+			
+			
+			echo "<p style='font-size: 12pt;' >Borrando asignación actual</p>\n";
+			$result= $objconexionBD->enviarConsulta($query);
+			
+			while ($row =  pg_fetch_array ($result))
+			{
+				//Borrar de tabla channel_assignations_national 
+				//$query2 = "DELETE FROM channel_assignations_national WHERE id_channels_assignations=".$row['id_channels_assignations'].";";
+				//$objconexionBD->enviarConsulta($query2);		
+				echo $row['id_channels_assignations']." ".$row['id_channels_assignations_per_territorialdivision'];
+				//$query2 = "DELETE FROM channels_assignations WHERE id_channels_assignations=".$row['id_channels_assignations'].";";
+				//$objconexionBD->enviarConsulta($query2);						
+			}
+			//Verificar si la asignación ya es nacional
 				
 		}
 		
