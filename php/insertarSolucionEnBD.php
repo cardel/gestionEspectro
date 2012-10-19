@@ -167,14 +167,13 @@ foreach($soluciones as $sol)
 
 				
 				$channels = $operator->channels;
-				echo "fi";
+				echo "<p style='font-size: 12pt;' >fi</p>\n";
 				foreach($channels->channel as $channel) 
 				{
-					echo "entro";
 					$idChannel++;
 					if($channel==1)
 					{		
-						echo "ok";
+				echo "<p style='font-size: 12pt;' >ok</p>\n";
 						//Aqui toca verificar si la asignación es nacional y avisar como un warning
 						
 										
