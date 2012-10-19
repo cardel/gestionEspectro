@@ -143,46 +143,73 @@ if($accion=="territorio")
 	
 	$tipoAsignacion = "";
 	$lugar="";
+	$termino = 0;
 	
-	if($divisionTerritorial==-1)
-	{
-		$tipoAsignacion = "channel_assignations_national";
-		$lugar="";
-	}
-	else
-	{			
-		if($departamento==-1)
+	while($termino==0)
+	{	
+		if($divisionTerritorial==-1)
 		{
-			$tipoAsignacion = "channel_assignations_per_territorialdivision";
-			$lugar=" and \"ID_Territorial_Division\"=".$divisionTerritorial." ";
+			$tipoAsignacion = "channel_assignations_national";
+			$lugar="";
+			$termino = -1;
 		}
 		else
-		{
-			if($municipio==-1)
+		{			
+			if($departamento==-1)
 			{
-				$tipoAsignacion = "channel_assignations_per_departament";
-				$lugar=" and \"ID_departament\" =".$departamento." ";
+				$tipoAsignacion = "channel_assignations_per_territorialdivision";
+				$lugar=" and \"ID_Territorial_Division\"=".$divisionTerritorial." ";
+				$divisionTerritorial=-1;
 			}
 			else
 			{
-				$tipoAsignacion = "channel_assignations_per_city";
-				$lugar=" and \"ID_cities\"=".$municipio." ";
-			}
-		}		
-	}
-	
-	
-	$query = "select channel_number, operators_name, frequency_ranks_name, channel_description from channels_assignations natural join channels natural join frequency_ranks natural join ".$tipoAsignacion." natural join operators where true ".$lugar." order by \"ID_frequency_ranks\",\"ID_channels\";";
+				if($municipio==-1)
+				{
+					$tipoAsignacion = "channel_assignations_per_departament";
+					$lugar=" and \"ID_departament\" =".$departamento." ";
+					
+					//Consultar ID_Territorial
+					$query="select \"ID_Territorial_Division\" as idter from departaments where \"ID_departament\" =".$departamento.";";						
+					$result= $objconexionBD->enviarConsulta($query);	
+					while ($row =  pg_fetch_array ($result))
+					{
+						$divisionTerritorial= $row['idter'];
+					}	
+					pg_free_result($result);
+					$departamento=-1;
+				}
+				else
+				{
+					$tipoAsignacion = "channel_assignations_per_city";
+					$lugar=" and \"ID_cities\"=".$municipio." ";
+					
+					//Obtener ID departamento
+					$query="select \"ID_departament\" as iddep from cities where \"ID_cities\" =".$municipio.";";	
+					$result= $objconexionBD->enviarConsulta($query);	
 
-	$result= $objconexionBD->enviarConsulta($query);
-	while ($row =  pg_fetch_array ($result))
-	{
-	  echo "<tr>";
-	  echo "<td>".$row["channel_number"]."</td>";
-	  echo "<td>".$row["frequency_ranks_name"]."</td>";
-	  echo "<td>".$row["channel_description"]."</td>";
-	  echo "<td>".$row["operators_name"]."</td>";
-	  echo "</tr>";
+					while ($row =  pg_fetch_array ($result))
+					{
+						$departamento = $row['iddep'];
+					}	
+					pg_free_result($result);					
+					$municipio=-1;
+				}
+			}		
+		}
+		
+		
+		$query = "select channel_number, operators_name, frequency_ranks_name, channel_description from channels_assignations natural join channels natural join frequency_ranks natural join ".$tipoAsignacion." natural join operators where true ".$lugar." order by \"ID_frequency_ranks\",\"ID_channels\";";
+
+		$result= $objconexionBD->enviarConsulta($query);
+		while ($row =  pg_fetch_array ($result))
+		{
+		  echo "<tr>";
+		  echo "<td>".$row["channel_number"]."</td>";
+		  echo "<td>".$row["frequency_ranks_name"]."</td>";
+		  echo "<td>".$row["channel_description"]."</td>";
+		  echo "<td>".$row["operators_name"]."</td>";
+		  echo "</tr>";
+		}
 	}
 
 	echo "</tbody>\n";
