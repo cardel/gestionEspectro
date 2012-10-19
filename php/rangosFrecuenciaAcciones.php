@@ -58,7 +58,7 @@
 		$objconexionBD->abrirConexion();
 
 	    $res="";
-	    $query="select * from frequency_bands where \"ID_frequency_bands\" >= ".$idBanda;  				   
+	    $query="select * from frequency_bands where \"ID_frequency_bands\" = ".$idBanda;  				   
 	   
 	    $result= $objconexionBD->enviarConsulta($query);
 	    while ($row =  pg_fetch_array ($result))

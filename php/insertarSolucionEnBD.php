@@ -38,7 +38,7 @@ foreach($soluciones as $sol)
 			
 			//select id_channels_assignations, id_channels_assignations_national from channel_assignations_national where id_channels_assignations in (select id_channels_assignations from channels_assignations where "ID_channels" in (select "ID_channels" from channels where "ID_frequency_ranks"=36))
 			$query="select id_channels_assignations, id_channels_assignations_national from channel_assignations_national where id_channels_assignations in (select id_channels_assignations from channels_assignations where  \"ID_channels\" in (select \"ID_channels\" from channels where \"ID_frequency_ranks\"=".$rangoDeFrecuencia."));";
-			echo $query;
+
 			$result= $objconexionBD->enviarConsulta($query);
 			while ($row =  pg_fetch_array ($result))
 			{
@@ -47,6 +47,11 @@ foreach($soluciones as $sol)
 			pg_free_result($result);	
 			
 			//Borrar tablas nacionales	
+			echo "<p style='font-size: 12pt;' >Borrando asignacion actual</p>\n";
+			
+			
+			//Crear nueva asignación
+			echo "<p style='font-size: 12pt;' >Creando nueva asignación</p>\n";
 			echo $rangoDeFrecuencia."<br/>";
 			echo $idGeografico."<br/>";
 			//Insertar en tablas nacionales
