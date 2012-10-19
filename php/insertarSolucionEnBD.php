@@ -148,7 +148,7 @@ foreach($soluciones as $sol)
 			//Crear nueva asignación
 			echo "<p style='font-size: 12pt;' >Creando nueva asignación ... OK</p>\n";
 			
-			
+			echo "ok";
 			//Insertar en tablas territoriales
 			foreach($report->operator as $operator)
 			{
