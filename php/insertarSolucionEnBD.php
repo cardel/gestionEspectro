@@ -167,6 +167,7 @@ foreach($soluciones as $sol)
 
 				
 				$channels = $operator->channels;
+				echo "fi";
 				foreach($channels->channel as $channel) 
 				{
 					echo "entro";
