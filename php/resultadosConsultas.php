@@ -38,7 +38,7 @@ if($accion=="operador")
 		{
 			$tipoAsignacion = "channel_assignations_national";
 			$lugar="";
-			$termino = 0;
+			$termino = -1;
 		}
 		else
 		{			
