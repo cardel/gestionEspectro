@@ -37,7 +37,7 @@ foreach($soluciones as $sol)
 			$report = $sol->report;
 			
 			$query="select id_channels_assignations, id_channels_assignations_national from channel_assignations_national where id_channels_assignations in (select id_channels_assignations from channels_assignations where  \"ID_channels\" in (select \"ID_channels\" from channels where \"ID_frequency_ranks\"=".$rangoDeFrecuencia."));";
-			echo "<p style='font-size: 12pt;' >Borrando asignación actual</p>\n";
+			echo "<p style='font-size: 12pt;' >Borrando asignación actual ... OK</p>\n";
 			$result= $objconexionBD->enviarConsulta($query);
 			
 			while ($row =  pg_fetch_array ($result))
@@ -67,7 +67,7 @@ foreach($soluciones as $sol)
 			$maximoID++;
 			
 			//Crear nueva asignación
-			echo "<p style='font-size: 12pt;' >Creando nueva asignación</p>\n";
+			echo "<p style='font-size: 12pt;' >Creando nueva asignación ... OK</p>\n";
 			
 			//Insertar en tablas nacionales
 			foreach($report->operator as $operator)
@@ -108,7 +108,7 @@ foreach($soluciones as $sol)
 				}
 				
 			}
-			echo "<p style='font-size: 12pt;' >Operación concluida</p>\n";			
+			echo "<p style='font-size: 12pt;' >Operación completa</p>\n";			
 		}	
 
 		if($tipoGeografico==1)
@@ -118,8 +118,8 @@ foreach($soluciones as $sol)
 			
 			$query="select id_channels_assignations, id_channels_assignations_per_territorialdivision from channel_assignations_per_territorialdivision where id_channels_assignations in (select id_channels_assignations from channels_assignations where  \"ID_channels\" in (select \"ID_channels\" from channels where \"ID_frequency_ranks\"=".$rangoDeFrecuencia."));";
 			
-			
-			echo "<p style='font-size: 12pt;' >Borrando asignación actual</p>\n";
+			echo $query;
+			echo "<p style='font-size: 12pt;' >Borrando asignación actual  ... OK</p>\n";
 			$result= $objconexionBD->enviarConsulta($query);
 			
 			while ($row =  pg_fetch_array ($result))
