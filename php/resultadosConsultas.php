@@ -40,6 +40,7 @@ if($accion=="operador")
 			$lugar="";
 			$termino = -1;
 		}
+		
 		else
 		{			
 			if($departamento==-1)
