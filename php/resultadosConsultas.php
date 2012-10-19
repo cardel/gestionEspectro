@@ -604,8 +604,5 @@ if($accion=="serviciosList")
 	pg_free_result($result);
 }
 
-
-
-
 $objconexionBD->cerrarConexion();
 ?>

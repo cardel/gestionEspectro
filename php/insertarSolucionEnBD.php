@@ -36,40 +36,81 @@ foreach($soluciones as $sol)
 			echo "<p style='font-size: 12pt;' >La asignación es a nivel nacional</p>\n";
 			$report = $sol->report;
 			
-			//select id_channels_assignations, id_channels_assignations_national from channel_assignations_national where id_channels_assignations in (select id_channels_assignations from channels_assignations where "ID_channels" in (select "ID_channels" from channels where "ID_frequency_ranks"=36))
 			$query="select id_channels_assignations, id_channels_assignations_national from channel_assignations_national where id_channels_assignations in (select id_channels_assignations from channels_assignations where  \"ID_channels\" in (select \"ID_channels\" from channels where \"ID_frequency_ranks\"=".$rangoDeFrecuencia."));";
-
+			echo "<p style='font-size: 12pt;' >Borrando asignación actual</p>\n";
 			$result= $objconexionBD->enviarConsulta($query);
+			
 			while ($row =  pg_fetch_array ($result))
 			{
-					echo $row['id_channels_assignations']."<br/>";
+				//Borrar de tabla channel_assignations_national 
+				$query2 = "DELETE FROM channel_assignations_national WHERE id_channels_assignations=".$row['id_channels_assignations'].";";
+				$objconexionBD->enviarConsulta($query2);		
+
+				$query2 = "DELETE FROM channels_assignations WHERE id_channels_assignations=".$row['id_channels_assignations'].";";
+				$objconexionBD->enviarConsulta($query2);						
+			}
+			
+			pg_free_result($result);	
+						
+			//Obtener maximo ID
+			
+			$maximoID;
+			$query="select max(id_channels_assignations) as max from channels_assignations;";
+			$result= $objconexionBD->enviarConsulta($query);
+			
+			while ($row =  pg_fetch_array ($result))
+			{
+				$maximoID=$row['max'];					
 			}
 			pg_free_result($result);	
-			
-			//Borrar tablas nacionales	
-			echo "<p style='font-size: 12pt;' >Borrando asignacion actual</p>\n";
-			
+			//Nuevo ID
+			$maximoID++;
 			
 			//Crear nueva asignación
 			echo "<p style='font-size: 12pt;' >Creando nueva asignación</p>\n";
 			echo $rangoDeFrecuencia."<br/>";
 			echo $idGeografico."<br/>";
+			
 			//Insertar en tablas nacionales
 			foreach($report->operator as $operator)
 			{
-				echo "Operador: ".consultarOperador($operator->attributes()->name)."\n";
+				$idOperador = $operator->attributes()->name;
 				
-				//Averiguar id channel
+				//Averiguar id channel	
+				$idChannel = 0;			
+				$query="select min(\"ID_channels\") as min from channels where \"ID_frequency_ranks\"=".$rangoDeFrecuencia.";";
+				$result= $objconexionBD->enviarConsulta($query);
+				
+				while ($row =  pg_fetch_array ($result))
+				{
+					$idChannel=$row['min'];					
+				}	
+				pg_free_result($result);	
+
 				
 				$channels = $operator->channels;
 				foreach($channels->channel as $channel) 
 				{
-					//echo $channel."\n";						
+					$idChannel++;
+					if($channel==1)
+					{						
+						//Insertar en asignaciones generales
+						$query1= "insert into channels_assignations (id_channels_assignations, \"ID_Operator\", \"ID_channels\") values (".$maximoID.",".$idOperador.",".$idChannel.");";
+						
+						$objconexionBD->enviarConsulta($query1);		
+						
+						//Insertar en asignaciones nacionales
+						$query2= "insert into channel_assignations_national (id_channels_assignations) values (".$maximoID.");";
+						$objconexionBD->enviarConsulta($query2);	
+						
+						//Aumentar ID
+						$maximoID++;
+					}	
 
 				}
-				echo "<br/>";
+				echo "<p style='font-size: 12pt;' >Operación concluida</p>\n";
 			}			
-			}	
+		}	
 
 		if($tipoGeografico==1)
 		{
