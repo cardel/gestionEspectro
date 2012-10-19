@@ -169,7 +169,7 @@ foreach($soluciones as $sol)
 				$channels = $operator->channels;
 				foreach($channels->channel as $channel) 
 				{
-					$echo "entro";
+					echo "entro";
 					$idChannel++;
 					if($channel==1)
 					{		
