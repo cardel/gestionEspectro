@@ -177,7 +177,7 @@ foreach($soluciones as $sol)
 					echo $channel;
 					if($channel==1)
 					{		
-											
+						echo "--entra--";					
 						//Aqui toca verificar si la asignación es nacional y avisar como un warning
 						
 						//Buscar si el canal está asignado
