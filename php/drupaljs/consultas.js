@@ -24,6 +24,26 @@ function consultarDivisionTerritorial(){
 	});  
 }
  
+//Esta funcion consulta los departamentos de la BD de una division
+function consultarDepartamentos(){ 
+	var selector = $('#selectTerritorialDivision').val();
+	$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'departamentos', idConsulta: selector }, function(data){
+		$("#departamentos").html(data);
+		$("#municipios").html("");
+		$("#tipoAsignacion").html("La asignación es a nivel departamental");
+
+	});  
+}
+
+//Esta funcion consulta los municipios de la BD de un depto
+function consultarMunicipios(){    
+	var selector = $('#selectDepartaments').val();
+	$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'municipios', idConsulta: selector }, function(data){
+		$("#municipios").html(data);
+		$("#tipoAsignacion").html("La asignación es a nivel municipal");
+	});         
+} 
+
 //Consultar operadores
 function operadores(){
 	$.post("gestionEspectro/php/consultasGenerales.php", { consulta: 'operadores'}, function(data){
