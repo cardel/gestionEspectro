@@ -538,7 +538,7 @@ foreach($soluciones as $sol)
 								}					
 								pg_free_result($result);	
 								
-								
+								echo $encontro;
 								
 								if($encontro==-1)
 								{
