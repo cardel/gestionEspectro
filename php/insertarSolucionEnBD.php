@@ -165,20 +165,39 @@ foreach($soluciones as $sol)
 				{
 					$idChannel=$row['min'];					
 				}	
-				pg_free_result($result);	
-
-				
+				pg_free_result($result);				
 				$channels = $operator->channels;
-				echo "<p style='font-size: 12pt;' >fi</p>\n";
+				
 				foreach($channels->channel as $channel) 
 				{
 					$idChannel++;
 					if($channel==1)
 					{		
 						echo "<p style='font-size: 12pt;' >ok</p>\n";
-						//Aqui toca verificar si la asignación es nacional y avisar como un warning
 						
-										
+						
+						//Aqui toca verificar si la asignación es nacional y avisar como un warning
+						$query = "select id_channels_assignations from channels_assignations where \"ID_channels\" =".$idChannel.";";
+						$result= $objconexionBD->enviarConsulta($query);
+					
+						$idAsignado=0;
+						while ($row =  pg_fetch_array ($result))
+						{
+							$idAsignado=$row['id_channels_assignations'];					
+						}
+						pg_free_result($result);
+						
+						$encontro=0;
+						$query = "select id_channels_assignations from channel_assignations_national where id_channels_assignations=".$idAsignado.";";
+						$result= $objconexionBD->enviarConsulta($query);
+							while ($row =  pg_fetch_array ($result))
+						{
+							$encontro=$row['id_channels_assignations'];					
+						}					
+						pg_free_result($result);
+						
+						echo $encontro."<br/>";		
+											
 						//Insertar en asignaciones generales
 						//$query1= "insert into channels_assignations (id_channels_assignations, \"ID_Operator\", \"ID_channels\") values (".$maximoID.",".$idOperador.",".$idChannel.");";
 						
