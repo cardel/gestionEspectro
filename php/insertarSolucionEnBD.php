@@ -551,6 +551,8 @@ foreach($soluciones as $sol)
 									$query2= "insert into channel_assignations_per_city (id_channels_assignations, \"ID_cities\") values (".$maximoID.",".$idGeografico.");";
 									$objconexionBD->enviarConsulta($query2);	
 									
+									echo $query2;
+									
 									//Aumentar ID
 									$maximoID++;
 								}
