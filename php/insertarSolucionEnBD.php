@@ -362,13 +362,13 @@ foreach($soluciones as $sol)
 							{
 								//Insertar en asignaciones generales
 								$query1= "insert into channels_assignations (id_channels_assignations, \"ID_Operator\", \"ID_channels\") values (".$maximoID.",".$idOperador.",".$idChannel.");";
-								echo "<br/>".$query1."<br/>";
+								
 								$objconexionBD->enviarConsulta($query1);		
 								
 								//Insertar en asignaciones nacionales
 								$query2= "insert into channel_assignations_per_departament (id_channels_assignations, \"ID_departament\") values (".$maximoID.",".$idGeografico.");";
 								$objconexionBD->enviarConsulta($query2);	
-								echo $query2."<br/>";
+								
 								//Aumentar ID
 								$maximoID++;
 													}
