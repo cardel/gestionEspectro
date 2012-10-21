@@ -309,7 +309,7 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 			$maximo = 0;
 			break;
 	}	
-
+	if($maximo=='') $maximo=0;
 	$objconexionBD->cerrarConexion();	
 	return $maximo;
 }
