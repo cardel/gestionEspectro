@@ -14,6 +14,15 @@ function borrarMunicipios(){
 	$("#municipios").html(" ");       
 }
 
+
+function consultarNacionales()
+{
+	$("#territorialDivision").html(" ");
+	$("#departamentos").html(" ");      
+	$("#municipios").html(" ");  	
+	
+}
+
 //Esta funcion consulta las divisiones territoriales de la BD
 function consultarDivisionTerritorial(){ 
 	$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'divisionTerritorial', idConsulta: 0 }, function(data){
