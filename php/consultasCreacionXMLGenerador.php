@@ -462,7 +462,7 @@ function obtenerAsignacionesParciales($id_frequency_rank, $tipoAsignacion, $idLu
 		default:			
 			$query="select channel_number, reserved, disabled from channels where \"ID_frequency_ranks\" = ".$id_frequency_rank." order by channel_number;";
 			$result= $objconexionBD->enviarConsulta($query);	
-			
+			$ingresar = 0;
 			while ($row =  pg_fetch_array ($result))
 			{  
 			  $salida .= "\t\t\t\t<i>".$ingresar."</i>\n";
