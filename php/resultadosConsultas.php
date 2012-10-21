@@ -221,6 +221,7 @@ if($accion=="territorio")
 		  echo "<td>".$row["frequency_ranks_name"]."</td>";
 		  echo "<td>".$row["channel_description"]."</td>";
 		  echo "<td>".$row["operators_name"]."</td>";
+		  echo "<td>".$tipoAsignacionTabla."</td>";
 		  echo "</tr>";
 		}
 	}
