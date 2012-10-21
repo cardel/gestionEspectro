@@ -24,13 +24,14 @@ $rangoDeFrecuencia = $head->frequencyRank;
 $numeroDeSoluciones = $head->numSolutions;	
 
 $soluciones = $solucion->solution;		
-$report = $sol->report;
 
 foreach($soluciones as $sol)
 {
 	$id = (int) $sol->attributes()->id;	
 	if($solucionInteres==$id)
 	{	
+		$report = $sol->report;
+
 		echo "<p class='estilo'>Ingresar información en BD</p>\n";
 		if($tipoGeografico==0)
 		{
