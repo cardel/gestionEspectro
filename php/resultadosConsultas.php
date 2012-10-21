@@ -23,6 +23,7 @@ if($accion=="operador")
 	echo "<th>Canal</th>\n";
 	echo "<th>Rango de frecuencia</th>\n";
 	echo "<th>Descripción canal</th>\n";
+	echo "<th>Tipo de asignación</th>\n";
 	echo "</tr>\n";
 	echo "</thead>\n";
 	echo "<tbody>\n";
@@ -30,6 +31,7 @@ if($accion=="operador")
 	$tipoAsignacion = "";
 	$lugar="";
 	$termino = 0;
+	$tipoAsignacionTabla;
 	
 	while($termino==0)
 	{
@@ -39,6 +41,7 @@ if($accion=="operador")
 			$tipoAsignacion = "channel_assignations_national";
 			$lugar="";
 			$termino = -1;
+			$tipoAsignacionTabla="Nacional";
 		}
 		
 		else
@@ -48,6 +51,7 @@ if($accion=="operador")
 				$tipoAsignacion = "channel_assignations_per_territorialdivision";
 				$lugar=" and \"ID_Territorial_Division\"=".$divisionTerritorial." ";
 				$divisionTerritorial=-1;
+				$tipoAsignacionTabla="Territorial";
 			}
 			else
 			{
@@ -65,6 +69,7 @@ if($accion=="operador")
 					}	
 					pg_free_result($result);
 					$departamento=-1;
+					$tipoAsignacionTabla="Departamental";
 				}
 				else
 				{
@@ -81,6 +86,7 @@ if($accion=="operador")
 					}	
 					pg_free_result($result);					
 					$municipio=-1;
+					$tipoAsignacionTabla="Municipal";
 				}
 			}		
 		}
@@ -94,6 +100,7 @@ if($accion=="operador")
 		  echo "<td>".$row["channel_number"]."</td>";
 		  echo "<td>".$row["frequency_ranks_name"]."</td>";
 		  echo "<td>".$row["channel_description"]."</td>";
+		  echo "<td>".$tipoAsignacionTabla."</td>";
 		  echo "</tr>";
 		}
 		
@@ -107,6 +114,7 @@ if($accion=="operador")
 	echo "<th>Canal</th>\n";
 	echo "<th>Rango de frecuencia</th>\n";
 	echo "<th>Descripción canal</th>\n";
+	echo "<th>Tipo de asignación</th>\n";
 	echo "</tr>\n";
 	echo "</tfoot>\n";
     echo "</table>\n";	
@@ -137,6 +145,7 @@ if($accion=="territorio")
 	echo "<th>Rango de frecuencia</th>\n";
 	echo "<th>Descripción canal</th>\n";
 	echo "<th>Operador</th>\n";
+	echo "<th>Tipo de asignación</th>\n";
 	echo "</tr>\n";
 	echo "</thead>\n";
 	echo "<tbody>\n";
@@ -144,7 +153,7 @@ if($accion=="territorio")
 	$tipoAsignacion = "";
 	$lugar="";
 	$termino = 0;
-	
+	$tipoAsignacionTabla;
 	while($termino==0)
 	{	
 		if($divisionTerritorial==-1)
@@ -152,6 +161,7 @@ if($accion=="territorio")
 			$tipoAsignacion = "channel_assignations_national";
 			$lugar="";
 			$termino = -1;
+			$tipoAsignacionTabla="Nacional";
 		}
 		else
 		{			
@@ -160,6 +170,7 @@ if($accion=="territorio")
 				$tipoAsignacion = "channel_assignations_per_territorialdivision";
 				$lugar=" and \"ID_Territorial_Division\"=".$divisionTerritorial." ";
 				$divisionTerritorial=-1;
+				$tipoAsignacionTabla="Territorial";
 			}
 			else
 			{
@@ -177,6 +188,7 @@ if($accion=="territorio")
 					}	
 					pg_free_result($result);
 					$departamento=-1;
+					$tipoAsignacionTabla="Departamental";
 				}
 				else
 				{
@@ -193,6 +205,7 @@ if($accion=="territorio")
 					}	
 					pg_free_result($result);					
 					$municipio=-1;
+					$tipoAsignacionTabla="Municipal";
 				}
 			}		
 		}
@@ -219,6 +232,7 @@ if($accion=="territorio")
 	echo "<th>Rango de frecuencia</th>\n";
 	echo "<th>Descripción canal</th>\n";
 	echo "<th>Operador</th>\n";
+	echo "<th>Tipo de asignación</th>\n";
 	echo "</tr>\n";
 	echo "</tfoot>\n";
     echo "</table>\n";		
