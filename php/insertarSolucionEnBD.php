@@ -158,6 +158,7 @@ foreach($soluciones as $sol)
 				
 				//Averiguar id channel	
 				$idChannel = 0;			
+				$numeroCanal = 0;
 				$query="select min(\"ID_channels\") as min from channels where \"ID_frequency_ranks\"=".$rangoDeFrecuencia.";";
 				$result= $objconexionBD->enviarConsulta($query);
 				
@@ -171,6 +172,8 @@ foreach($soluciones as $sol)
 				foreach($channels->channel as $channel) 
 				{
 					$idChannel++;
+					$numeroCanal++;
+					
 					if($channel==1)
 					{		
 						echo "<p style='font-size: 12pt;' >ok</p>\n";
@@ -180,35 +183,47 @@ foreach($soluciones as $sol)
 						$query = "select id_channels_assignations from channels_assignations where \"ID_channels\" =".$idChannel.";";
 						$result= $objconexionBD->enviarConsulta($query);
 					
-						$idAsignado=0;
+						$idAsignado=-1;
 						while ($row =  pg_fetch_array ($result))
 						{
 							$idAsignado=$row['id_channels_assignations'];					
 						}
 						pg_free_result($result);
 						
-						$encontro=0;
-						$query = "select id_channels_assignations from channel_assignations_national where id_channels_assignations=".$idAsignado.";";
-						$result= $objconexionBD->enviarConsulta($query);
-							while ($row =  pg_fetch_array ($result))
+						$encontro=-1;
+						
+						if($idAsignado>-1)
 						{
-							$encontro=$row['id_channels_assignations'];					
-						}					
-						pg_free_result($result);
+							$query = "select id_channels_assignations from channel_assignations_national where id_channels_assignations=".$idAsignado.";";
+							$result= $objconexionBD->enviarConsulta($query);
+								while ($row =  pg_fetch_array ($result))
+							{
+								$encontro=$row['id_channels_assignations'];					
+							}					
+							pg_free_result($result);								
+							
+						}
 						
-						echo $encontro."<br/>";		
+						if($encontro>-1)
+						{							
+							//Insertar en asignaciones generales
+							$query1= "insert into channels_assignations (id_channels_assignations, \"ID_Operator\", \"ID_channels\") values (".$maximoID.",".$idOperador.",".$idChannel.");";
+							
+							$objconexionBD->enviarConsulta($query1);		
+							
+							//Insertar en asignaciones nacionales
+							$query2= "insert into channel_assignations_per_territorialdivision (id_channels_assignations, \"ID_Territorial_Division\") values (".$maximoID.",".$idGeografico.");";
+							$objconexionBD->enviarConsulta($query2);	
+							
+							//Aumentar ID
+							$maximoID++;	
+						}
+						else
+						{
+							echo "<p>Alerta: El canal ".$numeroCanal." pertenece a una asignación nacional</p>";
+						}			
 											
-						//Insertar en asignaciones generales
-						//$query1= "insert into channels_assignations (id_channels_assignations, \"ID_Operator\", \"ID_channels\") values (".$maximoID.",".$idOperador.",".$idChannel.");";
-						
-						//$objconexionBD->enviarConsulta($query1);		
-						
-						//Insertar en asignaciones nacionales
-						//$query2= "insert into channel_assignations_national (id_channels_assignations) values (".$maximoID.");";
-						//$objconexionBD->enviarConsulta($query2);	
-						
-						//Aumentar ID
-						$maximoID++;
+
 					}	
 
 				}
