@@ -25,7 +25,7 @@ function consultarNacionales()
 
 //Esta funcion consulta las divisiones territoriales de la BD
 function consultarDivisionTerritorial(){ 
-	$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'divisionTerritorial', idConsulta: 0 }, function(data){
+	$.post("gestionEspectro/php/consultasConsultasBD.php", { consulta: 'divisionTerritorial', idConsulta: 0 }, function(data){
 		$("#territorialDivision").html(data);
 		$("#departamentos").html("");
 		$("#municipios").html("");
@@ -36,7 +36,7 @@ function consultarDivisionTerritorial(){
 //Esta funcion consulta los departamentos de la BD de una division
 function consultarDepartamentos(){ 
 	var selector = $('#selectTerritorialDivision').val();
-	$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'departamentos', idConsulta: selector }, function(data){
+	$.post("gestionEspectro/php/consultasConsultasBD.php", { consulta: 'departamentos', idConsulta: selector }, function(data){
 		$("#departamentos").html(data);
 		$("#municipios").html("");
 		$("#tipoAsignacion").html("La asignación es a nivel departamental");
@@ -47,7 +47,7 @@ function consultarDepartamentos(){
 //Esta funcion consulta los municipios de la BD de un depto
 function consultarMunicipios(){    
 	var selector = $('#selectDepartaments').val();
-	$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'municipios', idConsulta: selector }, function(data){
+	$.post("gestionEspectro/php/consultasConsultasBD.php", { consulta: 'municipios', idConsulta: selector }, function(data){
 		$("#municipios").html(data);
 		$("#tipoAsignacion").html("La asignación es a nivel municipal");
 	});         
