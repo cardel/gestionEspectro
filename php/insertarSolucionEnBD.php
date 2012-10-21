@@ -176,9 +176,7 @@ foreach($soluciones as $sol)
 					
 					if($channel==1)
 					{		
-						echo "<p style='font-size: 12pt;' >ok</p>\n";
-						
-						
+											
 						//Aqui toca verificar si la asignación es nacional y avisar como un warning
 						$query = "select id_channels_assignations from channels_assignations where \"ID_channels\" =".$idChannel.";";
 						$result= $objconexionBD->enviarConsulta($query);
@@ -204,7 +202,7 @@ foreach($soluciones as $sol)
 							
 						}
 						
-						if($encontro>-1)
+						if($encontro!=-1)
 						{							
 							//Insertar en asignaciones generales
 							$query1= "insert into channels_assignations (id_channels_assignations, \"ID_Operator\", \"ID_channels\") values (".$maximoID.",".$idOperador.",".$idChannel.");";
