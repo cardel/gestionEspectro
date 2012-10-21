@@ -246,9 +246,9 @@ foreach($soluciones as $sol)
 			echo "<p style='font-size: 12pt;' >La asignación es a nivel departamental</p>\n";
 			
 			
-			$query="select id_channels_assignations, channel_assignations_per_departament from channel_assignations_per_territorialdivision where id_channels_assignations in (select id_channels_assignations from channels_assignations where  \"ID_channels\" in (select \"ID_channels\" from channels where \"ID_frequency_ranks\"=".$rangoDeFrecuencia.")) and \"ID_departament\"=".$idGeografico.";";
+			$query="select id_channels_assignations, id_channels_assignations_per_departament from channel_assignations_per_departament where id_channels_assignations in (select id_channels_assignations from channels_assignations where  \"ID_channels\" in (select \"ID_channels\" from channels where \"ID_frequency_ranks\"=".$rangoDeFrecuencia.")) and \"ID_departament\"=".$idGeografico.";";
 			
-			echo $query;
+			
 			
 			echo "<p style='font-size: 12pt;' >Borrando asignación actual  ... OK</p>\n";
 			$result= $objconexionBD->enviarConsulta($query);
