@@ -402,7 +402,7 @@ foreach($soluciones as $sol)
 			echo "<p style='font-size: 12pt;' >La asignación es a nivel municipal</p>\n";
 			
 			//Borrar asignaciones en esa banda en el municipio
-			$query="select id_channels_assignations_per_city, id_channels_assignations_per_departament from channel_assignations_per_city where id_channels_assignations in (select id_channels_assignations from channels_assignations where  \"ID_channels\" in (select \"ID_channels\" from channels where \"ID_frequency_ranks\"=".$rangoDeFrecuencia.")) and \"ID_departament\"=".$idGeografico.";";
+			$query="select id_channels_assignations, id_channels_assignations_per_city from channel_assignations_per_city where id_channels_assignations in (select id_channels_assignations from channels_assignations where  \"ID_channels\" in (select \"ID_channels\" from channels where \"ID_frequency_ranks\"=".$rangoDeFrecuencia.")) and \"ID_departament\"=".$idGeografico.";";
 			
 			
 			
