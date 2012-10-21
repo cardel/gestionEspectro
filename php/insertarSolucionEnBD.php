@@ -529,16 +529,18 @@ foreach($soluciones as $sol)
 							if($encontro==-1)
 							{
 								//Si el canal esta asignado a nivel departamental
-								$query = "select id_channels_assignations from channel_assignations_per_departament where id_channels_assignations=".$encuentraID." and \"ID_departament\"=".$idDepartamental.";";
-								$result= $objconexionBD->enviarConsulta($query);
-								
-								while ($row =  pg_fetch_array ($result))
+								foreach($idAsignado as $encuentraID)
 								{
-									$encontro=$row['id_channels_assignations'];					
-								}					
-								pg_free_result($result);	
-								
-								echo $encontro;
+									$query = "select id_channels_assignations from channel_assignations_per_departament where id_channels_assignations=".$encuentraID." and \"ID_departament\"=".$idDepartamental.";";
+									$result= $objconexionBD->enviarConsulta($query);
+									while ($row =  pg_fetch_array ($result))
+									{
+										$encontro=$row['id_channels_assignations'];					
+									}					
+									pg_free_result($result);								
+									
+								}		
+
 								
 								if($encontro==-1)
 								{
