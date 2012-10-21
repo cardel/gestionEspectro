@@ -214,7 +214,7 @@ foreach($soluciones as $sol)
 							//Insertar en asignaciones nacionales
 							$query2= "insert into channel_assignations_per_territorialdivision (id_channels_assignations, \"ID_Territorial_Division\") values (".$maximoID.",".$idGeografico.");";
 							$objconexionBD->enviarConsulta($query2);	
-							
+							echo $query2."<br/>";
 							//Aumentar ID
 							$maximoID++;	
 						}
