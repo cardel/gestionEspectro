@@ -222,9 +222,10 @@ foreach($soluciones as $sol)
 						{
 							echo "<p>Alerta: El canal ".$numeroCanal." pertenece a una asignación nacional</p>";
 						}			
-						$idChannel++;					
+											
 
 					}	
+					$idChannel++;
 
 				}
 				
