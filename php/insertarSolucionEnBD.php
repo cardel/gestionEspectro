@@ -468,8 +468,8 @@ foreach($soluciones as $sol)
 						$query = "select id_channels_assignations from channels_assignations where \"ID_channels\" =".$idChannel.";";
 						$result= $objconexionBD->enviarConsulta($query);
 					
-						$idAsignado= -1;
-						echo $query;
+						$idAsignado= array();
+
 						$idAsignado =  pg_fetch_array ($result);
 
 						pg_free_result($result);
