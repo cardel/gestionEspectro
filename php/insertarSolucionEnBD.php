@@ -208,7 +208,7 @@ foreach($soluciones as $sol)
 						{							
 							//Insertar en asignaciones generales
 							$query1= "insert into channels_assignations (id_channels_assignations, \"ID_Operator\", \"ID_channels\") values (".$maximoID.",".$idOperador.",".$idChannel.");";
-							
+							echo $query1;
 							$objconexionBD->enviarConsulta($query1);		
 							
 							//Insertar en asignaciones nacionales
