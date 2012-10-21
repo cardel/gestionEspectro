@@ -276,10 +276,11 @@ if($accion=="bandasBD")
 
 if($accion=="rangosBD" && $idConsulta>=0)
 {	
+	echo "<p>Seleccione una rango de frecuencia</p>	";
 	echo "<select id=\"selectRanks\" name=\"selectRanks\" >";
 	$query="select * from frequency_ranks where \"ID_frequency_bands\"=".$idConsulta.";";
 	print ("<option value=-1>");
-	print ("Seleccionar");
+	print ("Todos");
 	print ("</option>\n");	
 				   
 	$result= $objconexionBD->enviarConsulta($query);

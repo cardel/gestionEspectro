@@ -54,15 +54,21 @@ Usted puede seleccionar en que lugar se va realizar el proceso de asignación de
 
 <table border="0" width="100%">
 	<tr>
+		<div style="text-align:center;">
+		<p class='estilo'>Aplicar filtro</p>	
+		</div>
 		<td width="50%">
-			<p class='estilo'>Asignación por operador en zona</p>	
+			<p class='estilo'>Por operador</p>	
 			<strong style="font-size:14px; font-weight:bold;">Selección operador</strong>
 			<div id="operadores"></div>
 			<input type="button" class="botonamarillo" value="Consultar por operador" onclick="javascript:ejecutarOperador();">
 		</td >
 		<td width="50%" style="text-align : right;">
-			<p class='estilo'>Asignación en entidad territorial</p>
-			<input type="button" class="botonrojo" value="Consultar por entidad" onclick="javascript:ejecutarEntidad();">
+			<p class='estilo'>Por Banda/Rango de frecuencia</p>
+			<p>Seleccione una banda de frecuencia</p>
+			<div id="bandasBD"></div>				
+			<div id="rangosBD"></div>	
+			
 		</td>
 	</tr>
 	<tr>
@@ -73,9 +79,11 @@ Usted puede seleccionar en que lugar se va realizar el proceso de asignación de
 </table>
 <p class='estiloTitulo'>Asignación por banda/rango</p>
 	Por favor seleccione una banda y posteriormente un rango donde desea realizar la consulta
-	<div id="bandasBD"></div>		
+	<div id="bandasBD"></div>
+	<div id="textoRangoBD"></div>			
 	<div id="rangosBD"></div>	
 	<div id="resultadosFrecuencia"></div>	
+	<input type="button" class="botonrojo" value="Consultar por entidad" onclick="javascript:ejecutarEntidad();">
 <?php
 }
 ?>
