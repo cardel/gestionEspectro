@@ -151,7 +151,7 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
     $objconexionBD->abrirConexion();	
 	
 	$maximo=0;	
-	$salida = "";
+	
 	switch($tipoAsignacion)
 	{
 		
@@ -296,9 +296,9 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 			
 			while ($row =  pg_fetch_array ($result))
 			{
-				$maximo = $row['total'];
+				//$maximo = $row['total'];
 			}	
-			
+			$maximo = $query;
 			pg_free_result($result);	
 			break;		
 		case 3:	
@@ -306,6 +306,7 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 			$maximo = 0;
 			break;
 		default:
+			$maximo = 0;
 			break;
 	}	
 

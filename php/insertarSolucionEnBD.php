@@ -126,8 +126,7 @@ foreach($soluciones as $sol)
 			
 			$query="select id_channels_assignations, id_channels_assignations_per_territorialdivision from channel_assignations_per_territorialdivision where id_channels_assignations in (select id_channels_assignations from channels_assignations where  \"ID_channels\" in (select \"ID_channels\" from channels where \"ID_frequency_ranks\"=".$rangoDeFrecuencia.")) and \"ID_Territorial_Division\"=".$idGeografico.";";
 			
-			echo $query;
-			
+
 			echo "<p style='font-size: 12pt;' >Borrando asignación actual  ... OK</p>\n";
 			$result= $objconexionBD->enviarConsulta($query);
 			
@@ -214,13 +213,11 @@ foreach($soluciones as $sol)
 						{							
 							//Insertar en asignaciones generales
 							$query1= "insert into channels_assignations (id_channels_assignations, \"ID_Operator\", \"ID_channels\") values (".$maximoID.",".$idOperador.",".$idChannel.");";
-							echo "<br/>".$query1."<br/>";
 							$objconexionBD->enviarConsulta($query1);		
 							
 							//Insertar en asignaciones nacionales
 							$query2= "insert into channel_assignations_per_territorialdivision (id_channels_assignations, \"ID_Territorial_Division\") values (".$maximoID.",".$idGeografico.");";
 							$objconexionBD->enviarConsulta($query2);	
-							echo $query2."<br/>";
 							//Aumentar ID
 							$maximoID++;	
 						}
@@ -249,8 +246,7 @@ foreach($soluciones as $sol)
 			echo "<p style='font-size: 12pt;' >La asignación es a nivel departamental</p>\n";
 			
 			
-		$query="select id_channels_assignations, id_channels_assignations_per_territorialdivision from channel_assignations_per_territorialdivision where id_channels_assignations in (select id_channels_assignations from channels_assignations where  \"ID_channels\" in (select \"ID_channels\" from channels where \"ID_frequency_ranks\"=".$rangoDeFrecuencia."));";
-			
+			$query="select id_channels_assignations, channel_assignations_per_departament from channel_assignations_per_territorialdivision where id_channels_assignations in (select id_channels_assignations from channels_assignations where  \"ID_channels\" in (select \"ID_channels\" from channels where \"ID_frequency_ranks\"=".$rangoDeFrecuencia.")) and \"ID_departament\"=".$idGeografico.";";
 			echo $query;
 			
 			echo "<p style='font-size: 12pt;' >Borrando asignación actual  ... OK</p>\n";
@@ -259,7 +255,7 @@ foreach($soluciones as $sol)
 			while ($row =  pg_fetch_array ($result))
 			{
 				//Borrar de tabla channel_assignations_per_territorialdivision 
-				$query1 = "DELETE FROM channel_assignations_per_territorialdivision WHERE id_channels_assignations=".$row['id_channels_assignations'].";";
+				$query1 = "DELETE FROM channel_assignations_per_departament WHERE id_channels_assignations=".$row['id_channels_assignations'].";";
 				$objconexionBD->enviarConsulta($query1);		
 				
 				$query2 = "DELETE FROM channels_assignations WHERE id_channels_assignations=".$row['id_channels_assignations'].";";
@@ -322,7 +318,7 @@ foreach($soluciones as $sol)
 						
 						$encontro=-1;
 						
-						//Si el canal esta asignado busquelo
+						//Si el canal esta asignado busquelo a nivel nacional
 						foreach($idAsignado as $encuentraID)
 						{
 							$query = "select id_channels_assignations from channel_assignations_national where id_channels_assignations=".$encuentraID.";";
@@ -336,21 +332,56 @@ foreach($soluciones as $sol)
 						}
 						//Si no encuentra asigne, de otra forma diga que no se puede
 						if($encontro==-1)
-						{							
-							//Insertar en asignaciones generales
-							$query1= "insert into channels_assignations (id_channels_assignations, \"ID_Operator\", \"ID_channels\") values (".$maximoID.",".$idOperador.",".$idChannel.");";
-							echo "<br/>".$query1."<br/>";
-							$objconexionBD->enviarConsulta($query1);		
+						{	
 							
-							//Insertar en asignaciones nacionales
-							$query2= "insert into channel_assignations_per_territorialdivision (id_channels_assignations, \"ID_Territorial_Division\") values (".$maximoID.",".$idGeografico.");";
-							$objconexionBD->enviarConsulta($query2);	
-							echo $query2."<br/>";
-							//Aumentar ID
-							$maximoID++;	
+							//Busque el ID de la zona del departamento
+							$idTerritorial=-1;
+							
+							$query="select \"ID_Territorial_Division\" as idter from departaments where \"ID_departament\" =".$idGeografico.";";						
+							$result= $objconexionBD->enviarConsulta($query);	
+							while ($row =  pg_fetch_array ($result))
+							{
+								$idTerritorial= $row['idter'];
+							}	
+							pg_free_result($result);
+							
+							
+							//Si el canal esta asignado busquelo a nivel territorial
+							foreach($idAsignado as $encuentraID)
+							{
+								$query = "select id_channels_assignations from channel_assignations_per_territorialdivision where id_channels_assignations=".$encuentraID." and \"ID_Territorial_Division\"=".$idTerritorial.";";
+								$result= $objconexionBD->enviarConsulta($query);
+								while ($row =  pg_fetch_array ($result))
+								{
+									$encontro=$row['id_channels_assignations'];					
+								}					
+								pg_free_result($result);								
+								
+							}
+							if($encontro==-1)
+							{
+								//Insertar en asignaciones generales
+								$query1= "insert into channels_assignations (id_channels_assignations, \"ID_Operator\", \"ID_channels\") values (".$maximoID.",".$idOperador.",".$idChannel.");";
+								echo "<br/>".$query1."<br/>";
+								$objconexionBD->enviarConsulta($query1);		
+								
+								//Insertar en asignaciones nacionales
+								$query2= "insert into channel_assignations_per_departament (id_channels_assignations, \"ID_departament\") values (".$maximoID.",".$idGeografico.");";
+								$objconexionBD->enviarConsulta($query2);	
+								echo $query2."<br/>";
+								//Aumentar ID
+								$maximoID++;
+													}
+							else
+							{
+								//Lo encontro a nivel nacional
+								echo "<p>Alerta: El canal ".$numeroCanal." pertenece a una asignación territorial</p>";
+							}									
+								
 						}
 						else
 						{
+							//Lo encontro a nivel nacional
 							echo "<p>Alerta: El canal ".$numeroCanal." pertenece a una asignación nacional</p>";
 						}			
 											
