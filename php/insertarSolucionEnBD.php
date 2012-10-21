@@ -91,7 +91,7 @@ foreach($soluciones as $sol)
 				$channels = $operator->channels;
 				foreach($channels->channel as $channel) 
 				{
-					$idChannel++;
+					
 					if($channel==1)
 					{						
 						//Insertar en asignaciones generales
@@ -105,7 +105,8 @@ foreach($soluciones as $sol)
 						
 						//Aumentar ID
 						$maximoID++;
-					}	
+					}
+					$idChannel++;	
 
 				}
 				
