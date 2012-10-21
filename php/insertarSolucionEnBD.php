@@ -173,9 +173,7 @@ foreach($soluciones as $sol)
 				
 				foreach($channels->channel as $channel) 
 				{
-					$idChannel++;
-					$numeroCanal++;
-					
+					$numeroCanal++;					
 					
 					if($channel==1)
 					{		
@@ -224,7 +222,7 @@ foreach($soluciones as $sol)
 						{
 							echo "<p>Alerta: El canal ".$numeroCanal." pertenece a una asignación nacional</p>";
 						}			
-											
+						$idChannel++;					
 
 					}	
 
