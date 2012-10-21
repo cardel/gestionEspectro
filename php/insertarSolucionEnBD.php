@@ -174,10 +174,10 @@ foreach($soluciones as $sol)
 					$idChannel++;
 					$numeroCanal++;
 					
-					echo $channel;
+					
 					if($channel==1)
 					{		
-						echo "--entra--";					
+										
 						//Aqui toca verificar si la asignación es nacional y avisar como un warning
 						
 						//Buscar si el canal está asignado
@@ -208,7 +208,7 @@ foreach($soluciones as $sol)
 						{							
 							//Insertar en asignaciones generales
 							$query1= "insert into channels_assignations (id_channels_assignations, \"ID_Operator\", \"ID_channels\") values (".$maximoID.",".$idOperador.",".$idChannel.");";
-							echo $query1;
+							echo "<br/>".$query1."<br/>";
 							$objconexionBD->enviarConsulta($query1);		
 							
 							//Insertar en asignaciones nacionales
