@@ -24,6 +24,7 @@ $rangoDeFrecuencia = $head->frequencyRank;
 $numeroDeSoluciones = $head->numSolutions;	
 
 $soluciones = $solucion->solution;		
+$report = $sol->report;
 
 foreach($soluciones as $sol)
 {
@@ -34,7 +35,7 @@ foreach($soluciones as $sol)
 		if($tipoGeografico==0)
 		{
 			echo "<p style='font-size: 12pt;' >La asignación es a nivel nacional</p>\n";
-			$report = $sol->report;
+			
 			
 			$query="select id_channels_assignations, id_channels_assignations_national from channel_assignations_national where id_channels_assignations in (select id_channels_assignations from channels_assignations where  \"ID_channels\" in (select \"ID_channels\" from channels where \"ID_frequency_ranks\"=".$rangoDeFrecuencia."));";
 			echo "<p style='font-size: 12pt;' >Borrando asignación actual ... OK</p>\n";
@@ -148,7 +149,7 @@ foreach($soluciones as $sol)
 			//Crear nueva asignación
 			echo "<p style='font-size: 12pt;' >Creando nueva asignación ... OK</p>\n";
 			
-			echo "ok";
+			
 			//Insertar en tablas territoriales
 			foreach($report->operator as $operator)
 			{
@@ -173,7 +174,7 @@ foreach($soluciones as $sol)
 					$idChannel++;
 					if($channel==1)
 					{		
-				echo "<p style='font-size: 12pt;' >ok</p>\n";
+						echo "<p style='font-size: 12pt;' >ok</p>\n";
 						//Aqui toca verificar si la asignación es nacional y avisar como un warning
 						
 										
