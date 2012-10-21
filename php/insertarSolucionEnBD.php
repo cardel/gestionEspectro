@@ -178,31 +178,32 @@ foreach($soluciones as $sol)
 					{		
 											
 						//Aqui toca verificar si la asignación es nacional y avisar como un warning
+						
+						//Buscar si el canal está asignado
 						$query = "select id_channels_assignations from channels_assignations where \"ID_channels\" =".$idChannel.";";
 						$result= $objconexionBD->enviarConsulta($query);
 					
 						$idAsignado=-1;
-						while ($row =  pg_fetch_array ($result))
-						{
-							$idAsignado=$row['id_channels_assignations'];					
-						}
+						$idAsignado =  pg_fetch_array ($result);
+
 						pg_free_result($result);
 						
 						$encontro=-1;
 						
-						if($idAsignado>-1)
+						//Si el canal esta asignado busquelo
+						foreach($idAsignado as $encuentraID)
 						{
-							$query = "select id_channels_assignations from channel_assignations_national where id_channels_assignations=".$idAsignado.";";
+							$query = "select id_channels_assignations from channel_assignations_national where id_channels_assignations=".$encuentraID.";";
 							$result= $objconexionBD->enviarConsulta($query);
-								while ($row =  pg_fetch_array ($result))
+							while ($row =  pg_fetch_array ($result))
 							{
 								$encontro=$row['id_channels_assignations'];					
 							}					
 							pg_free_result($result);								
 							
 						}
-						
-						if($encontro!=-1)
+						//Si no encuentra asigne, de otra forma diga que no se puede
+						if($encontro==-1)
 						{							
 							//Insertar en asignaciones generales
 							$query1= "insert into channels_assignations (id_channels_assignations, \"ID_Operator\", \"ID_channels\") values (".$maximoID.",".$idOperador.",".$idChannel.");";
