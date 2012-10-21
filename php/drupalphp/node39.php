@@ -16,7 +16,6 @@ else{
 	drupal_add_css($path = 'gestionEspectro/php/drupalcss/botonesEspectro.css', $type = 'module', $media = 'all', $preprocess = TRUE);	
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/syntaxhighlighter/scripts/shCore.js');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/syntaxhighlighter/scripts/shBrushXml.js');
-	drupal_add_js(drupal_get_path('module', 'mymodule') . 'gestionEspectro/php/drupaljs/generador.js');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'gestionEspectro/php/drupaljs/consultas.js');
 	drupal_add_css($path = 'js/syntaxhighlighter/styles/shCore.css', $type = 'module', $media = 'all', $preprocess = TRUE);
 	drupal_add_css($path = 'js/syntaxhighlighter/styles/shThemeDefault.css', $type = 'module', $media = 'all', $preprocess = TRUE);
@@ -33,7 +32,7 @@ else{
 ?>
 
 
-<strong style="font-size:14px; font-weight:bold;">Consulta por entidades territoriales</strong>
+<strong style="font-size:14px; font-weight:bold;">Selección de entidades territoriales</strong>
 <br/>
 Usted puede seleccionar en que lugar se va realizar el proceso de asignación del espectro:
 
@@ -83,7 +82,6 @@ Usted puede seleccionar en que lugar se va realizar el proceso de asignación de
 	<div id="textoRangoBD"></div>			
 	<div id="rangosBD"></div>	
 	<div id="resultadosFrecuencia"></div>	
-	<input type="button" class="botonrojo" value="Consultar por entidad" onclick="javascript:ejecutarEntidad();">
 <?php
 }
 ?>

@@ -1,6 +1,30 @@
 /*
+ * Carlos Andres Delgado
  * Este script permite realizar algunas consultas via ajax utilizando redirección php
  */
+ 
+ //Esta funcion borra la lista de departamentos y municipios, la oculta al usuario
+function borrarDepartamentos(){
+	$("#departamentos").html(" ");      
+	$("#municipios").html(" ");       
+}
+
+//Esta funcion borra la lista de departamentos y la oculta al usuario
+function borrarMunicipios(){
+	$("#municipios").html(" ");       
+}
+
+//Esta funcion consulta las divisiones territoriales de la BD
+function consultarDivisionTerritorial(){ 
+	$.post("gestionEspectro/php/consultasGenerador.php", { consulta: 'divisionTerritorial', idConsulta: 0 }, function(data){
+		$("#territorialDivision").html(data);
+		$("#departamentos").html("");
+		$("#municipios").html("");
+		$("#tipoAsignacion").html("La asignación es a nivel regional");
+	});  
+}
+ 
+//Consultar operadores
 function operadores(){
 	$.post("gestionEspectro/php/consultasGenerales.php", { consulta: 'operadores'}, function(data){
 		$("#operadores").html(data);
@@ -8,6 +32,7 @@ function operadores(){
 }
 operadores();
 
+//Ejecutar filtro por operador
 function ejecutarOperador()
 {
 	var selectTerritorialDivision = -1;
@@ -41,7 +66,7 @@ function ejecutarOperador()
 	
 }
 
-function ejecutarEntidad()
+/*function ejecutarEntidad()
 {
 	var selectTerritorialDivision = -1;
 	if($('#selectTerritorialDivision').length)
@@ -65,7 +90,7 @@ function ejecutarEntidad()
 		$("#resultadosOperador").html(data);
 	});	
 	
-}
+}*/
 
 function asignacionFrecuencias()
 {
