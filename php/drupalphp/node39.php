@@ -44,8 +44,7 @@ Usted puede seleccionar en que lugar se va realizar el proceso de asignación de
 </ul>	
 
 <div id="enlaceDivisionTerritorial">
- 	<input type=button class="botonverde" onclick="javascript:consultarDivisionTerritorial();" value="Seleccionar división territorial" />
-
+ 	<input type=button class="botonrojo" onclick="javascript:consultarDivisionTerritorial();" value="Seleccionar división territorial" />
 </div>
 
 <div id="territorialDivision"></div>
