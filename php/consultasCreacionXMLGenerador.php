@@ -296,9 +296,8 @@ function obtenerMaximoParcial($operador, $tipoAsignacion, $idLugarAsignacion, $i
 			
 			while ($row =  pg_fetch_array ($result))
 			{
-				//$maximo = $row['total'];
+				$maximo = $row['total'];
 			}	
-			$maximo = $query;
 			pg_free_result($result);	
 			break;		
 		case 3:	
