@@ -174,6 +174,7 @@ foreach($soluciones as $sol)
 					$idChannel++;
 					$numeroCanal++;
 					
+					echo $channel;
 					if($channel==1)
 					{		
 											
