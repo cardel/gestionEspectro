@@ -120,14 +120,16 @@ foreach($soluciones as $sol)
 			
 			$query="select id_channels_assignations, id_channels_assignations_per_territorialdivision from channel_assignations_per_territorialdivision where id_channels_assignations in (select id_channels_assignations from channels_assignations where  \"ID_channels\" in (select \"ID_channels\" from channels where \"ID_frequency_ranks\"=".$rangoDeFrecuencia."));";
 			
+			echo $query;
+			
 			echo "<p style='font-size: 12pt;' >Borrando asignación actual  ... OK</p>\n";
 			$result= $objconexionBD->enviarConsulta($query);
 			
 			while ($row =  pg_fetch_array ($result))
 			{
 				//Borrar de tabla channel_assignations_per_territorialdivision 
-				$query2 = "DELETE FROM channel_assignations_per_territorialdivision WHERE id_channels_assignations=".$row['id_channels_assignations'].";";
-				$objconexionBD->enviarConsulta($query2);		
+				$query1 = "DELETE FROM channel_assignations_per_territorialdivision WHERE id_channels_assignations=".$row['id_channels_assignations'].";";
+				$objconexionBD->enviarConsulta($query1);		
 				
 				$query2 = "DELETE FROM channels_assignations WHERE id_channels_assignations=".$row['id_channels_assignations'].";";
 				$objconexionBD->enviarConsulta($query2);						
