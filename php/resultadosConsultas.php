@@ -218,7 +218,7 @@ if($accion=="frecuencia")
 			}		
 		}
 		
-		$query = "select channel_number, frequency_ranks_name, channel_description from channels_assignations natural join channels natural join frequency_ranks natural join ".$tipoAsignacion." where \"ID_Operator\"=".$operador."  ".$lugar." order by \"ID_frequency_ranks\",\"ID_channels\";";
+		$query = "select channel_number, frequency_ranks_name, channel_description from channels_assignations natural join channels natural join frequency_ranks natural join ".$tipoAsignacion." where ".$lugar." order by \"ID_frequency_ranks\",\"ID_channels\";";
 		echo $query;
 		$result= $objconexionBD->enviarConsulta($query);
 		while ($row =  pg_fetch_array ($result))
