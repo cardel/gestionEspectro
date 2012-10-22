@@ -7,8 +7,8 @@ $variables = $_POST["feed_item_length"];?>
 <head>
 	<META HTTP-EQUIV="Content-Type" content="text/html; charset=utf-8"/>
 	<title>Ayuda aplicación CCP</title>	
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
-	<script type="text/javascript" src="/site/gestionEspectro/php/drupaljs/jquery/jquery-1.8.2.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="/site/gestionEspectro/php/drupaljs/jquery-ui/css/smoothness/jquery-ui-1.9.0.custom.css" />	
+	<script type="text/javascript" src="/site/gestionEspectro/php/drupaljs/jquery-ui/js/jquery-1.8.2.js"></script>
 	<script type="text/javascript" src="/site/gestionEspectro/php/drupaljs/jquery-ui/js/jquery-ui-1.9.0.custom.js"></script>
 	<script type="text/javascript" src="/site/gestionEspectro/php/help/aplicacion/funciones.js"></script>
 </head>
