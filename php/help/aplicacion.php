@@ -7,7 +7,21 @@ $variables = $_POST["feed_item_length"];?>
 <head>
 	<META HTTP-EQUIV="Content-Type" content="text/html; charset=utf-8"/>
 	<title>Ayuda aplicación CCP</title>
+	
+ <link type="text/css" rel="stylesheet" media="all" href="/site/modules/colorbox/styles/default/colorbox_default_style.css?r" />
+<link type="text/css" rel="stylesheet" media="all" href="/site/modules/nice_menus/nice_menus.css?r" />
+<link type="text/css" rel="stylesheet" media="all" href="/site/modules/nice_menus/nice_menus_default.css?r" />
+<link type="text/css" rel="stylesheet" media="all" href="/site/modules/node/node.css?r" />
+<link type="text/css" rel="stylesheet" media="all" href="/site/modules/poll/poll.css?r" />
+<link type="text/css" rel="stylesheet" media="all" href="/site/modules/system/defaults.css?r" />
+<link type="text/css" rel="stylesheet" media="all" href="/site/modules/system/system.css?r" />
+<link type="text/css" rel="stylesheet" media="all" href="/site/modules/system/system-menus.css?r" />
+<link type="text/css" rel="stylesheet" media="all" href="/site/modules/user/user.css?r" />
+<link type="text/css" rel="stylesheet" media="all" href="/site/modules/views/css/views.css?r" />
+<link type="text/css" rel="stylesheet" media="all" href="/site/css/datatable.css?r" />
+<link type="text/css" rel="stylesheet" media="all" href="/site/css/estilos.css?r" />
 	<link type="text/css" rel="stylesheet" media="all" href="/site/sites/all/libraries/jquery.ui/themes/default/ui.all.css?r" />
+	
 	<script type="text/javascript" src="/site/modules/jquery_update/replace/jquery.min.js?r"></script>
 	<script type="text/javascript" src="/site/sites/all/libraries/jquery.ui/ui/minified/ui.core.min.js?r"></script>
 	<script type="text/javascript" src="/site/sites/all/libraries/jquery.ui/ui/minified/ui.tabs.min.js?r"></script>
