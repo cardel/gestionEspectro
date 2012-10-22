@@ -28,7 +28,7 @@ $variables = $_POST["feed_item_length"];?>
 		</ul>
 		<div id="tabs-1">
 				<img src="/site/gestionEspectro/php/help/aplicacion/Aplicacion.jpeg" />
-				<table borde="1">
+				<table class="tableStyle-table" width="80%">
 					<thead>
 					<tr>
 						<th>
