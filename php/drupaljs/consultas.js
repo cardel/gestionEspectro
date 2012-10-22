@@ -119,7 +119,7 @@ function asignacionFrecuencias()
 	{
 		selectCities = $('#selectCities').val();
 	}	
-
+	alert(selectTerritorialDivision);
 	if(bandas==-1)
 	{
 			alert('Usted debe seleccionar al menos una banda para la consulta');

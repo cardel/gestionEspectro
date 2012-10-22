@@ -148,8 +148,8 @@ if($accion=="frecuencia")
 	echo "<thead>\n";
 	echo "<tr>\n";
 	echo "<th>Canal</th>\n";
-	echo "<th>Rango de frecuencia</th>\n";
 	echo "<th>Descripción canal</th>\n";
+	echo "<th>Operador</th>\n";
 	echo "<th>Tipo de asignación</th>\n";
 	echo "</tr>\n";
 	echo "</thead>\n";
@@ -159,10 +159,10 @@ if($accion=="frecuencia")
 	$lugar="";
 	$termino = 0;
 	$tipoAsignacionTabla;
-	
+	echo $divisionTerritorial;
+
 	while($termino==0)
-	{
-		
+	{	
 		if($divisionTerritorial==-1)
 		{
 			$tipoAsignacion = "channel_assignations_national";
@@ -170,7 +170,6 @@ if($accion=="frecuencia")
 			$termino = -1;
 			$tipoAsignacionTabla="Nacional";
 		}
-		
 		else
 		{			
 			if($departamento==-1)
@@ -185,7 +184,7 @@ if($accion=="frecuencia")
 				if($municipio==-1)
 				{
 					$tipoAsignacion = "channel_assignations_per_departament";
-					$lugar=" and \"ID_departament\" =".$departamento." ";				
+					$lugar=" and \"ID_departament\" =".$departamento." ";
 					
 					//Consultar ID_Territorial
 					$query="select \"ID_Territorial_Division\" as idter from departaments where \"ID_departament\" =".$departamento.";";						
@@ -201,7 +200,7 @@ if($accion=="frecuencia")
 				else
 				{
 					$tipoAsignacion = "channel_assignations_per_city";
-					$lugar=" and \"ID_cities\"=".$municipio." ";				
+					$lugar=" and \"ID_cities\"=".$municipio." ";
 					
 					//Obtener ID departamento
 					$query="select \"ID_departament\" as iddep from cities where \"ID_cities\" =".$municipio.";";	
@@ -218,44 +217,44 @@ if($accion=="frecuencia")
 			}		
 		}
 		
-		$query = "select channel_number, frequency_ranks_name, channel_description from channels_assignations natural join channels natural join frequency_ranks natural join ".$tipoAsignacion." where ".$lugar." order by \"ID_frequency_ranks\",\"ID_channels\";";
+		
+		$query = "select channel_number, operators_name, frequency_ranks_name, channel_description from channels_assignations natural join channels natural join frequency_ranks natural join ".$tipoAsignacion." natural join operators where true ".$lugar." ".$consultaRangosFrecuencia." order by \"ID_channels\";";
+		
 		echo $query;
+
 		$result= $objconexionBD->enviarConsulta($query);
 		while ($row =  pg_fetch_array ($result))
 		{
 		  echo "<tr>";
 		  echo "<td>".$row["channel_number"]."</td>";
-		  echo "<td>".$row["frequency_ranks_name"]."</td>";
 		  echo "<td>".$row["channel_description"]."</td>";
+		  echo "<td>".$row["operators_name"]."</td>";
 		  echo "<td>".$tipoAsignacionTabla."</td>";
 		  echo "</tr>";
 		}
-		
-		
 	}
-	
 
 	echo "</tbody>\n";
 	echo "<tfoot>\n";
 	echo "<tr>\n";
 	echo "<th>Canal</th>\n";
-	echo "<th>Rango de frecuencia</th>\n";
 	echo "<th>Descripción canal</th>\n";
+	echo "<th>Operador</th>\n";
 	echo "<th>Tipo de asignación</th>\n";
 	echo "</tr>\n";
 	echo "</tfoot>\n";
-    echo "</table>\n";	
+    echo "</table>\n";		
 
+	
 	//Activar jtables
 	 echo "<script>$('#tabla1').dataTable( {
 	    \"sPaginationType\": \"full_numbers\",
-        \"oLanguage\": {
+         \"oLanguage\": {
                 \"sUrl\": \"js/spanish.txt\"
             }
-        } );
+        } );</script>";
 
-        </script>";
-     pg_free_result($result);
+	pg_free_result($result);
 }
 
 
