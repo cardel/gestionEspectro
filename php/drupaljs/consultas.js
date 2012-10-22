@@ -120,9 +120,16 @@ function asignacionFrecuencias()
 		selectCities = $('#selectCities').val();
 	}	
 
-	$.post("gestionEspectro/php/resultadosConsultas.php", { accion: 'frecuencia',bandas:bandas,rangos:rangos, selectTerritorialDivision:selectTerritorialDivision,selectDepartaments:selectDepartaments, selectCities:selectCities}, function(data){
-		$("#resultadosFrecuencia").html(data);
-	});	
+	if(bandas==-1)
+	{
+			alert('Usted debe seleccionar al menos una banda para la consulta');
+	}
+	else
+	{
+		$.post("gestionEspectro/php/resultadosConsultas.php", { accion: 'frecuencia',bandas:bandas,rangos:rangos, selectTerritorialDivision:selectTerritorialDivision,selectDepartaments:selectDepartaments, selectCities:selectCities}, function(data){
+		$("#resultadosFrecuencia").html(data);	});	
+	}
+
 	
 }
 
