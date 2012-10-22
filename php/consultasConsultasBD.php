@@ -11,9 +11,8 @@
 
 	if($tipoConsulta=='divisionTerritorial')
 	{
- 	   echo "<input type=button class=\"botonazul\" onclick=\"javascript:consultarNacionales();\" value=\"Selección nacional\" />\n";
-
-	   echo "<select name=\"selectTerritorialDivision\"  id=\"selectTerritorialDivision\" onchange=\"javascript:borrarDepartamentos();\">";
+	   echo "<input type=button class=\"botonazul\" onclick=\"javascript:consultarNacionales();\" value=\"Selección nacional\" />";
+ 	   echo "<select name=\"selectTerritorialDivision\"  id=\"selectTerritorialDivision\" onchange=\"javascript:borrarDepartamentos();\">";
 	   $query="select \"ID_Territorial_Division\", initcap(\"Territorial_Division_Name\") as Territorial_Division_Name from territorial_divisions";
 	   
 	   $result= $objconexionBD->enviarConsulta($query);
@@ -25,7 +24,7 @@
 		}
 		echo "</select>";
 		echo "<div id=\"enlaceDepartamentos\">";
- 	    echo "<input type=button class=\"botonverde\" onclick=\"javascript:consultarDepartamentos();\" value=\"Selecciónar departamento\" />\n";
+ 	    echo "<input type=button class=\"botonverde\" onclick=\"javascript:consultarDepartamentos();\" value=\"Seleccionar departamento\" />\n";
 
 		echo "</div>";
 		pg_free_result($result);			
@@ -45,7 +44,7 @@
 		}
 		echo "</select>";
 		echo "<div id=\"enlaceMunicipios\">";
- 	    echo "<input type=button class=\"botonamarillo\" onclick=\"javascript:consultarMunicipios();\" value=\"Selecciónar municipio\" />\n";
+ 	    echo "<input type=button class=\"botonamarillo\" onclick=\"javascript:consultarMunicipios();\" value=\"Seleccionar municipio\" />\n";
 
 		echo "</div>";
 		pg_free_result($result);			
