@@ -296,7 +296,9 @@ if($accion=="rangosBD" && $idConsulta>=0)
 	pg_free_result($result);				
 }
 
-
+/*
+ * Esto debe borrarse
+ */
 if($accion=="frecuencia")
 {
 	$bandas = $_POST["bandas"];
