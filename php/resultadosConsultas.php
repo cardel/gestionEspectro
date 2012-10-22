@@ -160,6 +160,7 @@ if($accion=="frecuencia")
 	$termino = 0;
 	$tipoAsignacionTabla;
 	echo is_null($divisionTerritorial);
+	echo ($divisionTerritorial=='');
 	while($termino==0)
 	{	
 		if($divisionTerritorial==-1)
