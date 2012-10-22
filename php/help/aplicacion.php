@@ -10,7 +10,7 @@ $variables = $_POST["feed_item_length"];?>
 
 	<link type="text/css" rel="stylesheet" media="all" href="/site/gestionEspectro/php/drupaljs/jquery-ui/css/smoothness/jquery-ui-1.9.0.custom.css" />	
 	<script type="text/javascript" src="/site/gestionEspectro/php/drupaljs/jquery/jquery-1.8.2.min.js"></script>
-	<script type="text/javascript" src="/site/gestionEspectro/php/drupaljs/jqueryui/js/jquery-ui-1.9.0.custom.js"></script>
+	<script type="text/javascript" src="/site/gestionEspectro/php/drupaljs/jquery-ui/js/jquery-ui-1.9.0.custom.js"></script>
 	<script type="text/javascript" src="/site/gestionEspectro/php/help/aplicacion/funciones.js"></script>
 </head>
 <body>	
