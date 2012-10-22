@@ -21,7 +21,31 @@ $variables = $_POST["feed_item_length"];?>
 			<li><a href="#tabs-2">Iteracciones</a></li>
 			<li><a href="#tabs-3">Resultados</a></li>
 		</ul>
-		<div id="tabs-1">A</div>
+		<div id="tabs-1">
+				<img src="/site/gestionEspectro/php/help/aplicacion/Aplicacion.jpeg" />
+				<table borde="1">
+					<thead>
+					<tr>
+						<th>
+							Función
+						</th>
+						<th>
+							Descripción
+						</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Selección entrada</td>
+							<td>Usted puede ingresar un archivo que cumpla con el formato XML de la aplicación, en ese caso no debe seleccionar entrada definida</td>
+						</tr>
+						<tr>
+							<td>Entrada definida</td>
+							<td>Usted puede ingresar un archivo creado en el generador de entradas, sí realiza una selección en este campo si ha seleccionado un archivo de entrada, éste no será tomado en cuenta.</td>
+						</tr>
+					</tbody>
+				</table>
+		</div>
 		<div id="tabs-2">B</div>
 		<div id="tabs-3">CS</div>
 	</div>
