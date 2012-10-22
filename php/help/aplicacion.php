@@ -14,9 +14,11 @@ $variables = $_POST["feed_item_length"];?>
 </head>
 <body>	
 	<div id="tabs">
-		<a href="#tabs-1">Aplicación</a></li>
-		<a href="#tabs-2">Iteracciones</a></li>
-		<a href="#tabs-3">Resultados</a></li>
+		<ul>
+			<a href="#tabs-1">Aplicación</a></li>
+			<a href="#tabs-2">Iteracciones</a></li>
+			<a href="#tabs-3">Resultados</a></li>
+		</ul>
 		<div id="tabs-1">A</div>
 		<div id="tabs-2">B</div>
 		<div id="tabs-3">CS</div>
