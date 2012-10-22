@@ -14,7 +14,7 @@ $variables = $_POST["feed_item_length"];?>
 	<script type="text/javascript" src="/site/gestionEspectro/php/help/aplicacion/funciones.js"></script>
 </head>
 <body>	
-	<div id="tabs" class="tabs" style="width:100%;">
+	<div id="tabs">
 		<a href="#tabs-1">Aplicación</a></li>
 		<a href="#tabs-2">Iteracciones</a></li>
 		<a href="#tabs-3">Resultados</a></li>
