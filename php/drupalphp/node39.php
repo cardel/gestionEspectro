@@ -42,7 +42,7 @@ Usted puede seleccionar en que lugar se va realizar el proceso de asignación de
 	<li>A nivel departamental seleccione el departamento dentro de la región especifíca</li>
 	<li>A nivel local seleccione el municipio dentro del departamento especifíco</li>
 </ul>	
-
+<div id="seleccionNacional"></div>
 <div id="enlaceDivisionTerritorial">
  	<input type=button class="botonrojo" onclick="javascript:consultarDivisionTerritorial();" value="Seleccionar división territorial" />
 </div>

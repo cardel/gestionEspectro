@@ -11,7 +11,7 @@
 
 	if($tipoConsulta=='divisionTerritorial')
 	{
-	   echo "<input type=button class=\"botonazul\" onclick=\"javascript:consultarNacionales();\" value=\"Selección nacional\" />";
+	  
  	   echo "<select name=\"selectTerritorialDivision\"  id=\"selectTerritorialDivision\" onchange=\"javascript:borrarDepartamentos();\">";
 	   $query="select \"ID_Territorial_Division\", initcap(\"Territorial_Division_Name\") as Territorial_Division_Name from territorial_divisions";
 	   

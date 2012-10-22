@@ -20,6 +20,7 @@ function consultarNacionales()
 	$("#territorialDivision").html(" ");
 	$("#departamentos").html(" ");      
 	$("#municipios").html(" ");  	
+	$("#seleccionNacional").html(" ");
 	
 }
 
@@ -29,6 +30,7 @@ function consultarDivisionTerritorial(){
 		$("#territorialDivision").html(data);
 		$("#departamentos").html("");
 		$("#municipios").html("");
+		$("#seleccionNacional").html("<input type=button class=\"botonazul\" onclick=\"javascript:consultarNacionales();\" value=\"Selección nacional\" />");
 		$("#tipoAsignacion").html("La asignación es a nivel regional");
 	});  
 }
