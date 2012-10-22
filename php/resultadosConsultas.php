@@ -147,6 +147,7 @@ if($accion=="frecuencia")
     echo "<table width='100%' id='tabla1' border='1'>\n";		
 	echo "<thead>\n";
 	echo "<tr>\n";
+	if($rangos == -1) echo "<th>Rango de frecuencia</th>\n";
 	echo "<th>Canal</th>\n";
 	echo "<th>Descripción canal</th>\n";
 	echo "<th>Operador</th>\n";
@@ -224,6 +225,7 @@ if($accion=="frecuencia")
 		while ($row =  pg_fetch_array ($result))
 		{
 		  echo "<tr>";
+		  if($rangos == -1)  echo "<td>".$row["frequency_ranks_name"]."</td>";
 		  echo "<td>".$row["channel_number"]."</td>";
 		  echo "<td>".$row["channel_description"]."</td>";
 		  echo "<td>".$row["operators_name"]."</td>";
@@ -235,6 +237,7 @@ if($accion=="frecuencia")
 	echo "</tbody>\n";
 	echo "<tfoot>\n";
 	echo "<tr>\n";
+	if($rangos == -1) echo "<th>Rango de frecuencia</th>\n";
 	echo "<th>Canal</th>\n";
 	echo "<th>Descripción canal</th>\n";
 	echo "<th>Operador</th>\n";
