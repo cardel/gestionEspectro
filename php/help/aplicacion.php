@@ -46,8 +46,12 @@ $variables = $_POST["feed_item_length"];?>
 					</tbody>
 				</table>
 		</div>
-		<div id="tabs-2">B</div>
-		<div id="tabs-3">CS</div>
+		<div id="tabs-2">
+			<img src="/site/gestionEspectro/php/help/aplicacion/Flexibilidad.png" />
+		</div>
+		<div id="tabs-3">
+			<img src="/site/gestionEspectro/php/help/aplicacion/Resultados.png" />
+		</div>
 	</div>
 </body>
 </html>

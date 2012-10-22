@@ -1,6 +1,9 @@
 <?php
 global $user;
 
+/*
+ * Esta función permite ejecutar la aplicación y mostrar los resultados al usuario
+ */
 function mostrarResultados($numIt, $out1, $out2, $out3, $out4, $out5, $out6, $prefijo)
 {
 	global $user;
@@ -711,7 +714,7 @@ else{
 			</div>
 		</div>
 		<p style='text-align:center; font-size:18px'>
-			 Fortaleza/Debilidad restricciones
+			 Fortaleza y flexibilidad de restricciones
 		</p>
 		<div>
 			 Seleccione el número de iteracciones que desea realizar:
