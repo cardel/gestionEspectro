@@ -99,10 +99,28 @@ function ejecutarOperador()
 
 function asignacionFrecuencias()
 {
-
 	var bandas = $('#selectBands').val();
 	var rangos = $('#selectRanks').val();
-	$.post("gestionEspectro/php/resultadosConsultas.php", { accion: 'frecuencia',bandas:bandas,rangos:rangos}, function(data){
+
+	var selectTerritorialDivision = -1;
+	if($('#selectTerritorialDivision').length)
+	{
+		selectTerritorialDivision = $('#selectTerritorialDivision').val();
+	}
+	
+	var selectDepartaments=-1;
+	if($('#selectDepartaments').length)
+	{
+		selectDepartaments = $('#selectDepartaments').val();
+	
+	}	
+	var selectCities = -1;
+	if($('#selectCities').length)
+	{
+		selectCities = $('#selectCities').val();
+	}	
+
+	$.post("gestionEspectro/php/resultadosConsultas.php", { accion: 'frecuencia',bandas:bandas,rangos:rangos, selectTerritorialDivision:selectTerritorialDivision,selectDepartaments:selectDepartaments, selectCities:selectCities}, function(data){
 		$("#resultadosFrecuencia").html(data);
 	});	
 	

@@ -72,7 +72,7 @@ Usted puede seleccionar en que lugar se va realizar el proceso de asignación de
 	</tr>
 	<tr>
 		<td width="50%" colspan="2">
-		<div id="resultadosOperador"></div>
+		<div id="resultadosFrecuencia"></div>
 		</td>
 	</tr>
 </table>

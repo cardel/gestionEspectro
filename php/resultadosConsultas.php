@@ -132,17 +132,22 @@ if($accion=="operador")
 }
 
 
-if($accion=="territorio")
+if($accion=="frecuencia")
 {
 	$divisionTerritorial = $_POST["selectTerritorialDivision"];
 	$departamento = $_POST["selectDepartaments"];
 	$municipio = $_POST["selectCities"];
+	$bandas = $_POST["bandas"];
+	$rangos = $_POST["rangos"];
+	
+	$consultaRangosFrecuencia=" and \"ID_frequency_bands\"=".$bandas;
+	
+	if($rangos != -1) $consultaRangosFrecuencia=" and \"ID_frequency_ranks\"=".$rangos;
 	
     echo "<table width='100%' id='tabla1' border='1'>\n";		
 	echo "<thead>\n";
 	echo "<tr>\n";
 	echo "<th>Canal</th>\n";
-	echo "<th>Rango de frecuencia</th>\n";
 	echo "<th>Descripción canal</th>\n";
 	echo "<th>Operador</th>\n";
 	echo "<th>Tipo de asignación</th>\n";
@@ -211,14 +216,13 @@ if($accion=="territorio")
 		}
 		
 		
-		$query = "select channel_number, operators_name, frequency_ranks_name, channel_description from channels_assignations natural join channels natural join frequency_ranks natural join ".$tipoAsignacion." natural join operators where true ".$lugar." order by \"ID_frequency_ranks\",\"ID_channels\";";
+		$query = "select channel_number, operators_name, frequency_ranks_name, channel_description from channels_assignations natural join channels natural join frequency_ranks natural join ".$tipoAsignacion." natural join operators where true ".$lugar." ".$consultaRangosFrecuencia." order by \"ID_channels\";";
 
 		$result= $objconexionBD->enviarConsulta($query);
 		while ($row =  pg_fetch_array ($result))
 		{
 		  echo "<tr>";
 		  echo "<td>".$row["channel_number"]."</td>";
-		  echo "<td>".$row["frequency_ranks_name"]."</td>";
 		  echo "<td>".$row["channel_description"]."</td>";
 		  echo "<td>".$row["operators_name"]."</td>";
 		  echo "<td>".$tipoAsignacionTabla."</td>";
@@ -230,7 +234,6 @@ if($accion=="territorio")
 	echo "<tfoot>\n";
 	echo "<tr>\n";
 	echo "<th>Canal</th>\n";
-	echo "<th>Rango de frecuencia</th>\n";
 	echo "<th>Descripción canal</th>\n";
 	echo "<th>Operador</th>\n";
 	echo "<th>Tipo de asignación</th>\n";
@@ -298,7 +301,7 @@ if($accion=="rangosBD" && $idConsulta>=0)
 
 /*
  * Esto debe borrarse
- */
+
 if($accion=="frecuencia")
 {
 	$bandas = $_POST["bandas"];
@@ -501,7 +504,7 @@ if($accion=="frecuencia")
         </script>";
 	pg_free_result($result);
 }
-
+ */
 
 if($accion=="operadores")
 {	
