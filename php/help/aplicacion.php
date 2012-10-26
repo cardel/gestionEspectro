@@ -78,9 +78,87 @@ $variables = $_POST["feed_item_length"];?>
 										</tr>
 									</tbody>
 								</table>
-								
-								
 							</td>
+						</tr>
+						<tr>
+							<td>Estrategia de distribución</td>
+							<td>
+								Usted puede seleccionar los siguientes:
+								<table class="tableStyle-table" width="100%">
+									<thead>
+										<tr>
+											<th>Estrategia</th>
+											<th>Descripción</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Mejor costo</td>
+											<td>....</td>
+										</tr>
+										<tr>
+											<td>Mejor costo</td>
+											<td>....</td>
+										</tr>
+										<tr>
+											<td>Mejor costo</td>
+											<td>....</td>
+										</tr>
+										<tr>
+											<td>Mejor costo</td>
+											<td>....</td>
+										</tr>
+										<tr>
+											<td>Mejor costo</td>
+											<td>....</td>
+										</tr>
+										<tr>
+											<td>Mejor costo</td>
+											<td>....</td>
+										</tr>
+										<tr>
+											<td>Mejor costo</td>
+											<td>....</td>
+										</tr>
+										<tr>
+											<td>Mejor costo</td>
+											<td>....</td>
+										</tr>
+										<tr>
+											<td>Mejor costo</td>
+											<td>....</td>
+										</tr>
+										<tr>
+											<td>Mejor costo</td>
+											<td>....</td>
+										</tr>
+									</tbody>
+								</table>							
+							</td>
+						</tr>
+						<tr>
+							<td>Peso número de bloques</td>
+							<td>...</td>
+						</tr>
+						<tr>
+							<td>Peso máximo bloque de canales libres</td>
+							<td>...</td>
+						</tr>
+						<tr>
+							<td>Peso número de canales inútiles</td>
+							<td>...</td>
+						</tr>
+						<tr>
+							<td>Tiempo de ejecución</td>
+							<td>...</td>
+						</tr>
+						<tr>
+							<td>Número máximo de soluciones por iteracción</td>
+							<td>...</td>
+						</tr>
+						<tr>
+							<td>Nivel de recomputación</td>
+							<td>...</td>
 						</tr>
 					</tbody>
 				</table>
