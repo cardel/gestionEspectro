@@ -163,6 +163,7 @@ $variables = $_POST["feed_item_length"];?>
 					</tbody>
 				</table>
 		</div>
+		
 		<div id="tabs-2">
 			<img src="/site/gestionEspectro/php/help/aplicacion/Flexibilidad.png" />
 		</div>
