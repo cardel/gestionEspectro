@@ -48,6 +48,40 @@ $variables = $_POST["feed_item_length"];?>
 							<td>Entrada definida</td>
 							<td>Usted puede ingresar un archivo creado en el generador de entradas, sí realiza una selección en este campo si ha seleccionado un archivo de entrada, éste no será tomado en cuenta.</td>
 						</tr>
+						<tr>
+							<td>Motor de búsqueda</td>
+							<td>
+								Usted puede seleccionar los siguientes:
+								<table class="tableStyle-table" width="100%">
+									<thead>
+										<tr>
+											<th>Motor</th>
+											<th>Descripción</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Mejor costo</td>
+											<td>....</td>
+										</tr>
+										<tr>
+											<td>Mejor costo</td>
+											<td>....</td>
+										</tr>
+										<tr>
+											<td>Mejor costo</td>
+											<td>....</td>
+										</tr>
+										<tr>
+											<td>Mejor costo</td>
+											<td>....</td>
+										</tr>
+									</tbody>
+								</table>
+								
+								
+							</td>
+						</tr>
 					</tbody>
 				</table>
 		</div>
