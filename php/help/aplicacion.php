@@ -62,19 +62,23 @@ $variables = $_POST["feed_item_length"];?>
 									<tbody>
 										<tr>
 											<td>Mejor costo</td>
-											<td>....</td>
+											<td>Se seleccionará como mejor solución aquella que tenga el menor costo, en este caso se toman todos los pesos para cada uno de los criterios</td>
 										</tr>
 										<tr>
-											<td>Mejor costo</td>
-											<td>....</td>
+											<td>Mejor por tamaño de bloque libre</td>
+											<td>La mejor solución es aquella que posea el mayor bloque libre, en este caso la resta entre el número de canales y el tamaño del bloque libre más grande</td>
 										</tr>
 										<tr>
-											<td>Mejor costo</td>
-											<td>....</td>
+											<td>Mejor por número de bloques asignados</td>
+											<td>En este caso se busca que el número de bloques asignados sea el menor posible, para que las soluciones sean bloques contiguos</td>
 										</tr>
 										<tr>
-											<td>Mejor costo</td>
-											<td>....</td>
+											<td>Mejor por número de canales inutilizables</td>
+											<td>Se busca minimizar el número de canales que quedan inutiles debido a la separación.</td>
+										</tr>
+										<tr>
+											<td>Ninguna</td>
+											<td>No hay criterio para escoger la mejor solución, se calculan los costos de acuerdo a la estrategia mejor costo, pero no se usan para seleccionar la solución.</td>
 										</tr>
 									</tbody>
 								</table>
@@ -92,32 +96,41 @@ $variables = $_POST["feed_item_length"];?>
 										</tr>
 									</thead>
 									<tbody>
+														<option value="2"></option>
+				<option value="3"></option>
+				<option value="4"></option>
+				<option value="5"></option>
+				<option value="6"></option>
+				<option value="7"></option>
+				<option value="8"></option>
+				<option value="9">Asignar primero al inicio de la banda a operadores con menores requerimientos</option>
+				<option value="10">Asignar primero al final de la banda a operadores con menores requerimientos</option>
 										<tr>
-											<td>Mejor costo</td>
+											<td>Asignar primero al final de la banda</td>
 											<td>....</td>
 										</tr>
 										<tr>
-											<td>Mejor costo</td>
+											<td>Asignar primero al inicio de la banda a operadores con asignación</td>
 											<td>....</td>
 										</tr>
 										<tr>
-											<td>Mejor costo</td>
+											<td>Asignar primero al final de la banda a operadores con asignación</td>
 											<td>....</td>
 										</tr>
 										<tr>
-											<td>Mejor costo</td>
+											<td>Asignar primero al inicio de la banda a operadores sin asignación</td>
 											<td>....</td>
 										</tr>
 										<tr>
-											<td>Mejor costo</td>
+											<td>Asignar primero al final de la banda a operadores sin asignación</td>
 											<td>....</td>
 										</tr>
 										<tr>
-											<td>Mejor costo</td>
+											<td>Asignar primero al inicio de la banda a operadores con mayores requerimientos</td>
 											<td>....</td>
 										</tr>
 										<tr>
-											<td>Mejor costo</td>
+											<td>Asignar primero al final de la banda a operadores con mayores requerimientos</td>
 											<td>....</td>
 										</tr>
 										<tr>

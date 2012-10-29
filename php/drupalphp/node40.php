@@ -646,7 +646,7 @@ else{
 				<option value="2" selected="selected">Mejor costo</option>
 				<option value="3">Mejor por tamaño de bloque libre</option>
 				<option value="4">Mejor por número de bloques de asignados</option>
-				<option value="5">Mejor por número de canales inútiles</option>
+				<option value="5">Mejor por número de canales inutilizables</option>
 				<option value="1">Ninguna</option>
 			</select>
 			<div class="description">
