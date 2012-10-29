@@ -717,7 +717,7 @@ else{
 			 Fortaleza y flexibilidad de restricciones
 		</p>
 		<div>
-			 Seleccione el número de iteracciones que desea realizar:
+			 Seleccione el número de iteraciones que desea realizar:
 			<select name="numIter" id="selectNumIter">
 				<option>1</option>
 				<option>2</option>
