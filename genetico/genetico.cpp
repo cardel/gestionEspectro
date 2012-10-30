@@ -245,7 +245,8 @@ int calcularInfraccionesARestricciones(string in)
 			{
 				char a = in.at(i*C+j);
 				//Cardel
-				//char b = asignacionesActuales.at(indiceAsignaciones*C+j);		
+				//char b = asignacionesActuales.at(indiceAsignaciones*C+j);	
+				char b = 'a';	
 				if(a != b) InfraccionesAAsignacionesOperadoresNoSolicitanAsignacion++;
 			}			
 		}
@@ -285,6 +286,7 @@ int calcularInfraccionesARestricciones(string in)
 			{			
 				char a = in.at(i*C+j);
 				//Cardel
+				char b = 'a';	
 				//char b = asignacionesActuales.at(indiceAsignaciones*C+j);
 							
 				if(a != b && b=='1') InfraccionesAAsignacionesOperadoresSolicitanAsignacion++;
