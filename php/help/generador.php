@@ -83,7 +83,35 @@ $variables = $_POST["feed_item_length"];?>
 				</tbody>
 			</table>
 		</div>
-		
+		<div id="tabs-3">
+			<img src="/site/gestionEspectro/php/help/generador/Requerimientos.png" />
+			<table class="tableStyle-table" width="80%">
+				<thead>
+				<tr>
+					<th>
+						Función
+					</th>
+					<th>
+						Descripción
+					</th>
+				</tr>
+				</thead>
+				<tbody>	
+					<tr>
+						<td>Gestión de requerimientos</td>
+						<td>En este campo usted puede ingresar un operador e indicar cuantos canales necesita en el rango de frecuencia seleccionado.</td>
+					</tr>
+					<tr>
+						<td>Detalles de requerimientos</td>
+						<td>Es una lista de los requerimientos que se van agregando, usted puede eliminar requerimientos sí desea hacerlo.</td>
+					</tr>
+					<tr>
+						<td>Enviar</td>
+						<td>Envía los requerimientos creados al generador para que sea creada la entrada XML para la aplicación.</td>
+					</tr>
+				</tbody>
+			</table>		
+	</div>
 	<div id="tabs-4">
 		<img src="/site/gestionEspectro/php/help/generador/ResultadosGenerador.png" />
 		<table class="tableStyle-table" width="80%">
@@ -109,9 +137,9 @@ $variables = $_POST["feed_item_length"];?>
 				
 			</tbody>
 		</table>
-		</div>
-	</div>	
-<span style="font-size: 12px;">Universidad del Valle. Grupo de investigación AVISPA. 2012</span>
+	</div>
+</div>	
+	<span style="font-size: 12px;">Universidad del Valle. Grupo de investigación AVISPA. 2012</span>
 
 </body>
 </html>
