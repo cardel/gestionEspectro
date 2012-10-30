@@ -105,6 +105,7 @@ bool ordenarFinal (pair<string,pair<int, vector < int > > > i,pair<string,pair<i
 vector<int> calcularCostos(string in)
 {	
 	printf("%s", "Costos");
+	printf("%s", in.c_str());
 	vector <int> out;
 	 //Número de bloques
 	 int numeroBloques = 0;
