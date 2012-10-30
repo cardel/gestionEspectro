@@ -30,7 +30,7 @@ else{
 	echo "<p class='estiloTitulo'>Aplicación gestión del espectro usando programación por restricciones</p>\n";
 	echo "<p class='estilo'>Ingresar salidas XML a base de datos</p>\n";
 
-	echo '<p style="text-align:left";><a class="iframe" href="http://avispa.univalle.edu.co/~cardel/proyInv/ayudaSecuenciamientoAviones/ayuda.php"><img border="0" src="files/HelpIcon.gif" width="50" height="50"><br/>Ayuda</a></p>';
+	echo '<p style="text-align:left";><a class="iframe" href="http://avispa.univalle.edu.co/site/gestionEspectro/php/help/insertarBD.php"><img border="0" src="files/HelpIcon.gif" width="50" height="50"><br/>Ayuda</a></p>';
 ?>
 
 <div id="formularioHTML">

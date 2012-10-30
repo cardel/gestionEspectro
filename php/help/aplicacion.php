@@ -19,7 +19,7 @@ $variables = $_POST["feed_item_length"];?>
 	
 </head>
 <body>	
- <p class='estiloTitulo'>Ayuda aplicación CCP</p>
+ <div ><p class='estiloTitulo'>Ayuda aplicación CCP</p>
 	<div id="tabs">
 		<ul>
 			<li><a href="#tabs-1">Aplicación</a></li>
