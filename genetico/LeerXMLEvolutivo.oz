@@ -142,22 +142,18 @@ define
 
     AsignacionAux = {AsignacionesActuales OPp BIco}	
     
-    A B C D E F G
+    A B C D E F G H
 
     A= {ListaRecursiva OPp}
     B= {ListaRecursiva OPi}
     CI= {ListaRecursiva ListaAux}
-    {System.print 'C'}
     D= {ListaRecursiva OPt}
-    {System.print 'D'}
     E= {ListaRecursiva OppNoOpi}
-    {System.print 'E'}
     F= {ListaRecursiva OppOpi}
-    {System.print 'F'}
     G= {ListaRecursiva OpiNoOpp}
-    {System.print 'G'}
+    H= {ListaDeListaToString AsignacionAux}
     
-    AT BT CT DT ET FT GT
+    AT BT CT DT ET FT GT HT
     
     if A==nil then AT=0
     else AT=A end
@@ -179,9 +175,12 @@ define
 
     if G==nil then GT=0
     else GT=G end
+    
+     if H==nil then HT=0
+    else HT=H end
   
    StrO =AT#"\n"#BT#"\n"#CT#"\n"#DT#"\n"#ET#"\n"#FT#"\n"#GT#"\n"
-   Str1 = {ListaDeListaToString AsignacionAux}#"\n"#{ListaRecursivaAsignacion CPc}#"\n"#{ListaRecursivaAsignacion CRe}#"\n"#{ListaRecursivaAsignacion CIc}#"\n"
+   Str1 = HT#"\n"#{ListaRecursivaAsignacion CPc}#"\n"#{ListaRecursivaAsignacion CRe}#"\n"#{ListaRecursivaAsignacion CIc}#"\n"
    Str2 = {Int.toString BandaDeFrecuencia}#"\n"#{Int.toString RangoDeFrecuencia}#"\n"#{Int.toString Separacion}#"\n"#{Int.toString Tope}#"\n"#{Int.toString GeograficAssignationType}#"\n"#{Int.toString GeograficAssignationID}#"\n"
    Valores = {Int.toString C}#"\n"#{List.length OPp}#"\n"#{List.length OPi}#"\n"#{List.length OPt}#"\n"#{List.length OppNoOpi}#"\n"#{List.length OppOpi}#"\n"#{List.length OpiNoOpp}#"\n"
    Salida = Valores#StrO#Str1#Str2  
