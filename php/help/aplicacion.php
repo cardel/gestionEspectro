@@ -23,7 +23,7 @@ $variables = $_POST["feed_item_length"];?>
 	<div id="tabs">
 		<ul>
 			<li><a href="#tabs-1">Aplicación</a></li>
-			<li><a href="#tabs-2">Iteracciones</a></li>
+			<li><a href="#tabs-2">Iteraciones</a></li>
 			<li><a href="#tabs-3">Resultados</a></li>
 		</ul>
 		<div id="tabs-1">
@@ -74,7 +74,7 @@ $variables = $_POST["feed_item_length"];?>
 									</tr>
 									<tr>
 										<td>Mejor por número de canales inutilizables</td>
-										<td>Se busca minimizar el número de canales que quedan inutiles debido a la separación.</td>
+										<td>Se busca minimizar el número de canales que quedan inútiles debido a la separación.</td>
 									</tr>
 									<tr>
 										<td>Ninguna</td>
@@ -170,7 +170,8 @@ $variables = $_POST["feed_item_length"];?>
 		
 		<div id="tabs-2">
 			<img src="/site/gestionEspectro/php/help/aplicacion/Flexibilidad.png" />
-			Usted puede seleccionar de 1 a 6 iteraciones de una ejecución del programa, en cada una de ellas se puede seleccionar distintos parámetros para flexibilizar las restricciones de tal manera no tengan efecto, con esto se puede comparar las soluciones que existen al eliminar una o varias restricciones del problema.
+			
+			<p>Usted puede seleccionar de 1 a 6 iteraciones de una ejecución del programa, en cada una de ellas se puede seleccionar distintos parámetros para flexibilizar las restricciones de tal manera no tengan efecto, con esto se puede comparar las soluciones que existen al eliminar una o varias restricciones del problema.</p>
 			
 			<table class="tableStyle-table" width="80%">
 				<thead>
@@ -185,7 +186,7 @@ $variables = $_POST["feed_item_length"];?>
 				</thead>
 				<tbody>
 					<tr>
-						<td>No considerar seperación</td>
+						<td>No considerar separación</td>
 						<td>Se ignora la separación de canales en la solución</td>
 					</tr>
 					<tr>
