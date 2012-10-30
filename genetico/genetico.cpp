@@ -109,7 +109,7 @@ vector<int> calcularCostos(string in)
 	
 	vector <int> out;
 	 //Número de bloques
-	 int numeroBloques = 0;
+	 /*int numeroBloques = 0;
 	 for(int i=0; i<N; i++)
 	 {
 			for(int j=0; j<C; j++)
@@ -129,7 +129,7 @@ vector<int> calcularCostos(string in)
 		 
 	 }
 	 numeroBloques/=2;
-	 out.push_back(numeroBloques);
+	 out.push_back(numeroBloques);*/
 	 printf("%d\n",1);
 	 
 	 int numeroCanalesInutilizables = 0;
