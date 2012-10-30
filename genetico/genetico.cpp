@@ -570,9 +570,9 @@ void leerArchivo(string nombreArchivoEntrada)
 	fscanf(ArchivoDeEntrada, "%d", &idAsignacionGeografica); 
 	fclose(ArchivoDeEntrada);
 	
-	printf("d\n",BandaDeFrecuencia);
-	printf("d\n",RangoDeFrecuencia);
-	printf("d\n",Sep);	
+	printf("%d\n",BandaDeFrecuencia);
+	printf("%d\n",RangoDeFrecuencia);
+	printf("%d\n",Sep);	
 }
 
 int main(int argc, char* argv[])
