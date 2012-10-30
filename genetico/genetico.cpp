@@ -108,22 +108,25 @@ vector<int> calcularCostos(string in)
 	printf("%s\n", in.c_str());
 	printf("%d\n", N);
 	printf("%d\n", C);
-	int b;
-	scanf("%d",&b);
+
 	vector <int> out;
 	 //Número de bloques
-	 int numeroBloques = 0;/*
+	 int numeroBloques = 0;/
 	 for(int i=0; i<N; i++)
 	 {
 			for(int j=0; j<C; j++)
 			{
+				printf("%s\n", "Comprobacion 1");
 				if(j==0 && in.at((i+1)*j) == '1') numeroBloques++;
 				else
 				{
+					printf("%s\n", "Comprobacion 2");
 					if(j==(C-1) && in.at((i+1)*j) == '1') numeroBloques++;
 					else
 					{
+						printf("%s\n", "Comprobacion 3");
 						if( in.at((i+1)*j) == '0' &&  in.at((i+1)*j+1) == '1') numeroBloques++;	
+						printf("%s\n", "Comprobacion 4");
 						if( in.at((i+1)*j) == '1' &&  in.at((i+1)*j+1) == '0') numeroBloques++;						
 					}
 				}
@@ -132,8 +135,8 @@ vector<int> calcularCostos(string in)
 		 
 	 }
 	 numeroBloques/=2;
-	 out.push_back(numeroBloques);*/
-	 out.push_back(0);
+	 out.push_back(numeroBloques);*
+
 	 printf("%d\n",1);
 	 
 	 int numeroCanalesInutilizables = 0;
