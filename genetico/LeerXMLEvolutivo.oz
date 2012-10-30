@@ -146,7 +146,7 @@ define
     A= {ListaRecursiva OPp}
     {System.print 'A'}
     B= {ListaRecursiva OPi}
-    {System.print 'B'}
+    {System.print 'T'}
      {System.print 'X'}
     {System.print ListaAux}
    {System.print 'Y'} 
