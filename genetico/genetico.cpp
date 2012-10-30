@@ -196,7 +196,6 @@ vector<int> calcularCostos(string in)
 //Costos
 int calcularInfraccionesARestricciones(string in)
 {
-	printf("%s", c_str(in));
 	//Maximo un operador por canal
 	int InfraccionesAnumeroOperadoresPorCanal = 0;
 	
