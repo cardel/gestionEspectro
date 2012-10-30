@@ -130,6 +130,7 @@ vector<int> calcularCostos(string in)
 	 }
 	 numeroBloques/=2;
 	 out.push_back(numeroBloques);*/
+	 out.push_back(0);
 	 printf("%d\n",1);
 	 
 	 int numeroCanalesInutilizables = 0;
