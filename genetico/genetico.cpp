@@ -587,9 +587,9 @@ void leerArchivo(string nombreArchivoEntrada)
 	fscanf(ArchivoDeEntrada, "%d", &idAsignacionGeografica); 
 	fclose(ArchivoDeEntrada);
 	
-	printf("%s\n",asiAct.c_str());
-	printf("%s\n",asiEnSub.c_str());
-	printf("%s\n",reser.c_str());
+	printf("%s\n",asiAct);
+	printf("%s\n",asiEnSub);
+	printf("%s\n",reser);
 	
 	printf("%d\n",BandaDeFrecuencia);
 	printf("%d\n",RangoDeFrecuencia);
