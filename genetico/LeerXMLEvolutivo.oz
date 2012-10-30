@@ -144,7 +144,6 @@ define
     A B C D E F G
 
     A= {ListaRecursiva OPp}
-    {System.print 'A'}
     B= {ListaRecursiva OPi}
     {System.print 'T'}
      {System.print 'X'}
