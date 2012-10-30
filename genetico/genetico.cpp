@@ -687,7 +687,7 @@ int main(int argc, char* argv[])
 		{
 			//Funcion aptitud
 			vector <pair<string, int> > funcionEvaluacion;
-			
+			printf("%s", "Crear");
 			for(unsigned int j=0; j<poblacion.size(); j++)
 			{
 				string individuo = poblacion.at(j);
