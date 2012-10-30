@@ -109,7 +109,7 @@ vector<int> calcularCostos(string in)
 	printf("%s\n", C);
 	printf("%d\n", N);
 	int b;
-	cin >> b;
+	scanf("%d",&b);
 	vector <int> out;
 	 //Número de bloques
 	 int numeroBloques = 0;/*
