@@ -31,7 +31,6 @@ export
    geograficAssignationID:GeograficAssignationID
    bandaDeFrecuencia:BandaDeFrecuencia
    rangoDeFrecuencia:RangoDeFrecuencia
-
    
    %%Funciones
    leerEntradaXML:LeerEntradaXML

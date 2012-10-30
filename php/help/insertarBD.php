@@ -19,7 +19,7 @@ $variables = $_POST["feed_item_length"];?>
 	
 </head>
 <body>	
- <p class='estiloTitulo'>Ayuda aplicación CCP</p>
+ <p class='estiloTitulo'>Ayuda insertar solución en BD</p>
 	<div id="tabs">
 		<ul>
 			<li><a href="#tabs-1">Selección geográfica</a></li>
