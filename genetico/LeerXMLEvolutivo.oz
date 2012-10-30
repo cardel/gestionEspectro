@@ -139,23 +139,9 @@ define
     OpiNoOpp = {List.filter OPi fun{$ P} {Bool.'not' {List.member P OPp}} end}
     ListaAux= {ListaPorRequerimientos OPi Req}
 
-    AsignacionAux = {AsignacionesActuales OPp BIco}
+    AsignacionAux = {AsignacionesActuales OPp BIco}	
  
-	A B C D
- 	if(OPp==nil) then A='nil'
- 	else A={ListaRecursiva OPp} end
- 	
-  	if(OppNoOpi==nil) then B='nil'
- 	else B={ListaRecursiva OppNoOpi} end
- 	
-  	if(OpiNoOpp==nil) then C='nil'
- 	else  C={ListaRecursiva OpiNoOpp} end
- 	
-  	if(OppOpi==nil) then D='nil'
- 	else D={ListaRecursiva OppOpi} end
-  
- 		
-   StrO = A#"\n"#{ListaRecursiva OPi}#"\n"#{ListaRecursiva ListaAux}#"\n"#{ListaRecursiva OPt}#"\n"#B#"\n"#D#"\n"#C#"\n"
+   StrO = {ListaRecursiva OPp}#"end"#"\n"#{ListaRecursiva OPi}#"\n"#{ListaRecursiva ListaAux}#"\n"#{ListaRecursiva OPt}#"\n"#{ListaRecursiva OppNoOpi}#"end"#"\n"#{ListaRecursiva OppOpi}#"end"#"\n"#{ListaRecursiva OpiNoOpp}#"end"#"\n"
    Str1 = {ListaDeListaToString AsignacionAux}#"\n"#{ListaRecursivaAsignacion CPc}#"\n"#{ListaRecursivaAsignacion CRe}#"\n"#{ListaRecursivaAsignacion CIc}#"\n"
    Str2 = {Int.toString BandaDeFrecuencia}#"\n"#{Int.toString RangoDeFrecuencia}#"\n"#{Int.toString Separacion}#"\n"#{Int.toString Tope}#"\n"#{Int.toString GeograficAssignationType}#"\n"#{Int.toString GeograficAssignationID}#"\n"
    Valores = {Int.toString C}#"\n"#{List.length OPp}#"\n"#{List.length OPi}#"\n"#{List.length OPt}#"\n"#{List.length OppNoOpi}#"\n"#{List.length OppOpi}#"\n"#{List.length OpiNoOpp}#"\n"
