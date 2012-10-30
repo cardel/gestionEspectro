@@ -147,7 +147,7 @@ define
     B= {ListaRecursiva OPi}
      {System.print 'Y'} 
     {System.print ListaAux}
-     {System.print Opi}
+     {System.print OPi}
    {System.print 'Y'} 
     C= {ListaRecursiva ListaAux}
     {System.print 'C'}
