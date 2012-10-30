@@ -104,8 +104,9 @@ bool ordenarFinal (pair<string,pair<int, vector < int > > > i,pair<string,pair<i
 //Funcion aptitud
 vector<int> calcularCostos(string in)
 {	
-	printf("%s", "Costos");
-	printf("%s", in.c_str());
+	printf("%s\n", "Costos");
+	printf("%s\n", in.c_str());
+	printf("%d\n", P);
 	vector <int> out;
 	 //Número de bloques
 	 int numeroBloques = 0;
