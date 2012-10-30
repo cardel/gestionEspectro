@@ -57,9 +57,12 @@ define
   end 
   
   proc{ListaDeListaToString Lista ?Sal}
-    if Lista.2==nil then Sal={ListaRecursivaAsignacion Lista.1}
-    else Sal={ListaRecursivaAsignacion Lista.1}#{ListaDeListaToString Lista.2}
-    end
+    if Lista==nil then Sal=nil
+    else
+		if Lista.2==nil then Sal={ListaRecursivaAsignacion Lista.1}
+		else Sal={ListaRecursivaAsignacion Lista.1}#{ListaDeListaToString Lista.2}
+		end
+	end
   end
 
   proc{AsignacionesActuales OppIn BicoIn ?Sal}
@@ -69,17 +72,23 @@ define
   end 
 
    proc{ListaRecursivaAsignacion Lista ?Sol}
-     if Lista.2==nil then Sol={Int.toString Lista.1}
-     else
-       Sol={Int.toString Lista.1}#{ListaRecursivaAsignacion Lista.2}
-     end
+	 if Lista == nil then Sol=nil
+	 else
+		if Lista.2==nil then Sol={Int.toString Lista.1}
+		else
+			Sol={Int.toString Lista.1}#{ListaRecursivaAsignacion Lista.2}
+		end
+	end
    end 
 
    proc{ListaRecursiva Lista ?Sol}
-     if Lista.2==nil then Sol={Int.toString Lista.1}
-     else
-       Sol={Int.toString Lista.1}#" "#{ListaRecursiva Lista.2}
-     end
+	 if Lista == nil then Sol=nil 
+	 else
+		if Lista.2==nil then Sol={Int.toString Lista.1}
+		else
+		Sol={Int.toString Lista.1}#" "#{ListaRecursiva Lista.2}
+		end
+	end
    end 
 
    %%--------------------------------------------------------------------
