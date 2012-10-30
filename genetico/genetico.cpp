@@ -244,7 +244,8 @@ int calcularInfraccionesARestricciones(string in)
 			for(int j=0; j<C; j++)
 			{
 				char a = in.at(i*C+j);
-				char b = asignacionesActuales.at(indiceAsignaciones*C+j);		
+				//@Cardel
+				//char b = asignacionesActuales.at(indiceAsignaciones*C+j);		
 				if(a != b) InfraccionesAAsignacionesOperadoresNoSolicitanAsignacion++;
 			}			
 		}
@@ -283,7 +284,8 @@ int calcularInfraccionesARestricciones(string in)
 			for(int j=0; j<C; j++)
 			{			
 				char a = in.at(i*C+j);
-				char b = asignacionesActuales.at(indiceAsignaciones*C+j);
+				//@Cardel
+				//char b = asignacionesActuales.at(indiceAsignaciones*C+j);
 							
 				if(a != b && b=='1') InfraccionesAAsignacionesOperadoresSolicitanAsignacion++;
 			}			
@@ -372,10 +374,11 @@ int calcularInfraccionesARestricciones(string in)
 			//Calcular numero de canales usados
 			for(int j=0; j<C; j++)
 				{
-				if(asignacionesActuales.at(indiceAsignaciones*C+j) == '1')
-				{
-					numeroCanalesYaAsignados++;
-				}
+					//@Cardel
+				//if(asignacionesActuales.at(indiceAsignaciones*C+j) == '1')
+				//{
+					//numeroCanalesYaAsignados++;
+				//}
 			}
 			
 			//Calcular numero de canales asignados
