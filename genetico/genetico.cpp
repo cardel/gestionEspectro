@@ -682,6 +682,7 @@ int main(int argc, char* argv[])
 		
 		t_ini = clock();
 		printf("%s", "Entra");
+		
 		while(!detener)
 		{
 			//Funcion aptitud
