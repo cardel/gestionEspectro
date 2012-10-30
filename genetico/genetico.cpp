@@ -106,7 +106,7 @@ vector<int> calcularCostos(string in)
 {	
 	printf("%s\n", "Costos");
 	printf("%s\n", in.c_str());
-	printf("%d\n", P);
+	
 	vector <int> out;
 	 //Número de bloques
 	 int numeroBloques = 0;
@@ -130,7 +130,7 @@ vector<int> calcularCostos(string in)
 	 }
 	 numeroBloques/=2;
 	 out.push_back(numeroBloques);
-	 
+	 printf("%d\n",1);
 	 
 	 int numeroCanalesInutilizables = 0;
 	 //Número de canales inutilizables
@@ -164,6 +164,7 @@ vector<int> calcularCostos(string in)
 
 	 numeroCanalesInutilizables/=N;
 	 out.push_back(numeroCanalesInutilizables);
+	 printf("%d\n",2);
 	  //Diferencia entre el mayor bloque libre y el número de canales
 	 int diferenciaMayorBloqueYCanalLibre = 0;
 	 int acumulado = 0;
@@ -191,7 +192,7 @@ vector<int> calcularCostos(string in)
 	
 	
 	out.push_back(pesoNumeroBloques*numeroBloques + pesoNumeroCanalesInutilizados*numeroCanalesInutilizables + pesoDiferenciaMaxBloqueLibre*diferenciaMayorBloqueYCanalLibre);
-	
+	printf("%d\n",3);
 	return out;
 }
 
