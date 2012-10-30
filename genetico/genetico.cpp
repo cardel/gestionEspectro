@@ -114,7 +114,7 @@ vector<int> calcularCostos(string in)
 	 int numeroBloques = 0;
 	 for(int i=0; i<N; i++)
 	 {
-			for(int j=0; j<C; j++)
+			for(int j=0; j<(C-1); j++)
 			{
 				printf("%s\n", "Comprobacion 1");
 				if(j==0 && in.at((i+1)*j) == '1') numeroBloques++;
