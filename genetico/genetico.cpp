@@ -681,7 +681,7 @@ int main(int argc, char* argv[])
 		clock_t t_ini, t_fin;
 		
 		t_ini = clock();
-		printf("%s", "Entra");
+		
 		
 		while(!detener)
 		{
@@ -696,7 +696,7 @@ int main(int argc, char* argv[])
 				//int aptitudPorIndividuo = (calcularInfraccionesARestricciones(individuo));
 				funcionEvaluacion.push_back(pair<string,int>(poblacion.at(j),aptitudPorIndividuo));
 			}
-			
+			printf("%s", "Evaluacion");
 			sort(funcionEvaluacion.begin(),funcionEvaluacion.end(),ordenar);
 
 			vector <pair<string, double> > funcionAptitud;
@@ -707,7 +707,7 @@ int main(int argc, char* argv[])
 			{
 				funcionAptitud.push_back(pair<string,double>(funcionEvaluacion.at(j).first,(double)funcionEvaluacion.at(j).second/max));
 			}
-			
+			printf("%s", "Aptitud");
 			//Calcular media
 			double media = 0.;
 			for(unsigned int j=0; j<funcionAptitud.size(); j++)
@@ -726,7 +726,7 @@ int main(int argc, char* argv[])
 			desviacion = sqrt(desviacion);
 			//Sigma
 			double sigma = media + 1.5*desviacion;
-		
+			printf("%s", "Cruce");
 			//Selección individuos cuya desviación estándar con sigma truncation de un solo lado
 			vector<string> individuosParaCruce;		
 		
