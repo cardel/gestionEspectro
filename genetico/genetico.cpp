@@ -510,10 +510,15 @@ void leerArchivo(string nombreArchivoEntrada)
 	//Operadores presentes
 	Opp = new int[P];
 	
+	//Variable auxiliar
+	int aux;
+	
 	for(int i=0; i<P; i++)
 	{
 		fscanf(ArchivoDeEntrada, "%d", &Opp[i]); 
 	}
+	
+	if(P==0) fscanf(ArchivoDeEntrada, "%d", &aux); 
 	
 	//Operadores de entrada
 	Opi = new int[T];
@@ -544,21 +549,21 @@ void leerArchivo(string nombreArchivoEntrada)
 	{
 		fscanf(ArchivoDeEntrada, "%d", &OppNoOpi[i]); 
 	}
-	
+	if(NnI==0) fscanf(ArchivoDeEntrada, "%d", &aux); 
 	//Operaradores de presentes que son de entrada
 	OppOpi = new int[NI];
 	for(int i=0; i<NI; i++)
 	{
 		fscanf(ArchivoDeEntrada, "%d", &OppOpi[i]); 
 	}
-
+	if(NI==0) fscanf(ArchivoDeEntrada, "%d", &aux); 
 	//Operadores de entrada que no son presentes
 	OpiNoOpp = new int[InN];
 	for(int i=0; i<InN; i++)
 	{
 		fscanf(ArchivoDeEntrada, "%d", &OpiNoOpp[i]); 
 	}
-
+	if(InN==0) fscanf(ArchivoDeEntrada, "%d", &aux); 
 	//Asignaciones actuales
 	char * asiAct = new char[C*P];
 	fscanf(ArchivoDeEntrada, "%s", asiAct); 
