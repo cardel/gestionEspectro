@@ -82,7 +82,7 @@ define
    end 
 
    proc{ListaRecursiva Lista ?Sol}
-   {System.print Lista}
+ 
 	 if Lista == nil then Sol=nil 
 	 else
 		if Lista.2==nil then Sol={Int.toString Lista.1}
@@ -146,9 +146,7 @@ define
 
     A= {ListaRecursiva OPp}
     B= {ListaRecursiva OPi}
-     {System.print 'Y'} 
-
-    C= {ListaRecursiva ListaAux}
+    CI= {ListaRecursiva ListaAux}
     {System.print 'C'}
     D= {ListaRecursiva OPt}
     {System.print 'D'}
@@ -167,8 +165,8 @@ define
     if B==nil then BT=0
     else BT=B end
     
-    if C==nil then CT=0
-    else CT=C end
+    if CI==nil then CT=0
+    else CT=CI end
   
     if D==nil then DT=0
     else DT=D end
