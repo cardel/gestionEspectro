@@ -106,8 +106,8 @@ vector<int> calcularCostos(string in)
 {	
 	printf("%s\n", "Costos");
 	printf("%s\n", in.c_str());
-	printf("%s\n", C);
 	printf("%d\n", N);
+	printf("%d\n", C);
 	int b;
 	scanf("%d",&b);
 	vector <int> out;
