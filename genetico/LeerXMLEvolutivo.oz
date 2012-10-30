@@ -140,8 +140,40 @@ define
     ListaAux= {ListaPorRequerimientos OPi Req}
 
     AsignacionAux = {AsignacionesActuales OPp BIco}	
+    
+    A B C D E F G
+    A= {ListaRecursiva OPp}
+    B= {ListaRecursiva OPi}
+    C= {ListaRecursiva ListaAux}
+    D= {ListaRecursiva OPt}
+    E= {ListaRecursiva OppNoOpi}
+    F= {ListaRecursiva OppOpi}
+    G= {ListaRecursiva OpiNoOpp}
+    
+    AT BT CT DT ET FT GT
+    
+    if A==nil then AT=0
+    else AT=A end
  
-   StrO = {ListaRecursiva OPp}#"end"#"\n"#{ListaRecursiva OPi}#"\n"#{ListaRecursiva ListaAux}#"\n"#{ListaRecursiva OPt}#"\n"#{ListaRecursiva OppNoOpi}#"end"#"\n"#{ListaRecursiva OppOpi}#"end"#"\n"#{ListaRecursiva OpiNoOpp}#"end"#"\n"
+    if B==nil then BT=0
+    else BT=B end
+    
+    if C==nil then CT=0
+    else CT=C end
+  
+    if D==nil then DT=0
+    else DT=D end
+  
+    if E==nil then ET=0
+    else ET=E end
+    
+    if F==nil then FT=0
+    else FT=F end
+
+    if G==nil then GT=0
+    else GT=G end
+  
+   StrO =AT#"\n"#BT#"\n"#CT#"\n"#DT#"\n"#ET#"\n"#FT#"\n"#GT#"\n"
    Str1 = {ListaDeListaToString AsignacionAux}#"\n"#{ListaRecursivaAsignacion CPc}#"\n"#{ListaRecursivaAsignacion CRe}#"\n"#{ListaRecursivaAsignacion CIc}#"\n"
    Str2 = {Int.toString BandaDeFrecuencia}#"\n"#{Int.toString RangoDeFrecuencia}#"\n"#{Int.toString Separacion}#"\n"#{Int.toString Tope}#"\n"#{Int.toString GeograficAssignationType}#"\n"#{Int.toString GeograficAssignationID}#"\n"
    Valores = {Int.toString C}#"\n"#{List.length OPp}#"\n"#{List.length OPi}#"\n"#{List.length OPt}#"\n"#{List.length OppNoOpi}#"\n"#{List.length OppOpi}#"\n"#{List.length OpiNoOpp}#"\n"
