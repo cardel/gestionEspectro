@@ -144,14 +144,23 @@ define
     
     A B C D E F G H
 
+	%%Operadores presentes
     A= {ListaRecursiva OPp}
+    %%Operadores de entrada
     B= {ListaRecursiva OPi}
+    %%Requerimientos
     CI= {ListaRecursiva ListaAux}
-    D= {ListaRecursiva OPt}
+    %%Operadores totales
+    D= {ListaRecursiva OPt}    
+    %%Operadores presentes que no son de entrada
     E= {ListaRecursiva OppNoOpi}
+    %%Operadores presentes que son de entrada
     F= {ListaRecursiva OppOpi}
+    %%Operadores de entrada que no son presentes
     G= {ListaRecursiva OpiNoOpp}
+    
     H= {ListaDeListaToString AsignacionAux}
+    
     
     AT BT CT DT ET FT GT HT
     
@@ -178,7 +187,8 @@ define
     
      if H==nil then HT=0
     else HT=H end
-  
+    
+
    StrO =AT#"\n"#BT#"\n"#CT#"\n"#DT#"\n"#ET#"\n"#FT#"\n"#GT#"\n"
    Str1 = HT#"\n"#{ListaRecursivaAsignacion CPc}#"\n"#{ListaRecursivaAsignacion CRe}#"\n"#{ListaRecursivaAsignacion CIc}#"\n"
    Str2 = {Int.toString BandaDeFrecuencia}#"\n"#{Int.toString RangoDeFrecuencia}#"\n"#{Int.toString Separacion}#"\n"#{Int.toString Tope}#"\n"#{Int.toString GeograficAssignationType}#"\n"#{Int.toString GeograficAssignationID}#"\n"

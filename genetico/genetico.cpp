@@ -506,58 +506,75 @@ void leerArchivo(string nombreArchivoEntrada)
 
 	//Numero de operadores que no están presentes y solicitan asignacion OpiNoOpp
 	fscanf(ArchivoDeEntrada, "%d", &InN);
+	
+	//Operadores presentes
 	Opp = new int[P];
 	
 	for(int i=0; i<P; i++)
 	{
 		fscanf(ArchivoDeEntrada, "%d", &Opp[i]); 
 	}
+	
+	//Operadores de entrada
 	Opi = new int[T];
 	
 	for(int i=0; i<T; i++)
 	{
 		fscanf(ArchivoDeEntrada, "%d", &Opi[i]); 
 	}
+	
+	//Requerimientos
 	Req = new int[T];
 	
 	for(int i=0; i<T; i++)
 	{
 		fscanf(ArchivoDeEntrada, "%d", &Req[i]); 
 	}
+	
+	//Operadores totales
 	Opt = new int[N];
 	for(int i=0; i<N; i++)
 	{
 		fscanf(ArchivoDeEntrada, "%d", &Opt[i]); 
 	}
+	
+	//Operadores presentes que no son de entrad
 	OppNoOpi = new int[NnI];
 	for(int i=0; i<NnI; i++)
 	{
 		fscanf(ArchivoDeEntrada, "%d", &OppNoOpi[i]); 
 	}
+	
+	//Operaradores de presentes que son de entrada
 	OppOpi = new int[NI];
 	for(int i=0; i<NI; i++)
 	{
 		fscanf(ArchivoDeEntrada, "%d", &OppOpi[i]); 
 	}
 
+	//Operadores de entrada que no son presentes
 	OpiNoOpp = new int[InN];
 	for(int i=0; i<InN; i++)
 	{
 		fscanf(ArchivoDeEntrada, "%d", &OpiNoOpp[i]); 
 	}
 
+	//Asignaciones actuales
 	char * asiAct = new char[C*P];
 	fscanf(ArchivoDeEntrada, "%s", asiAct); 
 	asignacionesActuales = (string)asiAct;
 
+	//Canales asignados en subdivisiones territoriales
 	char * asiEnSub = new char[C];	
 	fscanf(ArchivoDeEntrada, "%s", asiEnSub); 
 	EnSubDivisiones = (string)asiEnSub;
 
+	//Canales reservados
 	char * reser = new char[C];
 	fscanf(ArchivoDeEntrada, "%s", reser); 
 	Reservado = (string)reser;
 
+	//Canales inutilizados
 	char * inut = new char[C];
 	fscanf(ArchivoDeEntrada, "%s", inut); 
 	Reservado = (string)reser;
@@ -570,9 +587,12 @@ void leerArchivo(string nombreArchivoEntrada)
 	fscanf(ArchivoDeEntrada, "%d", &idAsignacionGeografica); 
 	fclose(ArchivoDeEntrada);
 	
+	printf("%s\n",asiAct.c_str());
+	printf("%s\n",asiEnSub.c_str());
+	printf("%s\n",reser.c_str());
+	
 	printf("%d\n",BandaDeFrecuencia);
 	printf("%d\n",RangoDeFrecuencia);
-	printf("%d\n",Sep);	
 }
 
 int main(int argc, char* argv[])

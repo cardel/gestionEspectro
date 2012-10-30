@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<instance>
+	<presentation nbSolutions="?" format="XCSP 2.1">
+		Representacion entrada de problema gestion espectro radioelectrico
+	</presentation>
+	<dict>
+		<entry key="GeograficAssignationType">
+			<i>0</i>
+		</entry>
+		<entry key="GeograficAssignationID">
+			<i>0</i>
+		</entry>
+		<entry key="FrequencyBand">
+			<i>4</i>
+		</entry>
+		<entry key="FrequencyRank">
+			<i>6</i>
+		</entry>
+		<entry key="NumberChannels">
+			<i>41</i>
+		</entry>
+		<entry key="NumberPresentOperators">
+			<i>0</i>
+		</entry>
+		<entry key="NumberOfOperatorWithRequirements">
+			<i>1</i>
+		</entry>
+		<entry key="ChannelSeparation">
+			<i>1</i>
+		</entry>
+		<entry key="PresentOperators">
+			<list>
+			</list>
+		</entry>
+		<entry key="OperatorsWithRequeriments">
+			<list>
+				<i>14</i>
+			</list>
+		</entry>
+		<entry key="Requeriments">
+			<tuple>
+				<i>
+					<entry key="14">
+						<i>6</i>
+					</entry>
+				</i>
+			</tuple>
+		</entry>
+		<entry key="MaxAssignationsSubDivision">
+			<tuple>
+				<i>
+					<entry key="14">
+						<i>0</i>
+					</entry>
+				</i>
+			</tuple>
+		</entry>
+		<entry key="ChannelAssignInDivisions">
+			<list>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+			</list>
+		</entry>
+		<entry key="ReservedChannels">
+			<list>
+				<i>1</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+			</list>
+		</entry>
+		<entry key="DisabledChannels">
+			<list>
+				<i>1</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+				<i>0</i>
+			</list>
+		</entry>
+		<entry key="ChannelAssignation">
+			<tuple>
+			</tuple>
+		</entry>
+		<entry key="MaxChannelAssignationByOperator">
+			<i>12</i>
+		</entry>
+	</dict>
+</instance>
+
