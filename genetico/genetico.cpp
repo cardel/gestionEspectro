@@ -104,6 +104,7 @@ bool ordenarFinal (pair<string,pair<int, vector < int > > > i,pair<string,pair<i
 //Funcion aptitud
 vector<int> calcularCostos(string in)
 {	
+	printf("%s", "Costos");
 	vector <int> out;
 	 //Número de bloques
 	 int numeroBloques = 0;
@@ -195,7 +196,7 @@ vector<int> calcularCostos(string in)
 //Costos
 int calcularInfraccionesARestricciones(string in)
 {
-	
+	printf("%s", "Infracciones");
 	//Maximo un operador por canal
 	int InfraccionesAnumeroOperadoresPorCanal = 0;
 	
@@ -687,7 +688,7 @@ int main(int argc, char* argv[])
 		{
 			//Funcion aptitud
 			vector <pair<string, int> > funcionEvaluacion;
-			printf("%s", "Crear");
+			
 			for(unsigned int j=0; j<poblacion.size(); j++)
 			{
 				string individuo = poblacion.at(j);
@@ -696,7 +697,6 @@ int main(int argc, char* argv[])
 				//int aptitudPorIndividuo = (calcularInfraccionesARestricciones(individuo));
 				funcionEvaluacion.push_back(pair<string,int>(poblacion.at(j),aptitudPorIndividuo));
 			}
-			printf("%s", "Evaluacion");
 			sort(funcionEvaluacion.begin(),funcionEvaluacion.end(),ordenar);
 
 			vector <pair<string, double> > funcionAptitud;
@@ -707,7 +707,6 @@ int main(int argc, char* argv[])
 			{
 				funcionAptitud.push_back(pair<string,double>(funcionEvaluacion.at(j).first,(double)funcionEvaluacion.at(j).second/max));
 			}
-			printf("%s", "Aptitud");
 			//Calcular media
 			double media = 0.;
 			for(unsigned int j=0; j<funcionAptitud.size(); j++)
@@ -726,7 +725,7 @@ int main(int argc, char* argv[])
 			desviacion = sqrt(desviacion);
 			//Sigma
 			double sigma = media + 1.5*desviacion;
-			printf("%s", "Cruce");
+			
 			//Selección individuos cuya desviación estándar con sigma truncation de un solo lado
 			vector<string> individuosParaCruce;		
 		
