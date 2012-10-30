@@ -171,7 +171,7 @@ $variables = $_POST["feed_item_length"];?>
 		<div id="tabs-2">
 			<img src="/site/gestionEspectro/php/help/aplicacion/Flexibilidad.png" />
 			
-			<p>Usted puede seleccionar de 1 a 6 iteraciones de una ejecución del programa, en cada una de ellas se puede seleccionar distintos parámetros para flexibilizar las restricciones de tal manera no tengan efecto, con esto se puede comparar las soluciones que existen al eliminar una o varias restricciones del problema.</p>
+			<p style="border: 1pt;" align="center">Usted puede seleccionar de 1 a 6 iteraciones de una ejecución del programa, en cada una de ellas se puede seleccionar distintos parámetros para flexibilizar las restricciones de tal manera no tengan efecto, con esto se puede comparar las soluciones que existen al eliminar una o varias restricciones del problema.</p>
 			
 			<table class="tableStyle-table" width="80%">
 				<thead>
