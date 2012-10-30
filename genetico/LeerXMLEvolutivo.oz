@@ -141,6 +141,9 @@ define
 
     AsignacionAux = {AsignacionesActuales OPp BIco}
  
+	if OppNoOpi==nil then OppNoOpi='nil';
+	if OppOpi==nil then OppOpi='nil';	
+ 	if OpiNoOpp==nil then OpiNoOpp='nil';	
    StrO = {ListaRecursiva OPp}#"\n"#{ListaRecursiva OPi}#"\n"#{ListaRecursiva ListaAux}#"\n"#{ListaRecursiva OPt}#"\n"#{ListaRecursiva OppNoOpi}#"\n"#{ListaRecursiva OppOpi}#"\n"#{ListaRecursiva OpiNoOpp}#"\n"
    Str1 = {ListaDeListaToString AsignacionAux}#"\n"#{ListaRecursivaAsignacion CPc}#"\n"#{ListaRecursivaAsignacion CRe}#"\n"#{ListaRecursivaAsignacion CIc}#"\n"
    Str2 = {Int.toString BandaDeFrecuencia}#"\n"#{Int.toString RangoDeFrecuencia}#"\n"#{Int.toString Separacion}#"\n"#{Int.toString Tope}#"\n"#{Int.toString GeograficAssignationType}#"\n"#{Int.toString GeograficAssignationID}#"\n"
