@@ -86,7 +86,7 @@ define
 	 else
 		if Lista.2==nil then Sol={Int.toString Lista.1}
 		else
-		Sol={Int.toString Lista.1}#" "#{ListaRecursiva Lista.2}
+			Sol={Int.toString Lista.1}#" "#{ListaRecursiva Lista.2}
 		end
 	end
    end 
@@ -142,13 +142,21 @@ define
     AsignacionAux = {AsignacionesActuales OPp BIco}	
     
     A B C D E F G
+
     A= {ListaRecursiva OPp}
+    {System.print 'A'}
     B= {ListaRecursiva OPi}
+    {System.print 'B'}
     C= {ListaRecursiva ListaAux}
+    {System.print 'C'}
     D= {ListaRecursiva OPt}
+    {System.print 'D'}
     E= {ListaRecursiva OppNoOpi}
+    {System.print 'E'}
     F= {ListaRecursiva OppOpi}
+    {System.print 'F'}
     G= {ListaRecursiva OpiNoOpp}
+    {System.print 'G'}
     
     AT BT CT DT ET FT GT
     
