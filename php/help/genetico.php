@@ -19,16 +19,14 @@ $variables = $_POST["feed_item_length"];?>
 	
 </head>
 <body>	
- <p class='estiloTitulo'>Ayuda generador de entradas</p>
+ <p class='estiloTitulo'>Ayuda aplicación por algortimo genético</p>
 	<div id="tabs">
 		<ul>
-			<li><a href="#tabs-1">Selección geográfica</a></li>
-			<li><a href="#tabs-2">Selección de banda</a></li>
-			<li><a href="#tabs-3">Creación de requerimientos</a></li>
-			<li><a href="#tabs-4">Resultados</a></li>
+			<li><a href="#tabs-1">Configuración</a></li>
+			<li><a href="#tabs-2">Resultados</a></li>
 		</ul>
 		<div id="tabs-1">
-			<img src="/site/gestionEspectro/php/help/generador/TipoSeleccion.png" />
+			<img src="/site/gestionEspectro/php/help/genetico/genetico.png" />
 			<table class="tableStyle-table" width="80%">
 				<thead>
 				<tr>
@@ -40,21 +38,56 @@ $variables = $_POST["feed_item_length"];?>
 					</th>
 				</tr>
 				</thead>
-				<tbody>
 					<tr>
-						<td>Tipo de selección</td>
-						<td>La selección puede ser de tipo: Nacional, territorial, departamental o municipal</td>
+						<td>Selección entrada</td>
+						<td>Usted puede ingresar un archivo que cumpla con el formato XML de la aplicación, en ese caso no debe seleccionar entrada definida</td>
 					</tr>
 					<tr>
-						<td>Niveles de selección</td>
-						<td>Dependiendo de la selección que usted realizar, se filtran los datos de acuerdo a la selección, por ejemplo si selecciona departamento Antioquia, sólo podrá seleccionar municipios que están dentro de ese departamento.</td>
-					</tr>					
+						<td>Entrada definida</td>
+						<td>Usted puede ingresar un archivo creado en el generador de entradas, sí realiza una selección en este campo si ha seleccionado un archivo de entrada, éste no será tomado en cuenta.</td>
+					</tr>
+					<tr>
+						<td>Peso número de bloques</td>
+						<td>Es el peso que posee el factor de número de bloques en el costo total en una solución</td>
+					</tr>
+					<tr>
+						<td>Peso máximo bloque de canales libres</td>
+						<td>Es el peso que posee el factor de la diferencia entre número total de canales y el tamaño del mayor bloque libre en el costo total en una solución</td>
+					</tr>
+					<tr>
+						<td>Peso número de canales inútiles</td>
+						<td>Es el peso que posee el factor del número de canales inutilizados y el tamaño del mayor bloque libre en el costo total en una solución</td>
+					</tr>
+					<tr>
+						<td>Población inicial</td>
+						<td>Es la población inicial con que inicia el algortimo genético.</td>
+					</tr>
+					<tr>
+						<td>Probablidad cruce</td>
+						<td>Es la probabilidad de cruce que tiene un individuo seleccionado durante una generación.</td>
+					</tr>
+					<tr>
+						<td>Probabilidad mutación</td>
+						<td>Es la probabilidad de mutación que tienen los individuos generados en la probabilidad de cruce.</td>
+					</tr>
+					<tr>
+						<td>Tiempo de ejecución</td>
+						<td>Es el tiempo de ejecución del programa en segundos</td>
+					</tr>
+					<tr>
+						<td>Número de soluciones</td>
+						<td>Es el número de soluciones posibles que la aplicación entrega en los informes de salida</td>
+					</tr>
+					<tr>
+						<td>Número de ejecuciones</td>
+						<td>La selección puede ser de tipo: Nacional, territorial, departamental o municipal</td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
 		
 		<div id="tabs-2">
-			<img src="/site/gestionEspectro/php/help/generador/SeleccionBanda.png" />
+			<img src="/site/gestionEspectro/php/help/genetico/ResultadosGenetico.png" />
 			
 			<table class="tableStyle-table" width="80%">
 				<thead>
@@ -83,61 +116,6 @@ $variables = $_POST["feed_item_length"];?>
 				</tbody>
 			</table>
 		</div>
-		<div id="tabs-3">
-			<img src="/site/gestionEspectro/php/help/generador/Requerimientos.png" />
-			<table class="tableStyle-table" width="80%">
-				<thead>
-				<tr>
-					<th>
-						Función
-					</th>
-					<th>
-						Descripción
-					</th>
-				</tr>
-				</thead>
-				<tbody>	
-					<tr>
-						<td>Gestión de requerimientos</td>
-						<td>En este campo usted puede ingresar un operador e indicar cuantos canales necesita en el rango de frecuencia seleccionado.</td>
-					</tr>
-					<tr>
-						<td>Detalles de requerimientos</td>
-						<td>Es una lista de los requerimientos que se van agregando, usted puede eliminar requerimientos sí desea hacerlo.</td>
-					</tr>
-					<tr>
-						<td>Enviar</td>
-						<td>Envía los requerimientos creados al generador para que sea creada la entrada XML para la aplicación.</td>
-					</tr>
-				</tbody>
-			</table>		
-	</div>
-	<div id="tabs-4">
-		<img src="/site/gestionEspectro/php/help/generador/ResultadosGenerador.png" />
-		<table class="tableStyle-table" width="80%">
-			<thead>
-			<tr>
-				<th>
-					Función
-				</th>
-				<th>
-					Descripción
-				</th>
-			</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Descargar XML Generado</td>
-					<td>Permite desplegar el XML generado para que pueda ser visualizado o almacenado por el usuario en su equipo</td>
-				</tr>
-				<tr>
-					<td>Almacenar XML generado</td>
-					<td>Permite almacenar el XML generado de tal forma sea una entrada definida en la aplicación.</td>
-				</tr>
-				
-			</tbody>
-		</table>
-	</div>
 </div>	
 	<span style="font-size: 12px;">Universidad del Valle. Grupo de investigación AVISPA. 2012</span>
 

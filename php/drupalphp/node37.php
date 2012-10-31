@@ -98,7 +98,7 @@ function mostrarResultados($out1, $prefijo)
 
 if($user->uid==0)
 {
-	echo "<script>alert('Debe estar autenticado en el sistema para poder ver \xe9sta p\xe1gina');</script>";
+	echo "<script>alert('Debe estar autenticado en el sistema para poder ver \u00e9sta p\u00e1gina');</script>";
 	echo "<script>location.href='http://avispa.univalle.edu.co/site/';</script>";
 }
 else{
@@ -118,7 +118,7 @@ else{
 	drupal_add_css($path = 'js/syntaxhighlighter/styles/shThemeDefault.css', $type = 'module', $media = 'all', $preprocess = TRUE);
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/colorBoxU.js');
 	echo "<p class='estiloTitulo'>Aplicación gestión del espectro usando algoritmos genéticos</p>\n";
-	echo '<p style="text-align:left";><a class="iframe" href="http://avispa.univalle.edu.co/~cardel/proyInv/ayudaSecuenciamientoAviones/ayuda.php"><img border="0" src="files/HelpIcon.gif" width="50" height="50"><br/>Ayuda</a></p>';
+	echo '<p style="text-align:left";><a class="iframe" href="http://avispa.univalle.edu.co/site/gestionEspectro/php/help/genetico.php"><img border="0" src="files/HelpIcon.gif" width="50" height="50"><br/>Ayuda</a></p>';
 
 	$status = -1;
 	$accion = $_POST["action"];
@@ -260,14 +260,14 @@ else{
 		</div>
 		<div class="form-item" id="edit-executionTime-wrapper">
 			<label for="edit-executionTime">Probabilidad cruce: </label>
-			<input type="text" maxlength="64" name="probabilidadCruce" id="edit-executionTime" size="30" value="3" class="form-text"/>
+			<input type="text" maxlength="64" name="probabilidadCruce" id="edit-executionTime" size="30" value="90" class="form-text"/>
 			<div class="description">
 				 Ingrese la probabilidad de cruce entre 1% y 100%. Valor recomendado 90%.
 			</div>
 		</div>
 		<div class="form-item" id="edit-executionTime-wrapper">
 			<label for="edit-executionTime">Probabilidad mutación: </label>
-			<input type="text" maxlength="64" name="probabilidadMutacion" id="edit-executionTime" size="30" value="3" class="form-text"/>
+			<input type="text" maxlength="64" name="probabilidadMutacion" id="edit-executionTime" size="30" value="2" class="form-text"/>
 			<div class="description">
 				 Ingrese la probabilidad de mutación entre 1% y 100%. Valor recomendado 2%
 			</div>
