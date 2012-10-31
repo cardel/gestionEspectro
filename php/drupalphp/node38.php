@@ -4,7 +4,7 @@ global $user;
 	
 if($user->uid==0)
 {
-	echo "<script>alert('Debe estar autenticado en el sistema para poder ver \xe9sta p\xe1gina');</script>";
+	echo "<script>alert('Debe estar autenticado en el sistema para poder ver \u00e9sta p\u00e1gina');</script>";
 	echo "<script>location.href='http://avispa.univalle.edu.co/site/';</script>";
 }
 else{

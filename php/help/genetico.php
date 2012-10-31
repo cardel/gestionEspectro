@@ -19,7 +19,7 @@ $variables = $_POST["feed_item_length"];?>
 	
 </head>
 <body>	
- <p class='estiloTitulo'>Ayuda aplicación por algortimo genético</p>
+ <p class='estiloTitulo'>Ayuda aplicación por algoritmo genético</p>
 	<div id="tabs">
 		<ul>
 			<li><a href="#tabs-1">Configuración</a></li>
@@ -60,10 +60,10 @@ $variables = $_POST["feed_item_length"];?>
 					</tr>
 					<tr>
 						<td>Población inicial</td>
-						<td>Es la población inicial con que inicia el algortimo genético.</td>
+						<td>Es la población inicial con que inicia el algoritmo genético.</td>
 					</tr>
 					<tr>
-						<td>Probablidad cruce</td>
+						<td>Probabilidad cruce</td>
 						<td>Es la probabilidad de cruce que tiene un individuo seleccionado durante una generación.</td>
 					</tr>
 					<tr>
