@@ -100,20 +100,15 @@ $variables = $_POST["feed_item_length"];?>
 					</th>
 				</tr>
 				</thead>
-				<tbody>
 					<tr>
-						<td>Seleccionar banda de frecuencia</td>
-						<td>En esta usted podrá seleccionar sobre las bandas de frecuencia para mostrar los rangos de frecuencia asociados a ellas.</td>
+						<td>Descargar XML</td>
+						<td>Permite visualizar y descargar el XML de salida generado en la solución actual</td>
 					</tr>
 					<tr>
-						<td>Seleccionar rango de frecuencia</td>
-						<td>Usted podrá seleccionar un rango de frecuencia asociado a una banda seleccionada</td>
+						<td>Almacenar XML</td>
+						<td>Permite almacenar el XML de salida generado para que pueda ser insertado en la base de datos posteriormente</td>
 					</tr>
-					<tr>
-						<td>Crear requerimientos	</td>
-						<td>Una vez usted esté seguro de la banda y región territorial seleccionada usted podrá crear los requerimientos de entrada para la aplicación</td>
-					</tr>
-				</tbody>
+					</tbody>
 			</table>
 		</div>
 </div>	
