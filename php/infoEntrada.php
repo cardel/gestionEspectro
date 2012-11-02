@@ -27,7 +27,7 @@
 	echo "</tr>\n";
 	echo "</thead>\n";
 	echo "<tbody>\n";
-	
+	/*
 	//Reservados
 	echo "<tr>\n";
 	echo "<td class='estilo'>Canales reservados</td>\n";
@@ -61,7 +61,7 @@
 		
 	}	
 	echo "</tr>\n";
-	
+	*/
 	echo "</tbody>\n";				
 	echo "</table>\n";	
 	echo "</div>";		
