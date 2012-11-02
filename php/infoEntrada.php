@@ -20,7 +20,7 @@
 
 		if($name=="DisabledChannels")$DisabledChannels = $en->list;
 		if($name=="ChannelAssignation")$ChannelAssignation = $en->tuple;
-		if($name=="numeroDeCanales")$numeroDeCanales = $en->i;
+		if($name=="NumberChannels")$numeroDeCanales = $en->i;
 		
 	}
 	
@@ -34,7 +34,7 @@
 	echo "<br/>";
 	print_r($ChannelAssignInDivisions);
 	echo "<br/>";
-	print_r($numeroDeCanales);
+	echo $numeroDeCanales;
 	echo "<br/>";
 	
 	echo '<div style="overflow:auto; width: 1200px; height :300px; align:center;">';
