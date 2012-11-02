@@ -81,6 +81,7 @@ else{
 	echo "<tr>\n";
 	echo "<th>Archivo</th>\n";
 	echo "<th>Visualizar</th>\n";
+	echo "<th>Descargar</th>\n";
 	echo "<th>Acción</th>\n";
 	echo "</tr>\n";
 	echo "</thead>\n";
@@ -98,8 +99,9 @@ else{
 		{
 			echo "<tr>\n";
 			echo "<td>$archivo</td>\n";
+			echo "<td><a href=\"#\" onClick=\"mostrarSolucion('http://avispa.univalle.edu.co/site/gestionEspectro/entradas/".$user->uid."/".$archivo."');\"> Ver solución </a>\n";
 			echo "<td><a href=\"#\" onClick=\"window.open('"."http://avispa.univalle.edu.co/site/gestionEspectro/entradas/".$user->uid."/".$archivo."' ,'_blank ','toolbar=1,menubar=1,width=500,height=600');\"> Descargar </a>\n";
-			echo "<td><a href=\"http://avispa.univalle.edu.co/site/gestionEspectro/php/borrarArchivo.php?archivo=/var/www/html/site/gestionEspectro/entradas/".$user->uid."/".$archivo."&&lugar=1\">Borrar</a></td>\n";
+			echo "<td><a href=\"http://avispa.univalle.edu.co/site/gestionEspectro/php/infoEntrada.php?archivo=/var/www/html/site/gestionEspectro/entradas/".$user->uid."/".$archivo."&&lugar=1\">Borrar</a></td>\n";
 			echo "</tr>\n";
 		}
 	}	
@@ -107,5 +109,18 @@ else{
 	echo "</tbody>\n";
     echo "</table>\n";
 	closedir($directorio); 
+	
+	echo "<script language=\"javascript\">
+		function mostrarSolucion(file){    
+			$.post(\"gestionEspectro/php/infoEntrada.php\", { file: file}, function(data){
+				$(\"#verEncabezado\").html(data);
+			}); 
+
+			$(\"#informacion\").html(\"<p>Tenga presente que esta entrada no refleja los datos almacenados en la base de datos</p>\");           
+		}
+	</script>";
+	echo "<div id=\"infomacion\"></div>";
+	echo "<div id=\"verEntrada\"></div>";
+	
 }
 ?>
