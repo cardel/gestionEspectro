@@ -16,12 +16,12 @@
 		$name = $en->attributes()->key;
 		echo "ok";
 		
-		if($name=="ChannelAssignInDivisions")$ChannelAssignInDivisions = $en->i;
+		/*if($name=="ChannelAssignInDivisions")$ChannelAssignInDivisions = $en->i;
 		if($name=="ReservedChannels")$ReservedChannels = $en->list;
 
 		if($name=="DisabledChannels")$DisabledChannels = $en->list;
-		if($name=="ChannelAssignation")$ChannelAssignation = $en->tuple;
-		if($name=="NumberChannels")$numeroDeCanales = $en->i;			
+		if($name=="ChannelAssignation")$ChannelAssignation = $en->tuple;*/		
+		if($name=="NumberChannels")$numeroDeCanales = $en->i;	
 		
 	}
 	
