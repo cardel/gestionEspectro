@@ -11,7 +11,15 @@
 	$ChannelAssignation= $entrada->ChannelAssignation;
 	$numeroDeCanales =  $entrada->NumberChannels;
 	
-	print_r($entrada);
+	echo "<br/>";
+	print_r($ReservedChannels);
+	echo "<br/>";
+	print_r($DisabledChannels);
+	echo "<br/>";
+	print_r($ChannelAssignInDivisions);
+	echo "<br/>";
+	print_r($numeroDeCanales);
+	echo "<br/>";
 	
 	echo '<div style="overflow:auto; width: 1200px; height :300px; align:center;">';
 	
