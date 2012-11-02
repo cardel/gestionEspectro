@@ -35,7 +35,7 @@
 	echo "<br/>";
 	
 	echo '<div style="overflow:auto; width: 1200px; height :300px; align:center;">';
-	
+	echo "ok<br/>";
 	echo "<table width='100%' class='tabla' border='1'>\n";
 	
 	echo "<thead>\n";
@@ -54,10 +54,10 @@
 	//Reservados
 	echo "<tr>\n";
 	echo "<td class='estilo'>Canales reservados</td>\n";
-	foreach($ReservedChannels->i as $channel)
+	foreach($ReservedChannels as $channel)
 	{
 		
-		if($channel==1) echo "<td class='estilo'>X</td>\n";
+		if($channel->i==1) echo "<td class='estilo'>X</td>\n";
 		else echo "<td class='estilo'></td>\n";	
 		
 	}
@@ -65,10 +65,10 @@
 	//Deshabilitados	
 	echo "<tr>\n";
 	echo "<td class='estilo'>Canales deshabilitados</td>\n";
-	foreach($DisabledChannels->i as $channel)
+	foreach($DisabledChannels as $channel)
 	{
 		
-		if($channel==1) echo "<td class='estilo'>X</td>\n";
+		if($channel->i==1) echo "<td class='estilo'>X</td>\n";
 		else echo "<td class='estilo'></td>\n";	
 		
 	}
@@ -76,10 +76,10 @@
 	//Asignaciones en subdivisiones
 	echo "<tr>\n";
 	echo "<td class='estilo'>Asignados en subdivisiones</td>\n";
-	foreach($ChannelAssignInDivisions->i as $channel)
+	foreach($ChannelAssignInDivisions as $channel)
 	{
 		
-		if($channel==1) echo "<td class='estilo'>X</td>\n";
+		if($channel->i==1) echo "<td class='estilo'>X</td>\n";
 		else echo "<td class='estilo'></td>\n";	
 		
 	}	
