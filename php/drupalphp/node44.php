@@ -9,7 +9,7 @@ foreach($user->roles as $rol)
 	if($rol == "administradorEspectro") $administrador=1;
 }
 
-if($administrador==0)
+if($administrador==0 && $user->uid!=0)
 {
 	echo "<script>alert('Usted debe tener privilegios de administrador para ver \u00e9sta p\u00e1gina, consulte con el administrador del sitio');</script>";
 	echo "<script>location.href='http://avispa.univalle.edu.co/site/';</script>";	

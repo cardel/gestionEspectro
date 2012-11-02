@@ -1,19 +1,38 @@
 <?php
 require ("/var/www/html/site/gestionEspectro/php/rangosFrecuenciaAcciones.php");
-
 global $user;
+
+$permiso = 0;
+$administrador = 0;
+
+foreach($user->roles as $rol)
+{
+	if($rol == "administradorEspectro") $administrador=1;
+}
+
+if($administrador==0 && $user->uid!=0)
+{
+	echo "<script>alert('Usted debe tener privilegios de administrador para ver \u00e9sta p\u00e1gina, consulte con el administrador del sitio');</script>";
+	echo "<script>location.href='http://avispa.univalle.edu.co/site/';</script>";	
+}
 
 if($user->uid==0)
 {
-	echo "<script>alert('Debe estar autenticado en el sistema para poder ver \xe9sta p\xe1gina');</script>";
+	echo "<script>alert('Debe estar autenticado en el sistema para poder ver \u00e9sta p\u00e1gina');</script>";
 	echo "<script>location.href='http://avispa.univalle.edu.co/site/';</script>";
 }
-else{
+else
+{
+	$permiso=1;
+}
+
+
+if($administrador==1 && $permiso==1)
+{
 	jquery_ui_add('ui.tabs');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'dataTables/media/js/jquery.dataTables.js');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/jtables.js');
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/tabsAppSum.js');
-	//drupal_add_js(drupal_get_path('module', 'mymodule') . 'gestionEspectro/php/drupaljs/rangosFrecuencia.js');
 	drupal_set_html_head('<script type="text/javascript" src="https://www.google.com/jsapi"></script>');
 	drupal_add_css($path = 'css/estilos.css', $type = 'module', $media = 'all', $preprocess = TRUE);
 	drupal_add_css($path = 'css/datatable.css', $type = 'module', $media = 'all', $preprocess = TRUE);

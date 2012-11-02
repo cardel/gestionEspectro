@@ -2,8 +2,8 @@
 global $user;
 if($user->uid==0)
 {
-	echo "<script>alert('Usted debe tener privilegios de administrador para ver \u00e9sta p\u00e1gina, consulte con el administrador del sitio');</script>";
-	echo "<script>location.href='http://avispa.univalle.edu.co/site/';</script>";	
+	echo "<script>alert('Debe estar autenticado en el sistema para poder ver \u00e9sta p\u00e1gina');</script>";
+	echo "<script>location.href='http://avispa.univalle.edu.co/site/';</script>";
 }
 else{
 	jquery_ui_add('ui.tabs');

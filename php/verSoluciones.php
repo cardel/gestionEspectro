@@ -13,7 +13,7 @@ $id=0;
 foreach($solucionIt->solution as $sol)
 {
 	$id++;
-	echo "<p class='estilo'>Solución Nro:".$id."</p>\n"; 
+	//echo "<p class='estilo'>Solución Nro:".$id."</p>\n"; 
 	$numeroDeSolucionesEncontradas = $head->numSolutions;			
 	$numeroDeOperadores = $head->operatorsNumber;
 	$numeroDeCanales = $head->channelsNumber;
