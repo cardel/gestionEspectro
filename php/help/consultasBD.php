@@ -88,7 +88,7 @@ $variables = $_POST["feed_item_length"];?>
 		</div>
 		
 		<div id="tabs-2">
-			<img src="/site/gestionEspectro/php/help/genetico/ResultadosGenetico.png" />
+			<img src="/site/gestionEspectro/php/help/consultasBD/ConsultasGeografica.png" />
 			
 			<table class="tableStyle-table" width="80%">
 				<thead>
@@ -113,7 +113,7 @@ $variables = $_POST["feed_item_length"];?>
 			</table>
 		</div>
 		<div id="tabs-3">
-			<img src="/site/gestionEspectro/php/help/genetico/ResultadosGenetico.png" />
+			<img src="/site/gestionEspectro/php/help/genetico/FiltroPorOperador.png" />
 			
 			<table class="tableStyle-table" width="80%">
 				<thead>
@@ -138,7 +138,7 @@ $variables = $_POST["feed_item_length"];?>
 			</table>
 		</div>
 		<div id="tabs-4">
-			<img src="/site/gestionEspectro/php/help/genetico/ResultadosGenetico.png" />
+			<img src="/site/gestionEspectro/php/help/genetico/FiltroPorBanda.png" />
 			
 			<table class="tableStyle-table" width="80%">
 				<thead>
