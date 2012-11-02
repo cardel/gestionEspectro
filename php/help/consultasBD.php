@@ -29,7 +29,7 @@ $variables = $_POST["feed_item_length"];?>
 		</ul>
 		<div id="tabs-1">
 
-			<ol style="font-size:10px;">
+			<ol style="font-size:12px;">
 				<li>Existen dos tipos de consultas básicas</li>
 				<ul>
 					<li>Asignación por operador en una zona determinada.</li>
