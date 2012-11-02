@@ -11,6 +11,8 @@
 	$ChannelAssignation= $entrada->ChannelAssignation;
 	$numeroDeCanales =  $entrada->NumberChannels;
 	
+	print_r($entrada);
+	
 	echo '<div style="overflow:auto; width: 1200px; height :300px; align:center;">';
 	
 	echo "<table width='100%' class='tabla' border='1'>\n";

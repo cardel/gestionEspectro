@@ -113,13 +113,13 @@ else{
 	echo "<script language=\"javascript\">
 		function mostrarSolucion(file){    
 			$.post(\"gestionEspectro/php/infoEntrada.php\", { file: file}, function(data){
-				$(\"#verEncabezado\").html(data);
+				$(\"#verEntrada\").html(data);
 			}); 
 
 			$(\"#informacion\").html(\"<p>Tenga presente que esta entrada no refleja los datos almacenados en la base de datos</p>\");           
 		}
 	</script>";
-	echo "<div id=\"infomacion\"></div>";
+	echo "<div id=\"informacion\"></div>";
 	echo "<div id=\"verEntrada\"></div>";
 	
 }
