@@ -11,6 +11,7 @@
 	$ChannelAssignation= $entrada->ChannelAssignation;
 	$numeroDeCanales =  $entrada->NumberChannels;
 	
+	print_r($entrada);
 	echo "<br/>";
 	print_r($ReservedChannels);
 	echo "<br/>";
