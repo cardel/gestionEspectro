@@ -3,15 +3,30 @@
 	$file = $_POST["file"];
 	
 	$entrada = simplexml_load_file($file);	
-	$ChannelAssignInDivisions = $entrada->ChannelAssignInDivisions;
+	$dict = $entrada->dict;
 	
-	$ReservedChannels= $entrada->ReservedChannels;
-	$DisabledChannels= $entrada->DisabledChannels;
+	$ChannelAssignInDivisions;
+	$ReservedChannels;
+	$DisabledChannels;
+	$ChannelAssignation;
+	$numeroDeCanales;	
 	
-	$ChannelAssignation= $entrada->ChannelAssignation;
-	$numeroDeCanales =  $entrada->NumberChannels;
+	foreach($dict->entry as $en)
+	{
+		$name = $en->attributes()->key;
+		
+		if($name=="ChannelAssignInDivisions")$ChannelAssignInDivisions = $en->i;
+		if($name=="ReservedChannels")$ReservedChannels = $en->list;
+
+		if($name=="DisabledChannels")$DisabledChannels = $en->list;
+		if($name=="ChannelAssignation")$ChannelAssignation = $en->tuple;
+		if($name=="numeroDeCanales")$numeroDeCanales = $en->i;
+		
+	}
 	
-	print_r($entrada);
+
+	
+	
 	echo "<br/>";
 	print_r($ReservedChannels);
 	echo "<br/>";
