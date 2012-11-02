@@ -28,7 +28,7 @@ $variables = $_POST["feed_item_length"];?>
 			<li><a href="#tabs-4">Filtrar por banda</a></li>
 		</ul>
 		<div id="tabs-1">
-			<p style="font-size:12px;">
+			<p style="font-size:10px;">
 			<ol>
 				<li>Existen dos tipos de consultas básicas</li>
 				<ul>
