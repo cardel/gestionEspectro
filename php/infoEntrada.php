@@ -54,10 +54,10 @@
 	//Reservados
 	echo "<tr>\n";
 	echo "<td class='estilo'>Canales reservados</td>\n";
-	foreach($ReservedChannels as $channel)
+	foreach($ReservedChannels->i as $channel)
 	{
 		
-		if($channel->i==1) echo "<td class='estilo'>X</td>\n";
+		if($channel==1) echo "<td class='estilo'>X</td>\n";
 		else echo "<td class='estilo'></td>\n";	
 		
 	}
