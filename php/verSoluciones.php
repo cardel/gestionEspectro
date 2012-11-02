@@ -1,0 +1,90 @@
+<?php
+/*
+ * Carlos Andres Delgado Saavedra
+ * Este script muestra todas las soluciones de una salida especifica
+ */
+require ("/var/www/html/site/gestionEspectro/php/consultasAplicacion.php");
+$seleccion = (int) $_POST['opcSelec'];
+$file = $_POST['file'];
+$solucionIt = simplexml_load_file($file);
+$head = $solucionIt->head; 
+$id=0;
+
+foreach($solucionIt->solution as $sol)
+{
+	$id++;
+	echo "<p class='estilo'>Solución Nro:".$id."</p>\n"; 
+	$numeroDeSolucionesEncontradas = $head->numSolutions;			
+	$numeroDeOperadores = $head->operatorsNumber;
+	$numeroDeCanales = $head->channelsNumber;
+	echo "<p class='estilo'>Solución: ".$id."</p>\n";
+	$costo = $sol->costs;			
+	echo "<p class='estilo'>Costos</p>\n";
+	echo "<table width='100%' border='1'>\n";			
+	echo "<thead>\n";
+	echo "<tbody>\n";
+	echo "<tr>\n";
+	echo "<th class='estilo'>Concepto</th>\n";
+	echo "<th class='estilo'>Valor</th>\n";
+	echo "</tr>\n";
+	echo "</thead>\n";
+	echo "<tr>\n";
+	echo "<td class='estilo'>Número de bloques</td>\n";
+	echo "<td class='estilo'>$costo->blocksNumber</td>\n";
+	echo "</tr>\n";
+	echo "<tr>\n";
+	echo "<td class='estilo'>Diferencia entre el mayor bloque libre y el total de canales</td>\n";
+	echo "<td class='estilo'>$costo->difChannelNumberMaxBlockFree</td>\n";
+	echo "</tr>\n";
+	echo "<tr>\n";
+	echo "<td class='estilo'>Número de canales inútiles por separación en operadores que requieren asignación</td>\n";
+	echo "<td class='estilo'>$costo->channelNumberUseless</td>\n";
+	echo "</tr>\n";
+	echo "<tr>\n";
+	echo "<td class='estilo'>Costo total</td>\n";
+	echo "<td class='estilo'>$costo->totalCost</td>\n";
+	echo "</tr>\n";
+	echo "</tbody>\n";	
+				
+	echo "</table>\n<br/>";	
+	
+	echo '<div style="overflow:auto; width: 1200px; height :300px; align:center;">';
+	echo "<table width='100%' class='display' border='1'>\n";
+	
+	echo "<thead>\n";
+	echo "<tr>\n";
+	echo "<th class='estilo'>Operador</th>\n";
+	
+	for($j=0; $j<$numeroDeCanales; $j++)
+	{
+		echo "<th class='estilo'>C".($j+1)."</th>\n";
+
+	}
+	echo "</tr>\n";
+	echo "</thead>\n";
+	echo "<tbody>\n";
+	
+	$report = $sol->report;
+		
+	foreach($report->operator as $operator)
+	{
+		echo "<tr>\n";
+		echo "<td class='estilo'>".consultarOperador($operator->attributes()->name)."</td>\n";
+
+		$channels = $operator->channels;
+		foreach($channels->channel as $channel) 
+		{
+			if($channel==1) echo "<td class='estilo'>X</td>\n";
+			else echo "<td class='estilo'></td>\n";
+
+		}
+		echo "</tr>\n";
+
+	}
+	echo "</tbody>\n";				
+	echo "</table>\n";				
+
+					
+}
+
+?>

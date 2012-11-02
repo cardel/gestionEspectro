@@ -2,8 +2,8 @@
 global $user;
 if($user->uid==0)
 {
-	echo "<script>alert('Debe estar autenticado en el sistema para poder ver \xe9sta p\xe1gina');</script>";
-	echo "<script>location.href='http://avispa.univalle.edu.co/site/';</script>";
+	echo "<script>alert('Usted debe tener privilegios de administrador para ver \u00e9sta p\u00e1gina, consulte con el administrador del sitio');</script>";
+	echo "<script>location.href='http://avispa.univalle.edu.co/site/';</script>";	
 }
 else{
 	jquery_ui_add('ui.tabs');
@@ -81,6 +81,7 @@ else{
 	echo "<tr>\n";
 	echo "<th>Archivo</th>\n";
 	echo "<th>Visualizar</th>\n";
+	echo "<th>Descargar</th>\n";
 	echo "<th>Acción</th>\n";
 	echo "</tr>\n";
 	echo "</thead>\n";
@@ -99,6 +100,7 @@ else{
 			echo "<tr>\n";
 			echo "<td>$archivo</td>\n";
 			echo "<td><a href=\"#\" onClick=\"window.open('"."http://avispa.univalle.edu.co/site/gestionEspectro/salidas/".$user->uid."/".$archivo."' ,'_blank ','toolbar=1,menubar=1,width=500,height=600');\"> Ver </a>\n";
+			echo "<td><a href=\"#\" onClick=\"mostrarSolucion('http://avispa.univalle.edu.co/site/gestionEspectro/entradas/".$user->uid."/".$archivo."');\"> Ver solución </a>\n";
 			echo "<td><a href=\"http://avispa.univalle.edu.co/site/gestionEspectro/php/borrarArchivo.php?archivo=/var/www/html/site/gestionEspectro/salidas/".$user->uid."/".$archivo."&&lugar=2\">Borrar</a></td>\n";
 			echo "</tr>\n";
 		}
@@ -107,6 +109,23 @@ else{
 	echo "</tbody>\n";
     echo "</table>\n";
 	closedir($directorio); 
+	
+	//Mostrar solucion
+	echo "<script language=\"javascript\">
+		function mostrarSolucion(file){    
+			$.post(\"gestionEspectro/php/encabezado.php\", { file: file, fileXML: 'ninguno', botonXML: 'ninguno' }, function(data){
+				$(\"#verEncabezado\").html(data);
+			}); 
+			$.post(\"gestionEspectro/php/verSoluciones.php\", { file: file }, function(data){
+				$(\"#verSolucion\").html(data);
+			});
+
+			$(\"#informacion\").html(\"\");           
+		}
+	</script>";
+	
+	echo "<div id=\"verEncabezado\"></div>";
+	echo "<div id=\"verSolucion\"></div>";
 }
 ?>
 

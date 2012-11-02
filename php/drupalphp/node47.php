@@ -2,8 +2,8 @@
 global $user;
 if($user->uid==0)
 {
-	echo "<script>alert('Debe estar autenticado en el sistema para poder ver \xe9sta p\xe1gina');</script>";
-	echo "<script>location.href='http://avispa.univalle.edu.co/site/';</script>";
+	echo "<script>alert('Usted debe tener privilegios de administrador para ver \u00e9sta p\u00e1gina, consulte con el administrador del sitio');</script>";
+	echo "<script>location.href='http://avispa.univalle.edu.co/site/';</script>";	
 }
 else{
 	jquery_ui_add('ui.tabs');
@@ -98,7 +98,7 @@ else{
 		{
 			echo "<tr>\n";
 			echo "<td>$archivo</td>\n";
-			echo "<td><a href=\"#\" onClick=\"window.open('"."http://avispa.univalle.edu.co/site/gestionEspectro/entradas/".$user->uid."/".$archivo."' ,'_blank ','toolbar=1,menubar=1,width=500,height=600');\"> Ver </a>\n";
+			echo "<td><a href=\"#\" onClick=\"window.open('"."http://avispa.univalle.edu.co/site/gestionEspectro/entradas/".$user->uid."/".$archivo."' ,'_blank ','toolbar=1,menubar=1,width=500,height=600');\"> Descargar </a>\n";
 			echo "<td><a href=\"http://avispa.univalle.edu.co/site/gestionEspectro/php/borrarArchivo.php?archivo=/var/www/html/site/gestionEspectro/entradas/".$user->uid."/".$archivo."&&lugar=1\">Borrar</a></td>\n";
 			echo "</tr>\n";
 		}

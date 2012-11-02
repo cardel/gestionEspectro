@@ -1,4 +1,8 @@
 <?php
+/*
+ * Carlos Andres Delgado Saavedra
+ * Este script muestra una solucion seleccionada de una salida especifica
+ */
 require ("/var/www/html/site/gestionEspectro/php/consultasAplicacion.php");
 $seleccion = (int) $_POST['opcSelec'];
 $file = $_POST['file'];
