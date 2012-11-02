@@ -23,10 +23,7 @@
 		if($name=="NumberChannels")$numeroDeCanales = $en->i;
 		
 	}
-	
-
-	
-	
+		
 	echo "<br/>";
 	print_r($ReservedChannels);
 	echo "<br/>";
