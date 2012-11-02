@@ -53,11 +53,11 @@
 	echo "</tr>\n";
 	echo "</thead>\n";
 	echo "<tbody>\n";
-	/*
+
 	//Reservados
 	echo "<tr>\n";
 	echo "<td class='estilo'>Canales reservados</td>\n";
-	foreach($ReservedChannels->list as $channel)
+	foreach($ReservedChannels->i as $channel)
 	{
 		
 		if($channel==1) echo "<td class='estilo'>X</td>\n";
@@ -68,7 +68,7 @@
 	//Deshabilitados	
 	echo "<tr>\n";
 	echo "<td class='estilo'>Canales deshabilitados</td>\n";
-	foreach($DisabledChannels->list as $channel)
+	foreach($DisabledChannels->i as $channel)
 	{
 		
 		if($channel==1) echo "<td class='estilo'>X</td>\n";
@@ -79,7 +79,7 @@
 	//Asignaciones en subdivisiones
 	echo "<tr>\n";
 	echo "<td class='estilo'>Asignados en subdivisiones</td>\n";
-	foreach($ChannelAssignInDivisions->list as $channel)
+	foreach($ChannelAssignInDivisions->i as $channel)
 	{
 		
 		if($channel==1) echo "<td class='estilo'>X</td>\n";
@@ -87,7 +87,7 @@
 		
 	}	
 	echo "</tr>\n";
-	*/
+
 	echo "</tbody>\n";				
 	echo "</table>\n";	
 	echo "</div>";		
