@@ -83,7 +83,8 @@ foreach($solucionIt->solution as $sol)
 
 		}
 		echo "</tbody>\n";				
-		echo "</table>\n";				
+		echo "</table>\n";
+		echo "</div>";				
 	}	
 					
 }

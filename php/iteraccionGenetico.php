@@ -1,4 +1,8 @@
 <?php
+/*
+ * Carlos Andres Delgado Saavedra
+ * Script para leer la salida XML del algoritmo genético
+ */
 require ("/var/www/html/site/gestionEspectro/php/consultasAplicacion.php");
 $seleccion = (int) $_POST['opcSelec'];
 $file = $_POST['file'];
@@ -82,7 +86,9 @@ foreach($solucionIt->solution as $sol)
 
 		}
 		echo "</tbody>\n";				
-		echo "</table>\n";				
+		echo "</table>\n";	
+		echo "</div>";				
+		
 	}	
 					
 }

@@ -80,8 +80,8 @@ else{
 	echo "<thead>\n";
 	echo "<tr>\n";
 	echo "<th>Archivo</th>\n";
-	echo "<th>Visualizar</th>\n";
 	echo "<th>Descargar</th>\n";
+	echo "<th>Visualizar</th>\n";
 	echo "<th>Acción</th>\n";
 	echo "</tr>\n";
 	echo "</thead>\n";
@@ -99,8 +99,8 @@ else{
 		{
 			echo "<tr>\n";
 			echo "<td>$archivo</td>\n";
-			echo "<td><a href=\"#\" onClick=\"window.open('"."http://avispa.univalle.edu.co/site/gestionEspectro/salidas/".$user->uid."/".$archivo."' ,'_blank ','toolbar=1,menubar=1,width=500,height=600');\"> Ver </a>\n";
-			echo "<td><a href=\"#\" onClick=\"mostrarSolucion('http://avispa.univalle.edu.co/site/gestionEspectro/entradas/".$user->uid."/".$archivo."');\"> Ver solución </a>\n";
+			echo "<td><a href=\"#\" onClick=\"window.open('"."http://avispa.univalle.edu.co/site/gestionEspectro/salidas/".$user->uid."/".$archivo."' ,'_blank ','toolbar=1,menubar=1,width=500,height=600');\"> Descargar </a>\n";
+			echo "<td><a href=\"#\" onClick=\"mostrarSolucion('http://avispa.univalle.edu.co/site/gestionEspectro/salidas/".$user->uid."/".$archivo."');\"> Ver solución </a>\n";
 			echo "<td><a href=\"http://avispa.univalle.edu.co/site/gestionEspectro/php/borrarArchivo.php?archivo=/var/www/html/site/gestionEspectro/salidas/".$user->uid."/".$archivo."&&lugar=2\">Borrar</a></td>\n";
 			echo "</tr>\n";
 		}
@@ -120,12 +120,14 @@ else{
 				$(\"#verSolucion\").html(data);
 			});
 
-			$(\"#informacion\").html(\"\");           
+			$(\"#informacion\").html(\"<p>En el caso de que la salida XML haya sido generada por una aplicación diferente a la restricciones, los campos relacionados con la ejecución basado en el paradigma de progración por restricciones aparecerán en blanco</p>\");           
 		}
 	</script>";
-	
+	echo "<div id=\"informacion\"></div>";
+	echo "<div style=\"overflow:auto; width: 1200px; height :600px; align:center;\">";
 	echo "<div id=\"verEncabezado\"></div>";
 	echo "<div id=\"verSolucion\"></div>";
+	echo "</div>";
 }
 ?>
 
