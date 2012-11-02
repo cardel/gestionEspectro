@@ -28,8 +28,8 @@ $variables = $_POST["feed_item_length"];?>
 			<li><a href="#tabs-4">Filtrar por banda</a></li>
 		</ul>
 		<div id="tabs-1">
-			<p style="font-size:10px;">
-			<ol>
+
+			<ol style="font-size:10px;">
 				<li>Existen dos tipos de consultas básicas</li>
 				<ul>
 					<li>Asignación por operador en una zona determinada.</li>
@@ -38,7 +38,7 @@ $variables = $_POST["feed_item_length"];?>
 				<li>Usted puede elegir consultar a nivel nacional, en una entidad territorial, departamento o municipio.</li>
 				<li>Las consultas requiren un poco de tiempo en desplegarse debido a que presentan información considerable, considere usar una conexión de al menos 516 kbps.</li>
 			</ol>
-			</p>
+
 		</div>
 		
 		<div id="tabs-2">
