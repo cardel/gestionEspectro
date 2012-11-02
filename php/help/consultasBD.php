@@ -28,63 +28,15 @@ $variables = $_POST["feed_item_length"];?>
 			<li><a href="#tabs-4">Filtrar por banda</a></li>
 		</ul>
 		<div id="tabs-1">
-			<table class="tableStyle-table" width="80%">
-				<thead>
-				<tr>
-					<th>
-						Función
-					</th>
-					<th>
-						Descripción
-					</th>
-				</tr>
-				</thead>
-					<tr>
-						<td>Selección entrada</td>
-						<td>Usted puede ingresar un archivo que cumpla con el formato XML de la aplicación, en ese caso no debe seleccionar entrada definida</td>
-					</tr>
-					<tr>
-						<td>Entrada definida</td>
-						<td>Usted puede ingresar un archivo creado en el generador de entradas, sí realiza una selección en este campo si ha seleccionado un archivo de entrada, éste no será tomado en cuenta.</td>
-					</tr>
-					<tr>
-						<td>Peso número de bloques</td>
-						<td>Es el peso que posee el factor de número de bloques en el costo total en una solución</td>
-					</tr>
-					<tr>
-						<td>Peso máximo bloque de canales libres</td>
-						<td>Es el peso que posee el factor de la diferencia entre número total de canales y el tamaño del mayor bloque libre en el costo total en una solución</td>
-					</tr>
-					<tr>
-						<td>Peso número de canales inútiles</td>
-						<td>Es el peso que posee el factor del número de canales inutilizados y el tamaño del mayor bloque libre en el costo total en una solución</td>
-					</tr>
-					<tr>
-						<td>Población inicial</td>
-						<td>Es la población inicial con que inicia el algoritmo genético.</td>
-					</tr>
-					<tr>
-						<td>Probabilidad cruce</td>
-						<td>Es la probabilidad de cruce que tiene un individuo seleccionado durante una generación.</td>
-					</tr>
-					<tr>
-						<td>Probabilidad mutación</td>
-						<td>Es la probabilidad de mutación que tienen los individuos generados en la probabilidad de cruce.</td>
-					</tr>
-					<tr>
-						<td>Tiempo de ejecución</td>
-						<td>Es el tiempo de ejecución del programa en segundos</td>
-					</tr>
-					<tr>
-						<td>Número de soluciones</td>
-						<td>Es el número de soluciones posibles que la aplicación entrega en los informes de salida</td>
-					</tr>
-					<tr>
-						<td>Número de ejecuciones</td>
-						<td>La selección puede ser de tipo: Nacional, territorial, departamental o municipal</td>
-					</tr>
-				</tbody>
-			</table>
+			<ol>
+				<li>Existen dos tipos de consultas básicas</li>
+				<ul>
+					<li>Asignación por operador en una zona determinada.</li>
+					<li>Asignación por banda o rango de frecuencia en una zona determinada.</li>
+				</ul>
+				<li>Usted puede elegir consultar a nivel nacional, en una entidad territorial, departamento o municipio.</li>
+				<li>Las consultas requiren un poco de tiempo en desplegarse debido a que presentan información considerable, considere usar una conexión de al menos 516 kbps.</li>
+			</ol>
 		</div>
 		
 		<div id="tabs-2">
@@ -101,13 +53,22 @@ $variables = $_POST["feed_item_length"];?>
 					</th>
 				</tr>
 				</thead>
+					<tbody>
 					<tr>
-						<td>Descargar XML</td>
-						<td>Permite visualizar y descargar el XML de salida generado en la solución actual</td>
+						<td>Seleccionar territorio</td>
+						<td>Usted puede seleccionar un territorio determinado</td>
 					</tr>
 					<tr>
-						<td>Almacenar XML</td>
-						<td>Permite almacenar el XML de salida generado para que pueda ser insertado en la base de datos posteriormente</td>
+						<td>Seleccionar departamento</td>
+						<td>Usted puede seleccionar un departamento que está dentro de un territorio determinado</td>
+					</tr>
+					<tr>
+						<td>Seleccionar municipio</td>
+						<td>Usted puede seleccionar un municipio que está dentro de un departamento determinado</td>
+					</tr>
+					<tr>
+						<td>Selección nacional</td>
+						<td>Si ha seleccionado un territorio y desea volver a la selección nacional debe usar este botón</td>
 					</tr>
 					</tbody>
 			</table>
@@ -126,13 +87,14 @@ $variables = $_POST["feed_item_length"];?>
 					</th>
 				</tr>
 				</thead>
+				<tbody>
 					<tr>
-						<td>Descargar XML</td>
-						<td>Permite visualizar y descargar el XML de salida generado en la solución actual</td>
+						<td>Seleccionar operador</td>
+						<td>Seleccione un operador del cúal desee conocer su asignación en una zona determinada.</td>
 					</tr>
 					<tr>
-						<td>Almacenar XML</td>
-						<td>Permite almacenar el XML de salida generado para que pueda ser insertado en la base de datos posteriormente</td>
+						<td>Consulta por operador</td>
+						<td>Despliega la consulta de las asignaciones totales de un operador en una zona determinada.</td>
 					</tr>
 					</tbody>
 			</table>
@@ -151,14 +113,19 @@ $variables = $_POST["feed_item_length"];?>
 					</th>
 				</tr>
 				</thead>
+				<tbody>
 					<tr>
-						<td>Descargar XML</td>
-						<td>Permite visualizar y descargar el XML de salida generado en la solución actual</td>
+						<td>Seleccionar banda de frecuencia</td>
+						<td>Seleccione una banda de frecuencia donde desea realizar la consulta.</td>
 					</tr>
 					<tr>
-						<td>Almacenar XML</td>
-						<td>Permite almacenar el XML de salida generado para que pueda ser insertado en la base de datos posteriormente</td>
+						<td>Seleccione un rango de frecuencia</td>
+						<td>Seleccione una banda de frecuencia donde desea realizar la consulta. Si selecciona todos la consulta se realizará en todas los rangos dentro de la banda que usted ha seleccionado</td>
 					</tr>
+					<tr>
+						<td>Consulta por frecuencia</td>
+						<td>Despliega la consulta de las asignaciones totales dentro de una banda o rango seleccionado en una zona determinada.</td>
+					</tr>	
 					</tbody>
 			</table>
 		</div>
