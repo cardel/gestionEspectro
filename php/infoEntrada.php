@@ -47,10 +47,6 @@
 		if($name=="ChannelAssignation")$ChannelAssignation = $en->tuple;	
 		
 	}
-	echo "</br>Present<br/>";
-	print_r($PresentOperators);
-	echo "</br>WithReqs<br/>";
-	print_r($OperatorsWithRequeriments);
 	echo "</br>Reqs<br/>";
 	print_r($Requeriments);
 	echo "</br>Max<br/>";
@@ -98,7 +94,7 @@
 	echo "<tr>\n";
 	echo "<td class='estilo'>Operadores presentes en la banda</td>\n";
 	echo "<td class='estilo'>";
-	echo "<ul>";
+	echo "<ul style=\"text-align:'right';\">";
 	foreach($PresentOperators->i as $op)
 	{
 		echo "<li>".consultarOperador($op)."</li>";
@@ -108,8 +104,14 @@
 	echo "</tr>\n";
 	echo "<tr>\n";
 	echo "<td class='estilo'>Operadores con requerimientos</td>\n";
-	echo "<td class='estilo'>Operadores con requerimientos</td>\n";
-	echo "</tr>\n";
+	echo "<td class='estilo'>";
+	echo "<ul style=\"text-align:'right';\">";
+	foreach($OperatorsWithRequeriments->i as $op)
+	{
+		echo "<li>".consultarOperador($op)."</li>";
+	}
+	echo "</ul>";
+	echo "</td>\n";	echo "</tr>\n";
 	echo "<tr>\n";
 	echo "<td class='estilo'>Requerimientos</td>\n";
 	echo "<td class='estilo'>Requerimientos</td>\n";
