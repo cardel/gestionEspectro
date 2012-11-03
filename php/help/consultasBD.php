@@ -23,7 +23,7 @@ $variables = $_POST["feed_item_length"];?>
 	<div id="tabs">
 		<ul>
 			<li><a href="#tabs-1">Aspectos generales</a></li>
-			<li><a href="#tabs-2">Seleccionar zona geogrática</a></li>
+			<li><a href="#tabs-2">Seleccionar zona geográfica</a></li>
 			<li><a href="#tabs-3">Filtrar por operador</a></li>
 			<li><a href="#tabs-4">Filtrar por banda</a></li>
 		</ul>
@@ -36,7 +36,7 @@ $variables = $_POST["feed_item_length"];?>
 					<li>Asignación por banda o rango de frecuencia en una zona determinada.</li>
 				</ul>
 				<li>Usted puede elegir consultar a nivel nacional, en una entidad territorial, departamento o municipio.</li>
-				<li>Las consultas requiren un poco de tiempo en desplegarse debido a que presentan información considerable, considere usar una conexión de al menos 516 kbps.</li>
+				<li>Las consultas requieren un poco de tiempo en desplegarse debido a que presentan información considerable, considere usar una conexión de al menos 516 kbps.</li>
 			</ol>
 
 		</div>
@@ -92,7 +92,7 @@ $variables = $_POST["feed_item_length"];?>
 				<tbody>
 					<tr>
 						<td>Seleccionar operador</td>
-						<td>Seleccione un operador del cúal desee conocer su asignación en una zona determinada.</td>
+						<td>Seleccione un operador del cual desee conocer su asignación en una zona determinada.</td>
 					</tr>
 					<tr>
 						<td>Consulta por operador</td>

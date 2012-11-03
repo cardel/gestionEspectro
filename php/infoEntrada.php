@@ -135,5 +135,7 @@
 
 	echo "</tbody>\n";				
 	echo "</table>\n";	
+	print_r($ChannelAssignation);
+	
 	echo "</div>";		
 ?>
