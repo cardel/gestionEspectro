@@ -143,7 +143,7 @@
 				
 			foreach($entry->list as $indice)
 			{	
-				echo "<td class='estilo'>".print_r($indice)."</td>";
+				echo "<td class='estilo'>".$indice."</td>";
 				/*			
 				foreach($indice->i as $channel)
 				{
