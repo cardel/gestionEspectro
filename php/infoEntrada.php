@@ -47,11 +47,6 @@
 		if($name=="ChannelAssignation")$ChannelAssignation = $en->tuple;	
 		
 	}
-	echo "</br>Reqs<br/>";
-	print_r($Requeriments);
-	echo "</br>Max<br/>";
-	print_r($MaxAssignationsSubDivision);
-	echo "<br/>";
 
 	echo "<p class='estilo'>Información</p>\n";	
 	echo "<table width='100%' class='tabla' border='1'>\n";
@@ -121,15 +116,27 @@
 	{
 		foreach($op->entry as $entry)
 		{
-			echo "<li>".consultarOperador($entry->attributes()->key)." : ".$entry->i."</li>";
+			echo "<li>".consultarOperador($entry->attributes()->key)." : ".$entry->i." canales</li>";
 		}
 		
 	}
 	echo "</ul>";
-	echo "</td>\n";	echo "</tr>\n";
+	echo "</td>\n";	
+	echo "</tr>\n";
 	echo "<tr>\n";
 	echo "<td class='estilo'>Maxima asignación en subdivisiones</td>\n";
-	echo "<td class='estilo'>Maxima asignación en subdivisiones</td>\n";
+	echo "<td class='estilo'>";
+	echo "<ul style=\"text-align:'right';\">";
+	foreach($MaxAssignationsSubDivision->i as $op)
+	{
+		foreach($op->entry as $entry)
+		{
+			echo "<li>".consultarOperador($entry->attributes()->key)." : ".$entry->i." canales</li>";
+		}
+		
+	}
+	echo "</ul>";
+	echo "</td>\n";	
 	echo "</tr>\n";
 	echo "</tbody>\n";				
 	echo "</table>\n";	
