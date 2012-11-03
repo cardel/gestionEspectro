@@ -146,7 +146,7 @@
 	
 				foreach($indice->list as $list)
 				{
-					foreach($indice->i as $channel)
+					foreach($list->i as $channel)
 					{
 						if($channel==1) echo "<td class='estilo'>X</td>\n";
 						else echo "<td class='estilo'></td>\n";	
