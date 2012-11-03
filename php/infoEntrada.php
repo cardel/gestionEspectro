@@ -141,9 +141,9 @@
 			$name = consultarOperador($entry->attributes()->key);
 			echo "<td class='estilo'>".$name."</td>";
 				
-			foreach($entry->list as $indice)
+			foreach($entry->i as $indice)
 			{	
-				echo "<td class='estilo'>".$indice."</td>";
+				echo "<td class='estilo'>".print_r($indice)."</td>";
 				/*			
 				foreach($indice->i as $channel)
 				{
