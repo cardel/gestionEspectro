@@ -35,10 +35,10 @@
 		if($name=="ChannelSeparation")$ChannelSeparation = $en->i;	
 		if($name=="MaxChannelAssignationByOperator")$MaxChannelAssignationByOperator = $en->i;
 		
-		if($name=="PresentOperators")$PresentOperators = $en->list;	
-		if($name=="OperatorsWithRequeriments")$OperatorsWithRequeriments->list = $en;	
-		if($name=="Requeriments")$Requeriments = $en->tuple;	
-		if($name=="MaxAssignationsSubDivision")$MaxAssignationsSubDivision->tuple = $en;	
+		if($name=="PresentOperators")$PresentOperators = $en->list->i;	
+		if($name=="OperatorsWithRequeriments")$OperatorsWithRequeriments = $en->list->i;	
+		if($name=="Requeriments")$Requeriments = $en->tuple->i;	
+		if($name=="MaxAssignationsSubDivision")$MaxAssignationsSubDivision = $en->tuple->i;	
 
 		
 		if($name=="ChannelAssignInDivisions")$ChannelAssignInDivisions = $en->list;
