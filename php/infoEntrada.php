@@ -14,12 +14,11 @@
 	foreach($dict->entry as $en)
 	{
 		$name = $en->attributes()->key;
-		echo "ok";
 		
 		if($name=="ChannelAssignInDivisions")$ChannelAssignInDivisions = $en->list;
 		if($name=="ReservedChannels")$ReservedChannels = $en->list;
 		if($name=="DisabledChannels")$DisabledChannels = $en->list;
-		if($name=="ChannelAssignation")$ChannelAssignation = $en->tuple;	
+		if($name=="ChannelAssignation")$ChannelAssignation = $en;	
 		if($name=="NumberChannels")$numeroDeCanales = $en->i;	
 		
 	}
@@ -80,7 +79,6 @@
 	echo "<p class='estilo'>Estado actual de la banda</p>\n";
 	
 	echo '<div style="overflow:auto; width: 1200px; height :300px; align:center;">';
-	echo "ok<br/>";
 	echo "<table width='100%' class='tabla' border='1'>\n";
 	
 	echo "<thead>\n";
