@@ -47,13 +47,13 @@
 		if($name=="ChannelAssignation")$ChannelAssignation = $en->tuple;	
 		
 	}
-	echo "<br/>";
+	echo "</br>Present<br/>";
 	print_r($PresentOperators);
-	echo "<br/>";
+	echo "</br>WithReqs<br/>";
 	print_r($OperatorsWithRequeriments);
-	echo "<br/>";
+	echo "</br>Reqs<br/>";
 	print_r($Requeriments);
-	echo "<br/>";
+	echo "</br>Max<br/>";
 	print_r($MaxAssignationsSubDivision);
 	echo "<br/>";
 
