@@ -143,7 +143,7 @@
 			
 			foreach($entry->i as $indice)
 			{
-				echo "<td class='estilo'>".print_r($indice)."</td>";
+				echo "<td class='estilo'>".$indice."</td>";
 				
 				//foreach($indice->list as $list)
 				//{
@@ -162,7 +162,6 @@
 
 	echo "</tbody>\n";				
 	echo "</table>\n";	
-	//print_r($ChannelAssignation);
 	
 	echo "</div>";		
 ?>
