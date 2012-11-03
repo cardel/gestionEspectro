@@ -16,6 +16,12 @@
 	$GeograficAssignationID;
 	$FrequencyBand;
 	$FrequencyRank;
+	$ChannelSeparation;
+	$MaxChannelAssignationByOperator;
+	$PresentOperators;
+	$OperatorsWithRequeriments;
+	$Requeriments;
+	$MaxAssignationsSubDivision;
 
 	foreach($dict->entry as $en)
 	{
@@ -25,17 +31,26 @@
 		if($name=="GeograficAssignationID")$GeograficAssignationID = $en->i;	
 		if($name=="FrequencyBand")$FrequencyBand = $en->i;	
 		if($name=="FrequencyRank")$FrequencyRank = $en->i;	
-		if($name=="NumberChannels")$numeroDeCanales = $en->i;	
-		//if($name=="NumberPresentOperators")$numeroDeCanales = $en->i;	
-		//if($name=="NumberOfOperatorWithRequirements")$numeroDeCanales = $en->i;	
+		if($name=="NumberChannels")$numeroDeCanales = $en->i;
+		if($name=="ChannelSeparation")$ChannelSeparation = $en->i;	
+		if($name=="MaxChannelAssignationByOperator")$MaxChannelAssignationByOperator = $en->i;
+		
+		if($name=="PresentOperators")$PresentOperators = $en;	
+		if($name=="OperatorsWithRequeriments")$OperatorsWithRequeriments = $en;	
+		if($name=="Requeriments")$Requeriments = $en;	
+		if($name=="MaxAssignationsSubDivision")$MaxAssignationsSubDivision = $en;	
+
 		
 		if($name=="ChannelAssignInDivisions")$ChannelAssignInDivisions = $en->list;
 		if($name=="ReservedChannels")$ReservedChannels = $en->list;
-		if($name=="DisabledChannels")$DisabledChannels = $en->list;
+		if($name=="PresentOperators")$DisabledChannels = $en->list;
 		if($name=="ChannelAssignation")$ChannelAssignation = $en->tuple;	
 		
 	}
-
+	print_r($PresentOperators);
+	print_r($OperatorsWithRequeriments);
+	print_r($Requeriments);
+	print_r($MaxAssignationsSubDivision);
 
 	echo "<p class='estilo'>Información</p>\n";	
 	echo "<table width='100%' class='tabla' border='1'>\n";
@@ -61,19 +76,19 @@
 	echo "</tr>\n";
 	echo "<tr>\n";
 	echo "<td class='estilo'>Rango de frecuencia</td>\n";
-	echo "<td class='estilo'>".consultarRangoTrabajo(FrequencyRank)."</td>\n";
+	echo "<td class='estilo'>".consultarRangoTrabajo($FrequencyRank)."</td>\n";
 	echo "</tr>\n";	
 	echo "<tr>\n";
 	echo "<td class='estilo'>Número de canales de la banda</td>\n";
 	echo "<td class='estilo'>".$numeroDeCanales."</td>\n";
 	echo "</tr>\n";
-	echo "<tr>\n";
+	echo "<tr>\n";	
 	echo "<td class='estilo'>Separación minima requerida</td>\n";
-	echo "<td class='estilo'>Separación minima requerida</td>\n";
+	echo "<td class='estilo'>".$ChannelSeparation;"</td>\n";
 	echo "</tr>\n";
 	echo "<tr>\n";
-	echo "<td class='estilo'>Tope de canales en la banda</td>\n";
-	echo "<td class='estilo'>Tope de canales en la banda</td>\n";
+	echo "<td class='estilo'>Tope de canales por operador en la banda</td>\n";
+	echo "<td class='estilo'>".$MaxChannelAssignationByOperator;."</td>\n";
 	echo "</tr>\n";
 	echo "<tr>\n";
 	echo "<td class='estilo'>Operadores presentes en la banda</td>\n";
@@ -158,8 +173,7 @@
 			echo "<td class='estilo'>".$name."</td>";
 				
 			foreach($entry->i as $indice)
-			{					
-	
+			{
 				foreach($indice->list as $list)
 				{
 					foreach($list->i as $channel)
