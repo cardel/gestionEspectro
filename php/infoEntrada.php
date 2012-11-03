@@ -146,12 +146,11 @@
 	
 				foreach($indice->list as $list)
 				{
-					echo "<td class='estilo'>".print_r($list)."</td>";
-					/*foreach($indice->i as $channel)
+					foreach($indice->i as $channel)
 					{
 						if($channel==1) echo "<td class='estilo'>X</td>\n";
 						else echo "<td class='estilo'></td>\n";	
-					}*/
+					}
 				}
 			}
 			echo "</tr>\n";
