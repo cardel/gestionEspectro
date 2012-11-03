@@ -143,7 +143,7 @@
 			
 			foreach($entry->i as $indice)
 			{
-				echo "<td class='estilo'>".print_r($indice);."</td>";
+				echo "<td class='estilo'>".print_r($indice)."</td>";
 				
 				//foreach($indice->list as $list)
 				//{
