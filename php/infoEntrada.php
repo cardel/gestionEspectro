@@ -140,7 +140,7 @@
 			//Obtener nombre operador
 			$name = consultarOperador($entry->attributes()->key);
 			echo "<td class='estilo'>".$name."</td>";
-			echo "<td class='estilo'>".$entry."</td>\n";	
+			echo "<td class='estilo'>".print_r($entry)."</td>\n";	
 			/*foreach($entry->list as $indice)
 			{				
 				foreach($indice->i as $channel)
