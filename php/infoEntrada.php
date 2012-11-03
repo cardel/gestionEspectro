@@ -141,16 +141,15 @@
 			$name = consultarOperador($entry->attributes()->key);
 			echo "<td class='estilo'>".$name."</td>";
 			
-			foreach($entry->i as $indice)
-			{
-				
-				foreach($indice->list as $list)
+			foreach($entry->lidy as $indice)
+			{				
+				foreach($indice->i as $channel)
 				{
-					foreach($indice->i as $channel)
-					{
+					//foreach($indice->i as $channel)
+					//{
 						if($channel==1) echo "<td class='estilo'>X</td>\n";
 						else echo "<td class='estilo'></td>\n";	
-					}
+					//}
 				}
 			}
 			echo "</tr>\n";
