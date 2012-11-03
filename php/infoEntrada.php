@@ -153,7 +153,7 @@
 						else echo "<td class='estilo'></td>\n";	
 					}*/
 				//}
-			
+			}
 			echo "</tr>\n";
 			
 		}
@@ -162,7 +162,7 @@
 
 	echo "</tbody>\n";				
 	echo "</table>\n";	
-	print_r($ChannelAssignation);
+	//print_r($ChannelAssignation);
 	
 	echo "</div>";		
 ?>
