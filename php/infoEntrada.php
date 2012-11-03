@@ -131,17 +131,23 @@
 	//Divisiones locales
 	foreach($ChannelAssignation->i as $assignation)
 	{
-		echo "</tr>\n";	
-		//Obtener nombre operador
-		$name = $assignation->attributes()->key;
-		echo "<td>".$name."</td>";
-		
-		foreach($assignation->i->list as $channel)
+		//Operadores
+		foreach($assignation->entry as $entry)
 		{
-			echo "<td>".$channel."</td>"; 
+			echo "</tr>\n";	
+			//Obtener nombre operador
+			$name = $entry->attributes()->key;
+			echo "<td>".$name."</td>";
+			
+			foreach($entry->i->list as $channel)
+			{
+				echo "<td>".$channel."</td>"; 
+			}
+			
+			echo "</tr>\n";
+			
 		}
-		
-		echo "</tr>\n";
+
 	}
 
 	echo "</tbody>\n";				
