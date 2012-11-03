@@ -98,7 +98,7 @@
 	echo "<tr>\n";
 	echo "<td class='estilo'>Operadores presentes en la banda</td>\n";
 	echo "<td class='estilo'>";
-	echo "<ul>"
+	echo "<ul>";
 	foreach($PresentOperators->i as $op)
 	{
 		echo "<li>".consultarOperador($op)."</li>";
