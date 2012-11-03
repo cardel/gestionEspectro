@@ -95,9 +95,13 @@
 	echo "<td class='estilo'>Operadores presentes en la banda</td>\n";
 	echo "<td class='estilo'>";
 	echo "<ul style=\"text-align:'right';\">";
-	foreach($PresentOperators->i as $op)
+	foreach($Requeriments->i as $op)
 	{
-		echo "<li>".consultarOperador($op)."</li>";
+		foreach($Requeriments->entry as $entry)
+		{
+			echo "<li>".consultarOperador($entry->attributes()->key)." : ".$entry->i."</li>";
+		}
+		
 	}
 	echo "</ul>";
 	echo "</td>\n";
@@ -114,8 +118,14 @@
 	echo "</td>\n";	echo "</tr>\n";
 	echo "<tr>\n";
 	echo "<td class='estilo'>Requerimientos</td>\n";
-	echo "<td class='estilo'>Requerimientos</td>\n";
-	echo "</tr>\n";
+	echo "<td class='estilo'>";
+	echo "<ul style=\"text-align:'right';\">";
+	foreach($PresentOperators->i as $op)
+	{
+		echo "<li>".consultarOperador($op)."</li>";
+	}
+	echo "</ul>";
+	echo "</td>\n";	echo "</tr>\n";
 	echo "<tr>\n";
 	echo "<td class='estilo'>Maxima asignación en subdivisiones</td>\n";
 	echo "<td class='estilo'>Maxima asignación en subdivisiones</td>\n";
