@@ -12,19 +12,31 @@
 	$DisabledChannels;
 	$ChannelAssignation;
 	$numeroDeCanales;	
+	$GeograficAssignationType;
+	$GeograficAssignationID;
+	$FrequencyBand;
+	$FrequencyRank;
 
 	foreach($dict->entry as $en)
 	{
 		$name = $en->attributes()->key;
 		
+		if($name=="GeograficAssignationType")$GeograficAssignationType = $en->i;	
+		if($name=="GeograficAssignationID")$GeograficAssignationID = $en->i;	
+		if($name=="FrequencyBand")$FrequencyBand = $en->i;	
+		if($name=="FrequencyRank")$FrequencyRank = $en->i;	
+		if($name=="NumberChannels")$numeroDeCanales = $en->i;	
+		//if($name=="NumberPresentOperators")$numeroDeCanales = $en->i;	
+		//if($name=="NumberOfOperatorWithRequirements")$numeroDeCanales = $en->i;	
+		
 		if($name=="ChannelAssignInDivisions")$ChannelAssignInDivisions = $en->list;
 		if($name=="ReservedChannels")$ReservedChannels = $en->list;
 		if($name=="DisabledChannels")$DisabledChannels = $en->list;
 		if($name=="ChannelAssignation")$ChannelAssignation = $en->tuple;	
-		if($name=="NumberChannels")$numeroDeCanales = $en->i;	
 		
 	}
-	
+
+
 	echo "<p class='estilo'>Información</p>\n";	
 	echo "<table width='100%' class='tabla' border='1'>\n";
 	
@@ -37,16 +49,20 @@
 	echo "<tbody>\n";
 	echo "<tr>\n";
 	echo "<td class='estilo'>Tipo de asignación geográfica</td>\n";
-	echo "<td class='estilo'>Tipo de asignación geográfica</td>\n";
+	echo "<td class='estilo'>".consultarTipoLocalizacion($GeograficAssignationType)."</td>\n";
 	echo "</tr>\n";
 	echo "<tr>\n";
 	echo "<td class='estilo'>Lugar de asignación geográfica</td>\n";
-	echo "<td class='estilo'>Lugar de asignación geográfica</td>\n";
+	echo "<td class='estilo'>".consultarLocalizacion($GeograficAssignationID)."</td>\n";
 	echo "</tr>\n";
 	echo "<tr>\n";
 	echo "<td class='estilo'>Banda de frecuencia</td>\n";
-	echo "<td class='estilo'>Banda de frecuencia</td>\n";
+	echo "<td class='estilo'>".consultarBandaTrabajo($FrequencyBand)."</td>\n";
 	echo "</tr>\n";
+	echo "<tr>\n";
+	echo "<td class='estilo'>Rango de frecuencia</td>\n";
+	echo "<td class='estilo'>".consultarRangoTrabajo(FrequencyRank)."</td>\n";
+	echo "</tr>\n";	
 	echo "<tr>\n";
 	echo "<td class='estilo'>Número de canales de la banda</td>\n";
 	echo "<td class='estilo'>".$numeroDeCanales."</td>\n";
