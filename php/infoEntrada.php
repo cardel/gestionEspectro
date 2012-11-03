@@ -43,14 +43,19 @@
 		
 		if($name=="ChannelAssignInDivisions")$ChannelAssignInDivisions = $en->list;
 		if($name=="ReservedChannels")$ReservedChannels = $en->list;
-		if($name=="PresentOperators")$DisabledChannels = $en->list;
+		if($name=="DisabledChannels")$DisabledChannels = $en->list;
 		if($name=="ChannelAssignation")$ChannelAssignation = $en->tuple;	
 		
 	}
+	echo "<br/>";
 	print_r($PresentOperators);
+	echo "<br/>";
 	print_r($OperatorsWithRequeriments);
+	echo "<br/>";
 	print_r($Requeriments);
+	echo "<br/>";
 	print_r($MaxAssignationsSubDivision);
+	echo "<br/>";
 
 	echo "<p class='estilo'>Información</p>\n";	
 	echo "<table width='100%' class='tabla' border='1'>\n";
