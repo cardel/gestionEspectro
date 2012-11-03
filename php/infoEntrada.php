@@ -35,10 +35,10 @@
 		if($name=="ChannelSeparation")$ChannelSeparation = $en->i;	
 		if($name=="MaxChannelAssignationByOperator")$MaxChannelAssignationByOperator = $en->i;
 		
-		if($name=="PresentOperators")$PresentOperators = $en->list->i;	
-		if($name=="OperatorsWithRequeriments")$OperatorsWithRequeriments = $en->list->i;	
-		if($name=="Requeriments")$Requeriments = $en->tuple->i;	
-		if($name=="MaxAssignationsSubDivision")$MaxAssignationsSubDivision = $en->tuple->i;	
+		if($name=="PresentOperators")$PresentOperators = $en->list;	
+		if($name=="OperatorsWithRequeriments")$OperatorsWithRequeriments = $en->list;	
+		if($name=="Requeriments")$Requeriments = $en->tuple;	
+		if($name=="MaxAssignationsSubDivision")$MaxAssignationsSubDivision = $en->tuple;	
 
 		
 		if($name=="ChannelAssignInDivisions")$ChannelAssignInDivisions = $en->list;
@@ -97,7 +97,12 @@
 	echo "</tr>\n";
 	echo "<tr>\n";
 	echo "<td class='estilo'>Operadores presentes en la banda</td>\n";
-	echo "<td class='estilo'>Operadores presentes en la banda</td>\n";
+	echo "<td class='estilo'>";
+	foreach($PresentOperators->i as $op)
+	{
+		
+	}
+	echo "</td>\n";
 	echo "</tr>\n";
 	echo "<tr>\n";
 	echo "<td class='estilo'>Operadores con requerimientos</td>\n";
