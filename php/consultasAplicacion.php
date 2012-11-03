@@ -2,7 +2,7 @@
 	require ("/var/www/html/site/gestionEspectro/php/conexionBD.php");
 	/*
 	 * Consultas encabezado principal	
-	 * encabezado.php
+	 * encabezado.php, iteraccion.php e infoEntrada.php
 	 */
 	function consultarTipoLocalizacion($tipoID)
 	{

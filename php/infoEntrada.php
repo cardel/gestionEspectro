@@ -1,5 +1,7 @@
 <?
 	//Este script retorna la informacion sobre canales inutilizados, reservados y asignacion actual de una entrada
+	require ("/var/www/html/site/gestionEspectro/php/consultasAplicacion.php");
+
 	$file = $_POST["file"];
 	
 	$entrada = simplexml_load_file($file);	
@@ -136,12 +138,18 @@
 		{
 			echo "</tr>\n";	
 			//Obtener nombre operador
-			$name = $entry->attributes()->key;
-			echo "<td>".$name."</td>";
+			$name = consultarOperador($entry->attributes()->key);
+			echo "<td class='estilo'>".$name."</td>";
 			
-			foreach($entry->i->list as $channel)
+			foreach($entry->i as $indice)
 			{
-				echo "<td>".$channel."</td>"; 
+				foreach($indice->list as $list)
+				{
+					foreach($indice->i as $channel)
+					{
+						if($channel==1) echo "<td class='estilo'>X</td>\n";
+						else echo "<td class='estilo'></td>\n";	
+					}
 			}
 			
 			echo "</tr>\n";
