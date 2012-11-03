@@ -95,14 +95,11 @@
 	echo "<td class='estilo'>Operadores presentes en la banda</td>\n";
 	echo "<td class='estilo'>";
 	echo "<ul style=\"text-align:'right';\">";
-	foreach($Requeriments->i as $op)
+	foreach($PresentOperators->i as $op)
 	{
-		foreach($Requeriments->entry as $entry)
-		{
-			echo "<li>".consultarOperador($entry->attributes()->key)." : ".$entry->i."</li>";
-		}
-		
+		echo "<li>".consultarOperador($op)."</li>";
 	}
+
 	echo "</ul>";
 	echo "</td>\n";
 	echo "</tr>\n";
@@ -120,9 +117,13 @@
 	echo "<td class='estilo'>Requerimientos</td>\n";
 	echo "<td class='estilo'>";
 	echo "<ul style=\"text-align:'right';\">";
-	foreach($PresentOperators->i as $op)
+	foreach($Requeriments->i as $op)
 	{
-		echo "<li>".consultarOperador($op)."</li>";
+		foreach($op->entry as $entry)
+		{
+			echo "<li>".consultarOperador($entry->attributes()->key)." : ".$entry->i."</li>";
+		}
+		
 	}
 	echo "</ul>";
 	echo "</td>\n";	echo "</tr>\n";
