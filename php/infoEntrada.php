@@ -84,11 +84,11 @@
 	echo "</tr>\n";
 	echo "<tr>\n";	
 	echo "<td class='estilo'>Separación minima requerida</td>\n";
-	echo "<td class='estilo'>".$ChannelSeparation;"</td>\n";
+	echo "<td class='estilo'>".$ChannelSeparation."</td>\n";
 	echo "</tr>\n";
 	echo "<tr>\n";
 	echo "<td class='estilo'>Tope de canales por operador en la banda</td>\n";
-	echo "<td class='estilo'>".$MaxChannelAssignationByOperator;."</td>\n";
+	echo "<td class='estilo'>".$MaxChannelAssignationByOperator."</td>\n";
 	echo "</tr>\n";
 	echo "<tr>\n";
 	echo "<td class='estilo'>Operadores presentes en la banda</td>\n";
