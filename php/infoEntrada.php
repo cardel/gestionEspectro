@@ -18,7 +18,7 @@
 		if($name=="ChannelAssignInDivisions")$ChannelAssignInDivisions = $en->list;
 		if($name=="ReservedChannels")$ReservedChannels = $en->list;
 		if($name=="DisabledChannels")$DisabledChannels = $en->list;
-		if($name=="ChannelAssignation")$ChannelAssignation = $en;	
+		if($name=="ChannelAssignation")$ChannelAssignation = $en->tuple;	
 		if($name=="NumberChannels")$numeroDeCanales = $en->i;	
 		
 	}
@@ -129,7 +129,20 @@
 	echo "</tr>\n";
 	
 	//Divisiones locales
-	//foreach(
+	foreach($ChannelAssignation->i->entry as $assignation)
+	{
+		echo "</tr>\n";	
+		//Obtener nombre operador
+		$name = $assignation->attributes()->key;
+		echo "<td>".$name."</td>";
+		
+		foreach($assignation->i->list as $channel)
+		{
+			echo "<td>".$channel."</td>"; 
+		}
+		
+		echo "</tr>\n";
+	}
 
 	echo "</tbody>\n";				
 	echo "</table>\n";	
