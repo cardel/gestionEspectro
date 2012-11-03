@@ -129,7 +129,7 @@
 	echo "</tr>\n";
 	
 	//Divisiones locales
-	foreach($ChannelAssignation->i->entry as $assignation)
+	foreach($ChannelAssignation->i as $assignation)
 	{
 		echo "</tr>\n";	
 		//Obtener nombre operador
