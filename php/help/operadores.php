@@ -19,11 +19,11 @@ $variables = $_POST["feed_item_length"];?>
 	
 </head>
 <body>	
- <p class='estiloTitulo'>Ayuda consultas a Base de datos</p>
+ <p class='estiloTitulo'>Ayuda gestión de operadores</p>
 	<div id="tabs">
 		<ul>
-			<li><a href="#tabs-1">Acciones sobre operador</a></li>
-			<li><a href="#tabs-2">Lista de Operadores</a></li>
+			<li><a href="#tabs-1">Acciones sobre operadores</a></li>
+			<li><a href="#tabs-2">Editar operador</a></li>
 		</ul>
 		<div id="tabs-1">
 			<img src="/site/gestionEspectro/php/help/operadores/Operador.png" />
