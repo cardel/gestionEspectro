@@ -44,7 +44,7 @@ if($administrador==1 && $permiso==1)
 	drupal_add_css($path = 'js/syntaxhighlighter/styles/shThemeDefault.css', $type = 'module', $media = 'all', $preprocess = TRUE);
 	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/colorBoxU.js');
 	echo "<p class='estiloTitulo'>Administración de Rangos de frecuencia</p>\n";
-	echo '<p style="text-align:left";><a class="iframe" href="http://avispa.univalle.edu.co/~cardel/proyInv/ayudaSecuenciamientoAviones/ayuda.php"><img border="0" src="files/HelpIcon.gif" width="50" height="50"><br/>Ayuda</a></p>';
+	echo '<p style="text-align:left";><a class="iframe" href="http://avispa.univalle.edu.co/site/gestionEspectro/php/help/rangosFrecuencia.php"><img border="0" src="files/HelpIcon.gif" width="50" height="50"><br/>Ayuda</a></p>';
 	
 	
 ?>

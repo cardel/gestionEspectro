@@ -26,7 +26,7 @@ $variables = $_POST["feed_item_length"];?>
 			<li><a href="#tabs-2">Editar servicio</a></li>
 		</ul>
 		<div id="tabs-1">
-			<img src="/site/gestionEspectro/php/help/operadores/Servicios.png" />
+			<img src="/site/gestionEspectro/php/help/servicios/Servicios.png" />
 
 			<table class="tableStyle-table" width="80%">
 				<thead>
@@ -58,7 +58,7 @@ $variables = $_POST["feed_item_length"];?>
 		</div>
 		
 		<div id="tabs-2">
-			<img src="/site/gestionEspectro/php/help/operadores/EditarServicios.png" />
+			<img src="/site/gestionEspectro/php/help/servicios/EditarServicios.png" />
 			
 			<table class="tableStyle-table" width="80%">
 				<thead>
