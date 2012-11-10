@@ -33,6 +33,12 @@
 
 	if($administrador==1 && $permiso==1)
 	{
+	drupal_add_js(drupal_get_path('module', 'mymodule') . 'js/colorBoxU.js');
+	drupal_add_css($path = 'gestionEspectro/php/drupalcss/botonesEspectro.css', $type = 'module', $media = 'all', $preprocess = TRUE);
+
+	echo '<p style="text-align:left";><a class="iframe" href="http://avispa.univalle.edu.co/site/gestionEspectro/php/help/servicios.php"><img border="0" src="files/HelpIcon.gif" width="50" height="50"><br/>Ayuda</a></p>';
+	echo "<input type=button class=\"botonverde\" onClick=\"window.open('http://avispa.univalle.edu.co/site/?q=node/45' ,'_top' );\" value=\"Regresar\" />\n";
+
 ?>
 <div id="formularioHTML">
 	<form action="/site/gestionEspectro/php/editarServicios.php" accept-charset="UTF-8" method="post" id="test" enctype="multipart/form-data">		

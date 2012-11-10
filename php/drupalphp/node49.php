@@ -55,7 +55,7 @@ if($administrador==1 && $permiso==1)
 	
 	echo "<p class='estilo'>Editar operador: ".obtenerNombre($id)."</p>\n";
 	
-		echo "<input type=button class=\"botonverde\" onClick=\"window.open('http://avispa.univalle.edu.co/site/?q=node/41' ,'_top' );\" value=\"Regresar\" />\n";
+	echo "<input type=button class=\"botonverde\" onClick=\"window.open('http://avispa.univalle.edu.co/site/?q=node/41' ,'_top' );\" value=\"Regresar\" />\n";
 ?>
 
 
