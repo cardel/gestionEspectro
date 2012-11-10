@@ -109,9 +109,9 @@ $variables = $_POST["feed_item_length"];?>
 					<td>
 						<ul style="text-align:'right';">
 							<li>Frecuencia base Tx: Es la frecuencia base en Hz que tiene el rango de frecuencia, es un número entero.</li>
-							<li>Multiplicador: Es el operador por el cual se indica la variación del incremento o decremento de la frecuencia de transmisión de cada uno de los canales, numerados de 1 a n, donde n es el número de canales del rango de frecuencia.<li>
-							<li>Frecuencia corrimiento: Es el incremento o decremento de la frecuencia de transmisión de cada uno de los canales, numerados de 1 a n, donde n es el número de canales del rango de frecuencia.<li>
-							<li>Divisor: Es el operador por el cual se indica la variación en términos fraccionarios (divide al multiplicador que es un número entero) del incremento o decremento de la frecuencia de transmisión de cada uno de los canales, numerados de 1 a n, donde n es el número de canales del rango de frecuencia.<li>
+							<li>Multiplicador: Es el operador por el cual se indica la variación del incremento o decremento de la frecuencia de transmisión de cada uno de los canales, numerados de 1 a n, donde n es el número de canales del rango de frecuencia.</li>
+							<li>Frecuencia corrimiento: Es el incremento o decremento de la frecuencia de transmisión de cada uno de los canales, numerados de 1 a n, donde n es el número de canales del rango de frecuencia.</li>
+							<li>Divisor: Es el operador por el cual se indica la variación en términos fraccionarios (divide al multiplicador que es un número entero) del incremento o decremento de la frecuencia de transmisión de cada uno de los canales, numerados de 1 a n, donde n es el número de canales del rango de frecuencia.</li>
 						</ul>
 					</td>
 				</tr>
@@ -120,10 +120,10 @@ $variables = $_POST["feed_item_length"];?>
 					<td>
 						<ul style="text-align:'right';">
 							<li>Multiplicador1: Es el operador por el cual se indica la variación de la frecuencia de recepción con respecto a la frecuencia de transmisión.<li>
-							<li>Divisor: Es el operador por el cual se indica la variación en términos fraccionarios (divide al multiplicador1 que es un número entero) de la frecuencia de recepción con respecto a la frecuencia de transmisión.<li>
-							<li>Multiplicador2: Es el operador por el cual se indica la variación del incremento o decremento de la frecuencia de recepción de cada uno de los canales con respecto a la frecuencia de recepción base, numerados de 1 a n, donde n es el número de canales del rango de frecuencia.<li>
-							<li>Frecuencia corrimiento: Es el incremento o decremento de la frecuencia de recepción de cada uno de los canales, numerados de 1 a n, donde n es el número de canales del rango de frecuencia.<li>
-							<li>Divisor: Es el operador por el cual se indica la variación en términos fraccionarios (divide al multiplicador2 que es un número entero) del incremento o decremento de la frecuencia de recepción de cada uno de los canales, numerados de 1 a n, donde n es el número de canales del rango de frecuencia.<li>
+							<li>Divisor: Es el operador por el cual se indica la variación en términos fraccionarios (divide al multiplicador1 que es un número entero) de la frecuencia de recepción con respecto a la frecuencia de transmisión.</li>
+							<li>Multiplicador2: Es el operador por el cual se indica la variación del incremento o decremento de la frecuencia de recepción de cada uno de los canales con respecto a la frecuencia de recepción base, numerados de 1 a n, donde n es el número de canales del rango de frecuencia.</li>
+							<li>Frecuencia corrimiento: Es el incremento o decremento de la frecuencia de recepción de cada uno de los canales, numerados de 1 a n, donde n es el número de canales del rango de frecuencia.</li>
+							<li>Divisor: Es el operador por el cual se indica la variación en términos fraccionarios (divide al multiplicador2 que es un número entero) del incremento o decremento de la frecuencia de recepción de cada uno de los canales, numerados de 1 a n, donde n es el número de canales del rango de frecuencia.</li>
 						</ul>
 					</td>
 				</tr>					
