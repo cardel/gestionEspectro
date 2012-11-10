@@ -84,6 +84,10 @@ $variables = $_POST["feed_item_length"];?>
 					<td>Descripción soluciones</td>
 					<td>Permite conocer las diferentes soluciones que contiene la salida seleccionada, las soluciones se listan de menor a mayor costo.</td>
 				</tr>
+				<tr>
+					<td>Nota importante</td>
+					<td>Sí la solución ha sido obtenida por el método algoritmo evolutivo algunos parámetros relacionados con las propiedades de los propagadores y espacios de búsqueda no se mostrarán.</td>
+				</tr>
 				</tbody>
 
 			</table>

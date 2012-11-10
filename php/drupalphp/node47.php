@@ -101,7 +101,7 @@ else{
 			echo "<td>$archivo</td>\n";
 			echo "<td><a href=\"#\" onClick=\"mostrarSolucion('http://avispa.univalle.edu.co/site/gestionEspectro/entradas/".$user->uid."/".$archivo."');\"> Ver entrada </a>\n";
 			echo "<td><a href=\"#\" onClick=\"window.open('"."http://avispa.univalle.edu.co/site/gestionEspectro/entradas/".$user->uid."/".$archivo."' ,'_blank ','toolbar=1,menubar=1,width=500,height=600');\"> Descargar </a>\n";
-			echo "<td><a href=\"http://avispa.univalle.edu.co/site/gestionEspectro/php/infoEntrada.php?archivo=/var/www/html/site/gestionEspectro/entradas/".$user->uid."/".$archivo."&&lugar=1\">Borrar</a></td>\n";
+			echo "<td><a href=\"http://avispa.univalle.edu.co/site/gestionEspectro/php/borrarArchivo.php?archivo=/var/www/html/site/gestionEspectro/entradas/".$user->uid."/".$archivo."&&lugar=1\">Borrar</a></td>\n";
 			echo "</tr>\n";
 		}
 	}	
