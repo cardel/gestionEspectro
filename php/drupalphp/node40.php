@@ -666,6 +666,9 @@ else{
 				<option value="8">Asignar primero al final de la banda a operadores con mayores requerimientos</option>
 				<option value="9">Asignar primero al inicio de la banda a operadores con menores requerimientos</option>
 				<option value="10">Asignar primero al final de la banda a operadores con menores requerimientos</option>
+				<option value="11">Genérica: Naive</option>
+				<option value="12">Genérica: ff</option>
+				<option value="13">Genérica: split</option>
 			</select>
 			<div class="description">
 				 Escoja la distribución de búsqueda con se realizará la solución del problema.

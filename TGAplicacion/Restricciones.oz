@@ -257,6 +257,18 @@ define
                {AsignarPrimeroARequerimientosMasChicos BOco inicio}
             [] 10 then
                {AsignarPrimeroARequerimientosMasChicos BOco final}
+            [] 11 then
+               {ForAll BOco
+				proc{$ P} {FD.distribute 'naive' P} end
+               }
+            [] 12 then
+               {ForAll BOco
+				proc{$ P} {FD.distribute 'ff' P} end
+               }
+            [] 13 then
+               {ForAll BOco
+				proc{$ P} {FD.distribute 'split' P} end
+               }
             else
                {AsignarAlInicioDeLaBandaEnOrden BOco}
             end

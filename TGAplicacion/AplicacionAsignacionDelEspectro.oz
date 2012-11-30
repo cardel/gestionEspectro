@@ -81,7 +81,7 @@ define
           psm(single type:int(min:0 max:100) default 34) %PesoSizeMaxDeCanalesLibre
           pnc(single type:int(min:0 max:100) default 33) %PesoNumeroDeCanalesInutiles
           %%ESTRATEGIA DE BUSQUEDA
-          es(single type:int(min:1 max:10) default:1) %Estrategia de busqueda
+          es(single type:int(min:1 max:13) default:1) %Estrategia de busqueda
           %%---------------------------------------------------------------------
           o(single type:string default:"solution.xml") %Archivo de salida
           tm(single type:int(min:1 max:36000) default:2000 ) % Tiempo ejecución [milesegundos]
