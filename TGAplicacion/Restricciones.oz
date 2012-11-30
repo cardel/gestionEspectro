@@ -169,15 +169,6 @@ define
                  end
               end
              }
-            % %%Existen suficientes canales para cumplir los requerimientos de entrada
-
-            local
-               TotalRequerimientos = {Record.foldL Req fun{$ X Y} X+Y end 0}
-            in
-               %%{FD.sum ECC '>=:' TotalRequerimientos}
-               skip
-            end
-
 
             % %%Todos los operadores deben tener asignados un numero de canales igual al numero de canales asignados a los que poseen en la entrada mas lo que requieren
 
