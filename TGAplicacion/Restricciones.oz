@@ -174,7 +174,8 @@ define
             local
                TotalRequerimientos = {Record.foldL Req fun{$ X Y} X+Y end 0}
             in
-               {FD.sum ECC '>=:' TotalRequerimientos}
+               %%{FD.sum ECC '>=:' TotalRequerimientos}
+               skip
             end
 
 
