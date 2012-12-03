@@ -34,7 +34,8 @@ define
    PesoNumeroDeBloques=Entradas.pesoNumeroDeBloques %Peso ingresado por el usuario
    PesoSizeMaxDeCanalesLibre=Entradas.pesoSizeMaxDeCanalesLibre %Peso ingresado por el usuario
    PesoNumeroDeCanalesInutiles=Entradas.pesoNumeroDeCanalesInutiles %Perso ingresado por el usuario
-   Tope=Entradas.tope %Tope
+   TopeIn=Entradas.tope %Tope
+   Tope
    Sep %Separacion
    %%Asignaciones parciales
    CIc=Entradas.cic %Canales inutilizados en la banda
@@ -74,10 +75,20 @@ define
    %%---------------------------------------------------------------
 
    fun{GenerarAsignacion NoMantenerAsignacionesActuales NoConsiderarTope NoConsiderarSeparacion NumeroOperadorPorCanal}
-      if NoConsiderarSeparacion == 1 then
+      
+      %%Establecer valor de separación
+      if {Bool.'or' NoConsiderarSeparacion == 1  NumeroOperadorPorCanal > 1} then
 			Sep= 0
 	  else
 			Sep = Entradas.sep %Separacion
+	  end
+  
+	  %%Establecer valor de tope
+	  
+	  if NoConsiderarTope == 1 then
+			Tope = C
+	  else
+			Tope = TopeIn
 	  end
   
       proc{$ ?Solucion}
@@ -220,13 +231,13 @@ define
             }
             
             % %%Topes legales operadores
-            if NoConsiderarTope \= 1 then
-				{List.forAll OPi
-				 proc{$ P}                   
-					{FD.sum {List.append {Record.toList BOco.P} [Apo.P]} '=<:' Tope}
-				 end
-				}
-			end
+
+			{List.forAll OPi
+			 proc{$ P}                   
+				{FD.sum {List.append {Record.toList BOco.P} [Apo.P]} '=<:' Tope}
+			 end
+			}
+
             %%------------------------------------------------------------
             %%  ESTRATEGIAS DE BUSQUEDA
             %%-------------------------------------------------------------
