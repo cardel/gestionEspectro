@@ -220,11 +220,13 @@ define
             }
             
             % %%Topes legales operadores
-            {List.forAll OPi
-             proc{$ P}                   
-                {FD.sum {List.append {Record.toList BOco.P} [Apo.P]} '=<:' Tope}
-             end
-            }
+            if(NoConsiderarTope != 1) then
+				{List.forAll OPi
+				 proc{$ P}                   
+					{FD.sum {List.append {Record.toList BOco.P} [Apo.P]} '=<:' Tope}
+				 end
+				}
+			end
             %%------------------------------------------------------------
             %%  ESTRATEGIAS DE BUSQUEDA
             %%-------------------------------------------------------------
