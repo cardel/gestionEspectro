@@ -220,7 +220,7 @@ define
             }
             
             % %%Topes legales operadores
-            if(NoConsiderarTope != 1) then
+            if NoConsiderarTope \= 1 then
 				{List.forAll OPi
 				 proc{$ P}                   
 					{FD.sum {List.append {Record.toList BOco.P} [Apo.P]} '=<:' Tope}
